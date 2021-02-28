@@ -21,6 +21,7 @@
     <!--datatabales-->
     <link rel="stylesheet" href="public/vendor/datatables/datatables.min.css">
     <link rel="stylesheet" href="public/vendor/datatables/DataTables-1.10.23/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="public/css/style.css">
 </head>
 
 <body id="page-top">
@@ -44,7 +45,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-home"></i>
                     <span>Inicio del sitio</span></a>
             </li>
