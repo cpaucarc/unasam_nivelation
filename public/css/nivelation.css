@@ -2014,8 +2014,8 @@ select.form-control:focus::-ms-value {
 }
 
 .col-form-label-sm {
-    padding-top: calc(0.25rem + 1px);
-    padding-bottom: calc(0.25rem + 1px);
+    padding-top: calc(0.15rem + 1px);
+    padding-bottom: calc(0.15rem + 1px);
     font-size: 0.875rem;
     line-height: 1.5;
 }
@@ -11075,13 +11075,13 @@ a:focus {
 }
 
 .bg-login-image {
-    background: url("https://source.unsplash.com/K4mSJ7kc0As/600x800");
+    background: url("../images/logo.jpg");
     background-position: center;
     background-size: cover;
 }
 
 .bg-register-image {
-    background: url("https://source.unsplash.com/Mv9hjnEUHR4/600x800");
+    background: url("../images/logo.jpg");
     background-position: center;
     background-size: cover;
 }
@@ -11098,13 +11098,13 @@ form.user .custom-checkbox.small label {
 
 form.user .form-control-user {
     font-size: 0.8rem;
-    border-radius: 10rem;
+    border-radius: 5px;
     padding: 1.5rem 1rem;
 }
 
 form.user .btn-user {
     font-size: 0.8rem;
-    border-radius: 10rem;
+    border-radius: 5px;
     padding: 0.75rem 1rem;
 }
 
