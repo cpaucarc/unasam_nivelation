@@ -9,7 +9,7 @@ require_once "app/views/upperpart.php";
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Valores de rangos</h1>
-        <select class="form-control form-control text-primary" style="width:120px">
+        <select class="form-control form-control text-primary" id="semestre" style="width:120px">
             <option>Admisión</option>
             <option>2020-II</option>
             <option>2021-I</option>
@@ -29,11 +29,10 @@ require_once "app/views/upperpart.php";
                         <div class="card border-left-primary shadow h-100 ">
                             <div class="card-body">
                                 <div class="text-md font-weight-bold text-primary text-uppercase">
-                                    Grupo (A)</div>
+                                    Grupo (<span class="area">A</span>)</div>
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="row">
                     <div class="col-lg-3">
@@ -43,14 +42,10 @@ require_once "app/views/upperpart.php";
                                 Física
                             </div>
                             <div class="card-body">
-                                <form>
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50" class="form-control-range range">
-                                        <div class="selector" id="selector">
-                                            <div class="btn-selector"></div>
-                                        </div>
-                                    </div>
-                                </form>
+                                <div class="form-group">
+                                    <input type="range" min="0" max="100" value="50" class="form-control-range range">
+                                    <input type="number" min="0" max="100" value="50" class="form-control valuerange ">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -61,15 +56,10 @@ require_once "app/views/upperpart.php";
                                 Matematica
                             </div>
                             <div class="card-body">
-                                <form>
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50" class="form-control-range range">
-                                        <div class="selector">
-                                            <div class="btn-selector"></div>
-                                            <div class="selectvalue"></div>
-                                        </div>
-                                    </div>
-                                </form>
+                                <div class="form-group">
+                                    <input type="range" min="0" max="100" value="50" class="form-control-range range">
+                                    <input type="number" min="0" max="100" value="50" class="form-control valuerange ">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -80,15 +70,10 @@ require_once "app/views/upperpart.php";
                                 Quimica
                             </div>
                             <div class="card-body">
-                                <form>
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50" class="form-control-range range">
-                                        <div class="selector">
-                                            <div class="btn-selector"></div>
-                                            <div class="selectvalue"></div>
-                                        </div>
-                                    </div>
-                                </form>
+                                <div class="form-group">
+                                    <input type="range" min="0" max="100" value="50" class="form-control-range range">
+                                    <input type="number" min="0" max="100" value="50" class="form-control valuerange ">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -99,15 +84,10 @@ require_once "app/views/upperpart.php";
                                 Cultura General
                             </div>
                             <div class="card-body">
-                                <form>
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50" class="form-control-range range">
-                                        <div class="selector">
-                                            <div class="btn-selector"></div>
-                                            <div class="selectvalue"></div>
-                                        </div>
-                                    </div>
-                                </form>
+                                <div class="form-group">
+                                    <input type="range" min="0" max="100" value="50" class="form-control-range range">
+                                    <input type="number" min="0" max="100" value="50" class="form-control valuerange ">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -120,7 +100,7 @@ require_once "app/views/upperpart.php";
                         <div class="card border-left-primary shadow h-100 ">
                             <div class="card-body">
                                 <div class="text-md font-weight-bold text-primary text-uppercase">
-                                    Grupo (B)</div>
+                                    Grupo (<span class="area">B</span>)</div>
                             </div>
                         </div>
                     </div>
@@ -134,14 +114,10 @@ require_once "app/views/upperpart.php";
                                 Física
                             </div>
                             <div class="card-body">
-                                <form>
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50" class="form-control-range range">
-                                        <div class="selector" id="selector">
-                                            <div class="btn-selector"></div>
-                                        </div>
-                                    </div>
-                                </form>
+                                <div class="form-group">
+                                    <input type="range" min="0" max="100" value="50" class="form-control-range range">
+                                    <input type="number" min="0" max="100" value="50" class="form-control valuerange ">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -152,15 +128,10 @@ require_once "app/views/upperpart.php";
                                 Matematica
                             </div>
                             <div class="card-body">
-                                <form>
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50" class="form-control-range range">
-                                        <div class="selector">
-                                            <div class="btn-selector"></div>
-                                            <div class="selectvalue"></div>
-                                        </div>
-                                    </div>
-                                </form>
+                                <div class="form-group">
+                                    <input type="range" min="0" max="100" value="50" class="form-control-range range">
+                                    <input type="number" min="0" max="100" value="50" class="form-control valuerange ">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -171,15 +142,10 @@ require_once "app/views/upperpart.php";
                                 Quimica
                             </div>
                             <div class="card-body">
-                                <form>
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50" class="form-control-range range">
-                                        <div class="selector">
-                                            <div class="btn-selector"></div>
-                                            <div class="selectvalue"></div>
-                                        </div>
-                                    </div>
-                                </form>
+                                <div class="form-group">
+                                    <input type="range" min="0" max="100" value="50" class="form-control-range range">
+                                    <input type="number" min="0" max="100" value="50" class="form-control valuerange ">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -190,15 +156,10 @@ require_once "app/views/upperpart.php";
                                 Cultura General
                             </div>
                             <div class="card-body">
-                                <form>
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50" class="form-control-range range">
-                                        <div class="selector">
-                                            <div class="btn-selector"></div>
-                                            <div class="selectvalue"></div>
-                                        </div>
-                                    </div>
-                                </form>
+                                <div class="form-group">
+                                    <input type="range" min="0" max="100" value="50" class="form-control-range range">
+                                    <input type="number" min="0" max="100" value="50" class="form-control valuerange ">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -211,7 +172,7 @@ require_once "app/views/upperpart.php";
                         <div class="card border-left-primary shadow h-100 ">
                             <div class="card-body">
                                 <div class="text-md font-weight-bold text-primary text-uppercase">
-                                    Grupo (6)</div>
+                                    Grupo (<span class="area">C</span>)</div>
                             </div>
                         </div>
                     </div>
@@ -225,14 +186,10 @@ require_once "app/views/upperpart.php";
                                 Física
                             </div>
                             <div class="card-body">
-                                <form>
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50" class="form-control-range range">
-                                        <div class="selector" id="selector">
-                                            <div class="btn-selector"></div>
-                                        </div>
-                                    </div>
-                                </form>
+                                <div class="form-group">
+                                    <input type="range" min="0" max="100" value="50" class="form-control-range range">
+                                    <input type="number" min="0" max="100" value="50" class="form-control valuerange ">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -243,15 +200,10 @@ require_once "app/views/upperpart.php";
                                 Matematica
                             </div>
                             <div class="card-body">
-                                <form>
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50" class="form-control-range range">
-                                        <div class="selector">
-                                            <div class="btn-selector"></div>
-                                            <div class="selectvalue"></div>
-                                        </div>
-                                    </div>
-                                </form>
+                                <div class="form-group">
+                                    <input type="range" min="0" max="100" value="50" class="form-control-range range">
+                                    <input type="number" min="0" max="100" value="50" class="form-control valuerange ">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -262,15 +214,10 @@ require_once "app/views/upperpart.php";
                                 Quimica
                             </div>
                             <div class="card-body">
-                                <form>
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50" class="form-control-range ">
-                                        <div class="selector">
-                                            <div class="btn-selector"></div>
-                                            <div class="selectvalue"></div>
-                                        </div>
-                                    </div>
-                                </form>
+                                <div class="form-group">
+                                    <input type="range" min="0" max="100" value="50" class="form-control-range range">
+                                    <input type="number" min="0" max="100" value="50" class="form-control valuerange ">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -278,18 +225,13 @@ require_once "app/views/upperpart.php";
                         <!-- Default Card Example -->
                         <div class="card mb-4">
                             <div class="card-header text-dark">
-                                Cultura General
+                                Cultura general
                             </div>
                             <div class="card-body">
-                                <form>
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50" class="form-control-range range">
-                                        <div class="selector">
-                                            <div class="btn-selector"></div>
-                                            <div class="selectvalue"></div>
-                                        </div>
-                                    </div>
-                                </form>
+                                <div class="form-group">
+                                    <input type="range" min="0" max="100" value="50" class="form-control-range range">
+                                    <input type="number" min="0" max="100" value="50" class="form-control valuerange ">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -300,15 +242,10 @@ require_once "app/views/upperpart.php";
                                 Biologia
                             </div>
                             <div class="card-body">
-                                <form>
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50" class="form-control-range " id="uno">
-                                        <div class="selector">
-                                            <div class="btn-selector"></div>
-                                            <div class="selectvalue"></div>
-                                        </div>
-                                    </div>
-                                </form>
+                                <div class="form-group">
+                                    <input type="range" min="0" max="100" value="50" class="form-control-range range">
+                                    <input type="number" min="0" max="100" value="50" class="form-control valuerange ">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -324,11 +261,42 @@ require_once "app/views/upperpart.php";
 <!-- /.container-fluid -->
 
 <script>
-    var range = document.querySelectorAll('.range');
+    /*Para guardar la actualización en la base de datos */
+    var rango = document.querySelectorAll('.range');
+    console.log(rango);
     document.getElementById('saverange').onclick = function() {
-        for (let i = 0; i < range.length; i++) {
-            console.log(range[i].value);
+        for (let i = 0; i < rango.length; i++) {
+            const item = rango[i].closest('.col-lg-12');
+            const itemTitle = item.querySelector('.area').textContent;
+            console.log(rango[i].value + " - " + rango[i].classList[1] + " - " + rango[i].offsetParent.innerText + " - " + itemTitle);
         }
+    }
+</script>
+
+<script>
+    const range = document.querySelectorAll('.range');
+    const valuerange = document.querySelectorAll('.valuerange');
+    //Para el input range
+    range.forEach((input) => {
+        input.addEventListener('input', selectrange);
+    });
+
+    function selectrange(event) {
+        const rangeinput = event.target; //Todas las clases del boton
+        const itemfather = rangeinput.closest('.form-group'); //Todo el contenido del item
+        const itemselect = itemfather.querySelector('.valuerange');
+        itemselect.value = rangeinput.value;
+    }
+    //Para el input text
+    valuerange.forEach((input) => {
+        input.addEventListener('input', selectinput);
+    });
+
+    function selectinput(event) {
+        const rangeinput = event.target; //Todas las clases del boton
+        const itemfather = rangeinput.closest('.form-group'); //Todo el contenido del item
+        const itemselect = itemfather.querySelector('.range');
+        itemselect.value = rangeinput.value;
     }
 </script>
 <?php
