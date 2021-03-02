@@ -69,7 +69,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href="rangevalues.php">Rango</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <a class="collapse-item" href="area.php">Área</a>
                     </div>
                 </div>
             </li>
@@ -82,9 +82,10 @@
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
+                        <h6 class="collapse-header">Detalles de tablas:</h6>
+                        <a class="collapse-item" href="bystudent.php">Estudiantes</a>
+                        <a class="collapse-item" href="bycourse.php">Cursos</a>
+                        <a class="collapse-item" href="byarea.php">Área</a>
                         <a class="collapse-item" href="utilities-animation.html">Animations</a>
                         <a class="collapse-item" href="utilities-other.html">Other</a>
                     </div>

@@ -27,10 +27,21 @@ require_once "app/views/upperpart.php";
                                     <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Apellidos">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="usuario" class="col-form-label-sm text-uppercase">USUARIO</label>
-                                <input type="text" class="form-control form-control-user" id="exampleInputEmail" placeholder="Usuario">
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <label for="usuario" class="col-form-label-sm text-uppercase">USUARIO</label>
+                                    <input type="text" class="form-control form-control-user" id="exampleInputEmail" placeholder="Usuario">
+                                </div>
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <label for="usuario" class="col-form-label-sm text-uppercase">CARGO</label>
+                                    <select class="form-control form-conotrol-user-combo  text-uppercase" id="semestre" >
+                                        <option>Amisnistrador</option>
+                                        <option>Operador</option>
+                                        <option>Usuario</option>
+                                    </select>
+                                </div>
                             </div>
+
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <label for="usuario" class="col-form-label-sm text-uppercase">PASSWORD</label>
