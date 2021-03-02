@@ -38,38 +38,33 @@
                             <form class="user">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <label for="usuario" class="col-form-label-sm text-uppercase">Nombres</label>
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="Nombres">
+                                        <label for="usuario" class="col-form-label-sm text-uppercase">Nombres</label>
+                                        <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nombres">
                                     </div>
                                     <div class="col-sm-6">
-                                    <label for="usuario" class="col-form-label-sm text-uppercase">APELLIDOS</label>
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="Apellidos">
+                                        <label for="usuario" class="col-form-label-sm text-uppercase">APELLIDOS</label>
+                                        <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Apellidos">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                <label for="usuario" class="col-form-label-sm text-uppercase">USUARIO</label>
-                                    <input type="text" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Usuario">
+                                    <label for="usuario" class="col-form-label-sm text-uppercase">USUARIO</label>
+                                    <input type="text" class="form-control form-control-user" id="exampleInputEmail" placeholder="Usuario">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <label for="usuario" class="col-form-label-sm text-uppercase">PASSWORD</label>
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password">
+                                        <label for="usuario" class="col-form-label-sm text-uppercase">PASSWORD</label>
+                                        <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
                                     </div>
                                     <div class="col-sm-6">
-                                    <label for="usuario" class="col-form-label-sm text-uppercase small"> REPETIR PASSWORD</label>
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Repetir Password">
+                                        <label for="usuario" class="col-form-label-sm text-uppercase small"> REPETIR PASSWORD</label>
+                                        <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repetir Password">
                                     </div>
                                 </div>
                                 <a href="login.php" class="btn btn-primary btn-user btn-block">
                                     Regitar cuenta
                                 </a>
                                 <hr>
-                                
+
                             </form>
                             <hr>
                             <div class="text-center">
