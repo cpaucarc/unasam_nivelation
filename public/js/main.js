@@ -27,7 +27,12 @@ $(document).ready(function() {
  */
 
 $(document).ready(function() {
-    $('#example').DataTable({
+    starttable('#example');
+    starttable('#example2');
+});
+
+function starttable(table) {
+    $(table).DataTable({
         language: {
             "lengthMenu": "Mostrar _MENU_ registros",
             "zeroRecords": "No se encontraron resultados",
@@ -66,4 +71,4 @@ $(document).ready(function() {
             },
         ]
     });
-});
+}
