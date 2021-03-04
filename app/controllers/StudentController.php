@@ -34,10 +34,15 @@ class StudentController
 
     function saveStudentsWhitQuestions($path)
     {
-        $students = $this->loadStudentsFromJSON($path);
-        foreach ($students as $student) {
-            $student->saveStudent();
-            $student->saveQuestions();
+        try {
+            $students = $this->loadStudentsFromJSON($path);
+            foreach ($students as $student) {
+                $student->saveStudent();
+                $student->saveQuestions();
+            }
+            echo json_encode('¡Estudiantes y sus calificaciones guardados con exito!');
+        }catch (Exception $e){
+            echo json_encode($e->getMessage());
         }
     }
 }

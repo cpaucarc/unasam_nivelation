@@ -35,7 +35,6 @@ class StudentModel
             foreach ($id_value as $idv) {
                 $this->setId(intval($idv[0]));
             }
-
             return true;
         } else {
             return false;
@@ -64,9 +63,23 @@ class StudentModel
 
     }
 
-    public function getStudents()
+    public function getCoursesOfStudent()
     {
-        return 'ToDo';
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "CALL spShowStudentCurses($this->id);";
+
+        $response['courses'] = array();
+
+        foreach ($conn->query($sql) as $row) {
+            $course = array();
+
+            $course['course'] = $row['course'];
+            $course['percent'] = $row['percent'];
+            $course['stat'] = $row['stat'];
+
+            array_push($response['courses'], $course);
+        }
+        return json_encode($response);
     }
 
     /*-------------------------- Getters and Setters --------------------------*/
