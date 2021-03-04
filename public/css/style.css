@@ -4,3 +4,11 @@
     margin: 10px auto -10px auto;
     text-align: center;
 }
+
+.link-add-card i {
+    font-size: 36px;
+}
+
+.form-conotrol-user-combo {
+    height: 49px;
+}
