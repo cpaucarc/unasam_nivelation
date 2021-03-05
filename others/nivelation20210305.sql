@@ -76,7 +76,7 @@ CREATE TABLE `persons` (
   `lastname` varchar(45) NOT NULL,
   `dni` varchar(8) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85,7 +85,7 @@ CREATE TABLE `persons` (
 
 LOCK TABLES `persons` WRITE;
 /*!40000 ALTER TABLE `persons` DISABLE KEYS */;
-INSERT INTO `persons` VALUES (1,'Pedro','Hernandez','77458745'),(2,'Jaime','Lopez','96587412'),(3,'Pedro Fernando','Sanchez Duran','74125896'),(4,'Carlos','Dominguez','74125476'),(5,'Jose','Huaman','41741528'),(6,'Julio','Quispe','74857963'),(7,'Luis','Mamani','71254639'),(8,'Fernando','Ramirez','06325874'),(9,'Gabriela','Huaman','25241523'),(10,'Angel','Pagola','25478147'),(11,'Gonzalo','Mamani','69857412'),(12,'Angel','Pagola','25478147'),(13,'Angel','Pagola','25478147'),(14,'Pedro','Saenz','41999457'),(15,'Juan','Flores Ramos','04977410');
+INSERT INTO `persons` VALUES (1,'Pedro','Hernandez','77458745'),(2,'Jaime','Lopez','96587412'),(3,'Pedro Fernando','Sanchez Duran','74125896'),(4,'Carlos','Dominguez','74125476'),(5,'Jose','Huaman','41741528'),(6,'Julio','Quispe','74857963'),(7,'Luis','Mamani','71254639'),(8,'Fernando','Ramirez','06325874'),(9,'Gabriela','Huaman','25241523'),(10,'Angel','Pagola','25478147'),(11,'Gonzalo','Mamani','69857412'),(12,'Angel','Pagola','25478147'),(13,'Angel','Pagola','25478147'),(14,'Pedro','Saenz','41999457'),(15,'Juan','Flores Ramos','04977410'),(16,'James','Franco','00125896'),(17,'Raquel','Castillo Lopez','61257784'),(18,'Barack','Obama','01471005'),(19,'Jorge','Del Solar','12332100'),(20,'Martin','Vizcarra','63636310'),(21,'Clarence','Revival','84332009'),(22,'Pedro','Flores','65215474'),(23,'Amadeo','Pinzon','96587411'),(24,'Luis','Sanches','96587993'),(25,'Sandra','Monserat','96325879'),(26,'Paolo','Guerrero','14521452');
 /*!40000 ALTER TABLE `persons` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,6 +176,30 @@ LOCK TABLES `ranks` WRITE;
 /*!40000 ALTER TABLE `ranks` DISABLE KEYS */;
 INSERT INTO `ranks` VALUES (4,4,5,2,60,90),(5,8,8,2,50,60),(6,9,8,2,20,40),(7,4,8,2,30,50),(8,8,8,3,70,90),(9,4,5,3,50,70);
 /*!40000 ALTER TABLE `ranks` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `roles`
+--
+
+DROP TABLE IF EXISTS `roles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `roles` (
+  `id` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `roles`
+--
+
+LOCK TABLES `roles` WRITE;
+/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES (1,'System Administrator'),(2,'Resource Viewer');
+/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -345,30 +369,6 @@ INSERT INTO `students_schools` VALUES (1,5,2),(2,6,1),(3,5,4),(4,7,5),(5,5,6),(6
 UNLOCK TABLES;
 
 --
--- Table structure for table `user_privileges`
---
-
-DROP TABLE IF EXISTS `user_privileges`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `user_privileges` (
-  `id` tinyint(4) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user_privileges`
---
-
-LOCK TABLES `user_privileges` WRITE;
-/*!40000 ALTER TABLE `user_privileges` DISABLE KEYS */;
-INSERT INTO `user_privileges` VALUES (1,'System Administrator'),(2,'Resource Viewer');
-/*!40000 ALTER TABLE `user_privileges` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `users`
 --
 
@@ -380,13 +380,13 @@ CREATE TABLE `users` (
   `username` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
   `persons_id` smallint(5) unsigned NOT NULL,
-  `privileges_id` tinyint(4) NOT NULL,
+  `roles_id` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_users_persons1_idx` (`persons_id`),
-  KEY `fk_users_user_privileges1_idx` (`privileges_id`),
+  KEY `fk_users_roles1_idx` (`roles_id`),
   CONSTRAINT `fk_users_persons1` FOREIGN KEY (`persons_id`) REFERENCES `persons` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_users_privileges1` FOREIGN KEY (`privileges_id`) REFERENCES `user_privileges` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_users_roles1` FOREIGN KEY (`roles_id`) REFERENCES `roles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -395,7 +395,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'pedro','4410d99cefe57ec2c2cdbd3f1d5cf862bb4fb6f8',14,1),(2,'juan','b49a5780a99ea81284fc0746a78f84a30e4d5c73',15,2);
+INSERT INTO `users` VALUES (1,'pedro','4410d99cefe57ec2c2cdbd3f1d5cf862bb4fb6f8',14,1),(2,'juan','b49a5780a99ea81284fc0746a78f84a30e4d5c73',15,2),(4,'raquel','523fd98c83528188555f43a5a82b4b2e6ea61ebf',17,1),(5,'barack','f2d64a9beed83cb642940577f9cd1aefcf08011b',18,2),(7,'martin','54669547a225ff20cba8b75a4adca540eef25858',20,1),(8,'clarence','4f45131825b8172c84020d8f60b8bb4e2cd25d85',21,2),(9,'pedro','4410d99cefe57ec2c2cdbd3f1d5cf862bb4fb6f8',22,2),(11,'luis','faea5242a00c52da62a0f00df168c199b7ab748d',24,2),(13,'paolo','f5973ee9c413d0967b98e0944688acb235fd48bf',26,1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -435,6 +435,22 @@ SET character_set_client = utf8;
  1 AS `lastname`,
  1 AS `school`,
  1 AS `area`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vusers`
+--
+
+DROP TABLE IF EXISTS `vusers`;
+/*!50001 DROP VIEW IF EXISTS `vusers`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vusers` AS SELECT 
+ 1 AS `id`,
+ 1 AS `dni`,
+ 1 AS `person`,
+ 1 AS `rol`,
+ 1 AS `username`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -601,20 +617,17 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `createNewUser`(in _username varchar(45), _password varchar(45), _name varchar(45), _lastname varchar(45),_dni varchar(8), _privilege varchar(45))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `createNewUser`(in _username varchar(45), _password varchar(45), _name varchar(45), _lastname varchar(45),_dni varchar(8), _rol varchar(45))
 BEGIN
 
-	if (SELECT count(*) FROM persons WHERE dni = _dni) = 0 then
-		
-        INSERT INTO persons VALUES (null, _name, _lastname, _dni);
-        
-        SET @personID = (SELECT id FROM persons WHERE dni = _dni);
-        SET @privilegeID = (SELECT id FROM user_privileges WHERE name = _privilege);
-        
-        INSERT INTO users VALUES (null, _username, sha1(_password), @personID, @privilegeID);
-        
+	if (SELECT count(*) FROM persons WHERE dni = _dni) = 0 then		
+        INSERT INTO persons VALUES (null, _name, _lastname, _dni);        
     end if;
 
+	SET @personID = (SELECT id FROM persons WHERE dni = _dni);
+	SET @rolID = (SELECT id FROM roles WHERE name = _rol);
+        
+	INSERT INTO users VALUES (null, _username, sha1(_password), @personID, @rolID);
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -821,6 +834,24 @@ DELIMITER ;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vusers`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vusers`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vusers` AS select `u`.`id` AS `id`,`p`.`dni` AS `dni`,concat(`p`.`lastname`,' ',`p`.`name`) AS `person`,`r`.`name` AS `rol`,`u`.`username` AS `username` from ((`users` `u` join `persons` `p` on((`p`.`id` = `u`.`persons_id`))) join `roles` `r` on((`r`.`id` = `u`.`roles_id`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -831,4 +862,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-03-04 11:52:03
+-- Dump completed on 2021-03-05 16:40:07
