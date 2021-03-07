@@ -1,5 +1,12 @@
 <?php
 
+if (isset($_SESSION['user'])){
+    echo 'Hay session' . $_SESSION['user'];
+}else{
+    header("Location: http://localhost/nivelation/login.php", TRUE, 301);
+    exit();
+}
+
 include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
 require_once(MODEL_PATH . "ProcessModel.php");
 
