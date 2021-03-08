@@ -44,29 +44,6 @@
     </div>
 </div>
 
-<!-- Bootstrap core JavaScript-->
-<script src="public/vendor/jquery/jquery.min.js"></script>
-<script src="public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Core plugin JavaScript-->
-<script src="public/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="public/js/sb-admin-2.min.js"></script>
-
-
-<!--Datatables-->
-
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="public/vendor/datatables/datatables.min.js"></script>
-
-<script src="public/vendor/datatables/Buttons-1.6.5/js/dataTables.buttons.min.js"></script>
-<script src="public/vendor/datatables/JSZip-2.5.0/jszip.min.js"></script>
-<script src="public/vendor/datatables/pdfmake-0.1.36/pdfmake.min.js"></script>
-<script src="public/vendor/datatables/pdfmake-0.1.36/vfs_fonts.js"></script>
-<script src="public/vendor/datatables/Buttons-1.6.5/js/buttons.html5.min.js"></script>
-<script src="public/vendor/datatables/Buttons-1.6.5/js/buttons.print.min.js"></script>
-
 <script src="public/js/main.js"></script>
 </body>
 
