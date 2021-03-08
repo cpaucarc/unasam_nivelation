@@ -55,13 +55,14 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="username" class="col-form-label-sm text-uppercase">USUARIO</label>
-                                        <input type="email" class="form-control form-control-user"
+                                        <label for="username" class="col-form-label-sm text-uppercase">Usuario</label>
+                                        <input type="text" class="form-control form-control-user"
                                                id="username" name="username"
                                                placeholder="Usuario">
                                     </div>
                                     <div class="form-group">
-                                        <label for="password" class="col-form-label-sm text-uppercase">PASSWORD</label>
+                                        <label for="password"
+                                               class="col-form-label-sm text-uppercase">Contraseña</label>
                                         <input type="password" class="form-control form-control-user"
                                                id="password" placeholder="Password" name="password">
                                     </div>
@@ -95,14 +96,15 @@
 </div>
 
 <!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="public/vendor/jquery/jquery.min.js"></script>
+<script src="public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="public/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
+<script src="public/js/sb-admin-2.min.js"></script>
+
 <script src="public/js/login.js"></script>
 </body>
 

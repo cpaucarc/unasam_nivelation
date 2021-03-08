@@ -60,7 +60,7 @@ function fillTableWhitAllUsers() {
     tbody.innerHTML = '';
 
     fetch('http://localhost/nivelation/app/controllers/users/getAllUsers.php/', {
-        method: 'POST',
+        method: 'GET',
         headers: {
             "Accept": "application/json"
         }
@@ -73,7 +73,7 @@ function fillTableWhitAllUsers() {
                 const row = document.createElement('tr');
                 row.appendChild(createHTMLElement('th', num));
                 row.appendChild(createHTMLElement('td', user.dni));
-                row.appendChild(createHTMLElement('td', user.person));
+                row.appendChild(createHTMLElement('td', (user.lastname + ' ' + user.name)));
                 row.appendChild(createHTMLElement('td', user.rol));
                 row.appendChild(createHTMLElement('td', user.username));
                 let btnDelete = createDeleteButton(deleteUser, user.id);

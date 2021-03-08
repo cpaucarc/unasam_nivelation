@@ -52,17 +52,23 @@ class UserModel
         }
     }
 
+    public function verifyUsernameExistence()
+    {
+
+    }
+
     public function getAllUsers()
     {
         $conn = (new MySqlConnection())->getConnection();
-        $sql = "SELECT * FROM vusers ORDER BY person;";
+        $sql = "SELECT * FROM vusers ORDER BY lastname;";
 
         $response['users'] = array();
         foreach ($conn->query($sql) as $row) {
             $user = array();
             $user['id'] = $row['id'];
             $user['dni'] = $row['dni'];
-            $user['person'] = $row['person'];
+            $user['lastname'] = $row['lastname'];
+            $user['name'] = $row['name'];
             $user['rol'] = $row['rol'];
             $user['username'] = $row['username'];
             array_push($response['users'], $user);

@@ -38,7 +38,9 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                <a class="btn btn-primary" href="login.php">Cerrar sesión</a>
+                <form action="http://localhost/nivelation/app/controllers/login/makeLogout.php?">
+                    <button class="btn btn-primary" type="submit">Cerrar sesión</button>
+                </form>
             </div>
         </div>
     </div>

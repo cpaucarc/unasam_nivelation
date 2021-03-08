@@ -82,7 +82,23 @@ class StudentModel
         return json_encode($response);
     }
 
-    /*-------------------------- Getters and Setters --------------------------*/
+    public function findByID()
+    {
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "SELECT * FROM vstudents WHERE id = $this->id;";
+
+        $result = $conn->query($sql)->fetch(PDO::FETCH_ASSOC);
+
+        $this->setCode($result['code']);
+        $this->setDni($result['dni']);
+        $this->setName($result['name']);
+        $this->setLastname($result['lastname']);
+        $this->setSchool($result['school']);
+
+        return $this;
+    }
+
+    /* --------------- Getters and Setters --------------- */
     public function getName()
     {
         return $this->name;
