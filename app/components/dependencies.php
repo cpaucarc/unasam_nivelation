@@ -1,3 +1,5 @@
+   <!-- UPPERPART -->
+
    <!-- Custom fonts for this template
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">-->
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
@@ -11,10 +13,7 @@
    <link rel="stylesheet" href="public/css/style.css">
 
 
-   <!--downpart -->
-
-
-
+   <!-- DOWNPART -->
    <!-- Bootstrap core JavaScript-->
    <script src="public/vendor/jquery/jquery.min.js"></script>
    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -22,10 +21,6 @@
 
    <!-- Core plugin JavaScript-->
    <script src="public/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-   <!-- Custom scripts for all pages-->
-   <script src="public/js/sb-admin-2.min.js"></script>
-
 
    <!--Datatables-->
 

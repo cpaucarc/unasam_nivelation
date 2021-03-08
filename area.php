@@ -1,5 +1,5 @@
 <?php
-require_once "app/views/upperpart.php";
+require_once "app/components/upperpart.php";
 ?>
 
 
@@ -102,5 +102,5 @@ require_once "app/views/upperpart.php";
 </div>
 
 <?php
-require_once "app/views/downpart.php";
+require_once "app/components/downpart.php";
 ?>
