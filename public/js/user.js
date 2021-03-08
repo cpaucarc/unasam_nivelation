@@ -3,8 +3,12 @@ const user_form = document.getElementById('user-form');
 
 /* ----- Window load ----- */
 window.onload = function () {
-    fillTableWhitAllUsers();
+ /*    fillTableWhitAllUsers(); */
 };
+
+$(document).ready(function(){
+    $('#tableUserView').load('app/views/users/tableUserView.php');
+});
 
 /* ----- Listeners ----- */
 user_form.addEventListener('submit', (e) => {
@@ -28,7 +32,9 @@ function saveNewUser() {
             console.log(data)
             if (data.status) {
                 user_form.reset();
-                fillTableWhitAllUsers();
+              /*   fillTableWhitAllUsers(); */
+              $('#tableUserView').load('app/views/users/tableUserView.php');
+              $('#user_modal').modal("toggle");
             }
             console.log(data.message);
         });
@@ -48,7 +54,8 @@ function deleteUser(id) {
         .then(response => response.json())
         .then(data => {
             if (data.status) {
-                fillTableWhitAllUsers();
+               /*  fillTableWhitAllUsers(); */
+               $('#tableUserView').load('app/views/users/tableUserView.php');
             }
             console.log(data.message);
         });
