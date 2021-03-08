@@ -82,7 +82,7 @@ class StudentModel
         return json_encode($response);
     }
 
-    public function findByID()
+    public function getStudentInfo()
     {
         $conn = (new MySqlConnection())->getConnection();
         $sql = "SELECT * FROM vstudents WHERE id = $this->id;";
