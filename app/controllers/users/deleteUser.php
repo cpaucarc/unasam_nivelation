@@ -1,6 +1,7 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
 require_once(MODEL_PATH . "UserModel.php");
+require_once(UTIL_PATH . "SendMessage.php");
 
 $userID = $_POST['userID'];
 
@@ -10,20 +11,10 @@ if (isset($userID)) {
     $user->setId($userID);
 
     if ($user->deleteUser()) {
-        echo sendResponse("Se elimino con exito al usuario", true);
+        echo (new SendMessage("Se elimino con exito al usuario", true))->getEncodedMessage();
     } else {
-        echo sendResponse("Hubo problemas al eliminar al usuario", false);
+        echo (new SendMessage("Hubo problemas al eliminar al usuario", false))->getEncodedMessage();
     }
 } else {
-    echo sendResponse("Error, no se especifico el usuario", false);
-}
-
-
-function sendResponse($response, $status)
-{
-    $rsp = array(
-        "message" => $response,
-        "status" => $status
-    );
-    return json_encode($rsp);
+    echo (new SendMessage("Error, no se especificó el usuario", false))->getEncodedMessage();
 }

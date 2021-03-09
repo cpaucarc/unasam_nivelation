@@ -1,8 +1,12 @@
 /* ----- Constant ----- */
 const user_form = document.getElementById('user-form');
+const tbody = document.getElementById('table-body');
 
 /* ----- Window load ----- */
 window.onload = function () {
+    fillTableWhitAllUsers();
+    setDataTables('tbUsers');
+
  /*    fillTableWhitAllUsers(); */
 };
 
@@ -63,31 +67,26 @@ function deleteUser(id) {
 
 function fillTableWhitAllUsers() {
 
-    const tbody = document.getElementById('table-body');
-    tbody.innerHTML = '';
-
-    fetch('http://localhost/nivelation/app/controllers/users/getAllUsers.php/', {
-        method: 'POST',
-        headers: {
-            "Accept": "application/json"
-        }
-    })
+    fetch('http://localhost/nivelation/app/controllers/users/getAllUsers.php/')
         .then(response => response.json())
         .then(data => {
             data = data.users;
+            // destroyDataTables('example');
+            tbody.innerHTML = '';
             let num = 1;
             data.forEach(user => {
-                const row = document.createElement('tr');
+                row = document.createElement('tr');
                 row.appendChild(createHTMLElement('th', num));
                 row.appendChild(createHTMLElement('td', user.dni));
-                row.appendChild(createHTMLElement('td', user.person));
+                row.appendChild(createHTMLElement('td', (user.lastname + ' ' + user.name)));
                 row.appendChild(createHTMLElement('td', user.rol));
                 row.appendChild(createHTMLElement('td', user.username));
                 let btnDelete = createDeleteButton(deleteUser, user.id);
                 row.appendChild(createHTMLElement('td', '').appendChild(btnDelete));
                 tbody.appendChild(row);
                 num++;
-            })
+            });
+            // setDataTables('example');
         });
 }
 
@@ -116,3 +115,10 @@ function createDeleteButton(fun, param) {
 }
 
 
+function setDataTables(table) {
+    $(`#${table}`).DataTable();
+}
+
+function destroyDataTables(table) {
+    $(`#${table}`).DataTable().clear().destroy();
+}
