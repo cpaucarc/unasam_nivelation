@@ -3,7 +3,7 @@ $fullname = isset($_POST['fullname']) ? $_POST['fullname'] : '';
 ?>
 
 <?php
-require_once "app/views/upperpart.php";
+require_once "app/components/upperpart.php";
 ?>
 
 
@@ -88,7 +88,8 @@ require_once "app/views/upperpart.php";
 <!-- /.container-fluid -->
 
 <?php
-require_once "app/views/downpart.php";
+require_once "app/components/downpart.php";
 ?>
 <script src="public/js/components/Card.js"></script>
 <script src="public/js/studentView.js"></script>
+

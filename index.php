@@ -1,12 +1,12 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
 require_once(UTIL_PATH . "sessions/SessionStarted.php");
 session_start();
 (new SessionStarted())->verifySessionStarted();
 ?>
 
 <?php
-require_once "app/views/upperpart.php";
+require_once "app/components/upperpart.php";
 ?>
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -297,5 +297,5 @@ require_once "app/views/upperpart.php";
 <!-- /.container-fluid -->
 
 <?php
-require_once "app/views/downpart.php";
+require_once "app/components/downpart.php";
 ?>

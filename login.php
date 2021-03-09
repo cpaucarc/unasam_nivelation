@@ -11,6 +11,7 @@
 
     <title>SB Admin 2 - Login</title>
 
+<<<<<<< HEAD
 
     <!-- Custom fonts for this template
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">-->
@@ -22,6 +23,9 @@
     <!-- Custom styles for this template-->
     <link href="public/css/nivelation.css" rel="stylesheet">
     <link rel="stylesheet" href="public/css/style.css">
+=======
+    <?php @include_once "app/components/dependencies.php" ?>
+>>>>>>> master
 
 </head>
 

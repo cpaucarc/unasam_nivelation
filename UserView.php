@@ -1,6 +1,11 @@
 <?php
-require_once "app/views/upperpart.php";
+require_once "app/components/upperpart.php";
 ?>
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Usuarios registrados</h1>
+    </div>
 
 <div class="container">
 
@@ -85,13 +90,11 @@ require_once "app/views/upperpart.php";
             </div>
         </div>
     </div>
-
-
 </div>
 
 
 <?php
-require_once "app/views/downpart.php";
+require_once "app/components/downpart.php";
 ?>
 
 <script src="public/js/user.js"></script>
