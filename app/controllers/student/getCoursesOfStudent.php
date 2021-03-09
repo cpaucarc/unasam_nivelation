@@ -2,9 +2,8 @@
 include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
 require_once(MODEL_PATH . "StudentModel.php");
 
-$stdID = intval($_POST['stdID']);
+$fullname = $_POST['fullname'];
 
 $student = new StudentModel();
-$student->setId($stdID);
 
-echo $student->getCoursesOfStudent();
+echo($student->getCoursesOfStudentByFullName($fullname));

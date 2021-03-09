@@ -63,10 +63,29 @@ class StudentModel
 
     }
 
-    public function getCoursesOfStudent()
+    public function getCoursesOfStudentByID()
     {
         $conn = (new MySqlConnection())->getConnection();
         $sql = "CALL spShowStudentCurses($this->id);";
+
+        $response['courses'] = array();
+
+        foreach ($conn->query($sql) as $row) {
+            $course = array();
+
+            $course['course'] = $row['course'];
+            $course['percent'] = $row['percent'];
+            $course['stat'] = $row['stat'];
+
+            array_push($response['courses'], $course);
+        }
+        return json_encode($response);
+    }
+
+    public function getCoursesOfStudentByFullName($fullname)
+    {
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "CALL spShowStudentCoursesByFullName('" . $fullname . "');";
 
         $response['courses'] = array();
 
@@ -96,6 +115,38 @@ class StudentModel
         $this->setSchool($result['school']);
 
         return $this;
+    }
+
+    public function getStudentInfoByFullName($pattern)
+    {
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "SELECT * FROM vstudents WHERE concat(lastname, ' ', name) = '" . $pattern . "';";
+
+        $result = $conn->query($sql)->fetch(PDO::FETCH_ASSOC);
+
+        return json_encode(array(
+            "code" => $result['code'],
+            "dni" => $result['dni'],
+            "name" => $result['name'],
+            "lastname" => $result['lastname'],
+            "school" => $result['school']
+        ));
+    }
+
+    public function getStudentsLike($pattern)
+    {
+        $limit = 5;
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "SELECT concat(lastname, ' ', name) as student FROM vstudents WHERE lastname LIKE '" . $pattern . "%' LIMIT " . $limit . ";";
+
+        $response['students'] = array();
+
+        foreach ($conn->query($sql) as $row) {
+            $school = array();
+            $school['student'] = $row['student'];
+            array_push($response['students'], $school);
+        }
+        return json_encode($response);
     }
 
     /* --------------- Getters and Setters --------------- */

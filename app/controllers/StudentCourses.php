@@ -6,5 +6,5 @@ $stID = $_POST['stID'];
 
 $em = new StudentModel();
 $em->setId($stID);
-$courses = $em->getCoursesOfStudent();
+$courses = $em->getCoursesOfStudentByID();
 echo $courses;

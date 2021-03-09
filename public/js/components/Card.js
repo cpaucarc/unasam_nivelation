@@ -7,10 +7,12 @@ class Card {
             <div class="card-body ">
                 <div class="row">
                     <div class="col-12">
-                        <h4 class="text-uppercase">${stdLastname} ${stdName}</h4>
+                        <h4 class="text-uppercase">${stdLastname}, ${stdName}</h4>
                     </div>
                     <div class="col-12 mb-1">
-                        <h5 class="text-uppercase small"><span class="font-weight-bold">Escuela:</span> ${stdSchool}</h5>
+                        <h5 class="text-uppercase small">
+                            <span class="font-weight-bold">Escuela:</span> ${stdSchool}
+                        </h5>
                     </div>
                     <div class="col col-12 col-md-6">
                         <h6 class="text-dark text-uppercase font-weight-bold small">DNI:</h6>

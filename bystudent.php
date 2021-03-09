@@ -1,5 +1,5 @@
 <?php
-$std = isset($_POST['std']) ? $_POST['stdID'] : 1;
+$fullname = isset($_POST['fullname']) ? $_POST['fullname'] : '';
 ?>
 
 <?php
@@ -11,7 +11,7 @@ require_once "app/views/upperpart.php";
 <div class="container-fluid">
 
     <div class="hide">
-        <input type="hidden" id="stdID" class="" value="<?php echo $std ?>">
+        <input type="hidden" id="stdID" class="" value="<?php echo $fullname ?>">
     </div>
 
     <!-- Page Heading -->
@@ -32,17 +32,24 @@ require_once "app/views/upperpart.php";
     <div>
         <div class="card my-2">
             <div class="card-body">
-                <form class="d-sm-inline-block  ">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for..."
-                               aria-label="Search" aria-describedby="basic-addon2" id="txSearch">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button" id="btSearch">
-                                <i class="fas fa-search fa-sm"></i>
-                            </button>
-                        </div>
+
+                <div class="input-group">
+                    <input list="students" class="form-control" name="txSearch" id="txSearch"/>
+                    <datalist id="students">
+                        <option value="Chrome">
+                        <option value="Firefox">
+                        <option value="Internet Explorer">
+                        <option value="Opera">
+                        <option value="Safari">
+                        <option value="Microsoft Edge">
+                    </datalist>
+
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit" id="btSearch">
+                            <i class="fas fa-search fa-sm"></i>
+                        </button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
