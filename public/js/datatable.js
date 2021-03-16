@@ -27,7 +27,7 @@ $(document).ready(function() {
  */
 
 $(document).ready(function () {
-    tableButton('#example');
+    table('#example1');
     tableButton('#example2');
     table('#table-users')
 });

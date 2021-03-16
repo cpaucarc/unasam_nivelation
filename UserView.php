@@ -7,42 +7,47 @@ require_once "app/components/upperpart.php";
         <h1 class="h3 mb-0 text-gray-800">Usuarios registrados</h1>
     </div>
 
-<div class="container">
-
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#user_modal">
-        <i class="fas fa-plus"></i> Nuevo usuario
-    </button>
-
-
-    <div id="table-courses">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="table-responsive">
-                    <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>DNI</th>
-                            <th>Nombre</th>
-                            <th>Rol</th>
-                            <th>Usuario</th>
-                            <th>Acción</th>
-                        </tr>
-                        </thead>
-                        <tbody id="table-body">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-        </div>
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#user_modal">
+            <i class="fas fa-plus"></i> Nuevo usuario
+        </button>
     </div>
 
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Tabla usuarios</h6>
+        </div>
+        <div class="card-body ">
+            <div id="table-courses">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="table-responsive">
+                            <table id="example1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>DNI</th>
+                                        <th>Nombre</th>
+                                        <th>Rol</th>
+                                        <th>Usuario</th>
+                                        <th>Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-body">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Modal -->
-    <div class="modal fade" id="user_modal" data-backdrop="static" data-keyboard="false" tabindex="-1"
-         aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal fade" id="user_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -92,9 +97,8 @@ require_once "app/components/upperpart.php";
     </div>
 </div>
 
-
 <?php
 require_once "app/components/downpart.php";
 ?>
-
 <script src="public/js/user.js"></script>
+<script src="public/js/datatable.js"></script>

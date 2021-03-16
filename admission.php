@@ -8,52 +8,17 @@ require_once "app/components/upperpart.php";
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h5 mb-0 text-gray-800">Reporte por curso</h1>
-<!--         <select class="form-control form-control text-primary" id="semestre" style="width:150px">
-            <option>Admisión</option>
-            <option>2020-II</option>
-            <option>2021-I</option>
-            <option>2021-II</option>
-            <option>2022-I</option>
-            <option>2022-II</option>
-        </select>
- -->
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#school_modal">
+            <i class="fas fa-plus"></i> Nuevo proceso
+        </button>
     </div>
 
-    <!-- Default Card Example -->
-    <div class="card mb-4 w-100">
-        <div class="card-header py-3">
-            <div class="input-group">
-                <input list="students" class="form-control" name="txSearch" id="txSearch" />
-                <datalist id="students">
-                    <option value="Chrome">
-                    <option value="Firefox">
-                    <option value="Internet Explorer">
-                    <option value="Opera">
-                    <option value="Safari">
-                    <option value="Microsoft Edge">
-                </datalist>
 
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="submit" id="btSearch">
-                        <i class="fas fa-search "></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-sm-flex align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Tabla cursos</h6>
-            <select class="form-control text-primary" id="semestre" style="width:150px">
-                <option>Admisión</option>
-                <option>2020-II</option>
-                <option>2021-I</option>
-                <option>2021-II</option>
-                <option>2022-I</option>
-                <option>2022-II</option>
-            </select>
+            <h6 class="m-0 font-weight-bold text-primary">Proceso de admisión</h6>
         </div>
         <div class="card-body ">
             <div class="table-responsive">
@@ -68,7 +33,7 @@ require_once "app/components/upperpart.php";
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>Ingeniería de Sistemas e Informática</td>
+                            <td>2020-I</td>
                             <td class="text-center">
                                 <div class="btn-group">
                                     <button class="btn btn-warning btnEditar" data-toggle="modal" data-target="#school_modal"><i class="fas fa-edit"></i></button>
@@ -78,7 +43,7 @@ require_once "app/components/upperpart.php";
                         </tr>
                         <tr>
                             <td>1</td>
-                            <td>Ingeniería de Civil</td>
+                            <td>2020-II</td>
                             <td class="text-center">
                                 <div class="btn-group">
                                     <button class="btn btn-warning btnEditar" data-toggle="modal" data-target="#school_modal"><i class="fas fa-edit"></i></button>
@@ -88,7 +53,7 @@ require_once "app/components/upperpart.php";
                         </tr>
                         <tr>
                             <td>1</td>
-                            <td>Ingeniería de Industrial</td>
+                            <td>2020-I</td>
                             <td class="text-center">
                                 <div class="btn-group">
                                     <button class="btn btn-warning btnEditar" data-toggle="modal" data-target="#school_modal"><i class="fas fa-edit"></i></button>
@@ -106,7 +71,34 @@ require_once "app/components/upperpart.php";
 </div>
 <!-- /.container-fluid -->
 
+
+<!-- Logout Modal-->
+<div class="modal fade" id="school_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar curso</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="proceso" class="col-form-label-sm text-uppercase">Adminisión:</label>
+                        <input type="text" class="form-control " id="proceso" placeholder="Proceso de admisión">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                <button class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="public/js/datatable.js"></script>
 <?php
 require_once "app/components/downpart.php";
 ?>
-<script src="public/js/datatable.js"></script>

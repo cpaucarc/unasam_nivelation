@@ -75,7 +75,7 @@ function getCourses(fullname) {
         .then(response => response.json())
         .then(data => {
             data = data.courses;
-            destroyDataTables('example');
+            /* destroyDataTables('example1'); */
             tbBody.innerHTML = '';
             num = 1;
             data.forEach(c => {
@@ -88,7 +88,7 @@ function getCourses(fullname) {
                 num++;
             });
 
-            setDataTables('example');
+            /* setDataTables('example1'); */
             console.log(data);
             console.log(data.courses);
         });

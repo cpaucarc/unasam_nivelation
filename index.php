@@ -13,18 +13,21 @@ require_once "app/components/upperpart.php";
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Nivelación</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                    class="fas fa-download fa-sm text-white-50"></i> Subir documento</a>
+        <h1 class="h5 mb-0 text-gray-800">Nivelación</h1>
+        <button class=" d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#file_modal">
+            <i class="fas fa-download fa-sm text-white-50"></i> Subir documento
+        </button>
     </div>
 
     <!--Ejemplo tabla con DataTables-->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="table-responsive">
-                    <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                        <thead>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Tabla general</h6>
+        </div>
+        <div class="card-body ">
+            <div class="table-responsive">
+                <table id="example2" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
                         <tr>
                             <th>Nombre</th>
                             <th>Puesto</th>
@@ -33,8 +36,8 @@ require_once "app/components/upperpart.php";
                             <th>Año de Ingreso</th>
                             <th>Salario</th>
                         </tr>
-                        </thead>
-                        <tbody>
+                    </thead>
+                    <tbody>
                         <tr>
                             <td>Tiger Nixon</td>
                             <td>Arquitecto</td>
@@ -284,18 +287,51 @@ require_once "app/components/upperpart.php";
                             <td>2011/01/25</td>
                             <td>$112,000</td>
                         </tr>
-                        </tbody>
-                    </table>
-                </div>
+                    </tbody>
+                </table>
             </div>
-
         </div>
     </div>
-
-
 </div>
 <!-- /.container-fluid -->
 
+<!-- Modal -->
+<div class="modal fade" id="file_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-title">Selector de archivos</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="user-form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="file">Adjunto</label>
+                        <input type="file" class="form-control-file" id="file">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary btn-sm" id="btn_upload">Subir este archivo
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    var file = document.querySelector('#file');
+    document.getElementById('btn_upload').onclick = function() {
+        alert(file.value);
+    }
+
+</script>
+
+
+<script src="public/js/datatable.js"></script>
 <?php
 require_once "app/components/downpart.php";
 ?>

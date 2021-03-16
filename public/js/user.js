@@ -7,7 +7,7 @@ window.onload = function () {
     fillTableWhitAllUsers();
     setDataTables('tbUsers');
 
- /*    fillTableWhitAllUsers(); */
+    fillTableWhitAllUsers();
 };
 
 $(document).ready(function(){
@@ -36,7 +36,7 @@ function saveNewUser() {
             console.log(data)
             if (data.status) {
                 user_form.reset();
-              /*   fillTableWhitAllUsers(); */
+                fillTableWhitAllUsers();
               $('#tableUserView').load('app/views/users/tableUserView.php');
               $('#user_modal').modal("toggle");
             }
@@ -58,7 +58,7 @@ function deleteUser(id) {
         .then(response => response.json())
         .then(data => {
             if (data.status) {
-               /*  fillTableWhitAllUsers(); */
+                fillTableWhitAllUsers();
                $('#tableUserView').load('app/views/users/tableUserView.php');
             }
             console.log(data.message);
