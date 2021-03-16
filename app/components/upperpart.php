@@ -10,7 +10,7 @@
 
     <title>Nivelation | UNASAM</title>
 
- <?php @include_once "dependencies.php" ?>
+    <?php @include_once "dependencies.php" ?>
 </head>
 
 <body id="page-top">
@@ -103,7 +103,7 @@
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Vistas de usuario</h6>
-                    <a class="collapse-item" href="UserView.php">Usuarios registrados <span class="badge badge-success">new</span></a>
+                    <a class="collapse-item" href="UserView.php">Usuarios registrados <span class="badge badge-danger">Falta</span></a>
                     <a class="collapse-item" href="registeruser.php">Registar usuario</a>
                     <a class="collapse-item" href="editpassword.php">cambiar Contraseña</a>
                     <div class="collapse-divider"></div>

@@ -10,7 +10,19 @@
     <title>Document</title>
 </head>
 <body>
+
 <h1>Hello</h1>
-</body>
+
+<h2>Subtitle</h2>
+
+<select name="cbSemester" id="cbSemester">
+    <option value="2020-I">2020-I</option>
+    <option value="2020-II">2020-II</option>
+    <option value="2019-I">2019-I</option>
+</select>
+
+
 <script src="../../public/js/ranks.js"></script>
+</body>
+
 </html>

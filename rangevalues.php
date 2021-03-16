@@ -292,7 +292,7 @@ require_once "app/components/upperpart.php";
     <script>
         /*Para guardar la actualización en la base de datos */
         var rango = document.querySelectorAll('.range');
-        console.log(rango);
+        // console.log(rango);
         document.getElementById('saverange').onclick = function () {
             for (let i = 0; i < rango.length; i++) {
                 const item = rango[i].closest('.col-lg-12');

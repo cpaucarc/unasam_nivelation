@@ -1,10 +1,21 @@
 <?php
-
 include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
 require_once(MODEL_PATH . "StudentModel.php");
+require_once(UTIL_PATH . "SendMessage.php");
 
-$pattern = $_POST['pattern'];
+try {
 
-$student = new StudentModel();
+    $pattern = $_POST['pattern'];
 
-echo($student->getStudentsLike($pattern));
+    if (isset($pattern)) {
+
+        $student = new StudentModel();
+        echo($student->getStudentsLike($pattern));
+
+    } else {
+        echo (new SendMessage("Error, no se pudo la informacion", false))->getEncodedMessage();
+    }
+
+} catch (Exception $e) {
+    echo (new SendMessage("Error " . $e->getMessage(), false))->getEncodedMessage();
+}
