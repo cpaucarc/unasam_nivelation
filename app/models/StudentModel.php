@@ -10,7 +10,7 @@ class StudentModel
     private $dni;
     private $code;
     private $school;
-    private $id;
+    private $id; // This is StudentID, not PersonID
     private $questions;
 
     public function __construct()
@@ -32,9 +32,7 @@ class StudentModel
             ]);
 
             $id_value = $pdo->query("SELECT getStudentID('$this->dni');");
-            foreach ($id_value as $idv) {
-                $this->setId(intval($idv[0]));
-            }
+            $this->setId(intval($id_value->fetchColumn()));
             return true;
         } else {
             return false;
@@ -60,7 +58,26 @@ class StudentModel
         } else {
             return false;
         }
+    }
 
+    public function doClasificationOfCourses()
+    {
+        $connection = new MySqlConnection();
+        if ($connection and $this->id > 0) {
+
+            $pdo = $connection->getConnection();
+
+            //$stID = $pdo->query("SELECT id FROM students WHERE persons_id = " . $this->id . ";")->fetchColumn();
+
+            $sql = "CALL spDoCourseClasify(?)";
+            $pdo->prepare($sql)->execute([
+                $this->id
+            ]);
+
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function getCoursesOfStudentByID()

@@ -5,12 +5,16 @@ const tbody = document.getElementById('table-body');
 /* ----- Window load ----- */
 window.onload = function () {
     fillTableWhitAllUsers();
-    setDataTables('tbUsers');
+    // setDataTables('tbUsers');
+
 
     fillTableWhitAllUsers();
+
+    /*    fillTableWhitAllUsers(); */
+
 };
 
-$(document).ready(function(){
+$(document).ready(function () {
     $('#tableUserView').load('app/views/users/tableUserView.php');
 });
 
@@ -36,9 +40,10 @@ function saveNewUser() {
             console.log(data)
             if (data.status) {
                 user_form.reset();
+
                 fillTableWhitAllUsers();
-              $('#tableUserView').load('app/views/users/tableUserView.php');
-              $('#user_modal').modal("toggle");
+                $('#tableUserView').load('app/views/users/tableUserView.php');
+                $('#user_modal').modal("toggle");
             }
             console.log(data.message);
         });
@@ -59,7 +64,7 @@ function deleteUser(id) {
         .then(data => {
             if (data.status) {
                 fillTableWhitAllUsers();
-               $('#tableUserView').load('app/views/users/tableUserView.php');
+                $('#tableUserView').load('app/views/users/tableUserView.php');
             }
             console.log(data.message);
         });
@@ -87,6 +92,8 @@ function fillTableWhitAllUsers() {
                 num++;
             });
             // setDataTables('example');
+            $(`#example`).DataTable();
+            //$(`#example`).ajax.reload();
         });
 }
 

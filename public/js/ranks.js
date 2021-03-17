@@ -1,12 +1,32 @@
-const cbSemester = document.getElementById('semestre');
+const cbArea = document.getElementById('area');
+const cbProcess = document.getElementById('process');
+const selectedArea = document.getElementById('selectedArea');
+const selectedProcess = document.getElementById('selectedProcess');
+const tbody = document.getElementById('tbody');
+const tb = document.getElementById('table');
 
-cbSemester.addEventListener('change', () => {
-    let selectedSemeter = cbSemester.value;
-    console.log(selectedSemeter);
-    getAllRanksByProcessID(selectedSemeter);
+table = new Table();
+
+window.onload = function () {
+    console.log('hello')
+}
+
+cbArea.addEventListener('change', () => {
+    let process = cbProcess.value;
+    let area = cbArea.options[cbArea.selectedIndex].text;
+    selectedArea.innerText = area;
+    getAllRanksByProcessID(process, area);
 });
 
-function getAllRanksByProcessID(process) {
+cbProcess.addEventListener('change', () => {
+    let process = cbProcess.value;
+    let area = cbArea.options[cbArea.selectedIndex].text;
+    selectedProcess.innerText = cbProcess.options[cbProcess.selectedIndex].text;
+    console.log(process);
+    getAllRanksByProcessID(process, area);
+});
+
+function getAllRanksByProcessID(process, area) {
     let formData = new FormData();
     formData.append('process', process);
     fetch('http://localhost/nivelation/app/controllers/ranks/getAllRanksByProcess.php/', {
@@ -19,46 +39,74 @@ function getAllRanksByProcessID(process) {
         .then(response => response.json())
         .then(data => {
             data = data.ranks;
-            console.log(data);
-            const areaA = data.filter(rank => rank.area === 'A');
-            const areaB = data.filter(rank => rank.area === 'B');
-            const areaC = data.filter(rank => rank.area === 'C');
-            const areaD = data.filter(rank => rank.area === 'D');
-            fillWhitAreaA(areaA);
-            fillWhitAreaB(areaB);
-            fillWhitAreaC(areaC);
-            fillWhitAreaD(areaD);
+            $('#table-ranks').DataTable().clear().destroy();
+            switch (area) {
+                case 'A': {
+                    fillWhitAreaA(data);
+                    break;
+                }
+                case 'B': {
+                    fillWhitAreaB(data);
+                    break;
+                }
+                case 'C': {
+                    fillWhitAreaC(data);
+                    break;
+                }
+                case 'D': {
+                    fillWhitAreaD(data);
+                    break;
+                }
+                default : {
+                    fillWhitAreaA(data);
+                    break;
+                }
+            }
+            $('#table-ranks').DataTable();
         });
+
 }
 
-function fillWhitAreaA(area) {
-    //area es un JSON
+function fillWhitAreaA(data) {
+    const area = data.filter(rank => rank.area === 'A');
     if (area.length > 0) {
-        //crear las cards para el area A
         console.log(area);
+        createRowsAndFillTable(area);
     }
 }
 
-function fillWhitAreaB(area) {
-    //area es un JSON
+function fillWhitAreaB(data) {
+    const area = data.filter(rank => rank.area === 'B');
     if (area.length > 0) {
-        //crear las cards para el area B
         console.log(area);
+        createRowsAndFillTable(area);
     }
 }
 
-function fillWhitAreaC(area) {
-    //area es un JSON
+function fillWhitAreaC(data) {
+    const area = data.filter(rank => rank.area === 'C');
     if (area.length > 0) {
-        //crear las cards para el area C
         console.log(area);
+        createRowsAndFillTable(area);
     }
 }
 
-function fillWhitAreaD(area) {
-    //area es un JSON
+function fillWhitAreaD(data) {
+    const area = data.filter(rank => rank.area === 'D');
     if (area.length > 0) {
-        //crear las cards para el area D
         console.log(area);
+        createRowsAndFillTable(area);
     }
+}
+
+function createRowsAndFillTable(area) {
+    tbody.innerHTML = '';
+    let i = 1;
+    area.forEach(courses => {
+        let row = table.createRow(i, courses.course, courses.area,
+            courses.process, courses.minimal, courses.maximun
+        );
+        tbody.appendChild(row);
+        i++;
+    });
 }

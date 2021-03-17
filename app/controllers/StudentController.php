@@ -12,36 +12,49 @@ class StudentController
         $jsonReader = new JsonReader($path);
         $data = $jsonReader->getJsonFile();
 
-        $students = array();
-        foreach ($data as $row) {
-            $student = new StudentModel();
-            $student->setId(0);
-            $student->setCode($row['code']);
-            $student->setDni($row['dni']);
-            $student->setName($row['name']);
-            $student->setLastname($row['lastname']);
-            $student->setSchool($row['school']);
-            $questions = array();
-            foreach ($row['questions'] as $q) {
-                $question = new Question($q['number'], $q['response'], $q['course']);
-                array_push($questions, $question);
-            }
-            $student->setQuestions($questions);
+        try {
+            if ($data) {
 
-            array_push($students, $student);
+                $students = array();
+                foreach ($data as $row) {
+                    $student = new StudentModel();
+                    $student->setId(0);
+                    $student->setCode($row['code']);
+                    $student->setDni($row['dni']);
+                    $student->setName($row['name']);
+                    $student->setLastname($row['lastname']);
+                    $student->setSchool($row['school']);
+
+                    $questions = array();
+                    foreach ($row['questions'] as $q) {
+                        $question = new Question($q['number'], $q['response'], $q['course']);
+                        array_push($questions, $question);
+                    }
+                    $student->setQuestions($questions);
+
+                    array_push($students, $student);
+                }
+                return $students;
+            } else {
+                return null;
+            }
+        } catch (Exception $e) {
+            return null;
         }
-        return $students;
     }
 
     function saveStudentsWhitQuestions($path)
     {
         try {
             $students = $this->loadStudentsFromJSON($path);
-            foreach ($students as $student) {
-                $student->saveStudent();
-                $student->saveQuestions();
+            if ($students != null) {
+                foreach ($students as $student) {
+                    $student->saveStudent();
+                    $student->saveQuestions();
+                    $student->doClasificationOfCourses();
+                }
+                echo (new SendMessage('¡Estudiantes y sus calificaciones guardados con exito!', true))->getEncodedMessage();
             }
-            echo (new SendMessage('¡Estudiantes y sus calificaciones guardados con exito!', true))->getEncodedMessage();
         } catch (Exception $e) {
             echo (new SendMessage($e->getMessage(), true))->getEncodedMessage();
         }

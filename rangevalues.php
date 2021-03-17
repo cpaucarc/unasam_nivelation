@@ -2,333 +2,73 @@
 require_once "app/components/upperpart.php";
 ?>
 
-
-    <!-- Begin Page Content -->
-    <div class="container-fluid">
-
-        <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Valores de rangos</h1>
-            <select class="form-control form-control text-primary" id="semestre" style="width:120px">
-                <option value="Admision">Admisión</option>
-                <option value="5">2020-II</option>
-                <option value="4">2021-I</option>
-                <option value="3">2019-II</option>
-                <option value="2">2019-I</option>
-                <option value="6">2022-II</option>
-            </select>
-        </div>
-
-        <!--Ejemplo tabla con DataTables-->
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="row">
-                        <!-- Area -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 ">
-                                <div class="card-body">
-                                    <div class="text-md font-weight-bold text-primary text-uppercase">
-                                        Grupo (<span class="area">A</span>)
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex bd-highlight mb-3">
+                    <div class="p-2 bd-highlight">
+                        <label for="area">Area</label>
+                        <select class="form-control" id="area">
+                            <option value="0">Selecciona...</option>
+                            <option value="1">A</option>
+                            <option value="2">B</option>
+                            <option value="3">C</option>
+                            <option value="4">D</option>
+                            <option value="5">E</option>
+                        </select>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-3">
-                            <!-- Default Card Example -->
-                            <div class="card mb-4">
-                                <div class="card-header text-dark">
-                                    Física
-                                </div>
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50"
-                                               class="form-control-range range">
-                                        <input type="number" min="0" max="100" value="50"
-                                               class="form-control valuerange ">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <!-- Default Card Example -->
-                            <div class="card mb-4">
-                                <div class="card-header text-dark">
-                                    Matematica
-                                </div>
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50"
-                                               class="form-control-range range">
-                                        <input type="number" min="0" max="100" value="50"
-                                               class="form-control valuerange ">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <!-- Default Card Example -->
-                            <div class="card mb-4">
-                                <div class="card-header text-dark">
-                                    Quimica
-                                </div>
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50"
-                                               class="form-control-range range">
-                                        <input type="number" min="0" max="100" value="50"
-                                               class="form-control valuerange ">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <!-- Default Card Example -->
-                            <div class="card mb-4">
-                                <div class="card-header text-dark">
-                                    Cultura General
-                                </div>
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50"
-                                               class="form-control-range range">
-                                        <input type="number" min="0" max="100" value="50"
-                                               class="form-control valuerange ">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="ml-auto p-2 bd-highlight">
+                        <label for="process">Proceso de Admisión</label>
+                        <select class="form-control" id="process">
+                            <option value="0">Selecciona...</option>
+                            <option value="5">2020-II</option>
+                            <option value="4">2021-I</option>
+                            <option value="3">2019-II</option>
+                            <option value="2">2019-I</option>
+                            <option value="6">2022-II</option>
+                        </select>
                     </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="row">
-                        <!-- Area -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 ">
-                                <div class="card-body">
-                                    <div class="text-md font-weight-bold text-primary text-uppercase">
-                                        Grupo (<span class="area">B</span>)
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-3">
-                            <!-- Default Card Example -->
-                            <div class="card mb-4">
-                                <div class="card-header text-dark">
-                                    Física
-                                </div>
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50"
-                                               class="form-control-range range">
-                                        <input type="number" min="0" max="100" value="50"
-                                               class="form-control valuerange ">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <!-- Default Card Example -->
-                            <div class="card mb-4">
-                                <div class="card-header text-dark">
-                                    Matematica
-                                </div>
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50"
-                                               class="form-control-range range">
-                                        <input type="number" min="0" max="100" value="50"
-                                               class="form-control valuerange ">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <!-- Default Card Example -->
-                            <div class="card mb-4">
-                                <div class="card-header text-dark">
-                                    Quimica
-                                </div>
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50"
-                                               class="form-control-range range">
-                                        <input type="number" min="0" max="100" value="50"
-                                               class="form-control valuerange ">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <!-- Default Card Example -->
-                            <div class="card mb-4">
-                                <div class="card-header text-dark">
-                                    Cultura General
-                                </div>
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50"
-                                               class="form-control-range range">
-                                        <input type="number" min="0" max="100" value="50"
-                                               class="form-control valuerange ">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="row">
-                        <!-- Area -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 ">
-                                <div class="card-body">
-                                    <div class="text-md font-weight-bold text-primary text-uppercase">
-                                        Grupo (<span class="area">C</span>)
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-3">
-                            <!-- Default Card Example -->
-                            <div class="card mb-4">
-                                <div class="card-header text-dark">
-                                    Física
-                                </div>
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50"
-                                               class="form-control-range range">
-                                        <input type="number" min="0" max="100" value="50"
-                                               class="form-control valuerange ">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <!-- Default Card Example -->
-                            <div class="card mb-4">
-                                <div class="card-header text-dark">
-                                    Matematica
-                                </div>
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50"
-                                               class="form-control-range range">
-                                        <input type="number" min="0" max="100" value="50"
-                                               class="form-control valuerange ">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <!-- Default Card Example -->
-                            <div class="card mb-4">
-                                <div class="card-header text-dark">
-                                    Quimica
-                                </div>
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50"
-                                               class="form-control-range range">
-                                        <input type="number" min="0" max="100" value="50"
-                                               class="form-control valuerange ">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <!-- Default Card Example -->
-                            <div class="card mb-4">
-                                <div class="card-header text-dark">
-                                    Cultura general
-                                </div>
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50"
-                                               class="form-control-range range">
-                                        <input type="number" min="0" max="100" value="50"
-                                               class="form-control valuerange ">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <!-- Default Card Example -->
-                            <div class="card mb-4">
-                                <div class="card-header text-dark">
-                                    Biologia
-                                </div>
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <input type="range" min="0" max="100" value="50"
-                                               class="form-control-range range">
-                                        <input type="number" min="0" max="100" value="50"
-                                               class="form-control valuerange ">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 d-flex justify-content-end mb-2">
-                    <button class="btn btn-primary" id="saverange">Gruardar</button>
                 </div>
             </div>
+            <div class="card-body">
+                <h5 class="card-title">Rango de Valores del Area
+                    <span id="selectedArea" class="font-weight-bold">A</span> en el proceso
+                    <span id="selectedProcess" class="font-weight-bold">2019-II</span>
+                </h5>
+                <div class="alert alert-info">
+                    <p class="card-text">
+                        Los alumnos con:
+                    <ul>
+                        <li>Aciertos menor al minimo requerido, requieren nivelación obligatoria.</li>
+                        <li>Aciertos entre el minimo y el maximo, pueden tomar nivelación pero no obligatoria.</li>
+                        <li>Aciertos mayor al maximo requerido, no deben tomar nivelación.</li>
+                    </ul>
+                    </p>
+                </div>
+
+                <table class="table mt-2" id="table-ranks">
+                    <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Curso</th>
+                        <th scope="col">Area</th>
+                        <th scope="col">Proceso</th>
+                        <th scope="col">Minimo</th>
+                        <th scope="col">Maximo</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody">
+
+                    </tbody>
+                </table>
+            </div>
         </div>
-
     </div>
+
     <!-- /.container-fluid -->
+    <script src="public/js/components/Table.js"></script>
     <script src="public/js/ranks.js"></script>
-    <script>
-        /*Para guardar la actualización en la base de datos */
-        var rango = document.querySelectorAll('.range');
-        console.log(rango);
-        document.getElementById('saverange').onclick = function () {
-            for (let i = 0; i < rango.length; i++) {
-                const item = rango[i].closest('.col-lg-12');
-                const itemTitle = item.querySelector('.area').textContent;
-                console.log(rango[i].value + " - " + rango[i].classList[1] + " - " + rango[i].offsetParent.innerText + " - " + itemTitle);
-            }
-        }
-    </script>
 
-    <script>
-        const range = document.querySelectorAll('.range');
-        const valuerange = document.querySelectorAll('.valuerange');
-        //Para el input range
-        range.forEach((input) => {
-            input.addEventListener('input', selectrange);
-        });
-
-        function selectrange(event) {
-            const rangeinput = event.target; //Todas las clases del boton
-            const itemfather = rangeinput.closest('.form-group'); //Todo el contenido del item
-            const itemselect = itemfather.querySelector('.valuerange');
-            itemselect.value = rangeinput.value;
-        }
-
-        //Para el input text
-        valuerange.forEach((input) => {
-            input.addEventListener('input', selectinput);
-        });
-
-        function selectinput(event) {
-            const rangeinput = event.target; //Todas las clases del boton
-            const itemfather = rangeinput.closest('.form-group'); //Todo el contenido del item
-            const itemselect = itemfather.querySelector('.range');
-            itemselect.value = rangeinput.value;
-        }
-    </script>
 <?php
 require_once "app/components/downpart.php";
 ?>
