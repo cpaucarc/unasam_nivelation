@@ -35,17 +35,13 @@ require_once "app/components/upperpart.php";
                     <span id="selectedArea" class="font-weight-bold">A</span> en el proceso
                     <span id="selectedProcess" class="font-weight-bold">2019-II</span>
                 </h5>
-                <div class="alert alert-info">
-                    <p class="card-text">
-                        Los alumnos con:
-                    <ul>
-                        <li>Aciertos menor al minimo requerido, requieren nivelación obligatoria.</li>
-                        <li>Aciertos entre el minimo y el maximo, pueden tomar nivelación pero no obligatoria.</li>
-                        <li>Aciertos mayor al maximo requerido, no deben tomar nivelación.</li>
-                    </ul>
-                    </p>
+                <!--Botones-->
+                <div class="my-4">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-rank">
+                        Registrar nuevo
+                    </button>
                 </div>
-
+                <!--Tabla-->
                 <table class="table mt-2" id="table-ranks">
                     <thead class="thead-light">
                     <tr>
@@ -55,18 +51,57 @@ require_once "app/components/upperpart.php";
                         <th scope="col">Proceso</th>
                         <th scope="col">Minimo</th>
                         <th scope="col">Maximo</th>
+                        <th scope="col">Acción</th>
                     </tr>
                     </thead>
                     <tbody id="tbody">
 
                     </tbody>
                 </table>
+
+                <!--                Informacion con fondo azul-->
+                <div class="my-4">
+                    <div class="alert alert-info">
+                        <p class="card-text">
+                            Los alumnos con:
+                        <ul>
+                            <li>Aciertos menor al minimo requerido, requieren nivelación obligatoria.</li>
+                            <li>Aciertos entre el minimo y el maximo, pueden tomar nivelación pero no obligatoria.</li>
+                            <li>Aciertos mayor al maximo requerido, no deben tomar nivelación.</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+
+                <!--                Modal-->
+                <div class="modal fade" id="modal-rank" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
 
     <!-- /.container-fluid -->
     <script src="public/js/components/Table.js"></script>
+    <script src="public/js/components/Button.js"></script>
     <script src="public/js/ranks.js"></script>
 
 <?php

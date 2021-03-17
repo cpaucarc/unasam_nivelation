@@ -6,6 +6,7 @@ const tbody = document.getElementById('tbody');
 const tb = document.getElementById('table');
 
 table = new Table();
+button = new Button();
 
 window.onload = function () {
     console.log('hello')
@@ -104,9 +105,22 @@ function createRowsAndFillTable(area) {
     let i = 1;
     area.forEach(courses => {
         let row = table.createRow(i, courses.course, courses.area,
-            courses.process, courses.minimal, courses.maximun
-        );
+            courses.process, courses.minimal, courses.maximun);
+
+        let btnTD = document.createElement('td');
+        btnTD.appendChild(button.createBtnPrimary('e', updateRank, courses.id));
+        btnTD.appendChild(button.createBtnPrimary('d', deleteRank, courses.id));
+        row.appendChild(btnTD);
+
         tbody.appendChild(row);
         i++;
     });
+}
+
+function updateRank(id) {
+    alert('Editar ' + id);
+}
+
+function deleteRank(id) {
+    alert('Eliminar ' + id);
 }

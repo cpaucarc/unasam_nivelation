@@ -76,7 +76,7 @@ CREATE TABLE `persons` (
   `lastname` varchar(45) NOT NULL,
   `dni` varchar(8) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85,7 +85,7 @@ CREATE TABLE `persons` (
 
 LOCK TABLES `persons` WRITE;
 /*!40000 ALTER TABLE `persons` DISABLE KEYS */;
-INSERT INTO `persons` VALUES (1,'Pedro','Hernandez','77458745'),(2,'Jaime','Lopez','96587412'),(3,'Pedro Fernando','Sanchez Duran','74125896'),(4,'Carlos','Dominguez','74125476'),(5,'Jose','Huaman','41741528'),(6,'Julio','Quispe','74857963'),(7,'Luis','Mamani','71254639'),(8,'Fernando','Ramirez','06325874'),(9,'Gabriela','Huaman','25241523'),(10,'Angel','Pagola','25478147'),(11,'Pedro Fidencio','Mamani Lopez','69857412'),(12,'Luisa','Campos Huaman','25558147'),(13,'Angela','Poma','95115141'),(14,'Pedro','Saenz','41999457'),(15,'Juan','Flores Ramos','04977410'),(16,'James','Franco','00125896'),(17,'Raquel','Castillo Lopez','61257784'),(18,'Barack','Obama','01471005'),(19,'Jorge','Del Solar','12332100'),(20,'Martin','Vizcarra','63636310'),(21,'Clarence','Revival','84332009'),(22,'Pedro','Flores','65215474'),(23,'Amadeo','Pinzon','96587411'),(24,'Luis','Sanches','96587993'),(25,'Sandra','Monserat','96325879'),(26,'Paolo','Guerrero','14521452'),(27,'Carlos','Ramirez','95145602');
+INSERT INTO `persons` VALUES (1,'Pedro','Hernandez','77458745'),(2,'Jaime','Lopez','96587412'),(3,'Pedro Fernando','Sanchez Duran','74125896'),(4,'Carlos','Dominguez','74125476'),(5,'Jose','Huaman','41741528'),(6,'Julio','Quispe','74857963'),(7,'Luis','Mamani','71254639'),(8,'Fernando','Ramirez','06325874'),(9,'Gabriela','Huaman','25241523'),(10,'Angel','Pagola','25478147'),(11,'Pedro Fidencio','Mamani Lopez','69857412'),(12,'Luisa','Campos Huaman','25558147'),(13,'Angela','Poma','95115141'),(14,'Pedro','Saenz','41999457'),(15,'Juan','Flores Ramos','04977410'),(16,'James','Franco','00125896'),(17,'Raquel','Castillo Lopez','61257784'),(18,'Barack','Obama','01471005'),(19,'Jorge','Del Solar','12332100'),(20,'Martin','Vizcarra','63636310'),(21,'Clarence','Revival','84332009'),(22,'Pedro','Flores','65215474'),(23,'Amadeo','Pinzon','96587411'),(24,'Luis','Sanches','96587993'),(25,'Sandra','Monserat','96325879'),(26,'Paolo','Guerrero','14521452'),(27,'Carlos','Ramirez','95145602'),(28,'Alan','Garcia','95159874');
 /*!40000 ALTER TABLE `persons` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -165,7 +165,7 @@ CREATE TABLE `ranks` (
   CONSTRAINT `fk_table1_areas1` FOREIGN KEY (`areas_id`) REFERENCES `areas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_table1_courses1` FOREIGN KEY (`courses_id`) REFERENCES `courses` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_table1_process1` FOREIGN KEY (`process_id`) REFERENCES `process` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,7 +174,7 @@ CREATE TABLE `ranks` (
 
 LOCK TABLES `ranks` WRITE;
 /*!40000 ALTER TABLE `ranks` DISABLE KEYS */;
-INSERT INTO `ranks` VALUES (4,4,5,2,60,90),(5,8,8,2,50,60),(6,9,8,2,20,40),(7,4,8,2,30,50),(8,8,8,3,70,90),(9,4,5,3,50,70);
+INSERT INTO `ranks` VALUES (4,4,5,2,60,90),(5,8,8,2,50,60),(6,9,8,2,20,40),(7,4,8,2,30,50),(8,8,8,3,70,90),(9,4,5,3,50,70),(10,7,5,3,60,80),(11,8,5,3,40,60);
 /*!40000 ALTER TABLE `ranks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -240,7 +240,7 @@ CREATE TABLE `status` (
   `id` tinyint(4) NOT NULL AUTO_INCREMENT,
   `status` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -249,7 +249,7 @@ CREATE TABLE `status` (
 
 LOCK TABLES `status` WRITE;
 /*!40000 ALTER TABLE `status` DISABLE KEYS */;
-INSERT INTO `status` VALUES (4,'No requiere nivelacion'),(5,'Requiere nivelacion, no obligatoria'),(6,'Requiere nivelacion obligatoriamente');
+INSERT INTO `status` VALUES (1,'No requiere nivelacion'),(2,'Requiere nivelacion, no obligatoria'),(3,'Requiere nivelacion obligatoriamente');
 /*!40000 ALTER TABLE `status` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -299,7 +299,7 @@ CREATE TABLE `students_courses` (
   CONSTRAINT `fk_students_courses_courses1` FOREIGN KEY (`courses_id`) REFERENCES `courses` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_students_courses_nivelation_status1` FOREIGN KEY (`status_id`) REFERENCES `status` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_students_courses_students1` FOREIGN KEY (`students_id`) REFERENCES `students` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -308,6 +308,7 @@ CREATE TABLE `students_courses` (
 
 LOCK TABLES `students_courses` WRITE;
 /*!40000 ALTER TABLE `students_courses` DISABLE KEYS */;
+INSERT INTO `students_courses` VALUES (1,5,1,1),(2,4,1,8),(3,7,3,8),(4,8,1,8);
 /*!40000 ALTER TABLE `students_courses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -387,7 +388,7 @@ CREATE TABLE `users` (
   KEY `fk_users_roles1_idx` (`roles_id`),
   CONSTRAINT `fk_users_persons1` FOREIGN KEY (`persons_id`) REFERENCES `persons` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_users_roles1` FOREIGN KEY (`roles_id`) REFERENCES `roles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -396,7 +397,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'pedro','4410d99cefe57ec2c2cdbd3f1d5cf862bb4fb6f8',14,1),(2,'juan','b49a5780a99ea81284fc0746a78f84a30e4d5c73',15,2),(4,'raquel','523fd98c83528188555f43a5a82b4b2e6ea61ebf',17,1),(5,'barack','f2d64a9beed83cb642940577f9cd1aefcf08011b',18,2),(7,'martin','54669547a225ff20cba8b75a4adca540eef25858',20,1),(8,'clarence','4f45131825b8172c84020d8f60b8bb4e2cd25d85',21,2),(9,'pepe','265392dc2782778664cc9d56c8e3cd9956661bb0',22,2),(11,'luis','faea5242a00c52da62a0f00df168c199b7ab748d',24,2),(13,'paolo','f5973ee9c413d0967b98e0944688acb235fd48bf',26,1),(14,'carlos123','ff0edd646698f65fa2c8680d00391e368b6d4315',27,1);
+INSERT INTO `users` VALUES (1,'pedro','4410d99cefe57ec2c2cdbd3f1d5cf862bb4fb6f8',14,1),(2,'juan','b49a5780a99ea81284fc0746a78f84a30e4d5c73',15,2),(4,'raquel','523fd98c83528188555f43a5a82b4b2e6ea61ebf',17,1),(5,'barack','f2d64a9beed83cb642940577f9cd1aefcf08011b',18,2),(7,'martin','54669547a225ff20cba8b75a4adca540eef25858',20,1),(8,'clarence','4f45131825b8172c84020d8f60b8bb4e2cd25d85',21,2),(11,'luis','faea5242a00c52da62a0f00df168c199b7ab748d',24,2),(13,'paolo','f5973ee9c413d0967b98e0944688acb235fd48bf',26,1),(14,'carlos123','ff0edd646698f65fa2c8680d00391e368b6d4315',27,1),(15,'garcia','3f0f370ff13ccce90eedf165d24e49da1a69f845',28,2);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -602,10 +603,10 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `getStudentStatusInCourse`(stID int, coID int) RETURNS varchar(45) CHARSET utf8
+CREATE DEFINER=`root`@`localhost` FUNCTION `getStudentStatusInCourse`(stID int, coID int) RETURNS int(11)
 BEGIN
 
-DECLARE response VARCHAR(45);
+DECLARE response INT;
 
 SET @percent = getResponsesPercent(stID, coID);
 
@@ -617,11 +618,11 @@ SET @min = (SELECT minimal FROM ranks WHERE areas_id = @areaID AND courses_id = 
 SET @max = (SELECT maximun FROM ranks WHERE areas_id = @areaID AND courses_id = coID AND process_id = @processID);
 
 IF (@percent < @min) THEN
-	SET response = 'Requiere nivelacion';
+	SET response = 3; -- 'Requiere nivelacion'
 ELSEIF (@percent BETWEEN @min AND @max) THEN
-	SET response = 'Necesita nivelacion, no urgente';    
+	SET response = 2; -- 'Necesita nivelacion, no urgente'    
 ELSEIF (@percent > @max) THEN
-	SET response = 'No necesita nivelacion';
+	SET response = 1; -- 'No necesita nivelacion'
 END IF;
 
 RETURN response;
@@ -706,6 +707,102 @@ BEGIN
 		-- INSERT INTO ranks VALUES (null, courseID, areaID, procID, min, max);
         select 'true';
 	end if;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `simple_loop` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `simple_loop`(param_categoria INT)
+BEGIN
+  
+-- Se declara variable donde se va a guardar el valor total
+DECLARE TOTAL INT default 0;
+DECLARE curID INT;
+DECLARE done BOOLEAN DEFAULT FALSE;
+
+-- Se declara el cursor con el select con cuyos datos se va a iterar
+DECLARE articulos_categoria_cursor CURSOR FOR (select DISTINCT courses_id from questions where students_id = param_categoria);
+
+-- Declaración de un manejador de error tipo NOT FOUND
+-- DECLARE CONTINUE HANDLER FOR NOT FOUND SET @hecho = TRUE;
+DECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET done = TRUE;
+
+-- Se abre el cursor. Al abrir el cursor este sitúa un puntero a la primera fila del resultado de la consulta.
+OPEN articulos_categoria_cursor;
+
+	-- Empieza el bucle de lectura
+	loop1: LOOP
+		-- Se guarda el resultado en la variable, hay una variable y un campo en el SELECT de la declaración del cursor
+		FETCH articulos_categoria_cursor INTO curID;
+
+		-- Se sale del bucle cuando no hay elementos por recorrer
+		 IF done THEN
+			LEAVE loop1;
+		 END IF;
+         
+		SET TOTAL = TOTAL + curID;
+
+	END LOOP loop1;
+
+-- Se cierra el cursor
+CLOSE articulos_categoria_cursor;
+
+-- Se muestra el resultado
+SELECT TOTAL, curID;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `spDoCourseClasify` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spDoCourseClasify`(stID SMALLINT)
+BEGIN
+
+DECLARE courseID INT;
+DECLARE done BOOLEAN DEFAULT FALSE;
+
+DECLARE courses_cursor CURSOR FOR (SELECT DISTINCT courses_id FROM questions WHERE students_id = stID);
+
+DECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET done = TRUE;
+
+OPEN courses_cursor;
+
+	loop1: LOOP
+    
+		FETCH courses_cursor INTO courseID;
+
+			IF done THEN LEAVE loop1;
+			END IF;
+         
+        INSERT INTO students_courses VALUES (null, courseID, getStudentStatusInCourse(stID, courseID), stID);
+        
+	END LOOP loop1;
+
+CLOSE courses_cursor;
+  
+    
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -825,6 +922,43 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `spShowCourses` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spShowCourses`(stID SMALLINT)
+BEGIN
+
+SELECT
+	sc.students_id as student_id,
+	co.name as course,
+	st.id as num,
+	getResponsesPercent(sc.students_id, sc.courses_id) as percent, 
+	st.status as stat
+FROM students_courses as sc
+
+JOIN courses as co ON co.id = sc.courses_id
+JOIN status as st ON st.id = sc.status_id
+JOIN students as std on std.id = sc.students_id
+
+WHERE sc.students_id = stID
+
+ORDER BY 
+	st.id DESC, 
+    co.name ASC;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `spShowStudentCoursesByFullName` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -841,7 +975,8 @@ BEGIN
 		students_id student_id,
 		(SELECT name FROM courses WHERE id = courses_id) course,
 		getResponsesPercent(students_id, courses_id) percent,
-		getStudentStatusInCourse(students_id, courses_id) stat
+		(SELECT status FROM status WHERE id = getStudentStatusInCourse(students_id, courses_id)) as stat,
+        getStudentStatusInCourse(students_id, courses_id) as num
 	FROM questions 
     
     WHERE students_id = (SELECT id FROM students 
@@ -866,10 +1001,11 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `spShowStudentCurses`(in stID int)
 BEGIN
 	SELECT DISTINCT
-		students_id student_id,
-		(SELECT name FROM courses WHERE id = courses_id) course,
-		getResponsesPercent(students_id, courses_id) percent,
-		getStudentStatusInCourse(students_id, courses_id) stat
+		students_id as student_id,
+		(SELECT name FROM courses WHERE id = courses_id) as course,
+		getResponsesPercent(students_id, courses_id) as percent,
+		(SELECT status FROM status WHERE id = getStudentStatusInCourse(students_id, courses_id)) as stat,
+        getStudentStatusInCourse(students_id, courses_id) as num
 	FROM questions 
     
     WHERE students_id = stID;
@@ -977,4 +1113,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-03-08 22:06:42
+-- Dump completed on 2021-03-17 14:37:31
