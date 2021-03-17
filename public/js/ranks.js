@@ -1,9 +1,13 @@
 const cbSemester = document.getElementById('semestre');
 
+window.onload = function () {
+    console.log('hello')
+}
+
 cbSemester.addEventListener('change', () => {
-    let selectedSemeter = cbSemester.value;
-    console.log(selectedSemeter);
-    getAllRanksByProcessID(selectedSemeter);
+    let selectedSemester = cbSemester.value;
+    console.log(selectedSemester);
+    getAllRanksByProcessID(selectedSemester);
 });
 
 function getAllRanksByProcessID(process) {

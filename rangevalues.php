@@ -289,46 +289,7 @@ require_once "app/components/upperpart.php";
     </div>
     <!-- /.container-fluid -->
     <script src="public/js/ranks.js"></script>
-    <script>
-        /*Para guardar la actualización en la base de datos */
-        var rango = document.querySelectorAll('.range');
-        // console.log(rango);
-        document.getElementById('saverange').onclick = function () {
-            for (let i = 0; i < rango.length; i++) {
-                const item = rango[i].closest('.col-lg-12');
-                const itemTitle = item.querySelector('.area').textContent;
-                console.log(rango[i].value + " - " + rango[i].classList[1] + " - " + rango[i].offsetParent.innerText + " - " + itemTitle);
-            }
-        }
-    </script>
-
-    <script>
-        const range = document.querySelectorAll('.range');
-        const valuerange = document.querySelectorAll('.valuerange');
-        //Para el input range
-        range.forEach((input) => {
-            input.addEventListener('input', selectrange);
-        });
-
-        function selectrange(event) {
-            const rangeinput = event.target; //Todas las clases del boton
-            const itemfather = rangeinput.closest('.form-group'); //Todo el contenido del item
-            const itemselect = itemfather.querySelector('.valuerange');
-            itemselect.value = rangeinput.value;
-        }
-
-        //Para el input text
-        valuerange.forEach((input) => {
-            input.addEventListener('input', selectinput);
-        });
-
-        function selectinput(event) {
-            const rangeinput = event.target; //Todas las clases del boton
-            const itemfather = rangeinput.closest('.form-group'); //Todo el contenido del item
-            const itemselect = itemfather.querySelector('.range');
-            itemselect.value = rangeinput.value;
-        }
-    </script>
+    
 <?php
 require_once "app/components/downpart.php";
 ?>
