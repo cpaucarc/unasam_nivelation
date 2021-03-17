@@ -301,20 +301,27 @@ require_once "app/components/upperpart.php";
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modal-title">Selector de archivos</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" id="cerrar_barra" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form id="user-form">
+            <form action="" id="upload_form">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="file">Adjunto</label>
-                        <input type="file" class="form-control-file" id="file">
+                        <input type="file" class="form-control-file" name="file" id="file" required>
+                    </div>
+                    <div class="form-group">
+                        <div class="barra" id="barra">
+                            <div class="barra_azul"  >
+                                <span id="barra_estado"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary btn-sm" id="btn_upload">Subir este archivo
+                    <button type="button" class="btn btn-secondary btn-sm" id="btn_cancelar">Cancelar</button>
+                    <button type="submit" class="btn btn-primary btn-sm" id="btn_upload">Subir este archivo
                     </button>
                 </div>
             </form>
@@ -327,11 +334,10 @@ require_once "app/components/upperpart.php";
     document.getElementById('btn_upload').onclick = function() {
         alert(file.value);
     }
-
 </script>
 
-
-<script src="public/js/datatable.js"></script>
 <?php
 require_once "app/components/downpart.php";
 ?>
+<script src="public/js/datatable.js"></script>
+<script src="public/js/UploadFile.js"></script>

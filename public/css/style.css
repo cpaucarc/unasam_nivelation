@@ -12,3 +12,41 @@
 .form-conotrol-user-combo {
     height: 49px;
 }
+
+/* UPLOAD FILE */
+
+input[type="file"]{
+    margin: 0 0 15px;
+    padding: 10px 1%;
+    border-radius: 3px;
+}
+
+.barra{
+    background-color: #f3f3f3;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 5px rgba(0,0,0,.2);
+    height: 25px;
+}
+.barra_azul{
+    border-radius: 10px;
+    display: block;
+    height: 25px;
+    line-height: 25px;
+    width: 0%;
+    position: relative;
+    background: #247cc0;
+}
+.barra_verde{
+    background-color: #2ea265  !important;
+}
+.barra_roja{
+    background-color: #de3152 !important;
+}
+
+#barra_estado {
+    position: absolute;
+    color: #247cc0;
+    line-height: 25px;
+    left: 180px;
+    width: 400px;
+}
