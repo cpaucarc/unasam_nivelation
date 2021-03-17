@@ -312,10 +312,9 @@ require_once "app/components/upperpart.php";
                         <input type="file" class="form-control-file" name="file" id="file" required>
                     </div>
                     <div class="form-group">
-                        <div class="barra" id="barra">
-                            <div class="barra_azul"  >
-                                <span id="barra_estado"></span>
-                            </div>
+                        
+                        <div class="progress" >
+                            <div class="progress-bar progress-bar-striped progress-bar-animated " role="progressbar" id="barra_estado">afsdfasfsafasd</div>
                         </div>
                     </div>
                 </div>
@@ -329,12 +328,6 @@ require_once "app/components/upperpart.php";
     </div>
 </div>
 
-<script>
-    var file = document.querySelector('#file');
-    document.getElementById('btn_upload').onclick = function() {
-        alert(file.value);
-    }
-</script>
 
 <?php
 require_once "app/components/downpart.php";

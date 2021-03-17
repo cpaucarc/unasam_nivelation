@@ -1,21 +1,31 @@
+let barra_estado = document.querySelector('#barra_estado'),
+    btn_cancelar = document.querySelector('#btn_cancelar');
+
+let file = document.querySelector('#file').value;
+
 document.addEventListener("DOMContentLoaded", () => {
     let form = document.getElementById('upload_form');
     let cerrar_barra = document.getElementById('cerrar_barra');
+
     form.addEventListener("submit", function (e) {
         e.preventDefault();
         subir_archivos(form);
+        console.log(document.querySelector('#file').value);
     });
-    cerrar_barra.addEventListener("click", () => {
-        document.querySelector('#barra').classList.remove('barra_verde', 'barra_roja');
-        document.querySelector('#barra_estado').innerHTML = ""; 
-        document.querySelector('#barra_estado').style.color = "#247cc0";
-        document.querySelector('#file').value = "";
-    });
+    limpiar_barra(cerrar_barra);
 })
+
+function limpiar_barra(close) {
+    close.addEventListener("click", () => {
+        file.value = "";
+        barra_estado.classList.remove('barra_verde', 'barra_roja');
+        barra_estado.innerHTML = "";
+        barra_estado.style.width = '0%';
+    });
+}
+
+
 function subir_archivos(form) {
-    let barra_estado = document.querySelector('#barra'),
-        span = document.querySelector('#barra_estado');
-    let btn_cancelar = document.querySelector('#btn_cancelar');
 
     barra_estado.classList.remove('barra_verde', 'barra_roja');
 
@@ -27,18 +37,15 @@ function subir_archivos(form) {
 
     peticion.upload.addEventListener("progress", (e) => {
         let porcentaje = Math.round((e.loaded / e.total) * 100);
-        console.log(porcentaje);
         barra_estado.style.width = porcentaje + '%';
-        span.innerHTML = porcentaje + '%';
-        span.style.color="#247cc0";
+        barra_estado.innerHTML = porcentaje + '%';
     });
 
     //Finalizado
 
     peticion.addEventListener("load", () => {
         barra_estado.classList.add('barra_verde');
-        span.style.color="white";
-        span.innerHTML = "Proceso Completado"
+        barra_estado.innerHTML = "carga completa"
     });
 
     //Enviar datos
@@ -52,7 +59,6 @@ function subir_archivos(form) {
         peticion.abort();
         barra_estado.classList.remove('barra_verde');
         barra_estado.classList.add('barra_roja');
-        span.style.color="white";
-        span.innerHTML = "Proceso Cancelado";
+        barra_estado.innerHTML = "carga imcompleta";
     })
 }
