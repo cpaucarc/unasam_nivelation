@@ -8,7 +8,7 @@ require_once "app/components/upperpart.php";
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h5 mb-0 text-gray-800">Reporte por curso</h1>
+        <h1 class="h5 mb-0 text-gray-800">Reporte por escuela</h1>
 <!--         <select class="form-control form-control text-primary" id="semestre" style="width:150px">
             <option>Admisión</option>
             <option>2020-II</option>
@@ -45,7 +45,7 @@ require_once "app/components/upperpart.php";
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-sm-flex align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Tabla cursos</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Tabla escuelas</h6>
             <select class="form-control text-primary" id="semestre" style="width:150px">
                 <option>Admisión</option>
                 <option>2020-II</option>

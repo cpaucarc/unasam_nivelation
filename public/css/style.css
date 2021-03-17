@@ -6,9 +6,30 @@
 }
 
 .link-add-card i {
-    font-size: 36px;
+    font-size: 80px;
 }
 
 .form-conotrol-user-combo {
     height: 49px;
 }
+
+/* UPLOAD FILE */
+
+input[type="file"]{
+    margin: 0 0 15px;
+    padding: 10px 1%;
+    border-radius: 3px;
+}
+
+.progress-bar{
+    text-align: center;
+    width:0%;
+}
+
+.barra_verde{
+    background-color: #2ea265  !important;
+}
+.barra_roja{
+    background-color: #de3152 !important;
+}
+

@@ -37,7 +37,7 @@
         <li class="nav-item active">
             <a class="nav-link" href="index.php">
                 <i class="fas fa-home"></i>
-                <span>Inicio del sitio</span></a>
+                <span>Inicio del sitio <span class="badge rounded-pill bg-info text-white">starting</span></span></a>
         </li>
 
 
@@ -52,14 +52,15 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Componentes</span>
+               <i class="fas fa-fw fa-table"></i>
+                <span>Vistas</span>
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Components:</h6>
-                    <a class="collapse-item" href="rangevalues.php">Rango</a>
-                    <a class="collapse-item" href="area.php">Área</a>
+                    <h6 class="collapse-header">Vistas por:</h6>
+                    <a class="collapse-item" href="bystudent.php">Estudiante <span class="badge rounded-pill bg-warning text-white">middle</span></a>
+                    <a class="collapse-item" href="bycourse.php">Curso <span class="badge rounded-pill bg-info text-white">starting</span></a>
+                    <a class="collapse-item" href="byschool.php">Escuela <span class="badge rounded-pill bg-info text-white">starting</span></a>
                 </div>
             </div>
         </li>
@@ -68,18 +69,15 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                aria-expanded="true" aria-controls="collapseUtilities">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Tablas</span>
+               <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>componentes</span>
             </a>
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Detalles de tablas:</h6>
-                    <a class="collapse-item" href="bystudent.php">Estudiantes</a>
-                    <a class="collapse-item" href="bycourse.php">Cursos</a>
-                    <a class="collapse-item" href="byarea.php">Área</a>
-                    <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                    <a class="collapse-item" href="utilities-other.html">Other</a>
+                    <h6 class="collapse-header">Vista por:</h6>
+                    <a class="collapse-item" href="area.php">Area <span class="badge rounded-pill bg-warning text-white">meddle</span></a>
+                    <a class="collapse-item" href="admission.php">Admisión <span class="badge rounded-pill bg-info text-white">starting</span></a>
 
                 </div>
             </div>
@@ -103,7 +101,7 @@
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Vistas de usuario</h6>
-                    <a class="collapse-item" href="UserView.php">Usuarios registrados <span class="badge badge-success">new</span></a>
+                    <a class="collapse-item" href="UserView.php">Usuarios registrados <span class="badge rounded-pill bg-primary text-white">ending</span></a>
                     <a class="collapse-item" href="registeruser.php">Registar usuario</a>
                     <a class="collapse-item" href="editpassword.php">cambiar Contraseña</a>
                     <div class="collapse-divider"></div>

@@ -8,44 +8,23 @@ require_once "app/components/upperpart.php";
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h5 mb-0 text-gray-800">Reporte por curso</h1>
-<!--         <select class="form-control form-control text-primary" id="semestre" style="width:150px">
-            <option>Admisión</option>
-            <option>2020-II</option>
-            <option>2021-I</option>
-            <option>2021-II</option>
-            <option>2022-I</option>
-            <option>2022-II</option>
-        </select>
- -->
-    </div>
-
-    <!-- Default Card Example -->
-    <div class="card mb-4 w-100">
-        <div class="card-header py-3">
-            <div class="input-group">
-                <input list="students" class="form-control" name="txSearch" id="txSearch" />
-                <datalist id="students">
-                    <option value="Chrome">
-                    <option value="Firefox">
-                    <option value="Internet Explorer">
-                    <option value="Opera">
-                    <option value="Safari">
-                    <option value="Microsoft Edge">
-                </datalist>
-
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="submit" id="btSearch">
-                        <i class="fas fa-search "></i>
-                    </button>
-                </div>
+        <div class="card border-left-primary shadow h-100 ">
+            <div class="card-body">
+                <div class="text-md font-weight-bold text-primary text-uppercase">
+                    Grupo (<span class="area">A</span>)</div>
             </div>
         </div>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#school_modal">
+            <i class="fas fa-plus"></i> Nuevo curso
+        </button>
     </div>
+
+
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-sm-flex align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Tabla cursos</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Cursos</h6>
             <select class="form-control text-primary" id="semestre" style="width:150px">
                 <option>Admisión</option>
                 <option>2020-II</option>
@@ -62,13 +41,17 @@ require_once "app/components/upperpart.php";
                         <tr class="text-center">
                             <th>#</th>
                             <th>Nombre</th>
+                            <th>Mínimo</th>
+                            <th>Máximo</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>Ingeniería de Sistemas e Informática</td>
+                            <td>Física</td>
+                            <td>50%</td>
+                            <td>70%</td>
                             <td class="text-center">
                                 <div class="btn-group">
                                     <button class="btn btn-warning btnEditar" data-toggle="modal" data-target="#school_modal"><i class="fas fa-edit"></i></button>
@@ -78,7 +61,9 @@ require_once "app/components/upperpart.php";
                         </tr>
                         <tr>
                             <td>1</td>
-                            <td>Ingeniería de Civil</td>
+                            <td>Alegebra</td>
+                            <td>50%</td>
+                            <td>70%</td>
                             <td class="text-center">
                                 <div class="btn-group">
                                     <button class="btn btn-warning btnEditar" data-toggle="modal" data-target="#school_modal"><i class="fas fa-edit"></i></button>
@@ -88,7 +73,9 @@ require_once "app/components/upperpart.php";
                         </tr>
                         <tr>
                             <td>1</td>
-                            <td>Ingeniería de Industrial</td>
+                            <td>Cultira General</td>
+                            <td>50%</td>
+                            <td>70%</td>
                             <td class="text-center">
                                 <div class="btn-group">
                                     <button class="btn btn-warning btnEditar" data-toggle="modal" data-target="#school_modal"><i class="fas fa-edit"></i></button>
@@ -106,7 +93,42 @@ require_once "app/components/upperpart.php";
 </div>
 <!-- /.container-fluid -->
 
+
+<!-- Logout Modal-->
+<div class="modal fade" id="school_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar curso</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="curso" class="col-form-label-sm text-uppercase">Curso:</label>
+                        <input type="text" class="form-control " id="curso" placeholder="Curso">
+                    </div>
+                    <div class="form-group">
+                        <label for="minimo" class="col-form-label-sm text-uppercase">Mínimo:</label>
+                        <input type="number" class="form-control " id="minimo" placeholder="Mímino">
+                    </div>
+                    <div class="form-group">
+                        <label for="maximo" class="col-form-label-sm text-uppercase">Máximo</label>
+                        <input type="number" class="form-control " id="maximo" placeholder="Máximo">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                <button class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="public/js/datatable.js"></script>
 <?php
 require_once "app/components/downpart.php";
 ?>
-<script src="public/js/datatable.js"></script>
