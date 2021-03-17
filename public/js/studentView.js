@@ -119,7 +119,7 @@ function getStudentInfo(fullname) {
 function createCell(text, numero) { //1 no nec, 2 si, pero no obl, 3 obl
     cell = document.createElement('td');
     cell.innerText = text;
-    if(numero == 1){
+    if(numero === 1){
         cell.addClass = 'badge badge-primary';
     }
     return cell;
