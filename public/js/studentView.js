@@ -5,6 +5,7 @@ const txSearch = document.getElementById('txSearch');
 const tbBody = document.getElementById('table-courses-body');
 const stdID = parseInt(document.getElementById('stdID').value);
 card = new Card();
+table = new Table();
 
 window.onload = function () {
     console.log('hello');
@@ -73,22 +74,18 @@ function getCourses(fullname) {
         .then(response => response.json())
         .then(data => {
             data = data.courses;
-            destroyDataTables('table-courses');
+            //destroyDataTables('table-courses');
+            //$(`#table-courses`).DataTable().clear().destroy();
             tbBody.innerHTML = '';
             num = 1;
             data.forEach(c => {
-                row = document.createElement('tr');
-                row.appendChild(createCell(num));
-                row.appendChild(createCell(c.course));
-                row.appendChild(createCell(c.percent));
-                row.appendChild(createCell(c.stat));
+                row = table.createRow(num, c.course, c.percent);
+                row.appendChild(createCell(c.stat, c.num));
                 tbBody.appendChild(row);
                 num++;
             });
 
-            setDataTables('table-courses');
-            console.log(data);
-            console.log(data.courses);
+            //$(`#table-courses`).DataTable();
         });
 }
 
@@ -106,7 +103,9 @@ function getStudentInfo(fullname) {
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            stdInfoCard.innerHTML = card.getStudentInfoCard(data.lastname, data.name, data.school, data.dni, data.code);
+            stdInfoCard.innerHTML = card.getStudentInfoCard(
+                data.lastname, data.name, data.school, data.dni, data.code, data.process
+            );
             notStdInfo.innerHTML = '';
         })
         .catch(function () {
@@ -118,16 +117,33 @@ function getStudentInfo(fullname) {
 
 function createCell(text, numero) { //1 no nec, 2 si, pero no obl, 3 obl
     cell = document.createElement('td');
-    cell.innerText = text;
-    if (numero === 1) {
-        cell.addClass = 'badge badge-primary';
+    span = document.createElement('span');
+    span.innerText = text;
+    span.classList.add('py-2');
+    switch (parseInt(numero)) {
+        case 1: { // No requiere
+            span.classList.add('alert');
+            span.classList.add('alert-success');
+            break;
+        }
+        case 2: { // requiere, no obligatorio
+            span.classList.add('alert');
+            span.classList.add('alert-warning');
+            break;
+        }
+        case 3: { // si requiere, obligatorio
+            span.classList.add('alert');
+            span.classList.add('alert-danger');
+            break;
+        }
+        default: { // si requiere, obligatorio
+            span.classList.add('badge');
+            span.classList.add('badge-danger');
+            break;
+        }
     }
+    cell.appendChild(span);
     return cell;
-}
-
-function createButton() {
-    button = document.createElement('button');
-    button.classList.add('btn');
 }
 
 function setDataTables(table) {

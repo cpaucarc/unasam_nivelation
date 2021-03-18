@@ -112,6 +112,7 @@ class StudentModel
             $course['course'] = $row['course'];
             $course['percent'] = $row['percent'];
             $course['stat'] = $row['stat'];
+            $course['num'] = $row['num'];
 
             array_push($response['courses'], $course);
         }
@@ -146,7 +147,8 @@ class StudentModel
             "dni" => $result['dni'],
             "name" => $result['name'],
             "lastname" => $result['lastname'],
-            "school" => $result['school']
+            "school" => $result['school'],
+            "process" => $result['process']
         ));
     }
 
