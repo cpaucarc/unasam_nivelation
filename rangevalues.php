@@ -1,9 +1,8 @@
 <?php
 require_once "app/components/upperpart.php";
 ?>
-
     <div class="container">
-        <div class="card">
+        <div class="card shadow">
             <div class="card-header">
                 <div class="d-flex bd-highlight mb-3">
                     <div class="p-2 bd-highlight">
@@ -31,7 +30,7 @@ require_once "app/components/upperpart.php";
                 </div>
             </div>
             <div class="card-body">
-                <h5 class="card-title">Rango de Valores del Area
+                <h5 class="card-title text-primary">Rango de Valores del Area
                     <span id="selectedArea" class="font-weight-bold">A</span> en el proceso
                     <span id="selectedProcess" class="font-weight-bold">2019-II</span>
                 </h5>
@@ -78,19 +77,31 @@ require_once "app/components/upperpart.php";
                      aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
+                            
                             <div class="modal-body">
-                                ...
+                                <form id="form-rank">
+                                    <input type="hidden" value="0" id="rankID" name="rankID">
+                                    <div class="form-group">
+                                        <label for="txCourse">Curso</label>
+                                        <input type="text" class="form-control" id="txCourse"
+                                               name="txCourse" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txMin">Puntaje Minimo</label>
+                                        <input type="number" min="0" max="100" class="form-control" id="txMin"
+                                               name="txMin">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txMax">Puntaje Optimo</label>
+                                        <input type="number" min="0" max="100" class="form-control" id="txMax"
+                                               name="txMax">
+                                    </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary" id="btnSubmitForm">Guardar</button>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>

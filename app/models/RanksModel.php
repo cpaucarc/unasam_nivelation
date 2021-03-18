@@ -34,6 +34,27 @@ class RanksModel
         }
     }
 
+    function updateRankValues()
+    {
+        if (intval($this->id) > 0) {
+            $connection = new MySqlConnection();
+            if ($connection) {
+                $pdo = $connection->getConnection();
+                $sql = "UPDATE ranks SET minimal = ?, maximun = ? WHERE id = ?";
+                $pdo->prepare($sql)->execute([
+                    $this->minimal,
+                    $this->maximum,
+                    $this->id
+                ]);
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
     function getAllRanksByProcessID($process_denomination)
     {
         $conn = (new MySqlConnection())->getConnection();
