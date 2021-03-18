@@ -4,12 +4,16 @@ const selectedArea = document.getElementById('selectedArea');
 const selectedProcess = document.getElementById('selectedProcess');
 const tbody = document.getElementById('tbody');
 const tb = document.getElementById('table');
+const formRank = document.getElementById('form-rank');
+
+var allRanks;
 
 table = new Table();
 button = new Button();
 
 window.onload = function () {
-    console.log('hello')
+    console.log('hello');
+    getAllProcess();
 }
 
 cbArea.addEventListener('change', () => {
@@ -27,6 +31,30 @@ cbProcess.addEventListener('change', () => {
     getAllRanksByProcessID(process, area);
 });
 
+formRank.addEventListener('submit', (e) => {
+    e.preventDefault();
+    console.log('sendind')
+    let formData = new FormData(formRank);
+
+    fetch('http://localhost/nivelation/app/controllers/ranks/updateRankValues.php', {
+        method: 'POST',
+        headers: {
+            "Accept": "application/json"
+        },
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if (data.status === true) {
+                //ToDo: Poner un alerta, indicando que se hizo de forma correcta
+                $('#modal-rank').modal('hide');
+            } else {
+                //ToDo: Poner un alerta, indicando que se hubo error
+            }
+        });
+});
+
 function getAllRanksByProcessID(process, area) {
     let formData = new FormData();
     formData.append('process', process);
@@ -40,6 +68,7 @@ function getAllRanksByProcessID(process, area) {
         .then(response => response.json())
         .then(data => {
             data = data.ranks;
+            allRanks = data;
             $('#table-ranks').DataTable().clear().destroy();
             switch (area) {
                 case 'A': {
@@ -65,7 +94,6 @@ function getAllRanksByProcessID(process, area) {
             }
             $('#table-ranks').DataTable();
         });
-
 }
 
 function fillWhitAreaA(data) {
@@ -118,9 +146,50 @@ function createRowsAndFillTable(area) {
 }
 
 function updateRank(id) {
-    alert('Editar ' + id);
+    let rankGetIt = getRankDataByID(parseInt(id));
+    if (rankGetIt) {
+        console.log(rankGetIt);
+        document.getElementById('txCourse').value = rankGetIt.course;
+        document.getElementById('txMin').value = rankGetIt.minimal;
+        document.getElementById('txMax').value = rankGetIt.maximun;
+        document.getElementById('rankID').value = rankGetIt.id;
+        document.getElementById('btnSubmitForm').innerText = 'Editar Valores';
+        $('#modal-rank').modal('show');
+    }
 }
 
 function deleteRank(id) {
     alert('Eliminar ' + id);
+    formRank.reset();
+}
+
+function getAllProcess() {
+    fetch('http://localhost/nivelation/app/controllers/process/getAllProcess.php/', {
+        method: 'GET',
+        headers: {
+            "Accept": "application/json"
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            data = data.process;
+            cbProcess.innerHTML = ``;
+
+            cbProcess.appendChild(createOptionForSelect('0', 'Selecciona...'));
+            data.forEach(proc => {
+                cbProcess.appendChild(createOptionForSelect(proc.id, proc.denomination));
+            });
+        });
+}
+
+function createOptionForSelect(value, text) {
+    let opt = document.createElement('option');
+    opt.setAttribute("value", value);
+    opt.innerText = text;
+    return opt;
+}
+
+function getRankDataByID(id) {
+    let rank = allRanks.filter(rank => parseInt(rank.id) === id);
+    return rank[0];
 }

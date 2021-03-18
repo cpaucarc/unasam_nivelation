@@ -76,11 +76,12 @@ function fillTableWhitAllUsers() {
         .then(response => response.json())
         .then(data => {
             data = data.users;
-            // destroyDataTables('example');
+            //destroyDataTables('table-users');
+            // $('#table-users').DataTable().clear().destroy();
             tbody.innerHTML = '';
             let num = 1;
             data.forEach(user => {
-                row = document.createElement('tr');
+                let row = document.createElement('tr');
                 row.appendChild(createHTMLElement('th', num));
                 row.appendChild(createHTMLElement('td', user.dni));
                 row.appendChild(createHTMLElement('td', (user.lastname + ' ' + user.name)));
@@ -91,9 +92,7 @@ function fillTableWhitAllUsers() {
                 tbody.appendChild(row);
                 num++;
             });
-            // setDataTables('example');
-            $(`#example`).DataTable();
-            //$(`#example`).ajax.reload();
+            // $('#table-users').DataTable();
         });
 }
 

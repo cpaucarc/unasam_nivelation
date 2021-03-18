@@ -73,7 +73,7 @@ function getCourses(fullname) {
         .then(response => response.json())
         .then(data => {
             data = data.courses;
-            /* destroyDataTables('example1'); */
+            destroyDataTables('table-courses');
             tbBody.innerHTML = '';
             num = 1;
             data.forEach(c => {
@@ -86,7 +86,7 @@ function getCourses(fullname) {
                 num++;
             });
 
-            /* setDataTables('example1'); */
+            setDataTables('table-courses');
             console.log(data);
             console.log(data.courses);
         });
@@ -119,7 +119,7 @@ function getStudentInfo(fullname) {
 function createCell(text, numero) { //1 no nec, 2 si, pero no obl, 3 obl
     cell = document.createElement('td');
     cell.innerText = text;
-    if(numero === 1){
+    if (numero === 1) {
         cell.addClass = 'badge badge-primary';
     }
     return cell;

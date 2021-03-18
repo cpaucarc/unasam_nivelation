@@ -1,3 +1,7 @@
+<?php
+//// Ya no se debe colocar esto, debido que la session ya se inicia en otro lado
+//session_start();
+//?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -210,7 +214,11 @@
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600">Name usuario</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600">
+                                <?php
+                                echo isset($_SESSION['user_logged']) ? $_SESSION['user_logged']['username'] : 'Guest'
+                                ?>
+                            </span>
                             <img class="img-profile rounded-circle" src="public/images/user.png">
                         </a>
                         <!-- Dropdown - User Information -->

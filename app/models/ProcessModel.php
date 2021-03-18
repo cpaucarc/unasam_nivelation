@@ -76,7 +76,7 @@ class processModel
     function getAllProcess()
     {
         $conn = (new MySqlConnection())->getConnection();
-        $sql = "SELECT * FROM process;";
+        $sql = "select * from process order by denomination DESC;";
 
         $response['process'] = array();
         foreach ($conn->query($sql) as $row) {

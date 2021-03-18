@@ -16,21 +16,21 @@ require_once "app/components/upperpart.php";
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h5 mb-0 text-gray-800">Reporte por Estudiante</h1>
-  <!--       <select class="form-control text-primary my-2" id="semestre" style="width:150px">
-            <option>Admisión</option>
-            <option>2020-II</option>
-            <option>2021-I</option>
-            <option>2021-II</option>
-            <option>2022-I</option>
-            <option>2022-II</option>
-        </select>
- -->
+        <!--       <select class="form-control text-primary my-2" id="semestre" style="width:150px">
+                  <option>Admisión</option>
+                  <option>2020-II</option>
+                  <option>2021-I</option>
+                  <option>2021-II</option>
+                  <option>2022-I</option>
+                  <option>2022-II</option>
+              </select>
+       -->
     </div>
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <div class="input-group">
-                <input list="students" class="form-control" name="txSearch" id="txSearch" />
+                <input list="students" class="form-control" name="txSearch" id="txSearch"/>
                 <datalist id="students">
                     <option value="Chrome">
                     <option value="Firefox">
@@ -67,14 +67,14 @@ require_once "app/components/upperpart.php";
         <div class="card-body ">
             <div id="table-courses">
                 <div class="table-responsive">
-                    <table id="example1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <table id="table-courses" class="table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
-                            <tr class="text-center">
-                                <th>N°</th>
-                                <th>Curso</th>
-                                <th>Porcentaje</th>
-                                <th>Recomendación</th>
-                            </tr>
+                        <tr class="text-center">
+                            <th>N°</th>
+                            <th>Curso</th>
+                            <th>Porcentaje</th>
+                            <th>Recomendación</th>
+                        </tr>
                         </thead>
                         <tbody id="table-courses-body">
                         </tbody>
@@ -89,6 +89,6 @@ require_once "app/components/upperpart.php";
 <?php
 require_once "app/components/downpart.php";
 ?>
+<!--<script src="public/js/datatable.js"></script>-->
 <script src="public/js/components/Card.js"></script>
 <script src="public/js/studentView.js"></script>
-<script src="public/js/datatable.js"></script>
