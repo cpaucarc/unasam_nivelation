@@ -1,7 +1,7 @@
 let barra_estado = document.querySelector('#barra_estado'),
     btn_cancelar = document.querySelector('#btn_cancelar');
 
-let file = document.querySelector('#file').value;
+let file = document.querySelector('#file'), extPermitidas;
 
 document.addEventListener("DOMContentLoaded", () => {
     let form = document.getElementById('upload_form');
@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     form.addEventListener("submit", function (e) {
         e.preventDefault();
-        subir_archivos(form);
-        console.log(document.querySelector('#file').value);
+        validarExt(form);
+        console.log(file.value);
     });
     limpiar_barra(cerrar_barra);
 })
@@ -45,7 +45,7 @@ function subir_archivos(form) {
 
     peticion.addEventListener("load", () => {
         barra_estado.classList.add('barra_verde');
-        barra_estado.innerHTML = "carga completa"
+        barra_estado.innerHTML = "carga completa";
     });
 
     //Enviar datos
@@ -61,4 +61,19 @@ function subir_archivos(form) {
         barra_estado.classList.add('barra_roja');
         barra_estado.innerHTML = "carga imcompleta";
     })
+}
+
+
+function validarExt(form) {
+    archivoRuta = file.value;
+    extPermitidas = /(.json)$/i;
+    if (!extPermitidas.exec(archivoRuta)) {
+        alert('Asegurece de haber subido un archivo json');
+        file.value = "";
+        return false;
+    } else {
+        if (file.files && file.files[0]) {
+            subir_archivos(form);
+        }
+    }
 }
