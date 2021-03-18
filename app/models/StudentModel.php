@@ -119,6 +119,34 @@ class StudentModel
         return json_encode($response);
     }
 
+    public function getStudentsbyCourse($area, $course, $process)
+    {
+        //This function is used in bycourse view
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "CALL spShowStudentsByCourse('" . $area . "', '" . $course . "', '" . $process . "');";
+
+        $response['students'] = array();
+
+        foreach ($conn->query($sql) as $row) {
+            $course = array();
+
+            $course['stdID'] = $row['stdID'];
+            $course['dni'] = $row['dni'];
+            $course['name'] = $row['name'];
+            $course['lastname'] = $row['lastname'];
+            $course['code'] = $row['code'];
+            $course['school'] = $row['school'];
+            $course['area'] = $row['area'];
+            $course['process'] = $row['process'];
+            $course['course'] = $row['course'];
+            $course['num'] = $row['num'];
+            $course['stat'] = $row['stat'];
+
+            array_push($response['students'], $course);
+        }
+        return json_encode($response);
+    }
+
     public function getStudentInfo()
     {
         $conn = (new MySqlConnection())->getConnection();

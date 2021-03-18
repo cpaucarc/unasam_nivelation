@@ -1,4 +1,5 @@
 <?php
+session_start();
 $fullname = isset($_POST['fullname']) ? $_POST['fullname'] : '';
 ?>
 
