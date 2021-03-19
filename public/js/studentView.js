@@ -8,13 +8,9 @@ card = new Card();
 table = new Table();
 
 window.onload = function () {
-    console.log('hello');
-    console.log(stdID);
-    if (!stdID === '') {
-        // When stdID > 0
-        notStdInfo.innerHTML = '';
-        stdInfoCard.innerHTML = card.getStudentInfoCard('Paucar Colonia', 'Frank', 'Sistemas', '7412', '784512');
-
+    if (stdID > 0) {
+        getStudentInfoByID(stdID);
+        getCoursesByID(stdID);
     } else {
         // When std is not asigned
         stdInfoCard.innerHTML = '';
@@ -23,10 +19,10 @@ window.onload = function () {
 }
 
 btSearch.addEventListener('click', (e) => {
-    //e.preventDefault();
+    e.preventDefault();
     //console.log(txSearch.value)
     getStudentInfo(txSearch.value)
-    getCourses(txSearch.value)
+    getCoursesByFullname(txSearch.value)
 })
 
 txSearch.addEventListener('keyup', () => {
@@ -51,7 +47,6 @@ function getStudentsLike(pattern) {
             data = data.students;
             students = document.getElementById('students');
             students.innerHTML = '';
-            console.log(data);
             data.forEach(std => {
                 opt = document.createElement('option');
                 opt.value = std.student;
@@ -60,7 +55,7 @@ function getStudentsLike(pattern) {
         });
 }
 
-function getCourses(fullname) {
+function getCoursesByFullname(fullname) {
     let formData = new FormData();
     formData.append('fullname', fullname);
 
@@ -89,6 +84,60 @@ function getCourses(fullname) {
         });
 }
 
+function getCoursesByID(id) {
+    let formData = new FormData();
+    formData.append('stdID', id);
+
+    fetch('http://localhost/nivelation/app/controllers/student/getCoursesOfStudentByID.php/', {
+        method: 'POST',
+        headers: {
+            "Accept": "application/json"
+        },
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+            data = data.courses;
+            //destroyDataTables('table-courses');
+            //$(`#table-courses`).DataTable().clear().destroy();
+            tbBody.innerHTML = '';
+            num = 1;
+            data.forEach(c => {
+                row = table.createRow(num, c.course, c.percent);
+                row.appendChild(createCell(c.stat, c.num));
+                tbBody.appendChild(row);
+                num++;
+            });
+
+            //$(`#table-courses`).DataTable();
+        });
+}
+
+function getStudentInfoByID(id) {
+    let formData = new FormData();
+    formData.append('stdID', id);
+
+    fetch('http://localhost/nivelation/app/controllers/student/getStudentInfoByID.php/', {
+        method: 'POST',
+        headers: {
+            "Accept": "application/json"
+        },
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+            notStdInfo.innerHTML = '';
+            stdInfoCard.innerHTML = card.getStudentInfoCard(
+                data.lastname, data.name, data.school, data.dni, data.code, data.process
+            );
+        })
+        .catch(function () {
+            stdInfoCard.innerHTML = '';
+            notStdInfo.innerHTML = card.getNotStudentSelectedCard();
+            tbBody.innerHTML = '';
+        });
+}
+
 function getStudentInfo(fullname) {
     let formData = new FormData();
     formData.append('fullname', fullname);
@@ -102,7 +151,6 @@ function getStudentInfo(fullname) {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             stdInfoCard.innerHTML = card.getStudentInfoCard(
                 data.lastname, data.name, data.school, data.dni, data.code, data.process
             );
@@ -110,7 +158,7 @@ function getStudentInfo(fullname) {
         })
         .catch(function () {
             stdInfoCard.innerHTML = '';
-            card.getNotStudentSelectedCard();
+            notStdInfo.innerHTML = card.getNotStudentSelectedCard();
             tbBody.innerHTML = '';
         });
 }

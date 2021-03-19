@@ -93,6 +93,7 @@ class StudentModel
             $course['course'] = $row['course'];
             $course['percent'] = $row['percent'];
             $course['stat'] = $row['stat'];
+            $course['num'] = $row['num'];
 
             array_push($response['courses'], $course);
         }
@@ -119,37 +120,71 @@ class StudentModel
         return json_encode($response);
     }
 
-    public function getStudentInfo()
+    public function getStudentsbyCourse($area, $course, $process)
+    {
+        //This function is used in bycourse view
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "CALL spShowStudentsByCourse('" . $area . "', '" . $course . "', '" . $process . "');";
+
+        $response['students'] = array();
+
+        foreach ($conn->query($sql) as $row) {
+            $course = array();
+
+            $course['stdID'] = $row['stdID'];
+            $course['dni'] = $row['dni'];
+            $course['name'] = $row['name'];
+            $course['lastname'] = $row['lastname'];
+            $course['code'] = $row['code'];
+            $course['school'] = $row['school'];
+            $course['area'] = $row['area'];
+            $course['process'] = $row['process'];
+            $course['course'] = $row['course'];
+            $course['num'] = $row['num'];
+            $course['stat'] = $row['stat'];
+
+            array_push($response['students'], $course);
+        }
+        return json_encode($response);
+    }
+
+    public function getStudentInfoByID()
     {
         $conn = (new MySqlConnection())->getConnection();
-        $sql = "SELECT * FROM vstudents WHERE id = $this->id;";
+        if ($conn and intval($this->id) > 0) {
 
-        $result = $conn->query($sql)->fetch(PDO::FETCH_ASSOC);
+            $sql = "SELECT * FROM vstudents WHERE id = $this->id;";
 
-        $this->setCode($result['code']);
-        $this->setDni($result['dni']);
-        $this->setName($result['name']);
-        $this->setLastname($result['lastname']);
-        $this->setSchool($result['school']);
+            $result = $conn->query($sql)->fetch(PDO::FETCH_ASSOC);
 
-        return $this;
+            return json_encode(array(
+                "code" => $result['code'],
+                "dni" => $result['dni'],
+                "name" => $result['name'],
+                "lastname" => $result['lastname'],
+                "school" => $result['school'],
+                "process" => $result['process']
+            ));
+        }
     }
 
     public function getStudentInfoByFullName($pattern)
     {
         $conn = (new MySqlConnection())->getConnection();
-        $sql = "SELECT * FROM vstudents WHERE concat(lastname, ' ', name) = '" . $pattern . "';";
+        if ($conn) {
+            $sql = "SELECT * FROM vstudents WHERE concat(lastname, ' ', name) = '" . $pattern . "';";
 
-        $result = $conn->query($sql)->fetch(PDO::FETCH_ASSOC);
+            $result = $conn->query($sql)->fetch(PDO::FETCH_ASSOC);
 
-        return json_encode(array(
-            "code" => $result['code'],
-            "dni" => $result['dni'],
-            "name" => $result['name'],
-            "lastname" => $result['lastname'],
-            "school" => $result['school'],
-            "process" => $result['process']
-        ));
+            return json_encode(array(
+                "code" => $result['code'],
+                "dni" => $result['dni'],
+                "name" => $result['name'],
+                "lastname" => $result['lastname'],
+                "school" => $result['school'],
+                "process" => $result['process']
+            ));
+        }
     }
 
     public function getStudentsLike($pattern)

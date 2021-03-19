@@ -44,6 +44,12 @@ class Table {
         return row;
     }
 
+    createCell(element) {
+        let cell = document.createElement('td');
+        cell.appendChild(element);
+        return cell;
+    }
+
     createFirstBodyColumn(text) {
         return this.createHeaderColumn(text);
     }

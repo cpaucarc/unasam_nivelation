@@ -5,7 +5,7 @@ require_once "app/components/upperpart.php";
         <div class="card shadow">
             <div class="card-header">
                 <div class="d-flex bd-highlight mb-3">
-                    <div class="p-2 bd-highlight">
+                    <div class="bd-highlight">
                         <label for="area">Area</label>
                         <select class="form-control" id="area">
                             <option value="0">Selecciona...</option>
@@ -13,10 +13,9 @@ require_once "app/components/upperpart.php";
                             <option value="2">B</option>
                             <option value="3">C</option>
                             <option value="4">D</option>
-                            <option value="5">E</option>
                         </select>
                     </div>
-                    <div class="ml-auto p-2 bd-highlight">
+                    <div class="ml-auto bd-highlight">
                         <label for="process">Proceso de Admisión</label>
                         <select class="form-control" id="process">
                             <option value="0">Selecciona...</option>
@@ -77,7 +76,7 @@ require_once "app/components/upperpart.php";
                      aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
-                            
+
                             <div class="modal-body">
                                 <form id="form-rank">
                                     <input type="hidden" value="0" id="rankID" name="rankID">
