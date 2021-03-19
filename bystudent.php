@@ -1,6 +1,7 @@
 <?php
 session_start();
-$fullname = isset($_POST['fullname']) ? $_POST['fullname'] : '';
+//$fullname = isset($_POST['fullname']) ? $_POST['fullname'] : '';
+$stdID = empty ($_GET['std']) ? 0 : $_GET['std'];
 ?>
 
 <?php
@@ -11,34 +12,28 @@ require_once "app/components/upperpart.php";
     <!-- Begin Page Content -->
     <div class="container-fluid">
         <div class="hide">
-            <input type="hidden" id="stdID" class="" value="<?php echo $fullname ?>">
+            <input type="hidden" id="stdID" class="" value="<?php echo $stdID ?>">
         </div>
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h5 mb-0 text-gray-800">Reporte por Estudiante</h1>
-            <!--       <select class="form-control text-primary my-2" id="semestre" style="width:150px">
-                      <option>Admisión</option>
-                      <option>2020-II</option>
-                      <option>2021-I</option>
-                      <option>2021-II</option>
-                      <option>2022-I</option>
-                      <option>2022-II</option>
-                  </select>
-           -->
         </div>
 
         <div class="card mb-4">
             <div class="card-header py-3">
-                <div class="input-group">
-                    <input list="students" class="form-control" name="txSearch" id="txSearch"/>
-                    <datalist id="students">
-                    </datalist>
-
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="submit" id="btSearch">
-                            <i class="fas fa-search "></i>
-                        </button>
+                <div class="row">
+                    <div class="col col-md-4 col-sm-12">
+                        <div class="input-group">
+                            <input list="students" class="form-control" name="txSearch" id="txSearch"/>
+                            <datalist id="students">
+                            </datalist>
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit" id="btSearch">
+                                    <i class="fas fa-search "></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

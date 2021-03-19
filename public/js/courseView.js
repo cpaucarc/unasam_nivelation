@@ -107,7 +107,8 @@ function fillTableWhitCourses(area, course, process) {
             data.forEach(std => {
                 let row = table.createRow(num, std.dni, std.code,
                     (std.lastname + ' ' + std.name), std.school);
-                let btnShowStudent = button.createBtnPrimary('Ver', showStudentInfo, (std.lastname + ' ' + std.name));
+                // let btnShowStudent = button.createBtnPrimary('Ver', showStudentInfo, (std.lastname + ' ' + std.name));
+                let btnShowStudent = createRedirectButton(std.stdID);
                 row.appendChild(createCell(std.stat, std.num));
                 row.appendChild(table.createCell(btnShowStudent));
                 tbody.appendChild(row);
@@ -172,17 +173,26 @@ function showStudentInfo(fullname) {
     //     console.log(reason)
     // });
 
-    let url = 'http://localhost/nivelation/bystudent.php';
-    var form = document.createElement('form');
-    form.setAttribute('action', url);
-    form.setAttribute('method', 'POST');
-    var input = document.createElement('input');
-    input.setAttribute('name', 'fullname');
-    input.setAttribute('value', fullname);
-    form.appendChild(input);
-
-    form.submit();
-    document.getElementById('aqui').appendChild(form);
+    // let url = 'http://localhost/nivelation/bystudent.php';
+    // var form = document.createElement('form');
+    // form.setAttribute('action', url);
+    // form.setAttribute('method', 'POST');
+    // var input = document.createElement('input');
+    // input.setAttribute('name', 'fullname');
+    // input.setAttribute('value', fullname);
+    // form.appendChild(input);
+    //
+    // form.submit();
+    // document.getElementById('aqui').appendChild(form);
     //window.location = url;
     //alert(fullname)
+}
+
+function createRedirectButton(id) {
+    let url = "http://localhost/nivelation/bystudent.php";
+    let btn = document.createElement('a');
+    btn.setAttribute('href', `${url}?std=${id}`);
+    btn.setAttribute('target', '_blank');
+    btn.innerText = 'Ver';
+    return btn;
 }
