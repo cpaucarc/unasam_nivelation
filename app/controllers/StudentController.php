@@ -3,7 +3,6 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
 require_once(MODEL_PATH . "StudentModel.php");
 require_once(UTIL_PATH . "JsonReader.php");
 require_once(UTIL_PATH . "Question.php");
-require_once(UTIL_PATH . "SendMessage.php");
 
 class StudentController
 {
@@ -14,7 +13,6 @@ class StudentController
 
         try {
             if ($data) {
-
                 $students = array();
                 foreach ($data as $row) {
                     $student = new StudentModel();
@@ -53,10 +51,12 @@ class StudentController
                     $student->saveQuestions();
                     $student->doClasificationOfCourses();
                 }
-                echo (new SendMessage('¡Estudiantes y sus calificaciones guardados con exito!', true))->getEncodedMessage();
+                return true;
+            } else {
+                return false;
             }
         } catch (Exception $e) {
-            echo (new SendMessage($e->getMessage(), true))->getEncodedMessage();
+            return false;
         }
     }
 }

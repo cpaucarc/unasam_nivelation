@@ -41,7 +41,7 @@
         <li class="nav-item active">
             <a class="nav-link" href="index.php">
                 <i class="fas fa-home"></i>
-                <span>Inicio del sitio <span class="badge rounded-pill bg-info text-white">starting</span></span></a>
+                <span>Inicio del sitio <span class="badge badge-warning">medio</span></span></a>
         </li>
 
 
@@ -63,11 +63,11 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Vistas por:</h6>
                     <a class="collapse-item" href="bystudent.php">Estudiante <span
-                                class="badge rounded-pill bg-warning text-white">middle</span></a>
+                                class="badge badge-success">completo</span></a>
                     <a class="collapse-item" href="bycourse.php">Curso <span
-                                class="badge rounded-pill bg-info text-white">starting</span></a>
+                                class="badge badge-primary">casi</span></a>
                     <a class="collapse-item" href="byschool.php">Escuela <span
-                                class="badge rounded-pill bg-info text-white">starting</span></a>
+                                class="badge badge-danger">falta</span></a>
                 </div>
             </div>
         </li>
@@ -84,9 +84,9 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Vista por:</h6>
                     <a class="collapse-item" href="area.php">Area <span
-                                class="badge rounded-pill bg-warning text-white">meddle</span></a>
+                                class="badge badge-danger">falta</span></a>
                     <a class="collapse-item" href="admission.php">Admisión <span
-                                class="badge rounded-pill bg-info text-white">starting</span></a>
+                                class="badge badge-danger">falta</span></a>
 
                 </div>
             </div>
@@ -111,7 +111,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Vistas de usuario</h6>
                     <a class="collapse-item" href="UserView.php">Usuarios registrados <span
-                                class="badge rounded-pill bg-primary text-white">ending</span></a>
+                                class="badge badge-primary">casi</span></a>
                     <a class="collapse-item" href="registeruser.php">Registar usuario</a>
                     <a class="collapse-item" href="editpassword.php">cambiar Contraseña</a>
                     <div class="collapse-divider"></div>
@@ -216,7 +216,7 @@
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600">
                                 <?php
-                                echo isset($_SESSION['user_logged']) ? $_SESSION['user_logged']['username'] : 'Guest'
+                                echo isset($_SESSION['user_logged']) ? ucfirst($_SESSION['user_logged']['username']) : 'Guest'
                                 ?>
                             </span>
                             <img class="img-profile rounded-circle" src="public/images/user.png">
