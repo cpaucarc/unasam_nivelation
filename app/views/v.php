@@ -17,9 +17,15 @@
 //
 ////var_dump($std->loadStudentsFromJSON($path));
 //print_r($std->loadStudentsFromJSON($path));
+include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
+require_once(MODEL_PATH . "FileModel.php");
+require_once(UTIL_PATH . "SendMessage.php");
+
+$fileModel = new FileModel();
+echo $fileModel->generateName('file me.json');
+
 
 ?>
-
 
 <!doctype html>
 <html lang="en">
@@ -34,83 +40,35 @@
 </head>
 <body>
 <div class="container mt-5">
-    <div class="row">
-        <div class="col col-md-5 col-sm-12 mb-3">
-            <div class="card bg-light">
-                <div class="card-body">
-                    <div class="col col-12">
-                        <h4>
-                            <span class="text-uppercase font-weight-bold">Paucar Colonia</span>
-                        </h4>
-                        <h4>
-                            <span class="text-capitalize">Frank César</span>
-                        </h4>
-                    </div>
-                    <div class="col-lg-12 mt-4">
-                        <h3 class="text-uppercase small">
-                            <span class="text-uppercase font-weight-bold">Escuela: </span>
-                            Ingenieria de Sistemas e Informatica
-                        </h3>
-                    </div>
-                    <div class="col-lg-12">
-                        <h3 class="text-uppercase small">
-                            <span class="text-uppercase font-weight-bold">Admision: </span>
-                            2019-II
-                        </h3>
-                    </div>
-                    <div class="col-lg-6">
-                        <h3 class="text-uppercase small">
-                            <span class="text-uppercase font-weight-bold">DNI: </span>
-                            7041368
-                        </h3>
-                    </div>
-                    <div class="col-lg-6 my-2">
-                        <h3 class="text-uppercase small">
-                            <span class="text-uppercase font-weight-bold">Código: </span>
-                            171.0147.216
-                        </h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col col-sm-12 col-md-7">
-            <div class="card">
-                <div class="card-body">
-                    <table class="table">
-                        <thead class="thead-light">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    <form action="../controllers/index/saveUploadFile.php" method="post" name="miformu" enctype="multipart/form-data"
+          id="miformu">
+        <input name="file" type="file" id="upload">
+
+        <button type="submit" name="submit">Subir</button>
+    </form>
+
+
+    <script>
+        const upload = document.getElementById('upload');
+        const miformu = document.getElementById('miformu');
+
+        miformu.addEventListener('submit', (e) => {
+            e.preventDefault();
+            console.log('Sended');
+            let formData = new FormData(miformu);
+
+            fetch('http://localhost/nivelation/app/controllers/index/saveUploadFile.php/', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data);
+                });
+        });
+
+
+    </script>
 </div>
 </body>
 </html>

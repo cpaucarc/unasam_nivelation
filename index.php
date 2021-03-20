@@ -8,26 +8,49 @@ session_start();
 <?php
 require_once "app/components/upperpart.php";
 ?>
-<!-- Begin Page Content -->
-<div class="container-fluid">
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
 
-    <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h5 mb-0 text-gray-800">Nivelación</h1>
-        <button class=" d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#file_modal">
-            <i class="fas fa-download fa-sm text-white-50"></i> Subir documento
-        </button>
-    </div>
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h5 mb-0 text-gray-800">Nivelación</h1>
 
-    <!--Ejemplo tabla con DataTables-->
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Tabla general</h6>
         </div>
-        <div class="card-body ">
-            <div class="table-responsive">
-                <table id="example2" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                    <thead>
+
+        <div class="card mb-2">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col col-sm-12 col-md-9 mb-2">
+                        <label for="lastProcess">Proceso de Admision</label>
+                        <h3 class="font-weight-bold text-primary" id="lastProcess"
+                            aria-describedby="help">
+                            Cargando...
+                        </h3>
+                        <small id="help" class="form-text text-muted">
+                            Los datos que cargue ahora se guardaran para este proceso de admisión.
+                            Puede añadir un nuevo proceso entrando a <a
+                                    href="http://localhost/nivelation/admission.php">esta pagina</a>
+                        </small>
+                    </div>
+                    <div class="col col-sm-12 col-md-3 my-auto mx-auto">
+                        <button class="btn btn-primary btn-lg" data-toggle="modal"
+                                data-target="#file_modal">
+                            <i class="fas fa-upload fa-sm text-white-50"></i> Subir documento
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Ejemplo tabla con DataTables-->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Tabla general</h6>
+            </div>
+            <div class="card-body ">
+                <div class="table-responsive">
+                    <table id="example2" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                        <thead>
                         <tr>
                             <th>Nombre</th>
                             <th>Puesto</th>
@@ -36,8 +59,8 @@ require_once "app/components/upperpart.php";
                             <th>Año de Ingreso</th>
                             <th>Salario</th>
                         </tr>
-                    </thead>
-                    <tbody>
+                        </thead>
+                        <tbody>
                         <tr>
                             <td>Tiger Nixon</td>
                             <td>Arquitecto</td>
@@ -287,50 +310,57 @@ require_once "app/components/upperpart.php";
                             <td>2011/01/25</td>
                             <td>$112,000</td>
                         </tr>
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- /.container-fluid -->
+    <!-- /.container-fluid -->
 
-<!-- Modal -->
-<div class="modal fade" id="file_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modal-title">Selector de archivos</h5>
-                <button type="button" class="close" id="cerrar_barra" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form action="" id="upload_form">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="file">Adjunto</label>
-                        <input type="file" class="form-control-file" name="file" id="file" required>
-                    </div>
-                    <div class="form-group">
-                        
-                        <div class="progress" >
-                            <div class="progress-bar progress-bar-striped progress-bar-animated " role="progressbar" id="barra_estado">afsdfasfsafasd</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-sm" id="btn_cancelar">Cancelar</button>
-                    <button type="submit" class="btn btn-primary btn-sm" id="btn_upload">Subir este archivo
+    <!-- Modal -->
+    <div class="modal fade" id="file_modal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+         aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title">Selector de archivos</h5>
+                    <button type="button" class="close" id="cerrar_barra" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-            </form>
+                <form id="upload_form">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="file">Adjunto</label>
+                            <input type="file" class="form-control-file" name="file" id="file" required>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated " role="progressbar"
+                                     id="barra_estado">afsdfasfsafasd
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light btn-sm" id="btn_cancelar" data-dismiss="modal">
+                            Cancelar
+                        </button>
+                        <button type="submit" class="btn btn-primary btn-sm" id="btn_upload">Subir este archivo
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
+
+    <script src="public/js/datatable.js"></script>
+    <!--    <script src="public/js/UploadFile.js"></script>-->
+    <script src="public/js/index.js"></script>
 
 <?php
 require_once "app/components/downpart.php";
 ?>
-<script src="public/js/datatable.js"></script>
-<script src="public/js/UploadFile.js"></script>

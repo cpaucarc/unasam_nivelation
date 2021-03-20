@@ -2,6 +2,7 @@ let barra_estado = document.querySelector('#barra_estado'),
     btn_cancelar = document.querySelector('#btn_cancelar');
 
 let file = document.querySelector('#file'), extPermitidas;
+const lastProcess = document.getElementById('lastProcess');
 
 document.addEventListener("DOMContentLoaded", () => {
     let form = document.getElementById('upload_form');
@@ -13,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(file.value);
     });
     limpiar_barra(cerrar_barra);
+    getLastProcess();
 })
 
 function limpiar_barra(close) {
@@ -65,10 +67,11 @@ function subir_archivos(form) {
 
 
 function validarExt(form) {
-    archivoRuta = file.value;
+    let archivoRuta = file.value;
     extPermitidas = /(.json)$/i;
+    console.log(archivoRuta)
     if (!extPermitidas.exec(archivoRuta)) {
-        alert('Asegurece de haber subido un archivo json');
+        alert('Asegurece de haber subido un archivo .Json');
         file.value = "";
         return false;
     } else {
@@ -76,4 +79,21 @@ function validarExt(form) {
             subir_archivos(form);
         }
     }
+}
+
+function getLastProcess() {
+    fetch('http://localhost/nivelation/app/controllers/process/getLastProcess.php/', {
+        method: 'GET',
+        headers: {
+            "Accept": "application/json"
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status) {
+                lastProcess.innerText = data.message;
+            } else {
+                alert(data.message);
+            }
+        });
 }
