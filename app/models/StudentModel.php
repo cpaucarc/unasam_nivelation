@@ -158,6 +158,7 @@ class StudentModel
             $result = $conn->query($sql)->fetch(PDO::FETCH_ASSOC);
 
             return json_encode(array(
+                "id" => $result['id'],
                 "code" => $result['code'],
                 "dni" => $result['dni'],
                 "name" => $result['name'],
@@ -177,6 +178,7 @@ class StudentModel
             $result = $conn->query($sql)->fetch(PDO::FETCH_ASSOC);
 
             return json_encode(array(
+                "id" => $result['id'],
                 "code" => $result['code'],
                 "dni" => $result['dni'],
                 "name" => $result['name'],

@@ -11,18 +11,25 @@ if (isset($_FILES['file'])) {
     $type = $file['type'];
     $temporal = $file['tmp_name'];
 
-    $fileModel = new FileModel();
-    $fileModel->setName($name);
-    $fileModel->setSize($size);
-    $fileModel->setType($type);
-    $fileModel->setTemporalDir($temporal);
+    if ($type == 'application/json') {
+        $fileModel = new FileModel();
+        $fileModel->setName($name);
+        $fileModel->setSize($size);
+        $fileModel->setType($type);
+        $fileModel->setTemporalDir($temporal);
 
-    $rsp = $fileModel->moveFileToFinalDir();
 
-    if ($rsp) {
-        echo $fileModel->getPath();
+        $rsp = $fileModel->moveFileToFinalDir();
+
+        if ($rsp) {
+            //echo $fileModel->getPath();
+            echo (new SendMessage($fileModel->getPath(), true))->getEncodedMessage();
+        } else {
+            echo (new SendMessage('Error, el archivo no fue guardado', false))->getEncodedMessage();
+        }
     } else {
-        echo 'Error';
+        echo (new SendMessage('Error, el archivo debe ser un JSON', false))->getEncodedMessage();
     }
+
 
 }
