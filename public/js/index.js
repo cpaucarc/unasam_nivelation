@@ -1,5 +1,5 @@
 const lastProcess = document.getElementById('lastProcess');
-const uploadForm = document.getElementById('upload_form');
+const uploadForm = document.getElementById('upload_file');
 
 window.addEventListener('load', () => {
     getLastProcess();

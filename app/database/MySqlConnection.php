@@ -15,7 +15,7 @@ class MySqlConnection
         $this->host = "localhost";
         $this->db = "nivelation";
         $this->user = "root";
-        $this->password = "1234";
+        $this->password = "";
         $this->port = "3306";
     }
 
