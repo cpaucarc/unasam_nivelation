@@ -76,7 +76,7 @@ CREATE TABLE `persons` (
   `lastname` varchar(45) NOT NULL,
   `dni` varchar(8) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85,7 +85,7 @@ CREATE TABLE `persons` (
 
 LOCK TABLES `persons` WRITE;
 /*!40000 ALTER TABLE `persons` DISABLE KEYS */;
-INSERT INTO `persons` VALUES (1,'Pedro','Hernandez','77458745'),(2,'Jaime','Lopez','96587412'),(3,'Pedro Fernando','Sanchez Duran','74125896'),(4,'Carlos','Dominguez','74125476'),(5,'Jose','Huaman','41741528'),(6,'Julio','Quispe','74857963'),(7,'Luis','Mamani','71254639'),(8,'Fernando','Ramirez','06325874'),(9,'Gabriela','Huaman','25241523'),(10,'Angel','Pagola','25478147'),(11,'Pedro Fidencio','Mamani Lopez','69857412'),(12,'Luisa','Campos Huaman','25558147'),(13,'Angela','Poma','95115141'),(14,'Pedro','Saenz','41999457'),(15,'Juan','Flores Ramos','04977410'),(16,'James','Franco','00125896'),(17,'Raquel','Castillo Lopez','61257784'),(18,'Barack','Obama','01471005'),(19,'Jorge','Del Solar','12332100'),(20,'Martin','Vizcarra','63636310'),(21,'Clarence','Revival','84332009'),(22,'Pedro','Flores','65215474'),(23,'Amadeo','Pinzon','96587411'),(24,'Luis','Sanches','96587993'),(25,'Sandra','Monserat','96325879'),(26,'Paolo','Guerrero','14521452'),(27,'Carlos','Ramirez','95145602'),(28,'Alan','Garcia','95159874');
+INSERT INTO `persons` VALUES (1,'Pedro','Hernandez','77458745'),(2,'Jaime','López','96587412'),(3,'Pedro Fernando','Sanchez Duran','74125896'),(4,'Carlos','Dominguez','74125476'),(5,'José','Huaman','41741528'),(6,'Julio','Quispe','74857963'),(7,'Luis','Mamani','71254639'),(8,'Fernando','Ramírez','06325874'),(9,'Gabriela','Huaman','25241523'),(10,'Angel','Pagola','25478147'),(11,'Pedro Fidencio','Mamani Lopez','69857412'),(12,'Luisa','Campos Huaman','25558147'),(13,'Angela','Poma','95115141'),(14,'Pedro','Saenz','41999457'),(15,'Juan','Flores Ramos','04977410'),(16,'James','Franco','00125896'),(17,'Raquel','Castillo Lopez','61257784'),(18,'Barack','Obama','01471005'),(19,'Jorge','Del Solar','12332100'),(20,'Martin','Vizcarra','63636310'),(21,'Clarence','Revival','84332009'),(22,'Pedro','Flores','65215474'),(23,'Amadeo','Pinzon','96587411'),(24,'Luis','Sanches','96587993'),(25,'Sandra','Monserat','96325879'),(26,'Paolo','Guerrero','14521452'),(27,'Carlos','Ramirez','95145602'),(28,'Alan','Garcia','95159874'),(29,'John Darel','Stevenson Fallman','41040549'),(30,'John','Doe','70100054'),(31,'Darlene Maryella','Caldas Cueva','02112103'),(32,'Guillermo Damian','Flores Vega','49780019');
 /*!40000 ALTER TABLE `persons` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,7 +131,7 @@ CREATE TABLE `questions` (
   KEY `fk_questions_students1_idx` (`students_id`),
   CONSTRAINT `fk_questions_courses1` FOREIGN KEY (`courses_id`) REFERENCES `courses` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_questions_students1` FOREIGN KEY (`students_id`) REFERENCES `students` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,7 +140,7 @@ CREATE TABLE `questions` (
 
 LOCK TABLES `questions` WRITE;
 /*!40000 ALTER TABLE `questions` DISABLE KEYS */;
-INSERT INTO `questions` VALUES (1,1,0,4,1),(2,2,1,8,1),(3,3,0,9,1),(4,1,1,4,7),(5,1,1,4,8),(6,2,0,7,8),(7,100,1,8,8),(8,1,1,4,9),(9,5,0,9,9),(10,58,0,8,9),(11,49,0,4,10),(12,69,1,7,10),(13,89,1,8,10),(14,11,1,4,11),(15,39,0,9,11),(16,49,0,8,11),(17,50,1,8,11),(18,51,1,8,11),(19,52,1,8,11);
+INSERT INTO `questions` VALUES (1,1,0,4,1),(2,2,1,8,1),(3,3,0,9,1),(4,1,1,4,7),(5,1,1,4,8),(6,2,0,7,8),(7,100,1,8,8),(8,1,1,4,9),(9,5,0,9,9),(10,58,0,8,9),(11,49,0,4,10),(12,69,1,7,10),(13,89,1,8,10),(14,11,1,4,11),(15,39,0,9,11),(16,49,0,8,11),(17,50,1,8,11),(18,51,1,8,11),(19,52,1,8,11),(20,1,1,6,12),(21,2,1,6,12),(22,3,0,6,12),(23,4,0,6,12),(24,5,1,6,12),(25,6,1,6,12),(26,7,1,6,12),(27,8,0,6,12),(28,25,0,7,12),(29,26,0,7,12),(30,27,0,7,12),(31,28,1,7,12),(32,29,0,7,12),(33,30,1,7,12),(34,31,0,7,12),(35,89,1,8,12),(36,90,0,8,12),(37,91,1,8,12),(38,92,0,8,12),(39,93,1,8,12),(40,94,1,8,12),(41,95,1,8,12),(42,96,1,8,12),(43,97,1,8,12),(44,98,0,8,12),(45,99,1,8,12),(46,100,1,8,12),(47,1,1,6,13),(48,2,1,6,13),(49,3,0,6,13),(50,4,0,6,13),(51,5,1,6,13),(52,6,1,6,13),(53,7,1,6,13),(54,8,0,6,13),(55,25,0,7,13),(56,26,0,7,13),(57,27,0,7,13),(58,28,1,7,13),(59,29,0,7,13),(60,30,1,7,13),(61,31,0,7,13),(62,89,1,8,13),(63,90,0,8,13),(64,91,1,8,13),(65,92,0,8,13),(66,93,1,8,13),(67,94,1,8,13),(68,95,1,8,13),(69,96,1,8,13),(70,97,1,8,13),(71,98,0,8,13),(72,99,1,8,13),(73,100,1,8,13),(74,1,1,4,14),(75,2,1,4,14),(76,3,1,4,14),(77,4,0,4,14),(78,5,0,9,14),(79,6,1,9,14),(80,7,0,9,14),(81,8,0,9,14),(82,9,0,9,14),(83,10,0,9,14),(84,85,0,8,14),(85,86,0,8,14),(86,87,1,8,14),(87,89,0,8,14),(88,90,1,8,14),(89,1,1,6,15),(90,2,1,6,15),(91,3,0,6,15),(92,4,0,6,15),(93,5,1,6,15),(94,6,1,6,15),(95,7,1,6,15),(96,8,0,6,15),(97,9,1,6,15),(98,10,0,6,15),(99,11,0,6,15),(100,12,1,6,15),(101,25,0,7,15),(102,26,0,7,15),(103,27,0,7,15),(104,28,1,7,15),(105,29,0,7,15),(106,30,1,7,15),(107,31,0,7,15),(108,32,1,7,15),(109,33,0,7,15),(110,34,0,7,15),(111,35,0,7,15),(112,36,0,7,15),(113,86,0,9,15),(114,87,1,9,15),(115,88,0,9,15),(116,89,1,9,15),(117,90,0,9,15),(118,91,1,9,15),(119,92,0,9,15),(120,93,1,9,15),(121,94,1,9,15),(122,95,1,9,15),(123,96,0,9,15),(124,97,1,9,15),(125,98,0,9,15),(126,99,1,9,15),(127,100,0,9,15);
 /*!40000 ALTER TABLE `questions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -165,7 +165,7 @@ CREATE TABLE `ranks` (
   CONSTRAINT `fk_table1_areas1` FOREIGN KEY (`areas_id`) REFERENCES `areas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_table1_courses1` FOREIGN KEY (`courses_id`) REFERENCES `courses` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_table1_process1` FOREIGN KEY (`process_id`) REFERENCES `process` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,7 +174,7 @@ CREATE TABLE `ranks` (
 
 LOCK TABLES `ranks` WRITE;
 /*!40000 ALTER TABLE `ranks` DISABLE KEYS */;
-INSERT INTO `ranks` VALUES (4,4,5,2,41,56),(5,8,8,2,50,60),(6,9,8,2,25,43),(7,4,8,2,30,50),(8,8,8,3,52,71),(9,4,5,3,50,70),(10,7,5,3,60,80),(11,8,5,3,40,60);
+INSERT INTO `ranks` VALUES (4,4,5,2,41,56),(5,8,8,2,50,60),(6,9,8,2,25,43),(7,4,8,2,30,50),(8,8,8,3,52,71),(9,4,5,3,50,70),(10,7,5,3,60,80),(11,8,5,3,40,60),(12,6,5,11,40,60),(13,7,5,11,51,59),(14,8,5,11,23,84),(15,4,8,11,29,45),(16,9,8,11,36,65),(17,8,8,11,61,78);
 /*!40000 ALTER TABLE `ranks` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -291,7 +291,7 @@ CREATE TABLE `students` (
   PRIMARY KEY (`id`),
   KEY `fk_students_persons1_idx` (`persons_id`),
   CONSTRAINT `fk_students_persons1` FOREIGN KEY (`persons_id`) REFERENCES `persons` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -300,7 +300,7 @@ CREATE TABLE `students` (
 
 LOCK TABLES `students` WRITE;
 /*!40000 ALTER TABLE `students` DISABLE KEYS */;
-INSERT INTO `students` VALUES (1,'125.1245.147',1),(2,'125.1475.366',2),(3,'171.2056.014',3),(4,'161.2974.064',4),(5,'191.2007.007',5),(6,'181.2374.044',6),(7,'121.2987.621',7),(8,'161.2417.364',8),(9,'131.2607.071',9),(10,'171.2017.369',10),(11,'131.2607.071',11);
+INSERT INTO `students` VALUES (1,'125.1245.147',1),(2,'125.1475.366',2),(3,'171.2056.014',3),(4,'161.2974.064',4),(5,'191.2007.007',5),(6,'181.2374.044',6),(7,'121.2987.621',7),(8,'161.2417.364',8),(9,'131.2607.071',9),(10,'171.2017.369',10),(11,'131.2607.071',11),(12,'103.4640.010',29),(13,'123.4562.789',30),(14,'101.2007.031',31),(15,'133.9514.730',32);
 /*!40000 ALTER TABLE `students` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -323,7 +323,7 @@ CREATE TABLE `students_courses` (
   CONSTRAINT `fk_students_courses_courses1` FOREIGN KEY (`courses_id`) REFERENCES `courses` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_students_courses_nivelation_status1` FOREIGN KEY (`status_id`) REFERENCES `status` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_students_courses_students1` FOREIGN KEY (`students_id`) REFERENCES `students` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -332,7 +332,7 @@ CREATE TABLE `students_courses` (
 
 LOCK TABLES `students_courses` WRITE;
 /*!40000 ALTER TABLE `students_courses` DISABLE KEYS */;
-INSERT INTO `students_courses` VALUES (1,5,1,1),(2,4,1,8),(3,7,3,8),(4,8,1,8);
+INSERT INTO `students_courses` VALUES (1,5,1,1),(2,4,1,8),(3,7,3,8),(4,8,1,8),(5,6,1,13),(6,7,3,13),(7,8,2,13),(8,4,1,14),(9,9,3,14),(10,8,3,14),(11,6,2,15),(12,7,3,15);
 /*!40000 ALTER TABLE `students_courses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -352,7 +352,7 @@ CREATE TABLE `students_process` (
   KEY `fk_students_process_students1_idx` (`students_id`),
   CONSTRAINT `fk_students_process_process1` FOREIGN KEY (`process_id`) REFERENCES `process` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_students_process_students1` FOREIGN KEY (`students_id`) REFERENCES `students` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -361,7 +361,7 @@ CREATE TABLE `students_process` (
 
 LOCK TABLES `students_process` WRITE;
 /*!40000 ALTER TABLE `students_process` DISABLE KEYS */;
-INSERT INTO `students_process` VALUES (1,2,1),(2,2,2),(3,2,3),(4,2,4),(5,2,5),(6,2,6),(7,2,7),(8,3,8),(9,3,9),(10,3,10),(11,3,11);
+INSERT INTO `students_process` VALUES (1,2,1),(2,2,2),(3,2,3),(4,2,4),(5,2,5),(6,2,6),(7,2,7),(8,3,8),(9,3,9),(10,3,10),(11,3,11),(12,11,12),(13,11,13),(14,11,14),(15,11,15);
 /*!40000 ALTER TABLE `students_process` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -381,7 +381,7 @@ CREATE TABLE `students_schools` (
   KEY `fk_students_schools_students1_idx` (`students_id`),
   CONSTRAINT `fk_students_schools_schools1` FOREIGN KEY (`schools_id`) REFERENCES `schools` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_students_schools_students1` FOREIGN KEY (`students_id`) REFERENCES `students` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -390,7 +390,7 @@ CREATE TABLE `students_schools` (
 
 LOCK TABLES `students_schools` WRITE;
 /*!40000 ALTER TABLE `students_schools` DISABLE KEYS */;
-INSERT INTO `students_schools` VALUES (1,5,2),(2,6,1),(3,5,4),(4,7,5),(5,5,6),(6,6,7),(7,6,8),(8,7,9),(9,6,10),(10,7,11);
+INSERT INTO `students_schools` VALUES (1,5,2),(2,6,1),(3,5,4),(4,7,5),(5,5,6),(6,6,7),(7,6,8),(8,7,9),(9,6,10),(10,7,11),(11,6,12),(12,6,13),(13,7,14),(14,5,15);
 /*!40000 ALTER TABLE `students_schools` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -642,12 +642,16 @@ SET @processID = (SELECT process_id FROM students_process WHERE students_id = st
 SET @min = (SELECT minimal FROM ranks WHERE areas_id = @areaID AND courses_id = coID AND process_id = @processID);
 SET @max = (SELECT maximun FROM ranks WHERE areas_id = @areaID AND courses_id = coID AND process_id = @processID);
 
-IF (@percent < @min) THEN
-	SET response = 3; -- 'Requiere nivelacion'
-ELSEIF (@percent BETWEEN @min AND @max) THEN
-	SET response = 2; -- 'Necesita nivelacion, no urgente'    
-ELSEIF (@percent > @max) THEN
-	SET response = 1; -- 'No necesita nivelacion'
+IF (@min IS NOT NULL AND @max IS NOT NULL) THEN
+	IF (@percent < @min) THEN
+		SET response = 3; -- 'Requiere nivelacion'
+	ELSEIF (@percent BETWEEN @min AND @max) THEN
+		SET response = 2; -- 'Necesita nivelacion, no urgente'    
+	ELSEIF (@percent > @max) THEN
+		SET response = 1; -- 'No necesita nivelacion'
+	END IF;
+ELSE
+	SET response = 0;
 END IF;
 
 RETURN response;
@@ -792,6 +796,39 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `spCreateAndAssignCourse` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spCreateAndAssignCourse`(in _course varchar(45), schoolID TINYINT, procID TINYINT)
+BEGIN
+
+	SET @courseID = (SELECT id FROM courses WHERE name = _course);
+    SET @areaID = (SELECT areas_id FROM schools WHERE id = schoolID);
+        
+    IF (@courseID IS NULL) THEN 
+		INSERT INTO courses VALUES (null, _course);
+        SET @courseID = (SELECT id FROM courses WHERE name = _course);
+    end if;
+
+	SET @existInRanks = (SELECT id FROM ranks WHERE courses_id = @courseID AND areas_id = @areaID AND process_id = procID);
+    
+    IF (@existInRanks IS NULL) THEN
+		INSERT INTO ranks VALUES (null, @courseID, @areaID, procID, 50, 80);
+    END IF;    
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `spDoCourseClasify` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -818,10 +855,13 @@ OPEN courses_cursor;
     
 		FETCH courses_cursor INTO courseID;
 
-			IF done THEN LEAVE loop1;
-			END IF;
-         
-        INSERT INTO students_courses VALUES (null, courseID, getStudentStatusInCourse(stID, courseID), stID);
+		IF done THEN LEAVE loop1;
+		END IF;
+		
+        SET @statusID = getStudentStatusInCourse(stID, courseID);
+        IF (@statusID > 0) THEN
+			INSERT INTO students_courses VALUES (null, courseID, @statusID, stID);
+        END IF;
         
 	END LOOP loop1;
 
@@ -908,7 +948,23 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `spSaveQuestionsByStudent`(_number TINYINT, _response BINARY, _course varchar(45), _student_id SMALLINT)
 BEGIN
 
-	INSERT INTO questions VALUES (null, _number, _response, (SELECT id FROM courses WHERE name = _course), _student_id);
+	SET @courseID = (SELECT id FROM courses WHERE name = _course);
+	
+    IF (@courseID IS NULL) THEN
+		SET @schoolID = (SELECT schools_id FROM students_schools WHERE students_id = _student_id);
+		SET @procID = (SELECT process_id FROM students_process WHERE students_id = _student_id);
+		CALL spCreateAndAssignCourse(_course, @schoolID, @procID);
+		SET @courseID = (SELECT id FROM courses WHERE name = _course);
+    END IF;	
+    
+    SET @existQuestion = (SELECT id FROM questions WHERE number = _number and students_id = _student_id);
+    
+    IF (@existQuestion IS NULL) THEN
+		INSERT INTO questions VALUES (null, _number, _response, @courseID, _student_id);
+	ELSE
+		UPDATE questions SET response = _response, courses_id = @courseID WHERE id = @existQuestion;
+    END IF;
+	
 
 END ;;
 DELIMITER ;
@@ -929,17 +985,33 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `spSaveStudent`(_name varchar(45), _lastname  varchar(45), _dni varchar(8), _code varchar(12), _school varchar(50))
 BEGIN
 
-	INSERT INTO persons VALUES (null, _name, _lastname, _dni);
+	SET @person_id = (SELECT id FROM persons WHERE dni = _dni);
     
-    SET @person_id = (SELECT id FROM persons WHERE dni = _dni);
+    if (@person_id IS NULL) THEN
+		INSERT INTO persons VALUES (null, _name, _lastname, _dni);		
+		SET @person_id = (SELECT id FROM persons WHERE dni = _dni);
+    end if;
     
-    INSERT INTO students VALUES (null, _code, @person_id);
-
-	SET @student_id = (SELECT id FROM students WHERE persons_id = @person_id);
+    SET @student_id = (SELECT id FROM students WHERE persons_id = @person_id);
     
-    INSERT INTO students_schools VALUES (null, (SELECT id FROM schools WHERE name = _school), @student_id);
+    if (@student_id IS NULL) THEN
+		INSERT INTO students VALUES (null, _code, @person_id);
+		SET @student_id = (SELECT id FROM students WHERE persons_id = @person_id);
+    end if;
     
-    INSERT INTO students_process VALUES (null, getLastProcess(), @student_id);
+    SET @schoolID = (SELECT id FROM schools WHERE name = _school);
+    SET @isRegisteredInStSc = (SELECT id FROM students_schools WHERE schools_id = @schoolID AND students_id = @student_id);
+    
+    IF (@isRegisteredInStSc IS NULL) THEN
+		INSERT INTO students_schools VALUES (null, @schoolID, @student_id);
+    end if;
+    
+    SET @procID = (SELECT id FROM process WHERE denomination = getLastProcess());
+    SET @isRegisteredInStPc = (SELECT id FROM students_process WHERE process_id = @procID AND students_id = @student_id);
+    
+    if(@isRegisteredInStPc IS NULL) then
+		INSERT INTO students_process VALUES (null, @procID, @student_id);
+    end if;
 
 END ;;
 DELIMITER ;
@@ -1236,4 +1308,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-03-18 21:42:28
+-- Dump completed on 2021-03-21 14:22:34
