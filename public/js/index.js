@@ -8,14 +8,15 @@ window.addEventListener('load', () => {
 uploadForm.addEventListener('submit', (e) => {
     e.preventDefault();
     let formData = new FormData(uploadForm);
-    console.log('one');
     // console.log(saveFile(formData));
-    saveFile(formData).then(text => {
-        //console.log(text);
-        processStudentsData(text)
-        // console.log(typeof text);
-    })
-    console.log('two');
+    saveFile(formData).then(data => {
+        console.log(data);
+        if (data.status === true) {
+            processStudentsData(data.message);
+        } else {
+            alert(data.message)
+        }
+    });
 
 });
 
@@ -52,7 +53,7 @@ async function saveFile(formData) {
         method: 'POST',
         body: formData
     });
-    return await response.text();
+    return await response.json();
 }
 
 async function processStudentsData(path) {

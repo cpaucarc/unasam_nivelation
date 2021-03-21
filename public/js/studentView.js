@@ -4,6 +4,8 @@ const btSearch = document.getElementById('btSearch');
 const txSearch = document.getElementById('txSearch');
 const tbBody = document.getElementById('table-courses-body');
 const stdID = parseInt(document.getElementById('stdID').value);
+const stdIDPDF = document.getElementById('stdIDPDF');
+const btShowPDF = document.getElementById('btShowPDF');
 card = new Card();
 table = new Table();
 
@@ -30,6 +32,12 @@ txSearch.addEventListener('keyup', () => {
     getStudentsLike(txSearch.value);
 });
 
+btShowPDF.addEventListener('click', () => {
+    let id = parseInt(stdIDPDF.value);
+    if (id > 0) {
+
+    }
+});
 
 function getStudentsLike(pattern) {
     let formData = new FormData();
@@ -126,15 +134,18 @@ function getStudentInfoByID(id) {
     })
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             notStdInfo.innerHTML = '';
             stdInfoCard.innerHTML = card.getStudentInfoCard(
                 data.lastname, data.name, data.school, data.dni, data.code, data.process
             );
+            stdIDPDF.value = data.id;
         })
         .catch(function () {
             stdInfoCard.innerHTML = '';
             notStdInfo.innerHTML = card.getNotStudentSelectedCard();
             tbBody.innerHTML = '';
+            stdIDPDF.value = '0';
         });
 }
 
@@ -151,15 +162,18 @@ function getStudentInfo(fullname) {
     })
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             stdInfoCard.innerHTML = card.getStudentInfoCard(
                 data.lastname, data.name, data.school, data.dni, data.code, data.process
             );
             notStdInfo.innerHTML = '';
+            stdIDPDF.value = data.id;
         })
         .catch(function () {
             stdInfoCard.innerHTML = '';
             notStdInfo.innerHTML = card.getNotStudentSelectedCard();
             tbBody.innerHTML = '';
+            stdIDPDF.value = '0';
         });
 }
 

@@ -49,23 +49,23 @@ echo $fileModel->generateName('file me.json');
 
 
     <script>
-        const upload = document.getElementById('upload');
-        const miformu = document.getElementById('miformu');
-
-        miformu.addEventListener('submit', (e) => {
-            e.preventDefault();
-            console.log('Sended');
-            let formData = new FormData(miformu);
-
-            fetch('http://localhost/nivelation/app/controllers/index/saveUploadFile.php/', {
-                method: 'POST',
-                body: formData
-            })
-                .then(response => response.text())
-                .then(data => {
-                    console.log(data);
-                });
-        });
+        // const upload = document.getElementById('upload');
+        // const miformu = document.getElementById('miformu');
+        //
+        // miformu.addEventListener('submit', (e) => {
+        //     e.preventDefault();
+        //     console.log('Sended');
+        //     let formData = new FormData(miformu);
+        //
+        //     fetch('http://localhost/nivelation/app/controllers/index/saveUploadFile.php/', {
+        //         method: 'POST',
+        //         body: formData
+        //     })
+        //         .then(response => response.text())
+        //         .then(data => {
+        //             console.log(data);
+        //         });
+        // });
 
 
     </script>

@@ -12,7 +12,7 @@ require_once "app/components/upperpart.php";
     <!-- Begin Page Content -->
     <div class="container-fluid">
         <div class="hide">
-            <input type="hidden" id="stdID" class="" value="<?php echo $stdID ?>">
+            <input type="hidden" id="stdID" class="" value="<?php echo $stdID; ?>">
         </div>
 
         <!-- Page Heading -->
@@ -22,8 +22,23 @@ require_once "app/components/upperpart.php";
 
         <div class="card mb-4">
             <div class="card-header py-3">
-                <div class="row">
-                    <div class="col col-md-4 col-sm-12">
+                <!--                <div class="row">-->
+                <!--                    <div class="col col-md-4 col-sm-12">-->
+                <!--                        <div class="input-group">-->
+                <!--                            <input list="students" class="form-control" name="txSearch" id="txSearch"/>-->
+                <!--                            <datalist id="students">-->
+                <!--                            </datalist>-->
+                <!--                            <div class="input-group-append">-->
+                <!--                                <button class="btn btn-primary" type="submit" id="btSearch">-->
+                <!--                                    <i class="fas fa-search "></i>-->
+                <!--                                </button>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!--                Prueba-->
+                <div class="d-flex justify-content-between">
+                    <div class="cp-2 bd-highlight">
                         <div class="input-group">
                             <input list="students" class="form-control" name="txSearch" id="txSearch"/>
                             <datalist id="students">
@@ -34,6 +49,15 @@ require_once "app/components/upperpart.php";
                                 </button>
                             </div>
                         </div>
+                    </div>
+                    <div class="ml-auto bd-highlight">
+                        <form action="http://localhost/nivelation/app/reports/student.php" method="post">
+                            <input name="stdIDPDF" id="stdIDPDF" type="text" value="<?php echo $stdID; ?>">
+                            <button type="submit" id="btShowPDF" class="btn btn-outline-danger">
+                                <i class="fas fa-file-pdf"></i>
+                            </button>
+                        </form>
+
                     </div>
                 </div>
             </div>
