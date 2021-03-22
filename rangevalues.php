@@ -30,8 +30,8 @@ require_once "app/components/upperpart.php";
             </div>
             <div class="card-body">
                 <h5 class="card-title text-primary">Rango de Valores del Area
-                    <span id="selectedArea" class="font-weight-bold">A</span> en el proceso
-                    <span id="selectedProcess" class="font-weight-bold">2019-II</span>
+                    <span id="selectedArea" class="font-weight-bold">?</span> en el proceso
+                    <span id="selectedProcess" class="font-weight-bold">?</span>
                 </h5>
                 <!--Botones-->
                 <div class="my-4">

@@ -20,9 +20,6 @@ if (isset($_POST['stdIDPDF'])) {
     $fontSizeTableHeader = 9;
     $fontSizeTableBody = 9;
 
-//    $stdID = 15;
-
-
     if ($stdID > 0) {
         $pdf = new PDF('P', 'mm', 'A4');
         $pdf->AliasNbPages();
@@ -101,11 +98,14 @@ if (isset($_POST['stdIDPDF'])) {
         $pdf->Output();
 
     } else {
-        echo 'es 0';
-
+        echo 'Error, no se ha especificado el estudiante';
+        echo '</br>';
+        echo '<a href="http://localhost/nivelation/bystudent.php">Volver</a>';
     }
 } else {
-    echo 'Error';
+    echo 'Error, no se ha especificado el estudiante.';
+    echo '</br>';
+    echo '<a href="http://localhost/nivelation/bystudent.php">Volver</a>';
 }
 
 ?>

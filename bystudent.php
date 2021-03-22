@@ -52,7 +52,7 @@ require_once "app/components/upperpart.php";
                     </div>
                     <div class="ml-auto bd-highlight">
                         <form action="http://localhost/nivelation/app/reports/student.php" method="post">
-                            <input name="stdIDPDF" id="stdIDPDF" type="text" value="<?php echo $stdID; ?>">
+                            <input name="stdIDPDF" id="stdIDPDF" type="hidden" value="<?php echo $stdID; ?>">
                             <button type="submit" id="btShowPDF" class="btn btn-outline-danger">
                                 <i class="fas fa-file-pdf"></i>
                             </button>

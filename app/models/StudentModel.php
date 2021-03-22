@@ -148,6 +148,28 @@ class StudentModel
         return json_encode($response);
     }
 
+    public function getStudentsbySchool($school, $process)
+    {
+        //This function is used in byschool view
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "call spShowStudentsBySchool('" . $school . "', '" . $process . "');";
+
+        $response['students'] = array();
+
+        foreach ($conn->query($sql) as $row) {
+            $course = array();
+
+            $course['id'] = $row['id'];
+            $course['dni'] = $row['dni'];
+            $course['name'] = $row['name'];
+            $course['lastname'] = $row['lastname'];
+            $course['code'] = $row['code'];
+
+            array_push($response['students'], $course);
+        }
+        return json_encode($response);
+    }
+
     public function getStudentInfoByID()
     {
         $conn = (new MySqlConnection())->getConnection();

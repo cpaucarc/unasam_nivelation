@@ -10,6 +10,8 @@ require_once "app/components/upperpart.php";
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
+    <h2 class="text-dark">Reporte por cursos</h2>
+
     <div class="card">
         <div class="card-header">
             <div class="d-flex bd-highlight mb-3">
@@ -54,11 +56,6 @@ require_once "app/components/upperpart.php";
 
                 </tbody>
             </table>
-
-            <div id="aqui">
-                
-            </div>
-
         </div>
     </div>
 
