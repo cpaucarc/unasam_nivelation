@@ -31,4 +31,57 @@ class SchoolsModel
         return json_encode($response);
     }
 
+    public function getSchoolsByArea()
+    {
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "SELECT * FROM schools WHERE areas_id = (SELECT id FROM areas WHERE name = '" . $this->area . "');;";
+
+        $response['schools'] = array();
+
+        foreach ($conn->query($sql) as $row) {
+            $school = array();
+
+            $school['name'] = $row['name'];
+            $school['id'] = $row['id'];
+            $school['areas_id'] = $row['areas_id'];
+
+            array_push($response['schools'], $school);
+        }
+        return json_encode($response);
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    public function getArea()
+    {
+        return $this->area;
+    }
+
+    public function setArea($area)
+    {
+        $this->area = $area;
+        return $this;
+    }
+
+
 }

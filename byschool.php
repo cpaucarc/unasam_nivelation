@@ -1,4 +1,8 @@
 <?php
+session_start();
+?>
+
+<?php
 require_once "app/components/upperpart.php";
 ?>
 
@@ -6,107 +10,61 @@ require_once "app/components/upperpart.php";
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
-    <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h5 mb-0 text-gray-800">Reporte por escuela</h1>
-<!--         <select class="form-control form-control text-primary" id="semestre" style="width:150px">
-            <option>Admisión</option>
-            <option>2020-II</option>
-            <option>2021-I</option>
-            <option>2021-II</option>
-            <option>2022-I</option>
-            <option>2022-II</option>
-        </select>
- -->
-    </div>
+    <h2 class="text-dark">Reporte por escuelas</h2>
 
-    <!-- Default Card Example -->
-    <div class="card mb-4 w-100">
-        <div class="card-header py-3">
-            <div class="input-group">
-                <input list="students" class="form-control" name="txSearch" id="txSearch" />
-                <datalist id="students">
-                    <option value="Chrome">
-                    <option value="Firefox">
-                    <option value="Internet Explorer">
-                    <option value="Opera">
-                    <option value="Safari">
-                    <option value="Microsoft Edge">
-                </datalist>
-
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="submit" id="btSearch">
-                        <i class="fas fa-search "></i>
-                    </button>
+    <div class="card">
+        <div class="card-header">
+            <div class="d-flex bd-highlight mb-3">
+                <div class="bd-highlight">
+                    <label for="area">Area</label>
+                    <select class="form-control" id="area">
+                        <option value="0">Selecciona...</option>
+                        <option value="1">A</option>
+                        <option value="2">B</option>
+                        <option value="3">C</option>
+                        <option value="4">D</option>
+                    </select>
+                </div>
+                <div class="ml-4 bd-highlight">
+                    <label for="school">Escuelas</label>
+                    <select class="form-control" id="school">
+                    </select>
+                </div>
+                <div class="ml-auto bd-highlight">
+                    <label for="process">Proceso de Admisión</label>
+                    <select class="form-control" id="process">
+                    </select>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- DataTales Example -->
-    <div class="card shadow mb-4">
-        <div class="card-header py-3 d-sm-flex align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Tabla escuelas</h6>
-            <select class="form-control text-primary" id="semestre" style="width:150px">
-                <option>Admisión</option>
-                <option>2020-II</option>
-                <option>2021-I</option>
-                <option>2021-II</option>
-                <option>2022-I</option>
-                <option>2022-II</option>
-            </select>
-        </div>
-        <div class="card-body ">
-            <div class="table-responsive">
-                <table id="example2" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                    <thead>
-                        <tr class="text-center">
-                            <th>#</th>
-                            <th>Nombre</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Ingeniería de Sistemas e Informática</td>
-                            <td class="text-center">
-                                <div class="btn-group">
-                                    <button class="btn btn-warning btnEditar" data-toggle="modal" data-target="#school_modal"><i class="fas fa-edit"></i></button>
-                                    <button class="btn btn-danger btnEliminar"><i class="fas fa-trash-alt"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Ingeniería de Civil</td>
-                            <td class="text-center">
-                                <div class="btn-group">
-                                    <button class="btn btn-warning btnEditar" data-toggle="modal" data-target="#school_modal"><i class="fas fa-edit"></i></button>
-                                    <button class="btn btn-danger btnEliminar"><i class="fas fa-trash-alt"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Ingeniería de Industrial</td>
-                            <td class="text-center">
-                                <div class="btn-group">
-                                    <button class="btn btn-warning btnEditar" data-toggle="modal" data-target="#school_modal"><i class="fas fa-edit"></i></button>
-                                    <button class="btn btn-danger btnEliminar"><i class="fas fa-trash-alt"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+        <div class="card-body">
 
+            <!--Tabla-->
+            <table class="table mt-2" id="table-students">
+                <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">DNI</th>
+                    <th scope="col">Código</th>
+                    <th scope="col">Alumno</th>
+                    <th scope="col">Acción</th>
+                </tr>
+                </thead>
+                <tbody id="tbody">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 </div>
 <!-- /.container-fluid -->
 
+<script src="public/js/components/Table.js"></script>
+<script src="public/js/components/Button.js"></script>
+<script src="public/js/schoolsView.js"></script>
+
 <?php
 require_once "app/components/downpart.php";
 ?>
-<script src="public/js/datatable.js"></script>
+<!--<script src="public/js/datatable.js"></script>-->

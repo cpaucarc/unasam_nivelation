@@ -65,9 +65,9 @@
                     <a class="collapse-item" href="bystudent.php">Estudiante <span
                                 class="badge badge-success">completo</span></a>
                     <a class="collapse-item" href="bycourse.php">Curso <span
-                                class="badge badge-primary">casi</span></a>
+                                class="badge badge-success">completo</span></a>
                     <a class="collapse-item" href="byschool.php">Escuela <span
-                                class="badge badge-danger">falta</span></a>
+                                class="badge badge-success">completo</span></a>
                 </div>
             </div>
         </li>
@@ -83,6 +83,8 @@
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Vista por:</h6>
+                    <a class="collapse-item" href="rangevalues.php">Rangos <span
+                                class="badge badge-primary">casi</span></a>
                     <a class="collapse-item" href="area.php">Area <span
                                 class="badge badge-danger">falta</span></a>
                     <a class="collapse-item" href="admission.php">Admisión <span

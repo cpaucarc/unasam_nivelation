@@ -191,8 +191,11 @@ function showStudentInfo(fullname) {
 function createRedirectButton(id) {
     let url = "http://localhost/nivelation/bystudent.php";
     let btn = document.createElement('a');
+    btn.classList.add('btn');
+    btn.classList.add('btn-link');
     btn.setAttribute('href', `${url}?std=${id}`);
     btn.setAttribute('target', '_blank');
+    btn.setAttribute('role', 'button');
     btn.innerText = 'Ver';
     return btn;
 }
