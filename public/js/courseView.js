@@ -3,6 +3,15 @@ const cbCourse = document.getElementById('course');
 const cbProcess = document.getElementById('process');
 const tbody = document.getElementById('tbody');
 
+//for fpdf
+
+let btShowPDF = document.getElementById('btShowPDF');
+
+let csAREAPDF = document.getElementById('csAREAPDF');
+let csCOURSEPDF = document.getElementById('csCOURSEPDF');
+let csPROCESSPDF = document.getElementById('csPROCESSPDF');
+
+
 table = new Table();
 button = new Button();
 
@@ -10,6 +19,10 @@ window.onload = function () {
     console.log('cargo con exito');
     fillWhitCourses();
     fillWhitProcess();
+    //for fpdf
+    csAREAPDF.value = "";
+    csCOURSEPDF.value = "";
+    csPROCESSPDF.value = "";
 };
 
 cbArea.addEventListener('change', () => {
@@ -90,6 +103,10 @@ function fillTableWhitCourses(area, course, process) {
     formData.append('area', area);
     formData.append('course', course);
     formData.append('process', process);
+    //for fpdf
+    csAREAPDF.value = area;
+    csCOURSEPDF.value = course;
+    csPROCESSPDF.value = process;
 
     fetch('http://localhost/nivelation/app/controllers/student/getStudentsbyCourse.php/', {
         method: 'POST',
