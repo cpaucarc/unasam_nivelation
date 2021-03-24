@@ -37,6 +37,27 @@ class CoursesModel
         return json_encode($response);
     }
 
+    public function getCoursesByAreaAndLastProcess($area)
+    {
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "SELECT cr.name course, pr.denomination process
+                FROM ranks AS rk
+                JOIN areas AS ar ON ar.id = rk.areas_id 
+                JOIN courses AS cr ON cr.id = rk.courses_id 
+                JOIN process AS pr ON pr.id = rk.process_id
+                
+                WHERE pr.denomination = getLastProcess() AND ar.name = '".$area."';";
+
+        $response['courses'] = array();
+        foreach ($conn->query($sql) as $row) {
+            $p = array();
+            $p['course'] = $row['course'];
+            $p['process'] = $row['process'];
+            array_push($response['courses'], $p);
+        }
+        return json_encode($response);
+    }
+
 
 //    Getters and Setters
     public function getName()

@@ -35,7 +35,7 @@ newProcess.addEventListener('click', () => {
 
 function getAllProcess() {
     fetch('http://localhost/nivelation/app/controllers/process/getAllProcess.php/', {
-        method: 'POST',
+        method: 'GET',
         headers: {
             "Accept": "application/json"
         }
