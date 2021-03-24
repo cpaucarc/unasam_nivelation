@@ -52,4 +52,15 @@ class Button {
         return btn;
     }
 
+    createIconAndTextBtn(icon, text, fun, ...params) {
+        let btn = this.createIconBtn(icon, fun, ...params);
+        btn.appendChild(document.createTextNode(text));
+        btn.classList.add('btn');
+        btn.classList.add('btn-light');
+        btn.classList.add('text-primary');
+        btn.classList.add('w-100');
+        btn.classList.add('my-2');
+        return btn;
+    }
+
 }

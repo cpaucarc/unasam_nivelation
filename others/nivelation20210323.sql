@@ -25,8 +25,9 @@ DROP TABLE IF EXISTS `areas`;
 CREATE TABLE `areas` (
   `id` tinyint(4) NOT NULL AUTO_INCREMENT,
   `name` varchar(1) NOT NULL,
+  `description` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +36,7 @@ CREATE TABLE `areas` (
 
 LOCK TABLES `areas` WRITE;
 /*!40000 ALTER TABLE `areas` DISABLE KEYS */;
-INSERT INTO `areas` VALUES (5,'A'),(6,'B'),(7,'C'),(8,'D');
+INSERT INTO `areas` VALUES (5,'A','Ciencias e Ingenieria'),(6,'B','Ciencias de la Salud'),(7,'C','Ciencias Económicas y de la Gestión'),(8,'D','Ciencias Sociales y Politicas '),(9,'H','Descripcion y pruebas'),(10,'F','Descripcion y pruebas del area F'),(11,'N','Area N description');
 /*!40000 ALTER TABLE `areas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -76,7 +77,7 @@ CREATE TABLE `persons` (
   `lastname` varchar(45) NOT NULL,
   `dni` varchar(8) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85,7 +86,7 @@ CREATE TABLE `persons` (
 
 LOCK TABLES `persons` WRITE;
 /*!40000 ALTER TABLE `persons` DISABLE KEYS */;
-INSERT INTO `persons` VALUES (1,'Pedro','Hernandez','77458745'),(2,'Jaime','López','96587412'),(3,'Pedro Fernando','Sanchez Duran','74125896'),(4,'Carlos','Dominguez','74125476'),(5,'José','Huaman','41741528'),(6,'Julio','Quispe','74857963'),(7,'Luis','Mamani','71254639'),(8,'Fernando','Ramírez','06325874'),(9,'Gabriela','Huaman','25241523'),(10,'Angel','Pagola','25478147'),(11,'Pedro Fidencio','Mamani Lopez','69857412'),(12,'Luisa','Campos Huaman','25558147'),(13,'Angela','Poma','95115141'),(14,'Pedro','Saenz','41999457'),(15,'Juan','Flores Ramos','04977410'),(16,'James','Franco','00125896'),(17,'Raquel','Castillo Lopez','61257784'),(18,'Barack','Obama','01471005'),(19,'Jorge','Del Solar','12332100'),(20,'Martin','Vizcarra','63636310'),(21,'Clarence','Revival','84332009'),(22,'Pedro','Flores','65215474'),(23,'Amadeo','Pinzon','96587411'),(24,'Luis','Sanches','96587993'),(25,'Sandra','Monserat','96325879'),(26,'Paolo','Guerrero','14521452'),(27,'Carlos','Ramirez','95145602'),(28,'Alan','Garcia','95159874'),(29,'John Darel','Stevenson Fallman','41040549'),(30,'John','Doe','70100054'),(31,'Darlene Maryella','Caldas Cueva','02112103'),(32,'Guillermo Damian','Flores Vega','49780019');
+INSERT INTO `persons` VALUES (1,'Pedro','Hernandez','77458745'),(2,'Jaime','López','96587412'),(3,'Pedro Fernando','Sanchez Duran','74125896'),(4,'Carlos','Dominguez','74125476'),(5,'José','Huaman','41741528'),(6,'Julio','Quispe','74857963'),(7,'Luis','Mamani','71254639'),(8,'Fernando','Ramírez','06325874'),(9,'Gabriela','Huaman','25241523'),(10,'Angel','Pagola','25478147'),(11,'Pedro Fidencio','Mamani Lopez','69857412'),(12,'Luisa','Campos Huaman','25558147'),(13,'Angela','Poma','95115141'),(14,'Pedro','Saenz','41999457'),(15,'Juan','Flores Ramos','04977410'),(16,'James','Franco','00125896'),(17,'Raquel','Castillo Lopez','61257784'),(18,'Barack','Obama','01471005'),(19,'Jorge','Del Solar','12332100'),(20,'Martin','Vizcarra','63636310'),(21,'Clarence','Revival','84332009'),(22,'Pedro','Flores','65215474'),(23,'Amadeo','Pinzon','96587411'),(24,'Luis','Sanches','96587993'),(25,'Sandra','Monserat','96325879'),(26,'Paolo','Guerrero','14521452'),(27,'Carlos','Ramirez','95145602'),(28,'Alan','Garcia','95159874'),(29,'John Darel','Stevenson Fallman','41040549'),(30,'John','Doe','70100054'),(31,'Darlene Maryella','Caldas Cueva','02112103'),(32,'Guillermo Damian','Flores Vega','49780019'),(33,'Lola','Cabana','75513695');
 /*!40000 ALTER TABLE `persons` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,7 +132,7 @@ CREATE TABLE `questions` (
   KEY `fk_questions_students1_idx` (`students_id`),
   CONSTRAINT `fk_questions_courses1` FOREIGN KEY (`courses_id`) REFERENCES `courses` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_questions_students1` FOREIGN KEY (`students_id`) REFERENCES `students` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=167 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,7 +141,7 @@ CREATE TABLE `questions` (
 
 LOCK TABLES `questions` WRITE;
 /*!40000 ALTER TABLE `questions` DISABLE KEYS */;
-INSERT INTO `questions` VALUES (1,1,0,4,1),(2,2,1,8,1),(3,3,0,9,1),(4,1,1,4,7),(5,1,1,4,8),(6,2,0,7,8),(7,100,1,8,8),(8,1,1,4,9),(9,5,0,9,9),(10,58,0,8,9),(11,49,0,4,10),(12,69,1,7,10),(13,89,1,8,10),(14,11,1,4,11),(15,39,0,9,11),(16,49,0,8,11),(17,50,1,8,11),(18,51,1,8,11),(19,52,1,8,11),(20,1,1,6,12),(21,2,1,6,12),(22,3,0,6,12),(23,4,0,6,12),(24,5,1,6,12),(25,6,1,6,12),(26,7,1,6,12),(27,8,0,6,12),(28,25,0,7,12),(29,26,0,7,12),(30,27,0,7,12),(31,28,1,7,12),(32,29,0,7,12),(33,30,1,7,12),(34,31,0,7,12),(35,89,1,8,12),(36,90,0,8,12),(37,91,1,8,12),(38,92,0,8,12),(39,93,1,8,12),(40,94,1,8,12),(41,95,1,8,12),(42,96,1,8,12),(43,97,1,8,12),(44,98,0,8,12),(45,99,1,8,12),(46,100,1,8,12),(47,1,1,6,13),(48,2,1,6,13),(49,3,0,6,13),(50,4,0,6,13),(51,5,1,6,13),(52,6,1,6,13),(53,7,1,6,13),(54,8,0,6,13),(55,25,0,7,13),(56,26,0,7,13),(57,27,0,7,13),(58,28,1,7,13),(59,29,0,7,13),(60,30,1,7,13),(61,31,0,7,13),(62,89,1,8,13),(63,90,0,8,13),(64,91,1,8,13),(65,92,0,8,13),(66,93,1,8,13),(67,94,1,8,13),(68,95,1,8,13),(69,96,1,8,13),(70,97,1,8,13),(71,98,0,8,13),(72,99,1,8,13),(73,100,1,8,13),(74,1,1,4,14),(75,2,1,4,14),(76,3,1,4,14),(77,4,0,4,14),(78,5,0,9,14),(79,6,1,9,14),(80,7,0,9,14),(81,8,0,9,14),(82,9,0,9,14),(83,10,0,9,14),(84,85,0,8,14),(85,86,0,8,14),(86,87,1,8,14),(87,89,0,8,14),(88,90,1,8,14),(89,1,1,6,15),(90,2,1,6,15),(91,3,0,6,15),(92,4,0,6,15),(93,5,1,6,15),(94,6,1,6,15),(95,7,1,6,15),(96,8,0,6,15),(97,9,1,6,15),(98,10,0,6,15),(99,11,0,6,15),(100,12,1,6,15),(101,25,0,7,15),(102,26,0,7,15),(103,27,0,7,15),(104,28,1,7,15),(105,29,0,7,15),(106,30,1,7,15),(107,31,0,7,15),(108,32,1,7,15),(109,33,0,7,15),(110,34,0,7,15),(111,35,0,7,15),(112,36,0,7,15),(113,86,0,9,15),(114,87,1,9,15),(115,88,0,9,15),(116,89,1,9,15),(117,90,0,9,15),(118,91,1,9,15),(119,92,0,9,15),(120,93,1,9,15),(121,94,1,9,15),(122,95,1,9,15),(123,96,0,9,15),(124,97,1,9,15),(125,98,0,9,15),(126,99,1,9,15),(127,100,0,9,15);
+INSERT INTO `questions` VALUES (1,1,0,4,1),(2,2,1,8,1),(3,3,0,9,1),(4,1,1,4,7),(5,1,1,4,8),(6,2,0,7,8),(7,100,1,8,8),(8,1,1,4,9),(9,5,0,9,9),(10,58,0,8,9),(11,49,0,4,10),(12,69,1,7,10),(13,89,1,8,10),(14,11,1,4,11),(15,39,0,9,11),(16,49,0,8,11),(17,50,1,8,11),(18,51,1,8,11),(19,52,1,8,11),(20,1,1,6,12),(21,2,1,6,12),(22,3,0,6,12),(23,4,0,6,12),(24,5,1,6,12),(25,6,1,6,12),(26,7,1,6,12),(27,8,0,6,12),(28,25,0,7,12),(29,26,0,7,12),(30,27,0,7,12),(31,28,1,7,12),(32,29,0,7,12),(33,30,1,7,12),(34,31,0,7,12),(35,89,1,8,12),(36,90,0,8,12),(37,91,1,8,12),(38,92,0,8,12),(39,93,1,8,12),(40,94,1,8,12),(41,95,1,8,12),(42,96,1,8,12),(43,97,1,8,12),(44,98,0,8,12),(45,99,1,8,12),(46,100,1,8,12),(47,1,1,6,13),(48,2,1,6,13),(49,3,0,6,13),(50,4,0,6,13),(51,5,1,6,13),(52,6,1,6,13),(53,7,1,6,13),(54,8,0,6,13),(55,25,0,7,13),(56,26,0,7,13),(57,27,0,7,13),(58,28,1,7,13),(59,29,0,7,13),(60,30,1,7,13),(61,31,0,7,13),(62,89,1,8,13),(63,90,0,8,13),(64,91,1,8,13),(65,92,0,8,13),(66,93,1,8,13),(67,94,1,8,13),(68,95,1,8,13),(69,96,1,8,13),(70,97,1,8,13),(71,98,0,8,13),(72,99,1,8,13),(73,100,1,8,13),(74,1,1,4,14),(75,2,1,4,14),(76,3,1,4,14),(77,4,0,4,14),(78,5,0,9,14),(79,6,1,9,14),(80,7,0,9,14),(81,8,0,9,14),(82,9,0,9,14),(83,10,0,9,14),(84,85,0,8,14),(85,86,0,8,14),(86,87,1,8,14),(87,89,0,8,14),(88,90,1,8,14),(89,1,1,6,15),(90,2,1,6,15),(91,3,0,6,15),(92,4,0,6,15),(93,5,1,6,15),(94,6,1,6,15),(95,7,1,6,15),(96,8,0,6,15),(97,9,1,6,15),(98,10,0,6,15),(99,11,0,6,15),(100,12,1,6,15),(101,25,0,7,15),(102,26,0,7,15),(103,27,0,7,15),(104,28,1,7,15),(105,29,0,7,15),(106,30,1,7,15),(107,31,0,7,15),(108,32,1,7,15),(109,33,0,7,15),(110,34,0,7,15),(111,35,0,7,15),(112,36,0,7,15),(113,86,0,9,15),(114,87,1,9,15),(115,88,0,9,15),(116,89,1,9,15),(117,90,0,9,15),(118,91,1,9,15),(119,92,0,9,15),(120,93,1,9,15),(121,94,1,9,15),(122,95,1,9,15),(123,96,0,9,15),(124,97,1,9,15),(125,98,0,9,15),(126,99,1,9,15),(127,100,0,9,15),(128,1,1,4,16),(129,2,1,4,16),(130,3,0,4,16),(131,4,0,4,16),(132,5,1,4,16),(133,6,1,4,16),(134,7,1,4,16),(135,8,0,4,16),(136,9,1,4,16),(137,10,0,4,16),(138,11,0,4,16),(139,12,1,4,16),(140,25,0,5,16),(141,26,0,5,16),(142,27,0,5,16),(143,28,1,5,16),(144,29,0,5,16),(145,30,1,5,16),(146,31,0,5,16),(147,32,1,5,16),(148,33,0,5,16),(149,34,0,5,16),(150,35,0,5,16),(151,36,0,5,16),(152,86,0,8,16),(153,87,1,8,16),(154,88,0,8,16),(155,89,1,8,16),(156,90,0,8,16),(157,91,1,8,16),(158,92,0,8,16),(159,93,1,8,16),(160,94,1,8,16),(161,95,1,8,16),(162,96,0,8,16),(163,97,1,8,16),(164,98,0,8,16),(165,99,1,8,16),(166,100,0,8,16);
 /*!40000 ALTER TABLE `questions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -240,7 +241,7 @@ CREATE TABLE `schools` (
   PRIMARY KEY (`id`),
   KEY `fk_schools_areas1_idx` (`areas_id`),
   CONSTRAINT `fk_schools_areas1` FOREIGN KEY (`areas_id`) REFERENCES `areas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -249,7 +250,7 @@ CREATE TABLE `schools` (
 
 LOCK TABLES `schools` WRITE;
 /*!40000 ALTER TABLE `schools` DISABLE KEYS */;
-INSERT INTO `schools` VALUES (5,'Ingenieria de Sistemas',5),(6,'Ingenieria Civil',5),(7,'Enfermeria',8);
+INSERT INTO `schools` VALUES (5,'Ingenieria de Sistemas',5),(6,'Ingenieria Civil',5),(7,'Enfermeria',8),(12,'Ingenieria de Minas',5),(13,'Obstetricia',8),(14,'Economía',7);
 /*!40000 ALTER TABLE `schools` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -291,7 +292,7 @@ CREATE TABLE `students` (
   PRIMARY KEY (`id`),
   KEY `fk_students_persons1_idx` (`persons_id`),
   CONSTRAINT `fk_students_persons1` FOREIGN KEY (`persons_id`) REFERENCES `persons` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -300,7 +301,7 @@ CREATE TABLE `students` (
 
 LOCK TABLES `students` WRITE;
 /*!40000 ALTER TABLE `students` DISABLE KEYS */;
-INSERT INTO `students` VALUES (1,'125.1245.147',1),(2,'125.1475.366',2),(3,'171.2056.014',3),(4,'161.2974.064',4),(5,'191.2007.007',5),(6,'181.2374.044',6),(7,'121.2987.621',7),(8,'161.2417.364',8),(9,'131.2607.071',9),(10,'171.2017.369',10),(11,'131.2607.071',11),(12,'103.4640.010',29),(13,'123.4562.789',30),(14,'101.2007.031',31),(15,'133.9514.730',32);
+INSERT INTO `students` VALUES (1,'125.1245.147',1),(2,'125.1475.366',2),(3,'171.2056.014',3),(4,'161.2974.064',4),(5,'191.2007.007',5),(6,'181.2374.044',6),(7,'121.2987.621',7),(8,'161.2417.364',8),(9,'131.2607.071',9),(10,'171.2017.369',10),(11,'131.2607.071',11),(12,'103.4640.010',29),(13,'123.4562.789',30),(14,'101.2007.031',31),(15,'133.9514.730',32),(16,'153.9514.730',33);
 /*!40000 ALTER TABLE `students` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -323,7 +324,7 @@ CREATE TABLE `students_courses` (
   CONSTRAINT `fk_students_courses_courses1` FOREIGN KEY (`courses_id`) REFERENCES `courses` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_students_courses_nivelation_status1` FOREIGN KEY (`status_id`) REFERENCES `status` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_students_courses_students1` FOREIGN KEY (`students_id`) REFERENCES `students` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -332,7 +333,7 @@ CREATE TABLE `students_courses` (
 
 LOCK TABLES `students_courses` WRITE;
 /*!40000 ALTER TABLE `students_courses` DISABLE KEYS */;
-INSERT INTO `students_courses` VALUES (1,5,1,1),(2,4,1,8),(3,7,3,8),(4,8,1,8),(5,6,1,13),(6,7,3,13),(7,8,2,13),(8,4,1,14),(9,9,3,14),(10,8,3,14),(11,6,2,15),(12,7,3,15);
+INSERT INTO `students_courses` VALUES (1,5,1,1),(2,4,1,8),(3,7,3,8),(4,8,1,8),(5,6,1,13),(6,7,3,13),(7,8,2,13),(8,4,1,14),(9,9,3,14),(10,8,3,14),(11,6,2,15),(12,7,3,15),(13,8,2,16);
 /*!40000 ALTER TABLE `students_courses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -352,7 +353,7 @@ CREATE TABLE `students_process` (
   KEY `fk_students_process_students1_idx` (`students_id`),
   CONSTRAINT `fk_students_process_process1` FOREIGN KEY (`process_id`) REFERENCES `process` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_students_process_students1` FOREIGN KEY (`students_id`) REFERENCES `students` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -361,7 +362,7 @@ CREATE TABLE `students_process` (
 
 LOCK TABLES `students_process` WRITE;
 /*!40000 ALTER TABLE `students_process` DISABLE KEYS */;
-INSERT INTO `students_process` VALUES (1,2,1),(2,2,2),(3,2,3),(4,2,4),(5,2,5),(6,2,6),(7,2,7),(8,3,8),(9,3,9),(10,3,10),(11,3,11),(12,11,12),(13,11,13),(14,11,14),(15,11,15);
+INSERT INTO `students_process` VALUES (1,2,1),(2,2,2),(3,2,3),(4,2,4),(5,2,5),(6,2,6),(7,2,7),(8,3,8),(9,3,9),(10,3,10),(11,3,11),(12,11,12),(13,11,13),(14,11,14),(15,11,15),(16,11,16);
 /*!40000 ALTER TABLE `students_process` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -381,7 +382,7 @@ CREATE TABLE `students_schools` (
   KEY `fk_students_schools_students1_idx` (`students_id`),
   CONSTRAINT `fk_students_schools_schools1` FOREIGN KEY (`schools_id`) REFERENCES `schools` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_students_schools_students1` FOREIGN KEY (`students_id`) REFERENCES `students` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -390,7 +391,7 @@ CREATE TABLE `students_schools` (
 
 LOCK TABLES `students_schools` WRITE;
 /*!40000 ALTER TABLE `students_schools` DISABLE KEYS */;
-INSERT INTO `students_schools` VALUES (1,5,2),(2,6,1),(3,5,4),(4,7,5),(5,5,6),(6,6,7),(7,6,8),(8,7,9),(9,6,10),(10,7,11),(11,6,12),(12,6,13),(13,7,14),(14,5,15);
+INSERT INTO `students_schools` VALUES (1,5,2),(2,6,1),(3,5,4),(4,7,5),(5,5,6),(6,6,7),(7,6,8),(8,7,9),(9,6,10),(10,7,11),(11,6,12),(12,6,13),(13,7,14),(14,5,15),(15,5,16);
 /*!40000 ALTER TABLE `students_schools` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1337,4 +1338,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-03-21 20:52:26
+-- Dump completed on 2021-03-23 19:52:19

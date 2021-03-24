@@ -4,12 +4,60 @@ require_once(DB_PATH . "MySqlConnection.php");
 
 class SchoolsModel
 {
-    private $id;
-    private $name;
-    private $area;
+    private int $id;
+    private string $name;
+    private string $area;
 
     public function __construct()
     {
+    }
+
+
+    function saveNewSchool($areaID)
+    {
+        $connection = new MySqlConnection();
+        if ($connection) {
+            $pdo = $connection->getConnection();
+            $sql = "INSERT INTO schools VALUES (null, ?, ?);";
+            $pdo->prepare($sql)->execute([
+                $this->name,
+                $areaID
+            ]);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function updateSchool()
+    {
+        $connection = new MySqlConnection();
+        if ($connection) {
+            $pdo = $connection->getConnection();
+            $sql = "UPDATE schools SET name = ? WHERE id = ?;";
+            $pdo->prepare($sql)->execute([
+                $this->denomination,
+                $this->id
+            ]);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function deleteSchool()
+    {
+        $connection = new MySqlConnection();
+        if ($connection) {
+            $pdo = $connection->getConnection();
+            $sql = "DELETE FROM schools WHERE id = ?;";
+            $pdo->prepare($sql)->execute([
+                $this->id
+            ]);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function getSchools()

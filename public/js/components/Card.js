@@ -74,4 +74,20 @@ class Card {
         </div>`;
     }
 
+    getAddNewAreaCard() {
+        return `<div class="col col-lg-2 col-md-4 col-sm-6 col-12 mb-2" id="div-new-area">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <div class="text-md font-weight-bold text-primary">
+                            Nueva area
+                        </div>
+                    </div>
+                    <div class="card-body text-center">
+                        <a href="#" class="link-add-card text-secondary" data-toggle="modal"
+                           data-target="#add-area"><i class="fas fa-plus-circle fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>`;
+    }
 }
