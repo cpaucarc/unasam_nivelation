@@ -3,12 +3,24 @@ const cbProcess = document.getElementById('process');
 const cbSchool = document.getElementById('school');
 const tbody = document.getElementById('tbody');
 
+//for fpdf
+
+let btShowPDF = document.getElementById('btShowPDF');
+
+let scAREAPDF = document.getElementById('scAREAPDF');
+let scSCHOOLPDF = document.getElementById('scSCHOOLPDF');
+let scPROCESSPDF = document.getElementById('scPROCESSPDF');
+
 table = new Table();
 button = new Button();
 
 window.onload = () => {
     console.log('Hello');
     fillWhitProcess();
+    //for dpdf
+    scAREAPDF.value="";
+    scCOURSEPDF.value="";
+    scPROCESSPDF.value="";
 }
 
 cbSchool.addEventListener('change', () => {
@@ -61,7 +73,8 @@ function fillWhitProcess() {
 function fillWhitSchools(area) {
     let formData = new FormData();
     formData.append('area', area);
-
+    //for fpdf
+    scAREAPDF.value=area;
     fetch('http://localhost/nivelation/app/controllers/school/getSchoolsByArea.php/', {
         method: 'POST',
         headers: {
@@ -96,6 +109,10 @@ function fillTableWhitStudents(school, process) {
     formData.append('school', school);
     formData.append('process', process);
     console.log(school, process);
+
+    //for fpdf
+    scSCHOOLPDF.value=school;
+    scPROCESSPDF.value=process;
 
     fetch('http://localhost/nivelation/app/controllers/student/getStudentsBySchool.php/', {
         method: 'POST',

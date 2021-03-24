@@ -37,6 +37,19 @@ require_once "app/components/upperpart.php";
                 </div>
             </div>
         </div>
+        <div class="d-flex bd-highlight mr-4 mt-3 justify-content-end">
+            <div class="ml-auto bd-highlight">
+                <form action="http://localhost/nivelation/app/reports/school.php" method="post">
+                    <input name="scAREAPDF" id="scAREAPDF" type="hidden">
+                    <input name="scSCHOOLPDF" id="scSCHOOLPDF" type="hidden">
+                    <input name="scPROCESSPDF" id="scPROCESSPDF" type="hidden">
+                    <button type="submit" id="btShowPDF" class="btn btn-outline-danger">
+                        <i class="fas fa-file-pdf"></i>
+                    </button>
+                </form>
+
+            </div>
+        </div>
         <div class="card-body">
 
             <!--Tabla-->

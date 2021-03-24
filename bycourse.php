@@ -37,20 +37,33 @@ require_once "app/components/upperpart.php";
                 </div>
             </div>
         </div>
+        <div class="d-flex bd-highlight mr-4 mt-3 justify-content-end">
+            <div class="ml-auto bd-highlight">
+                <form action="http://localhost/nivelation/app/reports/course.php" method="post">
+                    <input name="csAREAPDF" id="csAREAPDF" type="hidden">
+                    <input name="csCOURSEPDF" id="csCOURSEPDF" type="hidden">
+                    <input name="csPROCESSPDF" id="csPROCESSPDF" type="hidden">
+                    <button type="submit" id="btShowPDF" class="btn btn-outline-danger">
+                        <i class="fas fa-file-pdf"></i>
+                    </button>
+                </form>
+
+            </div>
+        </div>
         <div class="card-body">
 
             <!--Tabla-->
             <table class="table mt-2" id="table-students">
                 <thead class="thead-light">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">DNI</th>
-                    <th scope="col">Código</th>
-                    <th scope="col">Alumno</th>
-                    <th scope="col">Escuela</th>
-                    <th scope="col">Recomendación</th>
-                    <th scope="col">Acción</th>
-                </tr>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">DNI</th>
+                        <th scope="col">Código</th>
+                        <th scope="col">Alumno</th>
+                        <th scope="col">Escuela</th>
+                        <th scope="col">Recomendación</th>
+                        <th scope="col">Acción</th>
+                    </tr>
                 </thead>
                 <tbody id="tbody">
 
