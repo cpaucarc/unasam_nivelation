@@ -2,21 +2,12 @@
 const user_form = document.getElementById('user-form');
 const tbody = document.getElementById('table-body');
 
+table = new Table();
+
 /* ----- Window load ----- */
 window.onload = function () {
     fillTableWhitAllUsers();
-    // setDataTables('tbUsers');
-
-
-    fillTableWhitAllUsers();
-
-    /*    fillTableWhitAllUsers(); */
-
 };
-
-$(document).ready(function () {
-    $('#tableUserView').load('app/views/users/tableUserView.php');
-});
 
 /* ----- Listeners ----- */
 user_form.addEventListener('submit', (e) => {
@@ -40,33 +31,11 @@ function saveNewUser() {
             console.log(data)
             if (data.status) {
                 user_form.reset();
-
                 fillTableWhitAllUsers();
-                $('#tableUserView').load('app/views/users/tableUserView.php');
-                $('#user_modal').modal("toggle");
+                // $('#tableUserView').load('app/views/users/tableUserView.php');
+                $('#user_modal').modal("hide");
             }
-            console.log(data.message);
-        });
-}
-
-function deleteUser(id) {
-    let formData = new FormData();
-    formData.append('userID', id);
-
-    fetch('http://localhost/nivelation/app/controllers/users/deleteUser.php/', {
-        method: 'POST',
-        headers: {
-            "Accept": "application/json"
-        },
-        body: formData
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status) {
-                fillTableWhitAllUsers();
-                $('#tableUserView').load('app/views/users/tableUserView.php');
-            }
-            console.log(data.message);
+            alert(data.message);
         });
 }
 
@@ -76,50 +45,22 @@ function fillTableWhitAllUsers() {
         .then(response => response.json())
         .then(data => {
             data = data.users;
-            //destroyDataTables('table-users');
-            // $('#table-users').DataTable().clear().destroy();
+            $('#table-users').DataTable().clear().destroy();
             tbody.innerHTML = '';
             let num = 1;
             data.forEach(user => {
-                let row = document.createElement('tr');
-                row.appendChild(createHTMLElement('th', num));
-                row.appendChild(createHTMLElement('td', user.dni));
-                row.appendChild(createHTMLElement('td', (user.lastname + ' ' + user.name)));
-                row.appendChild(createHTMLElement('td', user.rol));
-                row.appendChild(createHTMLElement('td', user.username));
-                let btnDelete = createDeleteButton(deleteUser, user.id);
-                row.appendChild(createHTMLElement('td', '').appendChild(btnDelete));
+                let row = table.createRow(
+                    num, user.dni, `${user.lastname} ${user.name}`,
+                    user.rol, user.username
+                );
                 tbody.appendChild(row);
                 num++;
             });
-            // $('#table-users').DataTable();
+            $('#table-users').DataTable();
         });
 }
 
 /* ----- Others Functions ----- */
-function createHTMLElement(type, text) {
-    const element = document.createElement(type);
-    element.innerText = text;
-    return element;
-}
-
-function createButton(text, fun, param) {
-    let button = document.createElement('button');
-    button.innerText = text;
-    button.addEventListener("click", function () {
-        fun(param);
-    }, false);
-    return button;
-}
-
-function createDeleteButton(fun, param) {
-    let btn = createButton('', fun, param);
-    btn.innerHTML = '<i class="fas fa-trash"></i>';
-    btn.classList.add("btn");
-    btn.classList.add("btn-outline-danger");
-    return btn;
-}
-
 
 function setDataTables(table) {
     $(`#${table}`).DataTable();
