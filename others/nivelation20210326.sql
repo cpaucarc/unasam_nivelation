@@ -27,7 +27,7 @@ CREATE TABLE `areas` (
   `name` varchar(1) NOT NULL,
   `description` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `areas` (
 
 LOCK TABLES `areas` WRITE;
 /*!40000 ALTER TABLE `areas` DISABLE KEYS */;
-INSERT INTO `areas` VALUES (5,'A','Ciencias e Ingenieria'),(6,'B','Ciencias de la Salud'),(7,'C','Ciencias Económicas y de la Gestión'),(8,'D','Ciencias Sociales y Politicas '),(9,'H','Descripcion y pruebas'),(10,'F','Descripcion y pruebas del area F'),(11,'N','Area N description');
+INSERT INTO `areas` VALUES (5,'A','Ciencias e Ingenieria'),(6,'B','Ciencias de la Salud'),(7,'C','Ciencias Económicas y de la Gestión'),(8,'D','Ciencias Sociales y Politicas ');
 /*!40000 ALTER TABLE `areas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -51,7 +51,7 @@ CREATE TABLE `courses` (
   `id` tinyint(4) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -60,7 +60,7 @@ CREATE TABLE `courses` (
 
 LOCK TABLES `courses` WRITE;
 /*!40000 ALTER TABLE `courses` DISABLE KEYS */;
-INSERT INTO `courses` VALUES (4,'Matematica'),(5,'Raz matematico'),(6,'Raz verbal'),(7,'Lenguaje'),(8,'Fisica'),(9,'Biologia');
+INSERT INTO `courses` VALUES (4,'Matematica'),(5,'Raz matematico'),(6,'Raz verbal'),(7,'Lenguaje'),(8,'Fisica'),(9,'Biologia'),(10,'Cultura General');
 /*!40000 ALTER TABLE `courses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -77,7 +77,7 @@ CREATE TABLE `persons` (
   `lastname` varchar(45) NOT NULL,
   `dni` varchar(8) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -86,7 +86,7 @@ CREATE TABLE `persons` (
 
 LOCK TABLES `persons` WRITE;
 /*!40000 ALTER TABLE `persons` DISABLE KEYS */;
-INSERT INTO `persons` VALUES (1,'Pedro','Hernandez','77458745'),(2,'Jaime','López','96587412'),(3,'Pedro Fernando','Sanchez Duran','74125896'),(4,'Carlos','Dominguez','74125476'),(5,'José','Huaman','41741528'),(6,'Julio','Quispe','74857963'),(7,'Luis','Mamani','71254639'),(8,'Fernando','Ramírez','06325874'),(9,'Gabriela','Huaman','25241523'),(10,'Angel','Pagola','25478147'),(11,'Pedro Fidencio','Mamani Lopez','69857412'),(12,'Luisa','Campos Huaman','25558147'),(13,'Angela','Poma','95115141'),(14,'Pedro','Saenz','41999457'),(15,'Juan','Flores Ramos','04977410'),(16,'James','Franco','00125896'),(17,'Raquel','Castillo Lopez','61257784'),(18,'Barack','Obama','01471005'),(19,'Jorge','Del Solar','12332100'),(20,'Martin','Vizcarra','63636310'),(21,'Clarence','Revival','84332009'),(22,'Pedro','Flores','65215474'),(23,'Amadeo','Pinzon','96587411'),(24,'Luis','Sanches','96587993'),(25,'Sandra','Monserat','96325879'),(26,'Paolo','Guerrero','14521452'),(27,'Carlos','Ramirez','95145602'),(28,'Alan','Garcia','95159874'),(29,'John Darel','Stevenson Fallman','41040549'),(30,'John','Doe','70100054'),(31,'Darlene Maryella','Caldas Cueva','02112103'),(32,'Guillermo Damian','Flores Vega','49780019'),(33,'Lola','Cabana','75513695');
+INSERT INTO `persons` VALUES (1,'Pedro','Hernandez','77458745'),(2,'Jaime','López','96587412'),(3,'Pedro Fernando','Sanchez Duran','74125896'),(4,'Carlos','Dominguez','74125476'),(5,'José','Huaman','41741528'),(6,'Julio','Quispe','74857963'),(7,'Luis','Mamani','71254639'),(8,'Fernando','Ramírez','06325874'),(9,'Gabriela','Huaman','25241523'),(10,'Angel','Pagola','25478147'),(11,'Pedro Fidencio','Mamani Lopez','69857412'),(12,'Luisa','Campos Huaman','25558147'),(13,'Angela','Poma','95115141'),(14,'Pedro','Saenz','41999457'),(15,'Juan','Flores Ramos','04977410'),(16,'James','Franco','00125896'),(17,'Raquel','Castillo Lopez','61257784'),(18,'Barack','Obama','01471005'),(19,'Jorge','Del Solar','12332100'),(20,'Martin','Vizcarra','63636310'),(21,'Clarence','Revival','84332009'),(22,'Pedro','Flores','65215474'),(23,'Amadeo','Pinzon','96587411'),(24,'Luis','Sanches','96587993'),(25,'Sandra','Monserat','96325879'),(26,'Paolo','Guerrero','14521452'),(27,'Carlos','Ramirez','95145602'),(28,'Alan','Garcia','95159874'),(29,'John Darel','Stevenson Fallman','41040549'),(30,'John','Doe','70100054'),(31,'Darlene Maryella','Caldas Cueva','02112103'),(32,'Guillermo Damian','Flores Vega','49780019'),(33,'Lola','Cabana','75513695'),(34,'George','Castillo Lopez','61757784');
 /*!40000 ALTER TABLE `persons` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -110,7 +110,7 @@ CREATE TABLE `process` (
 
 LOCK TABLES `process` WRITE;
 /*!40000 ALTER TABLE `process` DISABLE KEYS */;
-INSERT INTO `process` VALUES (2,'2019-I'),(3,'2019-II'),(4,'2018-I'),(5,'2018-II'),(6,'2015-II'),(7,'2013-I'),(8,'2009-I'),(9,'2010-II'),(10,'2014-II'),(11,'2020-I'),(12,'2008-II');
+INSERT INTO `process` VALUES (2,'2019-I'),(3,'2019-II'),(4,'2018-I'),(5,'2018-II'),(6,'2015-II'),(7,'2013-I'),(8,'2009-III'),(9,'2010-II'),(10,'2014-II'),(11,'2020-I'),(12,'2008-II');
 /*!40000 ALTER TABLE `process` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -166,7 +166,7 @@ CREATE TABLE `ranks` (
   CONSTRAINT `fk_table1_areas1` FOREIGN KEY (`areas_id`) REFERENCES `areas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_table1_courses1` FOREIGN KEY (`courses_id`) REFERENCES `courses` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_table1_process1` FOREIGN KEY (`process_id`) REFERENCES `process` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -175,7 +175,7 @@ CREATE TABLE `ranks` (
 
 LOCK TABLES `ranks` WRITE;
 /*!40000 ALTER TABLE `ranks` DISABLE KEYS */;
-INSERT INTO `ranks` VALUES (4,4,5,2,41,56),(5,8,8,2,50,60),(6,9,8,2,25,43),(7,4,8,2,30,50),(8,8,8,3,52,71),(9,4,5,3,50,70),(10,7,5,3,60,80),(11,8,5,3,40,60),(12,6,5,11,40,60),(13,7,5,11,51,59),(14,8,5,11,23,84),(15,4,8,11,29,45),(16,9,8,11,36,65),(17,8,8,11,61,78);
+INSERT INTO `ranks` VALUES (4,4,5,2,41,56),(5,8,8,2,50,60),(6,9,8,2,25,43),(7,4,8,2,30,50),(8,8,8,3,52,71),(9,4,5,3,50,70),(10,7,5,3,60,80),(11,8,5,3,40,60),(12,6,5,11,43,67),(13,7,5,11,51,59),(14,8,5,11,23,84),(15,4,8,11,29,51),(16,9,8,11,36,67),(17,8,8,11,61,78),(18,4,5,11,49,71),(19,9,5,11,31,73);
 /*!40000 ALTER TABLE `ranks` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -241,7 +241,7 @@ CREATE TABLE `schools` (
   PRIMARY KEY (`id`),
   KEY `fk_schools_areas1_idx` (`areas_id`),
   CONSTRAINT `fk_schools_areas1` FOREIGN KEY (`areas_id`) REFERENCES `areas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -250,7 +250,7 @@ CREATE TABLE `schools` (
 
 LOCK TABLES `schools` WRITE;
 /*!40000 ALTER TABLE `schools` DISABLE KEYS */;
-INSERT INTO `schools` VALUES (5,'Ingenieria de Sistemas',5),(6,'Ingenieria Civil',5),(7,'Enfermeria',8),(12,'Ingenieria de Minas',5),(13,'Obstetricia',8),(14,'Economía',7);
+INSERT INTO `schools` VALUES (5,'Ingenieria de Sistemas',5),(6,'Ingenieria Civil',5),(7,'Enfermeria',8),(12,'Ingenieria de Minas',5),(13,'Obstetricia',8),(14,'Economía',7),(15,'Ingenieria Sanitaria',5);
 /*!40000 ALTER TABLE `schools` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -333,7 +333,7 @@ CREATE TABLE `students_courses` (
 
 LOCK TABLES `students_courses` WRITE;
 /*!40000 ALTER TABLE `students_courses` DISABLE KEYS */;
-INSERT INTO `students_courses` VALUES (1,5,1,1),(2,4,1,8),(3,7,3,8),(4,8,1,8),(5,6,1,13),(6,7,3,13),(7,8,2,13),(8,4,1,14),(9,9,3,14),(10,8,3,14),(11,6,2,15),(12,7,3,15),(13,8,2,16);
+INSERT INTO `students_courses` VALUES (1,5,1,1),(2,4,1,8),(3,7,3,8),(4,8,1,8),(5,6,2,13),(6,7,3,13),(7,8,2,13),(8,4,1,14),(9,9,3,14),(10,8,3,14),(11,6,2,15),(12,7,3,15),(13,8,2,16);
 /*!40000 ALTER TABLE `students_courses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -413,7 +413,7 @@ CREATE TABLE `users` (
   KEY `fk_users_roles1_idx` (`roles_id`),
   CONSTRAINT `fk_users_persons1` FOREIGN KEY (`persons_id`) REFERENCES `persons` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_users_roles1` FOREIGN KEY (`roles_id`) REFERENCES `roles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -422,7 +422,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'pedro','4410d99cefe57ec2c2cdbd3f1d5cf862bb4fb6f8',14,1),(2,'juan','b49a5780a99ea81284fc0746a78f84a30e4d5c73',15,2),(4,'raquel','523fd98c83528188555f43a5a82b4b2e6ea61ebf',17,1),(5,'barack','f2d64a9beed83cb642940577f9cd1aefcf08011b',18,2),(7,'martin','54669547a225ff20cba8b75a4adca540eef25858',20,1),(8,'clarence','4f45131825b8172c84020d8f60b8bb4e2cd25d85',21,2),(11,'luis','faea5242a00c52da62a0f00df168c199b7ab748d',24,2),(13,'paolo','f5973ee9c413d0967b98e0944688acb235fd48bf',26,1),(14,'carlos123','ff0edd646698f65fa2c8680d00391e368b6d4315',27,1),(15,'garcia','3f0f370ff13ccce90eedf165d24e49da1a69f845',28,2);
+INSERT INTO `users` VALUES (1,'pedro','4410d99cefe57ec2c2cdbd3f1d5cf862bb4fb6f8',14,1),(2,'juan','b49a5780a99ea81284fc0746a78f84a30e4d5c73',15,2),(4,'raquel','523fd98c83528188555f43a5a82b4b2e6ea61ebf',17,1),(5,'barack','f2d64a9beed83cb642940577f9cd1aefcf08011b',18,2),(7,'martin','54669547a225ff20cba8b75a4adca540eef25858',20,1),(8,'clarence','4f45131825b8172c84020d8f60b8bb4e2cd25d85',21,2),(11,'luis','faea5242a00c52da62a0f00df168c199b7ab748d',24,2),(13,'paolo','f5973ee9c413d0967b98e0944688acb235fd48bf',26,1),(14,'carlos123','ff0edd646698f65fa2c8680d00391e368b6d4315',27,1),(15,'garcia','3f0f370ff13ccce90eedf165d24e49da1a69f845',28,2),(16,'george','9fd8de5fc2a7c2c0d469b2fff1afde4e5def37ba',34,2);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -821,7 +821,7 @@ BEGIN
 	SET @existInRanks = (SELECT id FROM ranks WHERE courses_id = @courseID AND areas_id = @areaID AND process_id = procID);
     
     IF (@existInRanks IS NULL) THEN
-		INSERT INTO ranks VALUES (null, @courseID, @areaID, procID, 50, 80);
+		INSERT INTO ranks VALUES (null, @courseID, @areaID, procID, 50, 70);
     END IF;    
 
 END ;;
@@ -1338,4 +1338,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-03-23 19:52:19
+-- Dump completed on 2021-03-26 16:35:02

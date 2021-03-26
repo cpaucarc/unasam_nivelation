@@ -39,9 +39,10 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="index.php">
+            <a class="nav-link" href="http://localhost/nivelation/index.php">
                 <i class="fas fa-home"></i>
-                <span>Inicio del sitio <span class="badge badge-warning">medio</span></span></a>
+                <span>Inicio del sitio</span>
+            </a>
         </li>
 
 
@@ -62,12 +63,9 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Vistas por:</h6>
-                    <a class="collapse-item" href="bystudent.php">Estudiante <span
-                                class="badge badge-success">completo</span></a>
-                    <a class="collapse-item" href="bycourse.php">Curso <span
-                                class="badge badge-success">completo</span></a>
-                    <a class="collapse-item" href="byschool.php">Escuela <span
-                                class="badge badge-success">completo</span></a>
+                    <a class="collapse-item" href="bystudent.php">Vista por Estudiante</a>
+                    <a class="collapse-item" href="bycourse.php">Vista por Curso</a>
+                    <a class="collapse-item" href="byschool.php">Vista por Escuela</a>
                 </div>
             </div>
         </li>
@@ -77,19 +75,16 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>componentes</span>
+                <span>Componentes</span>
             </a>
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Vista por:</h6>
-                    <a class="collapse-item" href="rangevalues.php">Rangos <span
-                                class="badge badge-primary">casi</span></a>
-                    <a class="collapse-item" href="area.php">Area <span
-                                class="badge badge-danger">falta</span></a>
-                    <a class="collapse-item" href="admission.php">Admisión <span
-                                class="badge badge-danger">falta</span></a>
-
+                    <a class="collapse-item" href="rangevalues.php">Rangos</a>
+                    <a class="collapse-item" href="area.php">Area</a>
+                    <a class="collapse-item" href="admission.php">Admisión</a>
+                    <a class="collapse-item" href="cursos.php">Cursos</a>
                 </div>
             </div>
         </li>

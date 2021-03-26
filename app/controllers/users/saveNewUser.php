@@ -10,8 +10,11 @@ $rol = $_POST['user_rol'];
 $username = $_POST['user_username'];
 $password = $_POST['user_password'];
 
+$message = 'Error, datos incompletos: ';
+$finalMessage = '';
+
 try {
-    if (verifyDataComplete()) {
+    if (verifyDataComplete($name, $lastname, $dni, $rol, $username, $password, $finalMessage)) {
 
         $user = new UserModel();
         $user->setName($name);
@@ -21,19 +24,58 @@ try {
         $user->setUsername($username);
         $user->setPassword($password);
 
-        if ($user->saveNewUser()) {
-            echo (new SendMessage("Se registro con exito al usuario.", true))->getEncodedMessage();
+        if (!$user->dniIsAlreadyRegistered()) {
+            echo (new SendMessage("Este DNI ya se encuentra registrado", false))->getEncodedMessage();
         } else {
-            echo (new SendMessage("Hubo problemas al registrar al usuario.", false))->getEncodedMessage();
+            if (!$user->usernameIsAlreadyInUse()) {
+                echo (new SendMessage("Este nombre de usuario ya se encuentra en uso, escoja otro", false))->getEncodedMessage();
+            } else {
+                if ($user->saveNewUser()) {
+                    echo (new SendMessage("Se registro con exito al usuario.", true))->getEncodedMessage();
+                } else {
+                    echo (new SendMessage("Hubo problemas al registrar al usuario.", false))->getEncodedMessage();
+                }
+            }
         }
     } else {
-        echo (new SendMessage("Error, datos incompletos.", false))->getEncodedMessage();
+        echo (new SendMessage($message . $finalMessage, false))->getEncodedMessage();
+
     }
 } catch (Exception $e) {
     echo (new SendMessage("Error " . $e, false))->getEncodedMessage();
 }
 
-function verifyDataComplete()
+function verifyDataComplete($name, $lastname, $dni, $rol, $username, $password, $msg)
 {
-    return isset($name) and isset($lastname) and isset($dni) and isset($rol) and isset($username) and isset($password);
+    if (isset($dni) and strlen($dni) === 8) {
+        if (isset($name)) {
+            if (isset($lastname)) {
+                if (isset($rol)) {
+                    if (isset($username)) {
+                        if (isset($password)) {
+                            return true;
+                        } else {
+                            $msg = 'Faltan la contraseña';
+                            return false;
+                        }
+                    } else {
+                        $msg = 'Faltan el nombre de usuario';
+                        return false;
+                    }
+                } else {
+                    $msg = 'Faltan el rol desl usuario';
+                    return false;
+                }
+            } else {
+                $msg = 'Faltan los apellidos';
+                return false;
+            }
+        } else {
+            $msg = 'Faltan los nombres';
+            return false;
+        }
+    } else {
+        $msg = 'Formato de DNI erroneo';
+        return false;
+    }
 }

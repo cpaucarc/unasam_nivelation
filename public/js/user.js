@@ -1,12 +1,14 @@
 /* ----- Constant ----- */
 const user_form = document.getElementById('user-form');
 const tbody = document.getElementById('table-body');
+const cbUserRol = document.getElementById('user_rol');
 
 table = new Table();
 
 /* ----- Window load ----- */
 window.onload = function () {
     fillTableWhitAllUsers();
+    getAllRoles();
 };
 
 /* ----- Listeners ----- */
@@ -18,7 +20,6 @@ user_form.addEventListener('submit', (e) => {
 /* ----- Main Funcionts ----- */
 function saveNewUser() {
     let formData = new FormData(user_form);
-
     fetch('http://localhost/nivelation/app/controllers/users/saveNewUser.php/', {
         method: 'POST',
         headers: {
@@ -32,7 +33,6 @@ function saveNewUser() {
             if (data.status) {
                 user_form.reset();
                 fillTableWhitAllUsers();
-                // $('#tableUserView').load('app/views/users/tableUserView.php');
                 $('#user_modal').modal("hide");
             }
             alert(data.message);
@@ -40,7 +40,6 @@ function saveNewUser() {
 }
 
 function fillTableWhitAllUsers() {
-
     fetch('http://localhost/nivelation/app/controllers/users/getAllUsers.php/')
         .then(response => response.json())
         .then(data => {
@@ -58,6 +57,24 @@ function fillTableWhitAllUsers() {
             });
             $('#table-users').DataTable();
         });
+}
+
+function getAllRoles() {
+    fetch('http://localhost/nivelation/app/controllers/rol/getAllRoles.php/')
+        .then(response => response.json())
+        .then(data => {
+            data = data.roles;
+            fillSelectWithRoles(data);
+        });
+}
+
+function fillSelectWithRoles(roles) {
+    cbUserRol.innerHTML = '';
+    roles.forEach(rol => {
+        let opt = document.createElement('option');
+        opt.appendChild(document.createTextNode(rol.name))
+        cbUserRol.appendChild(opt);
+    })
 }
 
 /* ----- Others Functions ----- */

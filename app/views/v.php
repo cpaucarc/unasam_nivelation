@@ -1,30 +1,25 @@
 <?php
-//
-//if (isset($_SESSION['user'])) {
-//    echo 'Hay session' . $_SESSION['user'];
-//} else {
-//    header("Location: http://localhost/nivelation/login.php", TRUE, 301);
-//    exit();
-//}
-
-//include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
-////require_once(MODEL_PATH . "StudentModel.php");
-//require_once(CONTROLLER_PATH . "StudentController.php");
-//
-//$std = new StudentController();
-//
-//$path = 'C:\xampp\htdocs\nivelation\public\js\prueba.json';
-//
-////var_dump($std->loadStudentsFromJSON($path));
-//print_r($std->loadStudentsFromJSON($path));
 include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
-require_once(MODEL_PATH . "FileModel.php");
-require_once(UTIL_PATH . "SendMessage.php");
+require_once(DB_PATH . "MySqlConnection.php");
+$connection = new MySqlConnection();
+$dni = 61257784;
+if ($connection) {
+    $pdo = $connection->getConnection();
+    $sql = "SELECT count(1) as num FROM persons WHERE dni = '" . $dni . "'";
+    $num = $pdo->query($sql)->fetchColumn();
+    echo $num;
+    var_dump($num);
+    $num = intval($num);
+    if ($num === 0) {
 
-$fileModel = new FileModel();
-echo $fileModel->generateName('file me.json');
-
-
+        echo "Aun no existe";
+    } else {
+        echo "Ya existe";
+    }
+    var_dump($num);
+} else {
+    return false;
+}
 ?>
 
 <!doctype html>
@@ -40,35 +35,7 @@ echo $fileModel->generateName('file me.json');
 </head>
 <body>
 <div class="container mt-5">
-    <form action="../controllers/index/saveUploadFile.php" method="post" name="miformu" enctype="multipart/form-data"
-          id="miformu">
-        <input name="file" type="file" id="upload">
-
-        <button type="submit" name="submit">Subir</button>
-    </form>
-
-
-    <script>
-        // const upload = document.getElementById('upload');
-        // const miformu = document.getElementById('miformu');
-        //
-        // miformu.addEventListener('submit', (e) => {
-        //     e.preventDefault();
-        //     console.log('Sended');
-        //     let formData = new FormData(miformu);
-        //
-        //     fetch('http://localhost/nivelation/app/controllers/index/saveUploadFile.php/', {
-        //         method: 'POST',
-        //         body: formData
-        //     })
-        //         .then(response => response.text())
-        //         .then(data => {
-        //             console.log(data);
-        //         });
-        // });
-
-
-    </script>
+    <h1>Hello</h1>
 </div>
 </body>
 </html>

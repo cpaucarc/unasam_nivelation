@@ -5,9 +5,13 @@ const areaNameSchool = document.getElementById('areaNameSchool');
 const tbodyCourses = document.getElementById('tbody-courses');
 const tbodySchools = document.getElementById('tbody-schools');
 const formSchools = document.getElementById('form-schools');
+const formCourses = document.getElementById('form-courses');
 const formArea = document.getElementById('form-area');
 const areaIDSch = document.getElementById('areaIDSch');
+const areaIDCou = document.getElementById('areaIDCou');
 const cardAreas = document.getElementById('card-areas');
+const btnAddCourse = document.getElementById('addCourse');
+const cbCourses = document.getElementById('cbCourses');
 var target = null;
 
 button = new Button();
@@ -22,6 +26,28 @@ window.onload = () => {
     getAllAreas();
 }
 
+btnAddCourse.addEventListener('click', () => {
+    let formData = new FormData();
+    formData.append('areaID', areaIDCou.value);
+    fetch('http://localhost/nivelation/app/controllers/courses/getCoursesNoAddedToArea.php/', {
+        method: 'POST',
+        headers: {
+            "Accept": "application/json"
+        },
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+            data = data.courses;
+            cbCourses.innerHTML = '';
+            data.forEach(course => {
+                let opt = document.createElement('option')
+                opt.appendChild(document.createTextNode(course.name));
+                cbCourses.appendChild(opt);
+            })
+        });
+})
+
 formSchools.addEventListener('submit', (e) => {
     e.preventDefault();
     if (areaName.trim().length > 0) {
@@ -35,12 +61,39 @@ formSchools.addEventListener('submit', (e) => {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 alert(data.message);
                 if (data.status) {
                     showSchools(areaName);
                     formSchools.reset();
                     $('#SchoolModal').modal('hide');
+                }
+            });
+    } else {
+        alert('Seleccione algun área en la parte superior.');
+    }
+})
+
+formCourses.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (areaName.trim().length > 0) {
+
+        let formData = new FormData(formCourses);
+
+        fetch('http://localhost/nivelation/app/controllers/courses/addCourseToArea.php/', {
+            method: 'POST',
+            headers: {
+                "Accept": "application/json"
+            },
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                alert(data.message);
+                if (data.status) {
+                    showCourses(areaName);
+                    formCourses.reset();
+                    $('#CoursesModal').modal('hide');
                 }
             });
     } else {
@@ -60,7 +113,6 @@ formArea.addEventListener('submit', (e) => {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             alert(data.message);
             if (data.status) {
                 getAllAreas();
@@ -155,9 +207,9 @@ function showAreaCoursesAndSchools(area, areaID) {
     areaNameCourse.innerText = area;
     areaNameSchool.innerText = area;
     areaIDSch.value = areaID;
+    areaIDCou.value = areaID;
     showSchools(area);
     showCourses(area);
-    console.log('Finish')
 }
 
 function appendAddNewAreasCard() {

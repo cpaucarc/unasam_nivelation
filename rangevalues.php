@@ -1,8 +1,12 @@
 <?php
+require_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
+require_once(UTIL_PATH . "sessions/SessionStarted.php");
+session_start();
+(new SessionStarted())->verifySessionStarted();
 require_once "app/components/upperpart.php";
 ?>
     <div class="container">
-        <div class="card shadow">
+        <div class="card">
             <div class="card-header">
                 <div class="d-flex bd-highlight mb-3">
                     <div class="bd-highlight">
@@ -29,16 +33,11 @@ require_once "app/components/upperpart.php";
                 </div>
             </div>
             <div class="card-body">
-                <h5 class="card-title text-primary">Rango de Valores del Area
+                <h5 class="card-title text-primary mb-3">Rango de Valores del Area
                     <span id="selectedArea" class="font-weight-bold">?</span> en el proceso
                     <span id="selectedProcess" class="font-weight-bold">?</span>
                 </h5>
-                <!--Botones-->
-                <div class="my-4">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-rank">
-                        Registrar nuevo
-                    </button>
-                </div>
+
                 <!--Tabla-->
                 <table class="table mt-2" id="table-ranks">
                     <thead class="thead-light">
@@ -81,7 +80,7 @@ require_once "app/components/upperpart.php";
                                 <form id="form-rank">
                                     <input type="hidden" value="0" id="rankID" name="rankID">
                                     <div class="form-group">
-                                        <label for="txCourse">Curso</label>
+                                        <label for="txCourse">Cursos</label>
                                         <input type="text" class="form-control" id="txCourse"
                                                name="txCourse" disabled>
                                     </div>

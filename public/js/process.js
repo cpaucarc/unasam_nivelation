@@ -6,6 +6,7 @@ table = new Table();
 
 window.onload = () => {
     getAllProcess();
+    getLastProcess();
 }
 
 form.addEventListener('submit', (e) => {
@@ -47,16 +48,32 @@ function getAllProcess() {
         });
 }
 
+function getLastProcess() {
+    fetch('http://localhost/nivelation/app/controllers/process/getLastProcess.php/', {
+        method: 'GET',
+        headers: {
+            "Accept": "application/json"
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status) {
+                lastProcess.innerText = data.message;
+            } else {
+                alert(data.message);
+            }
+        });
+}
+
 function fillTable(process) {
     tbody.innerHTML = '';
     $('#table-process').DataTable().clear().destroy();
     let num = 1;
     process.forEach(p => {
         let row = table.createRow(num, p.denomination);
-        let group = createGroupButton();
-        group.appendChild(button.createBtnEdit(updateProcess, p.id, p.denomination));
-        group.appendChild(button.createBtnDelete(deleteProcess, p.id));
-        row.appendChild(table.createCell(group));
+        let btnEdit = button.createBtnEdit(updateProcess, p.id, p.denomination);
+        btnEdit.classList.add('btn-sm');
+        row.appendChild(table.createCell(btnEdit));
         tbody.appendChild(row);
         num++;
     });

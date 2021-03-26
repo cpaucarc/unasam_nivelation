@@ -1,5 +1,8 @@
 <?php
+require_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
+require_once(UTIL_PATH . "sessions/SessionStarted.php");
 session_start();
+(new SessionStarted())->verifySessionStarted();
 require_once "app/components/upperpart.php";
 ?>
 
@@ -45,10 +48,9 @@ require_once "app/components/upperpart.php";
                     </div>
                     <div class="card-body" id="card-body-school">
                         <button type="button" class="btn btn-primary mb-3" data-toggle="modal"
-                                data-target="#CoursesModal" id="newCourse">
+                                data-target="#CoursesModal" id="addCourse">
                             Agregar nuevo curso
                         </button>
-                        <span class="badge badge-danger">Aun falta</span>
                         <table class="table" id="table-courses">
                             <thead class="thead-light">
                             <tr>
@@ -67,7 +69,7 @@ require_once "app/components/upperpart.php";
                                     <a href="http://localhost/nivelation/rangevalues.php">pulse aqui</a>
                                 </li>
                                 <li>Para añadir nuevos cursos
-                                    <a href="http://localhost/nivelation/rangevalues.php">pulse aqui</a>
+                                    <a href="http://localhost/nivelation/cursos.php">pulse aqui</a>
                                 </li>
                             </ul>
                         </div>
@@ -75,7 +77,6 @@ require_once "app/components/upperpart.php";
                 </div>
             </div>
         </div>
-
 
         <!-- Areas Modal-->
         <div class="modal fade" id="add-area" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -122,7 +123,7 @@ require_once "app/components/upperpart.php";
                     <div class="modal-body">
                         <form id="form-schools">
                             <div class="form-group">
-                                <input id="areaIDSch" value="0" name="areaIDSch" type="text"/>
+                                <input id="areaIDSch" value="0" name="areaIDSch" type="hidden"/>
                                 <label for="school">Nombre de la escuela</label>
                                 <input type="text" class="form-control" id="school" name="school" required>
                             </div>
@@ -142,18 +143,42 @@ require_once "app/components/upperpart.php";
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Agregar nuevo curso</h5>
+                        <h5 class="modal-title">Agregar nuevo curso</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <form id="form-courses">
+                            <input id="areaIDCou" value="0" name="areaIDCou" type="hidden"/>
+                            <div class="row">
+                                <div class="col col-sm-12">
+                                    <div class="form-group">
+                                        <label for="cbCourses">Curso que aun no estan registrados</label>
+                                        <select name="courses" id="cbCourses" class="form-control" required></select>
+                                    </div>
+                                </div>
+                                <div class="col col-sm-6">
+                                    <div class="form-group">
+                                        <label for="min">Rango Minimo (%)</label>
+                                        <input name="min" type="number" class="form-control" id="min" value="50"
+                                               max="100" min="0">
+                                    </div>
+                                </div>
+                                <div class="col col-sm-6">
+                                    <div class="form-group">
+                                        <label for="max">Rango Recomendado (%)</label>
+                                        <input name="max" type="number" class="form-control" id="max" value="70"
+                                               max="100" min="0">
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Understood</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>

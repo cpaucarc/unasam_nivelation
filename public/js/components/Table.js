@@ -44,9 +44,9 @@ class Table {
         return row;
     }
 
-    createCell(element) {
+    createCell(child) {
         let cell = document.createElement('td');
-        cell.appendChild(element);
+        cell.appendChild(child);
         return cell;
     }
 
