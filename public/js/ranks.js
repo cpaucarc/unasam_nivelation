@@ -7,12 +7,13 @@ const tb = document.getElementById('table');
 const formRank = document.getElementById('form-rank');
 
 var allRanks;
+var currentArea;
+var currentProcess;
 
 table = new Table();
 button = new Button();
 
 window.onload = function () {
-    console.log('hello');
     getAllProcess();
 }
 
@@ -20,6 +21,7 @@ cbArea.addEventListener('change', () => {
     let process = cbProcess.value;
     let area = cbArea.options[cbArea.selectedIndex].text;
     selectedArea.innerText = area;
+    currentArea = area;
     getAllRanksByProcessID(process, area);
 });
 
@@ -27,13 +29,12 @@ cbProcess.addEventListener('change', () => {
     let process = cbProcess.value;
     let area = cbArea.options[cbArea.selectedIndex].text;
     selectedProcess.innerText = cbProcess.options[cbProcess.selectedIndex].text;
-    console.log(process);
+    currentProcess = process;
     getAllRanksByProcessID(process, area);
 });
 
 formRank.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log('sendind')
     let formData = new FormData(formRank);
 
     fetch('http://localhost/nivelation/app/controllers/ranks/updateRankValues.php', {
@@ -47,11 +48,10 @@ formRank.addEventListener('submit', (e) => {
         .then(data => {
             console.log(data);
             if (data.status === true) {
-                //ToDo: Poner un alerta, indicando que se hizo de forma correcta
                 $('#modal-rank').modal('hide');
-            } else {
-                //ToDo: Poner un alerta, indicando que se hubo error
+                getAllRanksByProcessID(currentProcess, currentArea);
             }
+            // alert(data.message);
         });
 });
 
@@ -135,10 +135,10 @@ function createRowsAndFillTable(area) {
         let row = table.createRow(i, courses.course, courses.area,
             courses.process, courses.minimal, courses.maximun);
 
-        let btnTD = document.createElement('td');
-        btnTD.appendChild(button.createBtnPrimary('e', updateRank, courses.id));
-        btnTD.appendChild(button.createBtnPrimary('d', deleteRank, courses.id));
-        row.appendChild(btnTD);
+        // let btnTD = document.createElement('td');
+        // btnTD.appendChild(button.createBtnPrimary('e', updateRank, courses.id));
+        // btnTD.appendChild(button.createBtnPrimary('d', deleteRank, courses.id));
+        row.appendChild(table.createCell(button.createBtnEdit(updateRank, courses.id)));
 
         tbody.appendChild(row);
         i++;
@@ -148,7 +148,6 @@ function createRowsAndFillTable(area) {
 function updateRank(id) {
     let rankGetIt = getRankDataByID(parseInt(id));
     if (rankGetIt) {
-        console.log(rankGetIt);
         document.getElementById('txCourse').value = rankGetIt.course;
         document.getElementById('txMin').value = rankGetIt.minimal;
         document.getElementById('txMax').value = rankGetIt.maximun;

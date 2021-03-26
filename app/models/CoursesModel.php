@@ -22,6 +22,22 @@ class CoursesModel
         }
     }
 
+    public function updateCourse()
+    {
+        $connection = new MySqlConnection();
+        if ($connection) {
+            $pdo = $connection->getConnection();
+            $sql = "UPDATE courses SET name = ? WHERE id = ?;";
+            $pdo->prepare($sql)->execute([
+                $this->name,
+                $this->id
+            ]);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function getAllCourses()
     {
         $conn = (new MySqlConnection())->getConnection();
@@ -46,7 +62,7 @@ class CoursesModel
                 JOIN courses AS cr ON cr.id = rk.courses_id 
                 JOIN process AS pr ON pr.id = rk.process_id
                 
-                WHERE pr.denomination = getLastProcess() AND ar.name = '".$area."';";
+                WHERE pr.denomination = getLastProcess() AND ar.name = '" . $area . "';";
 
         $response['courses'] = array();
         foreach ($conn->query($sql) as $row) {
@@ -58,6 +74,43 @@ class CoursesModel
         return json_encode($response);
     }
 
+    public function getCoursesNoAddedToArea($areaID)
+    {
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "SELECT * FROM courses 
+                WHERE id NOT IN (SELECT courses_id FROM ranks 
+                    WHERE process_id = (SELECT id FROM process 
+                    WHERE denomination = getLastProcess()) AND areas_id = " . $areaID . ");";
+
+        $response['courses'] = array();
+        foreach ($conn->query($sql) as $row) {
+            $p = array();
+            $p['id'] = $row['id'];
+            $p['name'] = $row['name'];
+            array_push($response['courses'], $p);
+        }
+        return json_encode($response);
+    }
+
+    public function addCourseToArea($areaID, $course, $min, $max)
+    {
+        $connection = new MySqlConnection();
+        if ($connection) {
+            $pdo = $connection->getConnection();
+            $sql = "INSERT INTO ranks VALUES (null, 
+                    (SELECT id FROM courses WHERE name = ?), ?, 
+                    (SELECT id FROM process WHERE denomination = getLastProcess()), ?, ?);";
+            $pdo->prepare($sql)->execute([
+                $course,
+                $areaID,
+                $min,
+                $max
+            ]);
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 //    Getters and Setters
     public function getName()

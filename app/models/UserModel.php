@@ -52,9 +52,40 @@ class UserModel
         }
     }
 
-    public function verifyUsernameExistence()
+    public function usernameIsAlreadyInUse()
     {
+        $connection = new MySqlConnection();
+        if ($connection) {
+            $pdo = $connection->getConnection();
+            $sql = "SELECT count(1) as num FROM users WHERE username = '" . $this->username . "'";
+            $num = $pdo->query($sql)->fetchColumn();
+            $num = intval($num);
+            if ($num === 0) {
+                return true;// The username not is used
+            } else {
+                return false; // The username is already used
+            }
+        } else {
+            return false;
+        }
+    }
 
+    public function dniIsAlreadyRegistered()
+    {
+        $connection = new MySqlConnection();
+        if ($connection) {
+            $pdo = $connection->getConnection();
+            $sql = "SELECT count(1) as num FROM persons WHERE dni = '" . $this->dni . "'";
+            $num = $pdo->query($sql)->fetchColumn();
+            $num = intval($num);
+            if ($num === 0) {
+                return true;// The DNI not is registered
+            } else {
+                return false; // The DNI is registered
+            }
+        } else {
+            return false;
+        }
     }
 
     public function getAllUsers()

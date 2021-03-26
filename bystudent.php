@@ -1,6 +1,8 @@
 <?php
+require_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
+require_once(UTIL_PATH . "sessions/SessionStarted.php");
 session_start();
-//$fullname = isset($_POST['fullname']) ? $_POST['fullname'] : '';
+(new SessionStarted())->verifySessionStarted();
 $stdID = empty ($_GET['std']) ? 0 : $_GET['std'];
 ?>
 
