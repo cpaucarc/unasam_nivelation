@@ -1,0 +1,33 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+#index
+RewriteRule ^/$ index.php
+
+#bystudent
+RewriteRule ^vista/estudiante/([0-9]+)$ bystudent.php?std=$1
+RewriteRule ^vista/estudiante$ bystudent.php
+
+#bycourse
+RewriteRule ^vista/curso$ bycourse.php
+
+#byschool
+RewriteRule ^vista/escuela$ byschool.php
+
+#ranks
+RewriteRule ^rangos$ rangevalues.php
+
+#area
+RewriteRule ^areas$ area.php
+
+#admision process
+RewriteRule ^admision$ admission.php
+
+#byschool
+RewriteRule ^cursos$ cursos.php
+
+#users
+RewriteRule ^usuarios$ UserView.php
+
+#login
+RewriteRule ^login$ login.php

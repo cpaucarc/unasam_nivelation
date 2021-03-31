@@ -47,7 +47,7 @@
 </div>
 
 <!-- Custom scripts for all pages-->
-<script src="public/js/sb-admin-2.min.js"></script>
+<script src="http://localhost/nivelation/public/js/sb-admin-2.min.js"></script>
 
 <!--<script src="public/js/main.js"></script>-->
 

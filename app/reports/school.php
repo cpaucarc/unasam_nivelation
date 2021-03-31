@@ -6,7 +6,7 @@ require_once(UTIL_PATH . "PDF.php");
 if (isset($_POST['scAREAPDF']) && isset($_POST['scSCHOOLPDF']) && isset($_POST['scPROCESSPDF'])) {
 
     $scAREA = $_POST['scAREAPDF'];
-    $scSCHOOL= $_POST['scSCHOOLPDF'];
+    $scSCHOOL = $_POST['scSCHOOLPDF'];
     $scPROCESS = $_POST['scPROCESSPDF'];
 
     $heightTitleCell = 8;
@@ -62,7 +62,7 @@ if (isset($_POST['scAREAPDF']) && isset($_POST['scSCHOOLPDF']) && isset($_POST['
         $pdf->SetFont('Helvetica', 'B', $fontSizeTableHeader);
         $pdf->Cell($width1C, $heightTableCell, '#', 1, 0, 'C', 1);
         $pdf->Cell($width3C, $heightTableCell, 'DNI', 1, 0, 'L', 1);
-        $pdf->Cell($width3C, $heightTableCell,  utf8_decode('Código'), 1, 0, 'L', 1);
+        $pdf->Cell($width3C, $heightTableCell, utf8_decode('Código'), 1, 0, 'L', 1);
         $pdf->Cell($width4C, $heightTableCell, 'Alumno **', 1, 1, 'L', 1);;
 
         $sql = "call spShowStudentsBySchool('" . $scSCHOOL . "', '" . $scPROCESS . "');";
@@ -92,10 +92,10 @@ if (isset($_POST['scAREAPDF']) && isset($_POST['scSCHOOLPDF']) && isset($_POST['
     } else {
         echo 'Error, no se ha especificado el datos para emprimir';
         echo '</br>';
-        echo '<a href="http://localhost/nivelation/bystudent.php">Volver</a>';
+        echo '<a href="http://localhost/nivelation/vista/estudiante/0">Volver</a>';
     }
 } else {
     echo 'Error, no se ha especificado el datos.';
     echo '</br>';
-    echo '<a href="http://localhost/nivelation/bystudent.php">Volver</a>';
+    echo '<a href="http://localhost/nivelation/vista/estudiante/0">Volver</a>';
 }

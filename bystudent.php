@@ -7,7 +7,7 @@ $stdID = empty ($_GET['std']) ? 0 : $_GET['std'];
 ?>
 
 <?php
-require_once "app/components/upperpart.php";
+require_once(COMPONENT_PATH . "upperpart.php");
 ?>
 
 
@@ -24,21 +24,6 @@ require_once "app/components/upperpart.php";
 
         <div class="card mb-4">
             <div class="card-header py-3">
-                <!--                <div class="row">-->
-                <!--                    <div class="col col-md-4 col-sm-12">-->
-                <!--                        <div class="input-group">-->
-                <!--                            <input list="students" class="form-control" name="txSearch" id="txSearch"/>-->
-                <!--                            <datalist id="students">-->
-                <!--                            </datalist>-->
-                <!--                            <div class="input-group-append">-->
-                <!--                                <button class="btn btn-primary" type="submit" id="btSearch">-->
-                <!--                                    <i class="fas fa-search "></i>-->
-                <!--                                </button>-->
-                <!--                            </div>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </div>-->
-                <!--                Prueba-->
                 <div class="d-flex justify-content-between">
                     <div class="cp-2 bd-highlight">
                         <div class="input-group">
@@ -103,10 +88,10 @@ require_once "app/components/upperpart.php";
     <!-- /.container-fluid -->
 
     <!--<script src="public/js/datatable.js"></script>-->
-    <script src="public/js/components/Card.js"></script>
-    <script src="public/js/components/Table.js"></script>
-    <script src="public/js/studentView.js"></script>
+    <script src="http://localhost/nivelation/public/js/components/Card.js"></script>
+    <script src="http://localhost/nivelation/public/js/components/Table.js"></script>
+    <script src="http://localhost/nivelation/public/js/studentView.js"></script>
 
 <?php
-require_once "app/components/downpart.php";
+require_once(COMPONENT_PATH . "downpart.php");
 ?>

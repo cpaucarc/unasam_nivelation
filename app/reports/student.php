@@ -100,12 +100,12 @@ if (isset($_POST['stdIDPDF'])) {
     } else {
         echo 'Error, no se ha especificado el estudiante';
         echo '</br>';
-        echo '<a href="http://localhost/nivelation/bystudent.php">Volver</a>';
+        echo '<a href="http://localhost/nivelation/vista/estudiante/0">Volver</a>';
     }
 } else {
     echo 'Error, no se ha especificado el estudiante.';
     echo '</br>';
-    echo '<a href="http://localhost/nivelation/bystudent.php">Volver</a>';
+    echo '<a href="http://localhost/nivelation/vista/estudiante/0">Volver</a>';
 }
 
 ?>

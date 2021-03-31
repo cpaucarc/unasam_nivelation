@@ -7,4 +7,5 @@ define('DB_PATH', ROOT_PATH . 'app/database/');
 define('UTIL_PATH', ROOT_PATH . 'app/utils/');
 define('PUBLIC_PATH', ROOT_PATH . 'public/images/');
 define('REPORT_PATH', ROOT_PATH . 'app/reports/');
+define('COMPONENT_PATH', ROOT_PATH . 'app/components/');
 

@@ -6,7 +6,7 @@ session_start();
 ?>
 
 <?php
-require_once "app/components/upperpart.php";
+require_once(COMPONENT_PATH . "upperpart.php");
 ?>
 
 
@@ -76,11 +76,12 @@ require_once "app/components/upperpart.php";
 </div>
 <!-- /.container-fluid -->
 
-<script src="public/js/components/Table.js"></script>
-<script src="public/js/components/Button.js"></script>
-<script src="public/js/schoolsView.js"></script>
+<script src="http://localhost/nivelation/public/js/components/Table.js"></script>
+<script src="http://localhost/nivelation/public/js/components/Button.js"></script>
+<script src="http://localhost/nivelation/public/js/components/Alert.js"></script>
+<script src="http://localhost/nivelation/public/js/schoolsView.js"></script>
 
 <?php
-require_once "app/components/downpart.php";
+require_once(COMPONENT_PATH . "downpart.php");
 ?>
 <!--<script src="public/js/datatable.js"></script>-->

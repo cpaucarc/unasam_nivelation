@@ -6,7 +6,7 @@ session_start();
 ?>
 
 <?php
-require_once "app/components/upperpart.php";
+require_once(COMPONENT_PATH . "upperpart.php");
 ?>
 
 
@@ -58,15 +58,15 @@ require_once "app/components/upperpart.php";
             <!--Tabla-->
             <table class="table mt-2" id="table-students">
                 <thead class="thead-light">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">DNI</th>
-                        <th scope="col">Código</th>
-                        <th scope="col">Alumno</th>
-                        <th scope="col">Escuela</th>
-                        <th scope="col">Recomendación</th>
-                        <th scope="col">Acción</th>
-                    </tr>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">DNI</th>
+                    <th scope="col">Código</th>
+                    <th scope="col">Alumno</th>
+                    <th scope="col">Escuela</th>
+                    <th scope="col">Recomendación</th>
+                    <th scope="col">Acción</th>
+                </tr>
                 </thead>
                 <tbody id="tbody">
 
@@ -78,11 +78,12 @@ require_once "app/components/upperpart.php";
 </div>
 <!-- /.container-fluid -->
 
-<script src="public/js/components/Table.js"></script>
-<script src="public/js/components/Button.js"></script>
-<script src="public/js/courseView.js"></script>
+<script src="http://localhost/nivelation/public/js/components/Table.js"></script>
+<script src="http://localhost/nivelation/public/js/components/Button.js"></script>
+<script src="http://localhost/nivelation/public/js/components/Alert.js"></script>
+<script src="http://localhost/nivelation/public/js/courseView.js"></script>
 
 <?php
-require_once "app/components/downpart.php";
+require_once(COMPONENT_PATH . "downpart.php");
 ?>
 <!--<script src="public/js/datatable.js"></script>-->
