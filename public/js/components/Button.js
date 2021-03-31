@@ -63,4 +63,16 @@ class Button {
         return btn;
     }
 
+    createButtonForRedirectToStudentView(id) {
+        let url = "http://localhost/nivelation/vista/estudiante";
+        let btn = document.createElement('a');
+        btn.classList.add('btn');
+        btn.classList.add('btn-link');
+        btn.setAttribute('href', `${url}/${id}`);
+        // btn.setAttribute('target', '_blank');
+        btn.setAttribute('role', 'button');
+        btn.innerText = 'Ver';
+        return btn;
+    }
+
 }

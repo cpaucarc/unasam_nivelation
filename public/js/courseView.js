@@ -14,6 +14,7 @@ let csPROCESSPDF = document.getElementById('csPROCESSPDF');
 
 table = new Table();
 button = new Button();
+alert = new Alert();
 
 window.onload = function () {
     console.log('cargo con exito');
@@ -124,9 +125,9 @@ function fillTableWhitCourses(area, course, process) {
             data.forEach(std => {
                 let row = table.createRow(num, std.dni, std.code,
                     (std.lastname + ' ' + std.name), std.school);
-                // let btnShowStudent = button.createBtnPrimary('Ver', showStudentInfo, (std.lastname + ' ' + std.name));
-                let btnShowStudent = createRedirectButton(std.stdID);
-                row.appendChild(createCell(std.stat, std.num));
+                // let btnShowStudent = createRedirectButton(std.stdID);
+                let btnShowStudent = button.createButtonForRedirectToStudentView(std.stdID);
+                row.appendChild(table.createCell(alert.createAlert(std.stat, std.num)));
                 row.appendChild(table.createCell(btnShowStudent));
                 tbody.appendChild(row);
                 num++;
@@ -140,79 +141,4 @@ function createOptionForSelect(value, text) {
     opt.setAttribute("value", value);
     opt.innerText = text;
     return opt;
-}
-
-function createCell(text, numero) { //1 no nec, 2 si, pero no obl, 3 obl
-    cell = document.createElement('td');
-    span = document.createElement('span');
-    span.innerText = text;
-    span.classList.add('py-2');
-    switch (parseInt(numero)) {
-        case 1: { // No requiere
-            span.classList.add('alert');
-            span.classList.add('alert-success');
-            break;
-        }
-        case 2: { // requiere, no obligatorio
-            span.classList.add('alert');
-            span.classList.add('alert-warning');
-            break;
-        }
-        case 3: { // si requiere, obligatorio
-            span.classList.add('alert');
-            span.classList.add('alert-danger');
-            break;
-        }
-        default: { // si requiere, obligatorio
-            span.classList.add('badge');
-            span.classList.add('badge-danger');
-            break;
-        }
-    }
-    cell.appendChild(span);
-    return cell;
-}
-
-function showStudentInfo(fullname) {
-    // let formData = new FormData();
-    // formData.append('fullname', fullname);
-    //
-    // fetch('http://localhost/nivelation/bystudent.php', {
-    //     method: 'POST',
-    //     body: formData
-    // })
-    //     .then(response => response.text())
-    //     .then(data => {
-    //         if (data) {
-    //             window.location = 'http://localhost/nivelation/bystudent.php';
-    //         }
-    //     }).catch(reason => {
-    //     console.log(reason)
-    // });
-
-    // let url = 'http://localhost/nivelation/bystudent.php';
-    // var form = document.createElement('form');
-    // form.setAttribute('action', url);
-    // form.setAttribute('method', 'POST');
-    // var input = document.createElement('input');
-    // input.setAttribute('name', 'fullname');
-    // input.setAttribute('value', fullname);
-    // form.appendChild(input);
-    //
-    // form.submit();
-    // document.getElementById('aqui').appendChild(form);
-    //window.location = url;
-    //alert(fullname)
-}
-
-function createRedirectButton(id) {
-    let url = "http://localhost/nivelation/bystudent.php";
-    let btn = document.createElement('a');
-    btn.classList.add('btn');
-    btn.classList.add('btn-link');
-    btn.setAttribute('href', `${url}?std=${id}`);
-    btn.setAttribute('target', '_blank');
-    btn.setAttribute('role', 'button');
-    btn.innerText = 'Ver';
-    return btn;
 }

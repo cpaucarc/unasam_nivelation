@@ -35,7 +35,7 @@ require_once "app/components/upperpart.php";
                                 <input type="password" class="form-control form-control-user" id="exampleInputEmail" placeholder="Password actual">
                             </div>
 
-                            <a href="login.php" class="btn btn-primary btn-user btn-block">
+                            <a href="http://localhost/nivelation/login" class="btn btn-primary btn-user btn-block">
                                 Guardar
                             </a>
 

@@ -18,9 +18,8 @@ window.onload = () => {
     console.log('Hello');
     fillWhitProcess();
     //for dpdf
-    scAREAPDF.value="";
-    scCOURSEPDF.value="";
-    scPROCESSPDF.value="";
+    scAREAPDF.value = "";
+    scPROCESSPDF.value = "";
 }
 
 cbSchool.addEventListener('change', () => {
@@ -74,7 +73,7 @@ function fillWhitSchools(area) {
     let formData = new FormData();
     formData.append('area', area);
     //for fpdf
-    scAREAPDF.value=area;
+    scAREAPDF.value = area;
     fetch('http://localhost/nivelation/app/controllers/school/getSchoolsByArea.php/', {
         method: 'POST',
         headers: {
@@ -111,8 +110,8 @@ function fillTableWhitStudents(school, process) {
     console.log(school, process);
 
     //for fpdf
-    scSCHOOLPDF.value=school;
-    scPROCESSPDF.value=process;
+    scSCHOOLPDF.value = school;
+    scPROCESSPDF.value = process;
 
     fetch('http://localhost/nivelation/app/controllers/student/getStudentsBySchool.php/', {
         method: 'POST',
@@ -132,23 +131,12 @@ function fillTableWhitStudents(school, process) {
             data.forEach(std => {
                 let row = table.createRow(num, std.dni, std.code,
                     (std.lastname + ' ' + std.name));
-                let btnShowStudent = createRedirectButton(std.id);
+                // let btnShowStudent = createRedirectButton(std.id);
+                let btnShowStudent = button.createButtonForRedirectToStudentView(std.id);
                 row.appendChild(table.createCell(btnShowStudent));
                 tbody.appendChild(row);
                 num++;
             })
             $('#table-students').DataTable();
         });
-}
-
-function createRedirectButton(id) {
-    let url = "http://localhost/nivelation/bystudent.php";
-    let btn = document.createElement('a');
-    btn.classList.add('btn');
-    btn.classList.add('btn-link');
-    btn.setAttribute('href', `${url}?std=${id}`);
-    btn.setAttribute('target', '_blank');
-    btn.setAttribute('role', 'button');
-    btn.innerText = 'Ver';
-    return btn;
 }

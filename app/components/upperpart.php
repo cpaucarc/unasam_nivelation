@@ -12,9 +12,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Nivelation | UNASAM</title>
+    <title>Sistema de Nivelacion</title>
 
-    <?php @include_once "dependencies.php" ?>
+    <?php require_once(COMPONENT_PATH . "dependencies.php"); ?>
 </head>
 
 <body id="page-top">
@@ -28,7 +28,8 @@
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
             <div class="sidebar-brand-icon ">
-                <img src="public/images/logo.jpg" width="50px" class="rounded float-start" alt="...">
+                <img src="http://localhost/nivelation/public/images/logo.jpg" width="50px" class="rounded float-start"
+                     alt="Escudo de la Unasam">
             </div>
 
             <div class="sidebar-brand-text mx-3">UNASAM <span class="badge bg-primary">Nivelación</span></div>
@@ -63,9 +64,10 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Vistas por:</h6>
-                    <a class="collapse-item" href="bystudent.php">Vista por Estudiante</a>
-                    <a class="collapse-item" href="bycourse.php">Vista por Curso</a>
-                    <a class="collapse-item" href="byschool.php">Vista por Escuela</a>
+                    <a class="collapse-item" href="http://localhost/nivelation/vista/estudiante">Vista por
+                        Estudiante</a>
+                    <a class="collapse-item" href="http://localhost/nivelation/vista/curso">Vista por Curso</a>
+                    <a class="collapse-item" href="http://localhost/nivelation/vista/escuela">Vista por Escuela</a>
                 </div>
             </div>
         </li>
@@ -81,10 +83,10 @@
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Vista por:</h6>
-                    <a class="collapse-item" href="rangevalues.php">Rangos</a>
-                    <a class="collapse-item" href="area.php">Area</a>
-                    <a class="collapse-item" href="admission.php">Admisión</a>
-                    <a class="collapse-item" href="cursos.php">Cursos</a>
+                    <a class="collapse-item" href="http://localhost/nivelation/rangos">Rangos</a>
+                    <a class="collapse-item" href="http://localhost/nivelation/areas">Area</a>
+                    <a class="collapse-item" href="http://localhost/nivelation/admision">Admisión</a>
+                    <a class="collapse-item" href="http://localhost/nivelation/cursos">Cursos</a>
                 </div>
             </div>
         </li>
@@ -107,31 +109,30 @@
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Vistas de usuario</h6>
-                    <a class="collapse-item" href="UserView.php">Usuarios registrados <span
-                                class="badge badge-primary">casi</span></a>
-                    <a class="collapse-item" href="registeruser.php">Registar usuario</a>
-                    <a class="collapse-item" href="editpassword.php">cambiar Contraseña</a>
-                    <div class="collapse-divider"></div>
-                    <h6 class="collapse-header">Other Pages:</h6>
-                    <a class="collapse-item" href="404.html">404 Page</a>
-                    <a class="collapse-item" href="blank.html">Blank Page</a>
+                    <a class="collapse-item" href="http://localhost/nivelation/usuarios">Usuarios registrados</a>
+                    <!--                    <a class="collapse-item" href="registeruser.php">Registar usuario</a>-->
+                    <!--                    <a class="collapse-item" href="editpassword.php">cambiar Contraseña</a>-->
+                    <!--                    <div class="collapse-divider"></div>-->
+                    <!--                    <h6 class="collapse-header">Other Pages:</h6>-->
+                    <!--                    <a class="collapse-item" href="404.html">404 Page</a>-->
+                    <!--                    <a class="collapse-item" href="blank.html">Blank Page</a>-->
                 </div>
             </div>
         </li>
 
         <!-- Nav Item - Charts -->
-        <li class="nav-item">
-            <a class="nav-link" href="charts.html">
-                <i class="fas fa-fw fa-chart-area"></i>
-                <span>Charts</span></a>
-        </li>
+        <!--        <li class="nav-item">-->
+        <!--            <a class="nav-link" href="charts.html">-->
+        <!--                <i class="fas fa-fw fa-chart-area"></i>-->
+        <!--                <span>Charts</span></a>-->
+        <!--        </li>-->
 
         <!-- Nav Item - Tables -->
-        <li class="nav-item">
-            <a class="nav-link" href="tables.html">
-                <i class="fas fa-fw fa-wrench"></i>
-                <span>Utilidades</span></a>
-        </li>
+        <!--        <li class="nav-item">-->
+        <!--            <a class="nav-link" href="tables.html">-->
+        <!--                <i class="fas fa-fw fa-wrench"></i>-->
+        <!--                <span>Utilidades</span></a>-->
+        <!--        </li>-->
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
@@ -216,7 +217,8 @@
                                 echo isset($_SESSION['user_logged']) ? ucfirst($_SESSION['user_logged']['username']) : 'Guest'
                                 ?>
                             </span>
-                            <img class="img-profile rounded-circle" src="public/images/user.png">
+                            <img class="img-profile rounded-circle"
+                                 src="http://localhost/nivelation/public/images/user.png">
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

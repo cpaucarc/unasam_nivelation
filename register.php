@@ -54,7 +54,7 @@
                                         <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repetir Password">
                                     </div>
                                 </div>
-                                <a href="login.php" class="btn btn-primary btn-user btn-block">
+                                <a href="http://localhost/nivelation/login" class="btn btn-primary btn-user btn-block">
                                     Regitar cuenta
                                 </a>
                                 <hr>

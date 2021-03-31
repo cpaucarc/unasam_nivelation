@@ -66,10 +66,10 @@ require_once "app/components/upperpart.php";
                         <div class="alert alert-info my-2" role="alert">
                             <ul>
                                 <li>Para ver y modificar los rangos de cada curso
-                                    <a href="http://localhost/nivelation/rangevalues.php">pulse aqui</a>
+                                    <a href="http://localhost/nivelation/rangos">pulse aqui</a>
                                 </li>
                                 <li>Para añadir nuevos cursos
-                                    <a href="http://localhost/nivelation/cursos.php">pulse aqui</a>
+                                    <a href="http://localhost/nivelation/cursos">pulse aqui</a>
                                 </li>
                             </ul>
                         </div>

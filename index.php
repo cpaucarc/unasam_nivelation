@@ -24,7 +24,7 @@ require_once "app/components/upperpart.php";
                         <small id="help" class="form-text text-muted">
                             Los datos que cargue ahora se guardaran para este proceso de admisión.
                             Puede añadir un nuevo proceso entrando a <a
-                                    href="http://localhost/nivelation/admission.php">esta pagina</a>
+                                    href="http://localhost/nivelation/admision">esta pagina</a>
                         </small>
                     </div>
                     <div class="col col-sm-12 col-md-3 my-auto mx-auto">

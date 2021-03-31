@@ -23,7 +23,7 @@ require_once "app/components/upperpart.php";
 
                         <div class="alert alert-info my-3" role="alert">
                             Para añadir un curso a una area dirijase <a
-                                    href="http://localhost/nivelation/area.php">aqui</a>
+                                    href="http://localhost/nivelation/areas">aqui</a>
                         </div>
 
                     </div>
