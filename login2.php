@@ -48,6 +48,7 @@
                             <form class="form-password col-12" id="form-password">
                                 <div class="form-group form-header">
                                     <i class="fas fa-long-arrow-alt-left btn-behind" id="btn-behind"></i>
+                                  <!--   <i class=" btn-behind" id="btn-behind">&larr;</i> -->
                                     <label for="">Nombre de usuario</label>
                                 </div>
                                 <div class="form-group">

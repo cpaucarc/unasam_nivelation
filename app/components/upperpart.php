@@ -108,6 +108,7 @@
                         <a class="collapse-item" href="http://localhost/nivelation/usuarios">Usuarios registrados</a>
                         <a class="collapse-item" href="profile.php">Perfil de usuario <span class="badge bg-danger text-white">Nuevo</span></a>
                         <a class="collapse-item" href="login2.php">Login alternativo <span class="badge bg-danger text-white">Nuevo</span></a>
+                        <a class="collapse-item" href="404.php">Error 404 <span class="badge bg-danger text-white">Nuevo</span></a>
                         <!--                    <a class="collapse-item" href="editpassword.php">cambiar Contraseña</a>-->
                         <!--                    <div class="collapse-divider"></div>-->
                         <!--                    <h6 class="collapse-header">Other Pages:</h6>-->
