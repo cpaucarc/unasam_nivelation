@@ -31,3 +31,8 @@ RewriteRule ^usuarios$ UserView.php
 
 #login
 RewriteRule ^login$ login.php
+
+
+#Error 404
+
+ErrorDocument 404 http://localhost/nivelation/404.php 
