@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <link rel="icon" href="http://localhost/nivelation/public/images/unasam.png" type="image/x-icon"/>
     <title>Sistema de Nivelacion</title>
 
     <?php require_once(COMPONENT_PATH . "dependencies.php"); ?>

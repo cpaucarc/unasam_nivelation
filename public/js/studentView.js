@@ -35,7 +35,7 @@ txSearch.addEventListener('keyup', () => {
 btShowPDF.addEventListener('click', () => {
     let id = parseInt(stdIDPDF.value);
     if (id > 0) {
-
+        console.log('Mostrando PDF')
     }
 });
 
