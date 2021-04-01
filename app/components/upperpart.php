@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="http://localhost/nivelation/public/images/unasam.png" type="image/x-icon" />
+    <link rel="icon" href="http://localhost/nivelation/public/images/ogcushort.png" type="image/x-icon" />
     <title>Sistema de Nivelacion</title>
 
     <?php require_once(COMPONENT_PATH . "dependencies.php"); ?>
@@ -106,7 +106,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Vistas de usuario</h6>
                         <a class="collapse-item" href="http://localhost/nivelation/usuarios">Usuarios registrados</a>
-                        <a class="collapse-item" href="profile.php">Perfil de usuario</a>
+                        <a class="collapse-item" href="profile.php">Perfil de usuario <span class="badge bg-danger text-white">Nuevo</span></a>
+                        <a class="collapse-item" href="login2.php">Login alternativo <span class="badge bg-danger text-white">Nuevo</span></a>
                         <!--                    <a class="collapse-item" href="editpassword.php">cambiar Contraseña</a>-->
                         <!--                    <div class="collapse-divider"></div>-->
                         <!--                    <h6 class="collapse-header">Other Pages:</h6>-->
