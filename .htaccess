@@ -2,7 +2,7 @@ Options +FollowSymLinks
 RewriteEngine On
 
 #index
-RewriteRule ^/$ index.php
+RewriteRule ^inicio$ index.php
 
 #bystudent
 RewriteRule ^vista/estudiante/([0-9]+)$ bystudent.php?std=$1
@@ -32,7 +32,14 @@ RewriteRule ^usuarios$ UserView.php
 #login
 RewriteRule ^login$ login.php
 
+#profile
+RewriteRule ^perfil$ profile.php
+
+#reports
+RewriteRule ^reporte/estudiante$ app/reports/student.php
+RewriteRule ^reporte/curso$ app/reports/course.php
+RewriteRule ^reporte/escuela$ app/reports/school.php
 
 #Error 404
-
-ErrorDocument 404 http://localhost/nivelation/404.php 
+RewriteRule ^error$ 404.php
+ErrorDocument 404 http://localhost/nivelation/error

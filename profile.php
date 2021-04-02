@@ -7,69 +7,84 @@ session_start();
 <?php
 require_once(COMPONENT_PATH . "upperpart.php");
 ?>
-<div class="container">
-    <div class="row">
-        <div class="col-xl-6 col-lg-6">
-            <div class="card mb-4">
-                <div class="card-header text-center">
-                    <h3 class=" text-uppercase">Mamani Quispe</h3>
-                    <h3 class="text-uppercase small">Gonzalo</h3>
-                    <div class="text-center">
-                        <label class="text-uppercase">DNI:</label>
-                        <label class="text-uppercase">12312312</label>
+    <div class="container">
+        <div class="row d-flex justify-content-around mt-5">
+            <div class="col col-10 col-lg-5">
+                <div class="card mb-4 rounded">
+                    <div class="card-body">
+                        <div class="card-title font-weight-bold text-dark">Información personal</div>
+                        <form id="personal-info">
+                            <input type="hidden" name="id" value="<?php echo $_SESSION['user_logged']['id']; ?>">
+                            <div class="form-group">
+                                <label for="dni">DNI:</label>
+                                <input type="number" class="form-control bg-light" id="dni" name="dni" minlength="8"
+                                       maxlength="8" value="<?php echo $_SESSION['user_logged']['dni']; ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname">Apellidos:</label>
+                                <input type="text" class="form-control bg-light" id="lastname" name="lastname"
+                                       value="<?php echo $_SESSION['user_logged']['lastname']; ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Nombres:</label>
+                                <input type="text" class="form-control bg-light" id="name" name="name"
+                                       value="<?php echo $_SESSION['user_logged']['name']; ?>" required>
+                            </div>
+                            <div class="form-group d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary mt-3">
+                                    Guardar informacion personal
+                                </button>
+                            </div>
+                        </form>
+                        <div class="alert alert-info mt-3" role="alert">
+                            <div class="row">
+                                <div class="col col-2">
+                                    <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+                                </div>
+                                <div class="col col-10">
+                                    Su rol <span
+                                            class="font-weight-bold"><?php echo $_SESSION['user_logged']['rol']; ?></span>
+                                    solo puede ser modificado por el administrador.
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="card-body ">
-                    <form class="user">
-                        <div class="form-group">
-                            <label for="usuario" class="col-form-label-sm text-uppercase">Nombres</label>
-                            <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nombres">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="usuario" class="col-form-label-sm text-uppercase">APELLIDOS</label>
-                            <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Apellidos">
-                        </div>
-                        <hr>
-                        <button type="submit" class="btn btn-primary btn-user btn-block my-1">
-                            Actualizar
-                        </button>
-                    </form>
-                </div>
             </div>
-        </div>
-        <div class="col-xl-6 col-lg-6">
-            <div class="card mb-4 text-center">
-                <!-- <div class="card-header">
-                    <label class="text-uppercase">Usuario:</label>
-                    <label class="text-uppercase">Gonzalo</label>
-                </div> -->
-                <div class="card-body">
-                    <form class="user text-left">
-                        <div class="form-group">
-                            <label for="usuario" class="col-form-label-sm text-uppercase">NUEVO PASSWORD</label>
-                            <input type="password" class="form-control form-control-user" id="exampleInputEmail" placeholder="Password">
-                        </div>
-                        <div class="form-group mb-4">
-                            <label for="usuario" class="col-form-label-sm text-uppercase">CONFIRMAR PASSWORD</label>
-                            <input type="password" class="form-control form-control-user" id="exampleInputEmail" placeholder="Confirmar password">
-                        </div>
-                        <hr>
-                        <div class="form-group mt-2">
-                            <label for="usuario" class="col-form-label-sm text-uppercase">PASSWORD ACTUAL</label>
-                            <input type="password" class="form-control form-control-user" id="exampleInputEmail" placeholder="Password actual">
-                        </div>
-                        <hr>
-                        <button type="submit" class="btn btn-primary btn-user btn-block">
-                            Actualizar
-                        </button>
-
-                    </form>
+            <div class="col col-10 col-lg-5">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="card-title font-weight-bold text-dark">Información de acceso</div>
+                        <form id="access-info">
+                            <input type="hidden" name="id" value="<?php echo $_SESSION['user_logged']['id']; ?>">
+                            <div class="form-group">
+                                <label for="username">Usuario:</label>
+                                <input type="text" class="form-control bg-light" id="username" name="username"
+                                       value="<?php echo $_SESSION['user_logged']['username']; ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Contraseña:</label>
+                                <input type="password" class="form-control bg-light" id="password" name="password"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="repeat">Repetir Contraseña:</label>
+                                <input type="password" class="form-control bg-light" id="repeat" name="repeat"
+                                       required>
+                            </div>
+                            <div class="form-group d-flex justify-content-end">
+                                <button type="submit" class="btn btn-dark mt-3">
+                                    Guardar informacion de acceso
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+    <script src="public/js/profile.js"></script>
 
 <?php
 require_once(COMPONENT_PATH . "downpart.php");

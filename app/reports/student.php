@@ -98,9 +98,10 @@ if (isset($_POST['stdIDPDF'])) {
         $pdf->Output();
 
     } else {
-        echo 'Error, no se ha especificado el estudiante';
-        echo '</br>';
-        echo '<a href="http://localhost/nivelation/vista/estudiante">Volver</a>';
+//        echo 'Error, no se ha especificado el estudiante';
+//        echo '</br>';
+//        echo '<a href="http://localhost/nivelation/vista/estudiante">Volver</a>';
+        header("Location: http://localhost/nivelation/404.php");
     }
 } else {
     echo 'Error, no se ha especificado el estudiante.';

@@ -37,6 +37,41 @@ class UserModel
         }
     }
 
+    public function updatePersonalInfo()
+    {
+        $connection = new MySqlConnection();
+        if ($connection) {
+            $pdo = $connection->getConnection();
+            $sql = "UPDATE persons SET name = ?, lastname = ?, dni = ? WHERE id = (SELECT persons_id FROM users WHERE id = ?);";
+            $pdo->prepare($sql)->execute([
+                $this->name,
+                $this->lastname,
+                $this->dni,
+                $this->id
+            ]);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function updateAccessInfo()
+    {
+        $connection = new MySqlConnection();
+        if ($connection) {
+            $pdo = $connection->getConnection();
+            $sql = "UPDATE users SET username = ?, password = sha1(?) WHERE id = ?;";
+            $pdo->prepare($sql)->execute([
+                $this->username,
+                $this->password,
+                $this->id
+            ]);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function deleteUser()
     {
         $connection = new MySqlConnection();

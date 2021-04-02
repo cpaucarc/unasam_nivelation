@@ -42,7 +42,7 @@ require_once(COMPONENT_PATH . "upperpart.php");
         </div>
         <div class="d-flex bd-highlight mr-4 mt-3 justify-content-end">
             <div class="ml-auto bd-highlight">
-                <form action="http://localhost/nivelation/app/reports/course.php" method="post">
+                <form action="http://localhost/nivelation/reporte/curso" method="post">
                     <input name="csAREAPDF" id="csAREAPDF" type="hidden">
                     <input name="csCOURSEPDF" id="csCOURSEPDF" type="hidden">
                     <input name="csPROCESSPDF" id="csPROCESSPDF" type="hidden">

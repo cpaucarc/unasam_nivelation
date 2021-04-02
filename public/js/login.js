@@ -16,7 +16,7 @@ login_form.addEventListener('submit', (e) => {
         .then(data => {
             console.log(data);
             if (data.status === "1") {
-                window.location.href = "http://localhost/nivelation/";
+                window.location.href = "http://localhost/nivelation/inicio";
             }
         });
 
