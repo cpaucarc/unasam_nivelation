@@ -28,7 +28,7 @@ require_once "app/components/upperpart.php";
                         </small>
                     </div>
                     <div class="col col-sm-12 col-md-3 my-auto mx-auto">
-                        <button class="btn btn-primary btn-lg" data-toggle="modal"
+                        <button class="btn btn-primary btn-lg font-weight-bold" data-toggle="modal"
                                 data-target="#file_modal">
                             <i class="fas fa-upload fa-sm text-white-50"></i> Subir documento
                         </button>

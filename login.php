@@ -2,87 +2,79 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>Nivelation - Login</title>
+    <link rel="icon" href="http://localhost/nivelation/public/images/ogcushort.png" type="image/x-icon"/>
+    <title>Login</title>
 
     <?php @include_once "app/components/dependencies.php" ?>
 
 </head>
 
-<body class="bg-gradient-primary">
+<body style="background: #FAFBFC">
 
-    <div class="container">
-        <!-- Outer Row -->
-        <div class="row justify-content-center">
+<div class="container">
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
 
-            <div class="col-xl-10 col-lg-12 col-md-9">
+        <div class="col-xl-9 col-lg-12 col-md-8">
 
-                <div class="card o-hidden border-0 shadow-lg my-4">
-                    <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                            <div class="col-lg-6">
-                                <div class="p-5">
-                                    <div class="text-center">
-                                        <h2 class="h5 text-gray-900 mb-4">BIENVENIDO AL
-                                            SISTEMA DE NIVELACIÓN ESTUDIANTES</h2>
+            <div class="card o-hidden rounded-lg shadow my-5 bg-light">
+                <div class="card-body p-0">
+                    <div class="row">
+                        <div class="col-lg-5 d-none d-lg-block bg-login-image"></div>
+                        <div class="col-lg-7">
+                            <div class="p-5">
+                                <h5 class="mb-4 font-weight-bold text-black">
+                                    Bienvenido al Sistema de Nivelación de Estudiantes
+                                </h5>
+                                <form id="login-form" class="user my-3">
+
+                                    <div class="form-group">
+                                        <label for="username" class="text-dark">Nombre de Usuario</label>
+                                        <input type="text" class="form-control form-control-user" id="username"
+                                               name="username">
                                     </div>
-                                    <form class="user" id="login-form">
-                                        <div class="form-group">
-                                            <label for="usuario" class="col-form-label-sm text-uppercase">PERFIL</label>
-                                            <select class="form-control form-conotrol-user-combo  text-uppercase" id="semestre">
-                                                <option>Amisnistrador</option>
-                                                <option>Operador</option>
-                                                <option>Usuario</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="username" class="col-form-label-sm text-uppercase">Usuario</label>
-                                            <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Usuario">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="password" class="col-form-label-sm text-uppercase">Contraseña</label>
-                                            <input type="password" class="form-control form-control-user" id="password" placeholder="Password" name="password">
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
-                                            </div>
-                                        </div>
-                                        <button class="btn btn-primary btn-user btn-block" type="submit">Ingresar</button>
 
-                                    </form>
+                                    <div class="form-group">
+                                        <label for="password" class="text-dark">Contraseña</label>
+                                        <input type="password" class="form-control form-control-user" id="password"
+                                               name="password">
+                                    </div>
 
-                                    <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                    <div class="mt-4">
+                                        <button class="btn btn-primary btn-user btn-block font-weight-bold"
+                                                type="submit">
+                                            Ingresar
+                                        </button>
                                     </div>
-                                    <div class="text-center">
-                                        <a class="small" href="register.php">Create an Account!</a>
-                                    </div>
-                                </div>
+
+                                </form>
+
+                                <!--                                <div class="text-center">-->
+                                <!--                                    <a class="small" href="forgot-password.html">Forgot Password?</a>-->
+                                <!--                                </div>-->
+                                <!--                                <div class="text-center">-->
+                                <!--                                    <a class="small" href="register.php">Create an Account!</a>-->
+                                <!--                                </div>-->
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
 
         </div>
 
     </div>
-    <!-- Custom scripts for all pages-->
-    <script src="public/js/sb-admin-2.min.js"></script>
 
-    <script src="public/js/login.js"></script>
+</div>
+<!-- Custom scripts for all pages-->
+<script src="public/js/sb-admin-2.min.js"></script>
+
+<script src="public/js/login.js"></script>
 </body>
 
 </html>

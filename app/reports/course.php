@@ -15,7 +15,7 @@ if (isset($_POST['csAREAPDF']) && isset($_POST['csCOURSEPDF']) && isset($_POST['
 
     $width1C = 10;
     $width2C = 17;
-    $width25C=23;
+    $width25C = 23;
     $width3C = 44;
     $width4C = 52;
     $heightTableCell = 8;
@@ -63,7 +63,7 @@ if (isset($_POST['csAREAPDF']) && isset($_POST['csCOURSEPDF']) && isset($_POST['
         $pdf->SetFont('Helvetica', 'B', $fontSizeTableHeader);
         $pdf->Cell($width1C, $heightTableCell, '#', 1, 0, 'C', 1);
         $pdf->Cell($width2C, $heightTableCell, 'DNI', 1, 0, 'L', 1);
-        $pdf->Cell($width25C, $heightTableCell,  utf8_decode('Código'), 1, 0, 'L', 1);
+        $pdf->Cell($width25C, $heightTableCell, utf8_decode('Código'), 1, 0, 'L', 1);
         $pdf->Cell($width3C, $heightTableCell, 'Alumno', 1, 0, 'L', 1);
         $pdf->Cell($width3C, $heightTableCell, 'Escuela', 1, 0, 'L', 1);
         $pdf->Cell($width4C, $heightTableCell, utf8_decode('Recomendación **'), 1, 1, 'L', 1);
@@ -96,12 +96,14 @@ if (isset($_POST['csAREAPDF']) && isset($_POST['csCOURSEPDF']) && isset($_POST['
 
         $pdf->Output();
     } else {
-        echo 'Error, no se ha especificado el datos para emprimir';
-        echo '</br>';
-        echo '<a href="http://localhost/nivelation/vista/estudiante/0">Volver</a>';
+//        echo 'Error, no se ha especificado el datos para emprimir';
+//        echo '</br>';
+//        echo '<a href="http://localhost/nivelation/vista/estudiante/0">Volver</a>';
+        header("Location: http://localhost/nivelation/error");
     }
 } else {
-    echo 'Error, no se ha especificado el datos.';
-    echo '</br>';
-    echo '<a href="http://localhost/nivelation/vista/estudiante/0">Volver</a>';
+//    echo 'Error, no se ha especificado el datos.';
+//    echo '</br>';
+//    echo '<a href="http://localhost/nivelation/vista/estudiante/0">Volver</a>';
+    header("Location: http://localhost/nivelation/error");
 }

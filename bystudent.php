@@ -38,7 +38,7 @@ require_once(COMPONENT_PATH . "upperpart.php");
                         </div>
                     </div>
                     <div class="ml-auto bd-highlight">
-                        <form action="http://localhost/nivelation/app/reports/student.php" method="post">
+                        <form action="http://localhost/nivelation/reporte/estudiante" method="post">
                             <input name="stdIDPDF" id="stdIDPDF" type="hidden" value="<?php echo $stdID; ?>">
                             <button type="submit" id="btShowPDF" class="btn btn-outline-danger">
                                 <i class="fas fa-file-pdf"></i>

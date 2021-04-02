@@ -2,10 +2,10 @@
 <!-- End of Main Content -->
 
 <!-- Footer -->
-<footer class="sticky-footer bg-white">
+<footer class="sticky-footer bg-light">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Nivelación 2020</span>
+            <span>Copyright &copy; Sistema de Nivelación 2021</span>
         </div>
     </div>
 </footer>
@@ -37,9 +37,9 @@
                 actual.
             </div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                <button class="btn btn-light font-weight-bold" type="button" data-dismiss="modal">Cancelar</button>
                 <form action="http://localhost/nivelation/app/controllers/login/makeLogout.php?">
-                    <button class="btn btn-primary" type="submit">Cerrar sesión</button>
+                    <button class="btn btn-danger font-weight-bold" type="submit">Cerrar sesión</button>
                 </form>
             </div>
         </div>
