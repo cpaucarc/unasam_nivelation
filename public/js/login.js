@@ -5,19 +5,23 @@ login_form.addEventListener('submit', (e) => {
 
     let formData = new FormData(login_form);
 
-    fetch('http://localhost/nivelation/app/controllers/login/makeLogin.php/', {
-        method: 'POST',
-        headers: {
-            "Accept": "application/json"
-        },
-        body: formData
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            if (data.status === "1") {
-                window.location.href = "http://localhost/nivelation/inicio";
-            }
-        });
+    try {
+        fetch('app/controllers/login/makeLogin.php/', {
+            method: 'POST',
+            headers: {
+                "Accept": "application/json"
+            },
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                if (data.status === "1") {
+                    window.location.href = "inicio";
+                }
+            });
+    } catch (e) {
+        alert('No se puede acceder al sistema');
+    }
 
 })

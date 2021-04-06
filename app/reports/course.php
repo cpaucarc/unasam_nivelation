@@ -1,5 +1,5 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
+include_once '../../dirs.php';
 require_once(DB_PATH . "MySqlConnection.php");
 require_once(UTIL_PATH . "PDF.php");
 
@@ -99,11 +99,11 @@ if (isset($_POST['csAREAPDF']) && isset($_POST['csCOURSEPDF']) && isset($_POST['
 //        echo 'Error, no se ha especificado el datos para emprimir';
 //        echo '</br>';
 //        echo '<a href="http://localhost/nivelation/vista/estudiante/0">Volver</a>';
-        header("Location: http://localhost/nivelation/error");
+        header("Location: error");
     }
 } else {
 //    echo 'Error, no se ha especificado el datos.';
 //    echo '</br>';
 //    echo '<a href="http://localhost/nivelation/vista/estudiante/0">Volver</a>';
-    header("Location: http://localhost/nivelation/error");
+    header("Location: error");
 }

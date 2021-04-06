@@ -12,6 +12,10 @@ class MySqlConnection
 
     public function __construct()
     {
+//        $this->host = "blrd1m4mqmu64fn8obg6-mysql.services.clever-cloud.com";
+//        $this->db = "blrd1m4mqmu64fn8obg6";
+//        $this->user = "uu4b9rtpv6a40dyr";
+//        $this->password = "qmu64fn8obg6-mysql.services.clever-cloud.com";
         $this->host = "localhost";
         $this->db = "nivelation";
         $this->user = "root";

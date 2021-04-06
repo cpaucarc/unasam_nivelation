@@ -1,8 +1,8 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
-require_once(MODEL_PATH . "LoginModel.php");
-require_once(MODEL_PATH . "UserModel.php");
-require_once(UTIL_PATH . "SendMessage.php");
+include_once $_SERVER['DOCUMENT_ROOT'] . "/nivelation/dirs.php";
+include_once MODEL_PATH . "LoginModel.php";
+include_once MODEL_PATH . "UserModel.php";
+include_once UTIL_PATH . "SendMessage.php";
 
 try {
     $username = $_POST['username'];
@@ -33,7 +33,3 @@ try {
 } catch (Exception $e) {
     echo (new SendMessage("Error " . $e->getMessage(), false))->getEncodedMessage();
 }
-
-
-
-

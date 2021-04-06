@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
+require_once('dirs.php');
 require_once(UTIL_PATH . "sessions/SessionStarted.php");
 session_start();
 (new SessionStarted())->verifySessionStarted();
@@ -15,7 +15,8 @@ require_once "app/components/upperpart.php";
         <div class="card border-left-primary shadow h-100 ">
             <div class="card-body">
                 <div class="text-md font-weight-bold text-primary text-uppercase">
-                    Grupo (<span class="area">A</span>)</div>
+                    Grupo (<span class="area">A</span>)
+                </div>
             </div>
         </div>
         <!-- Button trigger modal -->
@@ -34,43 +35,46 @@ require_once "app/components/upperpart.php";
             <div class="table-responsive">
                 <table id="example2" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
-                        <tr class="text-center">
-                            <th>#</th>
-                            <th>Nombre</th>
-                            <th>Acciones</th>
-                        </tr>
+                    <tr class="text-center">
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Acciones</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Ingeniería de Sistemas e Informática</td>
-                            <td class="text-center">
-                                <div class="btn-group">
-                                    <button class="btn btn-warning btnEditar" data-toggle="modal" data-target="#school_modal"><i class="fas fa-edit"></i></button>
-                                    <button class="btn btn-danger btnEliminar"><i class="fas fa-trash-alt"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Ingeniería de Civil</td>
-                            <td class="text-center">
-                                <div class="btn-group">
-                                    <button class="btn btn-warning btnEditar" data-toggle="modal" data-target="#school_modal"><i class="fas fa-edit"></i></button>
-                                    <button class="btn btn-danger btnEliminar"><i class="fas fa-trash-alt"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Ingeniería de Industrial</td>
-                            <td class="text-center">
-                                <div class="btn-group">
-                                    <button class="btn btn-warning btnEditar" data-toggle="modal" data-target="#school_modal"><i class="fas fa-edit"></i></button>
-                                    <button class="btn btn-danger btnEliminar"><i class="fas fa-trash-alt"></i></button>
-                                </div>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Ingeniería de Sistemas e Informática</td>
+                        <td class="text-center">
+                            <div class="btn-group">
+                                <button class="btn btn-warning btnEditar" data-toggle="modal"
+                                        data-target="#school_modal"><i class="fas fa-edit"></i></button>
+                                <button class="btn btn-danger btnEliminar"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Ingeniería de Civil</td>
+                        <td class="text-center">
+                            <div class="btn-group">
+                                <button class="btn btn-warning btnEditar" data-toggle="modal"
+                                        data-target="#school_modal"><i class="fas fa-edit"></i></button>
+                                <button class="btn btn-danger btnEliminar"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Ingeniería de Industrial</td>
+                        <td class="text-center">
+                            <div class="btn-group">
+                                <button class="btn btn-warning btnEditar" data-toggle="modal"
+                                        data-target="#school_modal"><i class="fas fa-edit"></i></button>
+                                <button class="btn btn-danger btnEliminar"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -82,7 +86,8 @@ require_once "app/components/upperpart.php";
 
 
 <!-- Logout Modal-->
-<div class="modal fade" id="school_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="school_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">

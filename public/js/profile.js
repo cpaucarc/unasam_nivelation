@@ -4,7 +4,7 @@ const formAccessInfo = document.getElementById('access-info');
 formPersonalInfo.addEventListener('submit', (e) => {
     e.preventDefault();
     let formData = new FormData(formPersonalInfo);
-    fetch('http://localhost/nivelation/app/controllers/profile/updatePersonalInfo.php/', {
+    fetch('app/controllers/profile/updatePersonalInfo.php/', {
         method: 'POST',
         headers: {
             "Accept": "application/json"
@@ -20,7 +20,7 @@ formPersonalInfo.addEventListener('submit', (e) => {
 formAccessInfo.addEventListener('submit', (e) => {
     e.preventDefault();
     let formData = new FormData(formAccessInfo);
-    fetch('http://localhost/nivelation/app/controllers/profile/updateAccessInfo.php/', {
+    fetch('app/controllers/profile/updateAccessInfo.php/', {
         method: 'POST',
         headers: {
             "Accept": "application/json"

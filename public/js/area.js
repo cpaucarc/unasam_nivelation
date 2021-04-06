@@ -29,7 +29,7 @@ window.onload = () => {
 btnAddCourse.addEventListener('click', () => {
     let formData = new FormData();
     formData.append('areaID', areaIDCou.value);
-    fetch('http://localhost/nivelation/app/controllers/courses/getCoursesNoAddedToArea.php/', {
+    fetch('app/controllers/courses/getCoursesNoAddedToArea.php/', {
         method: 'POST',
         headers: {
             "Accept": "application/json"
@@ -52,7 +52,7 @@ formSchools.addEventListener('submit', (e) => {
     e.preventDefault();
     if (areaName.trim().length > 0) {
         let formData = new FormData(formSchools);
-        fetch('http://localhost/nivelation/app/controllers/school/saveSchool.php/', {
+        fetch('app/controllers/school/saveSchool.php/', {
             method: 'POST',
             headers: {
                 "Accept": "application/json"
@@ -79,7 +79,7 @@ formCourses.addEventListener('submit', (e) => {
 
         let formData = new FormData(formCourses);
 
-        fetch('http://localhost/nivelation/app/controllers/courses/addCourseToArea.php/', {
+        fetch('app/controllers/courses/addCourseToArea.php/', {
             method: 'POST',
             headers: {
                 "Accept": "application/json"
@@ -104,7 +104,7 @@ formCourses.addEventListener('submit', (e) => {
 formArea.addEventListener('submit', (e) => {
     e.preventDefault();
     let formData = new FormData(formArea);
-    fetch('http://localhost/nivelation/app/controllers/area/saveNewArea.php/', {
+    fetch('app/controllers/area/saveNewArea.php/', {
         method: 'POST',
         headers: {
             "Accept": "application/json"
@@ -136,7 +136,7 @@ function appendAreas(data) {
 }
 
 function getAllAreas() {
-    fetch('http://localhost/nivelation/app/controllers/area/getAllAreas.php/', {
+    fetch('app/controllers/area/getAllAreas.php/', {
         method: 'GET',
         headers: {
             "Accept": "application/json"
@@ -154,7 +154,7 @@ function showCourses(area) {
     let formData = new FormData();
     formData.append('area', area);
 
-    fetch('http://localhost/nivelation/app/controllers/courses/getCoursesByAreaAndLastProcess.php/', {
+    fetch('app/controllers/courses/getCoursesByAreaAndLastProcess.php/', {
         method: 'POST',
         headers: {
             "Accept": "application/json"
@@ -180,7 +180,7 @@ function showSchools(area) {
     let formData = new FormData();
     formData.append('area', area);
 
-    fetch('http://localhost/nivelation/app/controllers/school/getSchoolsByArea.php/', {
+    fetch('app/controllers/school/getSchoolsByArea.php/', {
         method: 'POST',
         headers: {
             "Accept": "application/json"

@@ -1,7 +1,5 @@
 <?php
-//// Ya no se debe colocar esto, debido que la session ya se inicia en otro lado
-//session_start();
-//
+$rtax = isset($routeAux) ? $routeAux : "";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="http://localhost/nivelation/public/images/ogcushort.png" type="image/x-icon"/>
+    <link rel="icon" href="<?php echo $rtax; ?>public/images/ogcushort.png" type="image/x-icon"/>
     <title>Sistema de Nivelacion</title>
 
     <?php require_once(COMPONENT_PATH . "dependencies.php"); ?>
@@ -28,9 +26,9 @@
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center"
-           href="http://localhost/nivelation/inicio">
+           href="inicio">
             <div class="sidebar-brand-icon ">
-                <img src="http://localhost/nivelation/public/images/logo.jpg" width="50px" class="rounded float-start"
+                <img src="<?php echo $rtax; ?>public/images/logo.jpg" width="50px" class="rounded float-start"
                      alt="Escudo de la Unasam">
             </div>
 
@@ -44,7 +42,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="http://localhost/nivelation/inicio">
+            <a class="nav-link" href="inicio">
                 <i class="fas fa-home"></i>
                 <span>Inicio del sitio</span>
             </a>
@@ -68,10 +66,10 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Vistas por:</h6>
-                    <a class="collapse-item" href="http://localhost/nivelation/vista/estudiante">Vista por
+                    <a class="collapse-item" href="<?php echo $rtax; ?>estudiante">Vista por
                         Estudiante</a>
-                    <a class="collapse-item" href="http://localhost/nivelation/vista/curso">Vista por Curso</a>
-                    <a class="collapse-item" href="http://localhost/nivelation/vista/escuela">Vista por Escuela</a>
+                    <a class="collapse-item" href="<?php echo $rtax; ?>curso">Vista por Curso</a>
+                    <a class="collapse-item" href="<?php echo $rtax; ?>escuela">Vista por Escuela</a>
                 </div>
             </div>
         </li>
@@ -87,10 +85,10 @@
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Vista por:</h6>
-                    <a class="collapse-item" href="http://localhost/nivelation/rangos">Rangos</a>
-                    <a class="collapse-item" href="http://localhost/nivelation/areas">Area</a>
-                    <a class="collapse-item" href="http://localhost/nivelation/admision">Admisión</a>
-                    <a class="collapse-item" href="http://localhost/nivelation/cursos">Cursos</a>
+                    <a class="collapse-item" href="<?php echo $rtax; ?>rangos">Rangos</a>
+                    <a class="collapse-item" href="<?php echo $rtax; ?>areas">Area</a>
+                    <a class="collapse-item" href="<?php echo $rtax; ?>admision">Admisión</a>
+                    <a class="collapse-item" href="<?php echo $rtax; ?>cursos">Cursos</a>
                 </div>
             </div>
         </li>
@@ -113,7 +111,7 @@
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Vistas de usuario</h6>
-                    <a class="collapse-item" href="http://localhost/nivelation/usuarios">Usuarios registrados</a>
+                    <a class="collapse-item" href="<?php echo $rtax; ?>usuarios">Usuarios registrados</a>
                     <a class="collapse-item" href="profile.php">Perfil de usuario <span
                                 class="badge bg-danger text-white">Nuevo</span></a>
                     <a class="collapse-item" href="login2.php">Login alternativo <span
@@ -227,12 +225,12 @@
                                     ?>
                                 </span>
                             <img class="img-profile rounded-circle"
-                                 src="http://localhost/nivelation/public/images/user.png">
+                                 src="<?php echo $rtax; ?>public/images/user.png">
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="http://localhost/nivelation/perfil">
+                            <a class="dropdown-item" href="<?php echo $rtax; ?>perfil">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Perfil
                             </a>

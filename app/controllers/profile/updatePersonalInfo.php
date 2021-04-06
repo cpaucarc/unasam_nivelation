@@ -1,8 +1,8 @@
 <?php
-session_start();
 include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
 require_once(MODEL_PATH . "UserModel.php");
 require_once(UTIL_PATH . "SendMessage.php");
+session_start();
 
 try {
 

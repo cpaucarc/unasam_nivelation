@@ -44,8 +44,6 @@ class Card {
                 </div>
             </div>
             `;
-
-
     }
 
     getNotStudentSelectedCard1() {

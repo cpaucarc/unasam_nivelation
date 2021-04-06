@@ -15,7 +15,6 @@ table = new Table();
 button = new Button();
 
 window.onload = () => {
-    console.log('Hello');
     fillWhitProcess();
     //for dpdf
     scAREAPDF.value = "";
@@ -52,7 +51,7 @@ cbArea.addEventListener('change', () => {
 });
 
 function fillWhitProcess() {
-    fetch('http://localhost/nivelation/app/controllers/process/getAllProcess.php/', {
+    fetch('app/controllers/process/getAllProcess.php/', {
         method: 'GET',
         headers: {
             "Accept": "application/json"
@@ -74,7 +73,7 @@ function fillWhitSchools(area) {
     formData.append('area', area);
     //for fpdf
     scAREAPDF.value = area;
-    fetch('http://localhost/nivelation/app/controllers/school/getSchoolsByArea.php/', {
+    fetch('app/controllers/school/getSchoolsByArea.php/', {
         method: 'POST',
         headers: {
             "Accept": "application/json"
@@ -113,7 +112,7 @@ function fillTableWhitStudents(school, process) {
     scSCHOOLPDF.value = school;
     scPROCESSPDF.value = process;
 
-    fetch('http://localhost/nivelation/app/controllers/student/getStudentsBySchool.php/', {
+    fetch('app/controllers/student/getStudentsBySchool.php/', {
         method: 'POST',
         headers: {
             "Accept": "application/json"

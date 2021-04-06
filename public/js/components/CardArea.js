@@ -35,7 +35,6 @@ class CardArea {
     }
 
     createCardBody(desc, btnShow) {
-
         let body = document.createElement('div');
         body.classList.add('card-body');
         body.classList.add('text-center');
@@ -45,8 +44,6 @@ class CardArea {
         span.appendChild(document.createTextNode(desc));
         body.appendChild(span);
         body.appendChild(btnShow);
-
         return body;
     }
-
 }

@@ -63,7 +63,7 @@ cbProcess.addEventListener('change', () => {
 });
 
 function fillWhitCourses() {
-    fetch('http://localhost/nivelation/app/controllers/courses/getAllCourses.php/', {
+    fetch('app/controllers/courses/getAllCourses.php/', {
         method: 'GET',
         headers: {
             "Accept": "application/json"
@@ -82,7 +82,7 @@ function fillWhitCourses() {
 }
 
 function fillWhitProcess() {
-    fetch('http://localhost/nivelation/app/controllers/process/getAllProcess.php/', {
+    fetch('app/controllers/process/getAllProcess.php/', {
         method: 'GET',
         headers: {
             "Accept": "application/json"
@@ -109,7 +109,7 @@ function fillTableWhitCourses(area, course, process) {
     csCOURSEPDF.value = course;
     csPROCESSPDF.value = process;
 
-    fetch('http://localhost/nivelation/app/controllers/student/getStudentsbyCourse.php/', {
+    fetch('app/controllers/student/getStudentsbyCourse.php/', {
         method: 'POST',
         headers: {
             "Accept": "application/json"

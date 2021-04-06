@@ -1,22 +1,14 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
-require_once(UTIL_PATH . "sessions/SessionStarted.php");
+require_once 'dirs.php';
+require_once UTIL_PATH . "sessions/SessionStarted.php";
 session_start();
 (new SessionStarted())->verifySessionStarted();
-require_once "app/components/upperpart.php";
+require_once COMPONENT_PATH . "upperpart.php";
 ?>
-
-
-    <!-- Begin Page Content -->
     <div class="container">
-
-        <!-- Page Heading -->
         <h1 class="h3 mb-0 text-gray-800">Areas</h1>
-
         <div class="row my-3" id="card-areas">
-
         </div>
-
         <div class="row my-3">
             <div class="col col-md-12 col-lg-6 mb-4">
                 <div class="card">
@@ -66,10 +58,10 @@ require_once "app/components/upperpart.php";
                         <div class="alert alert-info my-2" role="alert">
                             <ul>
                                 <li>Para ver y modificar los rangos de cada curso
-                                    <a href="http://localhost/nivelation/rangos">pulse aqui</a>
+                                    <a href="rangos">pulse aqui</a>
                                 </li>
                                 <li>Para añadir nuevos cursos
-                                    <a href="http://localhost/nivelation/cursos">pulse aqui</a>
+                                    <a href="cursos">pulse aqui</a>
                                 </li>
                             </ul>
                         </div>
@@ -108,7 +100,6 @@ require_once "app/components/upperpart.php";
                 </div>
             </div>
         </div>
-
         <!-- Schools Modal -->
         <div class="modal fade" id="SchoolModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
              aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -136,7 +127,6 @@ require_once "app/components/upperpart.php";
                 </div>
             </div>
         </div>
-
         <!-- Courses Modal -->
         <div class="modal fade" id="CoursesModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
              aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -182,9 +172,7 @@ require_once "app/components/upperpart.php";
                 </div>
             </div>
         </div>
-
     </div>
-
 
     <script src="public/js/components/Button.js"></script>
     <script src="public/js/components/Card.js"></script>
@@ -193,5 +181,5 @@ require_once "app/components/upperpart.php";
     <script src="public/js/components/CardArea.js"></script>
     <script src="public/js/area.js"></script>
 <?php
-require_once "app/components/downpart.php";
+require_once COMPONENT_PATH . "downpart.php";
 ?>

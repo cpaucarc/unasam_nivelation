@@ -6,6 +6,7 @@ const tbBody = document.getElementById('table-courses-body');
 const stdID = parseInt(document.getElementById('stdID').value);
 const stdIDPDF = document.getElementById('stdIDPDF');
 const btShowPDF = document.getElementById('btShowPDF');
+
 card = new Card();
 table = new Table();
 
@@ -43,7 +44,7 @@ function getStudentsLike(pattern) {
     let formData = new FormData();
     formData.append('pattern', pattern);
 
-    fetch('http://localhost/nivelation/app/controllers/student/getStudentsLike.php/', {
+    fetch(`${routeAux}app/controllers/student/getStudentsLike.php/`, {
         method: 'POST',
         headers: {
             "Accept": "application/json"
@@ -53,10 +54,10 @@ function getStudentsLike(pattern) {
         .then(response => response.json())
         .then(data => {
             data = data.students;
-            students = document.getElementById('students');
+            let students = document.getElementById('students');
             students.innerHTML = '';
             data.forEach(std => {
-                opt = document.createElement('option');
+                let opt = document.createElement('option');
                 opt.value = std.student;
                 students.appendChild(opt);
             })
@@ -67,7 +68,7 @@ function getCoursesByFullname(fullname) {
     let formData = new FormData();
     formData.append('fullname', fullname);
 
-    fetch('http://localhost/nivelation/app/controllers/student/getCoursesOfStudent.php/', {
+    fetch(`${routeAux}app/controllers/student/getCoursesOfStudent.php/`, {
         method: 'POST',
         headers: {
             "Accept": "application/json"
@@ -96,7 +97,7 @@ function getCoursesByID(id) {
     let formData = new FormData();
     formData.append('stdID', id);
 
-    fetch('http://localhost/nivelation/app/controllers/student/getCoursesOfStudentByID.php/', {
+    fetch(`${routeAux}app/controllers/student/getCoursesOfStudentByID.php/`, {
         method: 'POST',
         headers: {
             "Accept": "application/json"
@@ -106,17 +107,15 @@ function getCoursesByID(id) {
         .then(response => response.json())
         .then(data => {
             data = data.courses;
-            //destroyDataTables('table-courses');
             //$(`#table-courses`).DataTable().clear().destroy();
             tbBody.innerHTML = '';
-            num = 1;
+            let num = 1;
             data.forEach(c => {
-                row = table.createRow(num, c.course, c.percent);
+                let row = table.createRow(num, c.course, c.percent);
                 row.appendChild(createCell(c.stat, c.num));
                 tbBody.appendChild(row);
                 num++;
             });
-
             //$(`#table-courses`).DataTable();
         });
 }
@@ -125,7 +124,7 @@ function getStudentInfoByID(id) {
     let formData = new FormData();
     formData.append('stdID', id);
 
-    fetch('http://localhost/nivelation/app/controllers/student/getStudentInfoByID.php/', {
+    fetch(`${routeAux}app/controllers/student/getStudentInfoByID.php/`, {
         method: 'POST',
         headers: {
             "Accept": "application/json"
@@ -153,7 +152,7 @@ function getStudentInfo(fullname) {
     let formData = new FormData();
     formData.append('fullname', fullname);
 
-    fetch('http://localhost/nivelation/app/controllers/student/getStudentInfo.php/', {
+    fetch(`${routeAux}app/controllers/student/getStudentInfo.php/`, {
         method: 'POST',
         headers: {
             "Accept": "application/json"

@@ -11,8 +11,8 @@ window.onload = () => {
 
 formCourse.addEventListener('submit', (e) => {
     e.preventDefault();
-    formData = new FormData(formCourse);
-    fetch('http://localhost/nivelation/app/controllers/courses/saveCourse.php/', {
+    let formData = new FormData(formCourse);
+    fetch('app/controllers/courses/saveCourse.php/', {
         method: 'POST',
         headers: {
             "Accept": "application/json"
@@ -31,7 +31,7 @@ formCourse.addEventListener('submit', (e) => {
 });
 
 function getAllCourses() {
-    fetch('http://localhost/nivelation/app/controllers/courses/getAllCourses.php/', {
+    fetch('app/controllers/courses/getAllCourses.php/', {
         method: 'GET',
         headers: {
             "Accept": "application/json"
@@ -42,7 +42,7 @@ function getAllCourses() {
             data = data.courses;
             tbody.innerHTML = ``;
             $('#table-courses').DataTable().clear().destroy();
-            num = 1;
+            let num = 1;
             data.forEach(course => {
                 let row = table.createRow(num, course.name);
                 let btn = button.createBtnEdit(showModalForEditCourse, course.id, course.name);

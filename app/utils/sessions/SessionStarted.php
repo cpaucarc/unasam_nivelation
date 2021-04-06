@@ -16,7 +16,7 @@ class SessionStarted
 
     public function redirectToLoginView()
     {
-        $loginViewPath = "http://localhost/nivelation/login";
+        $loginViewPath = "login";
         header("Location: " . $loginViewPath, TRUE, 301);
         exit();
     }

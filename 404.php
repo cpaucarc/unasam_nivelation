@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
+include_once 'dirs.php';
 require_once(UTIL_PATH . "sessions/SessionStarted.php");
 session_start();
 (new SessionStarted())->verifySessionStarted();

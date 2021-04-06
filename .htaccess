@@ -5,14 +5,14 @@ RewriteEngine On
 RewriteRule ^inicio$ index.php
 
 #bystudent
-RewriteRule ^vista/estudiante/([0-9]+)$ bystudent.php?std=$1
-RewriteRule ^vista/estudiante$ bystudent.php
+RewriteRule ^estudiante/([0-9]+)$ bystudent.php?std=$1
+RewriteRule ^estudiante$ bystudent.php
 
 #bycourse
-RewriteRule ^vista/curso$ bycourse.php
+RewriteRule ^curso$ bycourse.php
 
 #byschool
-RewriteRule ^vista/escuela$ byschool.php
+RewriteRule ^escuela$ byschool.php
 
 #ranks
 RewriteRule ^rangos$ rangevalues.php

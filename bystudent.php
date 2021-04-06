@@ -1,20 +1,22 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
-require_once(UTIL_PATH . "sessions/SessionStarted.php");
+require_once "dirs.php";
+require_once UTIL_PATH . "sessions/SessionStarted.php";
 session_start();
 (new SessionStarted())->verifySessionStarted();
 $stdID = empty ($_GET['std']) ? 0 : $_GET['std'];
+$routeAux = empty ($_GET['std']) ? "" : "../";
+
 ?>
 
 <?php
-require_once(COMPONENT_PATH . "upperpart.php");
+require_once COMPONENT_PATH . "upperpart.php";
 ?>
 
 
     <!-- Begin Page Content -->
     <div class="container-fluid">
         <div class="hide">
-            <input type="hidden" id="stdID" class="" value="<?php echo $stdID; ?>">
+            <input type="text" id="stdID" class="" value="<?php echo $stdID; ?>">
         </div>
 
         <!-- Page Heading -->
@@ -38,8 +40,8 @@ require_once(COMPONENT_PATH . "upperpart.php");
                         </div>
                     </div>
                     <div class="ml-auto bd-highlight">
-                        <form action="http://localhost/nivelation/reporte/estudiante" method="post">
-                            <input name="stdIDPDF" id="stdIDPDF" type="hidden" value="<?php echo $stdID; ?>">
+                        <form action="<?php echo $routeAux; ?>reporte/estudiante" method="post">
+                            <input name="stdIDPDF" id="stdIDPDF" type="text" value="<?php echo $stdID; ?>">
                             <button type="submit" id="btShowPDF" class="btn btn-outline-danger">
                                 <i class="fas fa-file-pdf"></i>
                             </button>
@@ -83,15 +85,15 @@ require_once(COMPONENT_PATH . "upperpart.php");
                 </div>
             </div>
         </div>
-
     </div>
     <!-- /.container-fluid -->
 
     <!--<script src="public/js/datatable.js"></script>-->
-    <script src="http://localhost/nivelation/public/js/components/Card.js"></script>
-    <script src="http://localhost/nivelation/public/js/components/Table.js"></script>
-    <script src="http://localhost/nivelation/public/js/studentView.js"></script>
+    <script type="text/javascript">const routeAux = "<?php echo $routeAux;?>";</script>
+    <script src="<?php echo $routeAux; ?>public/js/components/Card.js"></script>
+    <script src="<?php echo $routeAux; ?>public/js/components/Table.js"></script>
+    <script src="<?php echo $routeAux; ?>public/js/studentView.js"></script>
 
 <?php
-require_once(COMPONENT_PATH . "downpart.php");
+require_once COMPONENT_PATH . "downpart.php";
 ?>

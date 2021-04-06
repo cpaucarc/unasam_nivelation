@@ -64,7 +64,7 @@ class Button {
     }
 
     createButtonForRedirectToStudentView(id) {
-        let url = "http://localhost/nivelation/vista/estudiante";
+        let url = "estudiante";
         let btn = document.createElement('a');
         btn.classList.add('btn');
         btn.classList.add('btn-link');
