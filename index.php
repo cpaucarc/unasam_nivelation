@@ -1,17 +1,12 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
-require_once(UTIL_PATH . "sessions/SessionStarted.php");
+@include_once "dirs.php";
+@include_once "app/utils/sessions/SessionStarted.php";
 session_start();
 (new SessionStarted())->verifySessionStarted();
 ?>
 
-<?php
-require_once "app/components/upperpart.php";
-?>
-    <!-- Begin Page Content -->
+<?php @include_once "app/components/upperpart.php" ?>
     <div class="container-fluid">
-
-
         <div class="card mb-2">
             <div class="card-body">
                 <div class="row">
@@ -23,8 +18,7 @@ require_once "app/components/upperpart.php";
                         </h3>
                         <small id="help" class="form-text text-muted">
                             Los datos que cargue ahora se guardaran para este proceso de admisión.
-                            Puede añadir un nuevo proceso entrando a <a
-                                    href="http://localhost/nivelation/admision">esta pagina</a>
+                            Puede añadir un nuevo proceso entrando a <a href="admision">esta pagina</a>
                         </small>
                     </div>
                     <div class="col col-sm-12 col-md-3 my-auto mx-auto">
@@ -59,7 +53,7 @@ require_once "app/components/upperpart.php";
 
                             <div class="progress">
                                 <div class="progress-bar progress-bar-striped progress-bar-animated " role="progressbar"
-                                     id="barra_estado">afsdfasfsafasd
+                                     id="barra_estado">barra de estado
                                 </div>
                             </div>
                         </div>
@@ -68,7 +62,8 @@ require_once "app/components/upperpart.php";
                         <button type="button" class="btn btn-light btn-sm" id="btn_cancelar" data-dismiss="modal">
                             Cancelar
                         </button>
-                        <button type="submit" class="btn btn-primary btn-sm" id="btn_upload">Subir este archivo
+                        <button type="submit" class="btn btn-primary btn-sm" id="btn_upload">
+                            Subir este archivo
                         </button>
                     </div>
                 </form>
@@ -76,11 +71,10 @@ require_once "app/components/upperpart.php";
         </div>
     </div>
 
-
-    <script src="public/js/datatable.js"></script>
+    <!--    <script src="public/js/datatable.js"></script>-->
     <!--    <script src="public/js/UploadFile.js"></script>-->
     <script src="public/js/index.js"></script>
 
 <?php
-require_once "app/components/downpart.php";
+@include_once "app/components/downpart.php";
 ?>

@@ -1,7 +1,7 @@
 <?php
-
-include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
-require_once(DB_PATH . "MySqlConnection.php");
+//require "../database/MySqlConnection.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/nivelation/dirs.php";
+include_once DB_PATH . "MySqlConnection.php";
 
 class LoginModel
 {
@@ -10,18 +10,6 @@ class LoginModel
 
     public function __construct()
     {
-    }
-
-    public function loginD()
-    {
-        $conn = (new MySqlConnection())->getConnection();
-        $sql = "CALL spLogin(?, ?);";
-        $result = ($conn->prepare($sql)->execute([
-            $this->username,
-            $this->password
-        ])->fetch(PDO::FETCH_ASSOC));
-
-        return json_encode($result);
     }
 
     public function login()
@@ -47,7 +35,6 @@ class LoginModel
         return $user;
     }
 
-
     /* ---------- Getters & Setters ---------- */
     public function getUsername()
     {
@@ -70,6 +57,4 @@ class LoginModel
         $this->password = $password;
         return $this;
     }
-
-
 }

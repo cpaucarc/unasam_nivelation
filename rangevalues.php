@@ -1,9 +1,9 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
-require_once(UTIL_PATH . "sessions/SessionStarted.php");
+require_once "dirs.php";
+require_once UTIL_PATH . "sessions/SessionStarted.php";
 session_start();
 (new SessionStarted())->verifySessionStarted();
-require_once "app/components/upperpart.php";
+require_once COMPONENT_PATH . "upperpart.php";
 ?>
     <div class="container">
         <div class="card">
@@ -70,12 +70,10 @@ require_once "app/components/upperpart.php";
                     </div>
                 </div>
 
-                <!--                Modal-->
                 <div class="modal fade" id="modal-rank" tabindex="-1" aria-labelledby="exampleModalLabel"
                      aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
-
                             <div class="modal-body">
                                 <form id="form-rank">
                                     <input type="hidden" value="0" id="rankID" name="rankID">
@@ -114,5 +112,5 @@ require_once "app/components/upperpart.php";
     <script src="public/js/ranks.js"></script>
 
 <?php
-require_once "app/components/downpart.php";
+require_once COMPONENT_PATH . "downpart.php";
 ?>

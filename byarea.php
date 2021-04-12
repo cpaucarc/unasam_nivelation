@@ -1,55 +1,56 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
+require_once 'dirs.php';
 require_once(UTIL_PATH . "sessions/SessionStarted.php");
 session_start();
 (new SessionStarted())->verifySessionStarted();
-require_once "app/components/upperpart.php";
+require_once COMPONENT_PATH . "upperpart.php";
 ?>
 
 
-<!-- Begin Page Content -->
-<div class="container-fluid">
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
 
-    <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Reporte por Estudiante</h1>
-        <select class="form-control form-control text-primary" id="semestre" style="width:120px">
-            <option>Admisión</option>
-            <option>2020-II</option>
-            <option>2021-I</option>
-            <option>2021-II</option>
-            <option>2022-I</option>
-            <option>2022-II</option>
-        </select>
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Reporte por Estudiante</h1>
+            <select class="form-control form-control text-primary" id="semestre" style="width:120px">
+                <option>Admisión</option>
+                <option>2020-II</option>
+                <option>2021-I</option>
+                <option>2021-II</option>
+                <option>2022-I</option>
+                <option>2022-II</option>
+            </select>
 
-    </div>
+        </div>
 
-    <!--Ejemplo tabla con DataTables-->
-    <div class="container">
-        <div class="row">
-            <!-- Default Card Example -->
-            <div class="card mb-4 w-100">
-                <div class="card-header">
-                    <!-- Topbar Search -->
-                    <form class="d-sm-inline-block  ">
-                        <div class="input-group">
-                            <select class="form-select form-control form-control text-primary" aria-label="Default select example">
-                                <option selected>Área</option>
-                                <option value="1">A</option>
-                                <option value="2">B</option>
-                                <option value="3">C</option>
-                                <option value="3">E</option>
-                            </select>
-                        </div>
-                    </form>
+        <!--Ejemplo tabla con DataTables-->
+        <div class="container">
+            <div class="row">
+                <!-- Default Card Example -->
+                <div class="card mb-4 w-100">
+                    <div class="card-header">
+                        <!-- Topbar Search -->
+                        <form class="d-sm-inline-block  ">
+                            <div class="input-group">
+                                <select class="form-select form-control form-control text-primary"
+                                        aria-label="Default select example">
+                                    <option selected>Área</option>
+                                    <option value="1">A</option>
+                                    <option value="2">B</option>
+                                    <option value="3">C</option>
+                                    <option value="3">E</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="table-responsive">
-                    <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                        <thead>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-responsive">
+                        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                            <thead>
                             <tr>
                                 <th>Nombre</th>
                                 <th>Puesto</th>
@@ -58,8 +59,8 @@ require_once "app/components/upperpart.php";
                                 <th>Año de Ingreso</th>
                                 <th>Salario</th>
                             </tr>
-                        </thead>
-                        <tbody>
+                            </thead>
+                            <tbody>
                             <tr>
                                 <td>Tiger Nixon</td>
                                 <td>Arquitecto</td>
@@ -309,19 +310,13 @@ require_once "app/components/upperpart.php";
                                 <td>2011/01/25</td>
                                 <td>$112,000</td>
                             </tr>
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
-
-
-
-</div>
-<!-- /.container-fluid -->
-
 <?php
-require_once "app/components/downpart.php";
+require_once COMPONENT_PATH . "downpart.php";
 ?>

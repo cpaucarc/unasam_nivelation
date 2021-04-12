@@ -1,19 +1,17 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
-require_once(UTIL_PATH . "sessions/SessionStarted.php");
+require_once 'dirs.php';
+require_once UTIL_PATH . "sessions/SessionStarted.php";
 session_start();
 (new SessionStarted())->verifySessionStarted();
-require_once "app/components/upperpart.php";
+require_once COMPONENT_PATH . "upperpart.php";
 ?>
 
 
     <!-- Begin Page Content -->
     <div class="container-fluid">
-
         <div class="mb-4">
             <h2 class="mb-0 text-gray-800">Procesos de admisión</h2>
         </div>
-
         <div class="card">
             <div class="card-body">
                 <div class="row">
@@ -29,9 +27,6 @@ require_once "app/components/upperpart.php";
                                 aria-describedby="help">
                                 Cargando...
                             </h3>
-                            <p class="my-2 small">
-                                Para añadir un nuevo grupo de estudiantes, primero deber crear un nuevo proceso.
-                            </p>
                         </div>
 
                     </div>
@@ -75,12 +70,10 @@ require_once "app/components/upperpart.php";
         </div>
     </div>
 
-    <!--<script src="public/js/datatable.js"></script>-->
     <script src="public/js/components/Card.js"></script>
     <script src="public/js/components/Table.js"></script>
     <script src="public/js/components/Button.js"></script>
     <script src="public/js/process.js"></script>
-    <!--    <script src="public/js/datatable.js"></script>-->
 <?php
-require_once "app/components/downpart.php";
+require_once COMPONENT_PATH . "downpart.php";
 ?>

@@ -12,6 +12,7 @@ uploadForm.addEventListener('submit', (e) => {
     saveFile(formData).then(data => {
         console.log(data);
         if (data.status === true) {
+            alert('Espere mientras se guarda el archivo');
             processStudentsData(data.message);
         } else {
             alert(data.message)
@@ -21,7 +22,7 @@ uploadForm.addEventListener('submit', (e) => {
 });
 
 function getLastProcess() {
-    fetch('http://localhost/nivelation/app/controllers/process/getLastProcess.php/', {
+    fetch('app/controllers/process/getLastProcess.php/', {
         method: 'GET',
         headers: {
             "Accept": "application/json"
@@ -38,7 +39,7 @@ function getLastProcess() {
 }
 
 const file = async function saveFile(formData) {
-    return await fetch('http://localhost/nivelation/app/controllers/index/saveUploadFile.php/', {
+    return await fetch('app/controllers/index/saveUploadFile.php/', {
         method: 'POST',
         body: formData
     })
@@ -49,7 +50,7 @@ const file = async function saveFile(formData) {
 }
 
 async function saveFile(formData) {
-    const response = await fetch('http://localhost/nivelation/app/controllers/index/saveUploadFile.php/', {
+    const response = await fetch('app/controllers/index/saveUploadFile.php/', {
         method: 'POST',
         body: formData
     });
@@ -60,7 +61,7 @@ async function processStudentsData(path) {
     let formData = new FormData();
     formData.append('path', path);
 
-    const response = await fetch('http://localhost/nivelation/app/controllers/index/processJson.php/', {
+    const response = await fetch('app/controllers/index/processJson.php/', {
         method: 'POST',
         body: formData
     });

@@ -31,8 +31,9 @@ class StudentModel
                 $this->school
             ]);
 
-            $id_value = $pdo->query("SELECT getStudentID('$this->dni');");
-            $this->setId(intval($id_value->fetchColumn()));
+            $id_value = $pdo->query("SELECT id FROM students WHERE persons_id = (SELECT id FROM persons WHERE dni = '$this->dni');");
+            $id = is_null($id_value->fetchColumn()) ? 0 : intval($id_value->fetchColumn());
+            $this->setId($id);
             return true;
         } else {
             return false;

@@ -20,7 +20,7 @@ user_form.addEventListener('submit', (e) => {
 /* ----- Main Funcionts ----- */
 function saveNewUser() {
     let formData = new FormData(user_form);
-    fetch('http://localhost/nivelation/app/controllers/users/saveNewUser.php/', {
+    fetch('app/controllers/users/saveNewUser.php/', {
         method: 'POST',
         headers: {
             "Accept": "application/json"
@@ -40,7 +40,7 @@ function saveNewUser() {
 }
 
 function fillTableWhitAllUsers() {
-    fetch('http://localhost/nivelation/app/controllers/users/getAllUsers.php/')
+    fetch('app/controllers/users/getAllUsers.php/')
         .then(response => response.json())
         .then(data => {
             data = data.users;
@@ -60,7 +60,7 @@ function fillTableWhitAllUsers() {
 }
 
 function getAllRoles() {
-    fetch('http://localhost/nivelation/app/controllers/rol/getAllRoles.php/')
+    fetch('app/controllers/rol/getAllRoles.php/')
         .then(response => response.json())
         .then(data => {
             data = data.roles;

@@ -14,7 +14,7 @@ form.addEventListener('submit', (e) => {
     //Save and Edit process
     let formData = new FormData(form);
 
-    fetch('http://localhost/nivelation/app/controllers/process/saveProcess.php/', {
+    fetch('app/controllers/process/saveProcess.php/', {
         method: 'POST',
         body: formData
     })
@@ -35,7 +35,7 @@ newProcess.addEventListener('click', () => {
 })
 
 function getAllProcess() {
-    fetch('http://localhost/nivelation/app/controllers/process/getAllProcess.php/', {
+    fetch('app/controllers/process/getAllProcess.php/', {
         method: 'GET',
         headers: {
             "Accept": "application/json"
@@ -49,7 +49,7 @@ function getAllProcess() {
 }
 
 function getLastProcess() {
-    fetch('http://localhost/nivelation/app/controllers/process/getLastProcess.php/', {
+    fetch('app/controllers/process/getLastProcess.php/', {
         method: 'GET',
         headers: {
             "Accept": "application/json"
@@ -81,7 +81,6 @@ function fillTable(process) {
 }
 
 function updateProcess(id, proc) {
-    // alert(`Update ${id}`);
     document.getElementById('procID').value = id;
     document.getElementById('denomination').value = proc;
     $('#process_modal').modal('show');

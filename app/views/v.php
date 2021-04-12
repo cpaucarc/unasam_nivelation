@@ -1,25 +1,12 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
-require_once(DB_PATH . "MySqlConnection.php");
-$connection = new MySqlConnection();
-$dni = 61257784;
-if ($connection) {
-    $pdo = $connection->getConnection();
-    $sql = "SELECT count(1) as num FROM persons WHERE dni = '" . $dni . "'";
-    $num = $pdo->query($sql)->fetchColumn();
-    echo $num;
-    var_dump($num);
-    $num = intval($num);
-    if ($num === 0) {
+include_once '../../dirs.php';
 
-        echo "Aun no existe";
-    } else {
-        echo "Ya existe";
-    }
-    var_dump($num);
-} else {
-    return false;
-}
+echo '</br>';
+echo 'conf: ' . $server;
+echo '</br>';
+echo "Sv: " . $_SERVER['SERVER_NAME'];
+echo '</br>';
+echo "Dr: " . $_SERVER['DOCUMENT_ROOT'];
 ?>
 
 <!doctype html>

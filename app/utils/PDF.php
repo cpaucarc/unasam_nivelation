@@ -1,5 +1,5 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
+include_once '../../dirs.php';
 require_once(UTIL_PATH . "fpdf/fpdf.php");
 
 class PDF extends FPDF

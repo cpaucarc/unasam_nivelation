@@ -44,8 +44,6 @@ class Card {
                 </div>
             </div>
             `;
-
-
     }
 
     getNotStudentSelectedCard1() {
@@ -83,8 +81,8 @@ class Card {
                         </div>
                     </div>
                     <div class="card-body text-center">
-                        <a href="#" class="link-add-card text-secondary" data-toggle="modal"
-                           data-target="#add-area"><i class="fas fa-plus-circle fa-2x"></i>
+                        <a href="#" class="text-secondary" data-toggle="modal"
+                           data-target="#add-area"><i class="fas fa-plus-circle fa-4x"></i>
                         </a>
                     </div>
                 </div>

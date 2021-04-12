@@ -62,7 +62,8 @@ class CoursesModel
                 JOIN courses AS cr ON cr.id = rk.courses_id 
                 JOIN process AS pr ON pr.id = rk.process_id
                 
-                WHERE pr.denomination = getLastProcess() AND ar.name = '" . $area . "';";
+                WHERE pr.denomination = (SELECT denomination FROM process ORDER BY denomination DESC LIMIT 1)
+                    AND ar.name = '" . $area . "';";
 
         $response['courses'] = array();
         foreach ($conn->query($sql) as $row) {
@@ -80,7 +81,7 @@ class CoursesModel
         $sql = "SELECT * FROM courses 
                 WHERE id NOT IN (SELECT courses_id FROM ranks 
                     WHERE process_id = (SELECT id FROM process 
-                    WHERE denomination = getLastProcess()) AND areas_id = " . $areaID . ");";
+                    WHERE denomination = (SELECT denomination FROM process ORDER BY denomination DESC LIMIT 1)) AND areas_id = " . $areaID . ");";
 
         $response['courses'] = array();
         foreach ($conn->query($sql) as $row) {
@@ -99,7 +100,7 @@ class CoursesModel
             $pdo = $connection->getConnection();
             $sql = "INSERT INTO ranks VALUES (null, 
                     (SELECT id FROM courses WHERE name = ?), ?, 
-                    (SELECT id FROM process WHERE denomination = getLastProcess()), ?, ?);";
+                    (SELECT id FROM process ORDER BY denomination DESC LIMIT 1), ?, ?);";
             $pdo->prepare($sql)->execute([
                 $course,
                 $areaID,

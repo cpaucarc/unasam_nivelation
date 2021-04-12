@@ -37,7 +37,7 @@ formRank.addEventListener('submit', (e) => {
     e.preventDefault();
     let formData = new FormData(formRank);
 
-    fetch('http://localhost/nivelation/app/controllers/ranks/updateRankValues.php', {
+    fetch('app/controllers/ranks/updateRankValues.php', {
         method: 'POST',
         headers: {
             "Accept": "application/json"
@@ -58,7 +58,7 @@ formRank.addEventListener('submit', (e) => {
 function getAllRanksByProcessID(process, area) {
     let formData = new FormData();
     formData.append('process', process);
-    fetch('http://localhost/nivelation/app/controllers/ranks/getAllRanksByProcess.php/', {
+    fetch('app/controllers/ranks/getAllRanksByProcess.php/', {
         method: 'POST',
         headers: {
             "Accept": "application/json"
@@ -163,7 +163,7 @@ function deleteRank(id) {
 }
 
 function getAllProcess() {
-    fetch('http://localhost/nivelation/app/controllers/process/getAllProcess.php/', {
+    fetch('app/controllers/process/getAllProcess.php/', {
         method: 'GET',
         headers: {
             "Accept": "application/json"

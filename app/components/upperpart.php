@@ -1,10 +1,8 @@
 <?php
-//// Ya no se debe colocar esto, debido que la session ya se inicia en otro lado
-//session_start();
-//
+$rtax = isset($routeAux) ? $routeAux : "";
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
@@ -12,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="http://localhost/nivelation/public/images/ogcushort.png" type="image/x-icon"/>
+    <link rel="icon" href="<?php echo $rtax; ?>public/images/ogcushort.png" type="image/x-icon"/>
     <title>Sistema de Nivelacion</title>
 
     <?php require_once(COMPONENT_PATH . "dependencies.php"); ?>
@@ -20,7 +18,6 @@
 
 <body id="page-top">
 
-<!-- Page Wrapper -->
 <div id="wrapper">
 
     <!-- Sidebar -->
@@ -28,9 +25,9 @@
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center"
-           href="http://localhost/nivelation/inicio">
+           href="inicio">
             <div class="sidebar-brand-icon ">
-                <img src="http://localhost/nivelation/public/images/logo.jpg" width="50px" class="rounded float-start"
+                <img src="<?php echo $rtax; ?>public/images/logo.jpg" width="50px" class="rounded float-start"
                      alt="Escudo de la Unasam">
             </div>
 
@@ -39,26 +36,20 @@
             </div>
         </a>
 
-        <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
-        <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="http://localhost/nivelation/inicio">
+            <a class="nav-link" href="inicio">
                 <i class="fas fa-home"></i>
                 <span>Inicio del sitio</span>
             </a>
         </li>
 
-
-        <!-- Divider -->
         <hr class="sidebar-divider">
 
-        <!-- Heading -->
         <div class="sidebar-heading">
             Vistas
         </div>
-        <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
@@ -68,15 +59,14 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Vistas por:</h6>
-                    <a class="collapse-item" href="http://localhost/nivelation/vista/estudiante">Vista por
+                    <a class="collapse-item" href="<?php echo $rtax; ?>estudiante">Vista por
                         Estudiante</a>
-                    <a class="collapse-item" href="http://localhost/nivelation/vista/curso">Vista por Curso</a>
-                    <a class="collapse-item" href="http://localhost/nivelation/vista/escuela">Vista por Escuela</a>
+                    <a class="collapse-item" href="<?php echo $rtax; ?>curso">Vista por Curso</a>
+                    <a class="collapse-item" href="<?php echo $rtax; ?>escuela">Vista por Escuela</a>
                 </div>
             </div>
         </li>
 
-        <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                aria-expanded="true" aria-controls="collapseUtilities">
@@ -87,10 +77,10 @@
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Vista por:</h6>
-                    <a class="collapse-item" href="http://localhost/nivelation/rangos">Rangos</a>
-                    <a class="collapse-item" href="http://localhost/nivelation/areas">Area</a>
-                    <a class="collapse-item" href="http://localhost/nivelation/admision">Admisión</a>
-                    <a class="collapse-item" href="http://localhost/nivelation/cursos">Cursos</a>
+                    <a class="collapse-item" href="<?php echo $rtax; ?>rangos">Rangos</a>
+                    <a class="collapse-item" href="<?php echo $rtax; ?>areas">Areas</a>
+                    <a class="collapse-item" href="<?php echo $rtax; ?>admision">Admisión</a>
+                    <a class="collapse-item" href="<?php echo $rtax; ?>cursos">Cursos</a>
                 </div>
             </div>
         </li>
@@ -113,35 +103,10 @@
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Vistas de usuario</h6>
-                    <a class="collapse-item" href="http://localhost/nivelation/usuarios">Usuarios registrados</a>
-                    <a class="collapse-item" href="profile.php">Perfil de usuario <span
-                                class="badge bg-danger text-white">Nuevo</span></a>
-                    <a class="collapse-item" href="login2.php">Login alternativo <span
-                                class="badge bg-danger text-white">Nuevo</span></a>
-                    <a class="collapse-item" href="404.php">Error 404 <span
-                                class="badge bg-danger text-white">Nuevo</span></a>
-                    <!--                    <a class="collapse-item" href="editpassword.php">cambiar Contraseña</a>-->
-                    <!--                    <div class="collapse-divider"></div>-->
-                    <!--                    <h6 class="collapse-header">Other Pages:</h6>-->
-                    <!--                    <a class="collapse-item" href="404.html">404 Page</a>-->
-                    <!--                    <a class="collapse-item" href="blank.html">Blank Page</a>-->
+                    <a class="collapse-item" href="<?php echo $rtax; ?>usuarios">Usuarios registrados</a>
                 </div>
             </div>
         </li>
-
-        <!-- Nav Item - Charts -->
-        <!--        <li class="nav-item">-->
-        <!--            <a class="nav-link" href="charts.html">-->
-        <!--                <i class="fas fa-fw fa-chart-area"></i>-->
-        <!--                <span>Charts</span></a>-->
-        <!--        </li>-->
-
-        <!-- Nav Item - Tables -->
-        <!--        <li class="nav-item">-->
-        <!--            <a class="nav-link" href="tables.html">-->
-        <!--                <i class="fas fa-fw fa-wrench"></i>-->
-        <!--                <span>Utilidades</span></a>-->
-        <!--        </li>-->
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
@@ -227,12 +192,12 @@
                                     ?>
                                 </span>
                             <img class="img-profile rounded-circle"
-                                 src="http://localhost/nivelation/public/images/user.png">
+                                 src="<?php echo $rtax; ?>public/images/user.png">
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="http://localhost/nivelation/perfil">
+                            <a class="dropdown-item" href="<?php echo $rtax; ?>perfil">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Perfil
                             </a>
@@ -244,8 +209,5 @@
                             </a>
                         </div>
                     </li>
-
                 </ul>
-
             </nav>
-            <!-- End of Topbar -->

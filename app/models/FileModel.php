@@ -11,7 +11,7 @@ class FileModel
 
     public function __construct()
     {
-        $this->finalDir = $_SERVER['DOCUMENT_ROOT'] . '/nivelation/app/files/';
+        $this->finalDir = '../files/';
     }
 
     public function moveFileToFinalDir()

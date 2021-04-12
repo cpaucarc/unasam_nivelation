@@ -91,7 +91,7 @@ class processModel
     function getLastProcess()
     {
         $conn = (new MySqlConnection())->getConnection();
-        $sql = "SELECT getLastProcess();";
+        $sql = "SELECT denomination FROM process ORDER BY denomination DESC LIMIT 1;";
 
         return $conn->query($sql)->fetchColumn();
     }

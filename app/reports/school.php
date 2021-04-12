@@ -1,5 +1,5 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
+include_once '../../dirs.php';
 require_once(DB_PATH . "MySqlConnection.php");
 require_once(UTIL_PATH . "PDF.php");
 
@@ -85,17 +85,13 @@ if (isset($_POST['scAREAPDF']) && isset($_POST['scSCHOOLPDF']) && isset($_POST['
 
         $pdf->SetTextColor(86, 97, 108);
         $pdf->SetFont('Helvetica', '', $fontSizeTableBody - 2);
-        $pdf->Cell(0, 4, utf8_decode("**\t Alumnos por escuela seleciónada."), 0, 1, 'L');
+        $pdf->Cell(0, 4, utf8_decode("**\t Alumnos por escuela seleccionada."), 0, 1, 'L');
 
 
         $pdf->Output();
     } else {
-        echo 'Error, no se ha especificado el datos para emprimir';
-        echo '</br>';
-        echo '<a href="http://localhost/nivelation/vista/estudiante/0">Volver</a>';
+        header("Location: error");
     }
 } else {
-    echo 'Error, no se ha especificado el datos.';
-    echo '</br>';
-    echo '<a href="http://localhost/nivelation/vista/estudiante/0">Volver</a>';
+    header("Location: error");
 }

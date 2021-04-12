@@ -1,18 +1,20 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
-require_once(UTIL_PATH . "sessions/SessionStarted.php");
+require_once 'dirs.php';
+require_once UTIL_PATH . "sessions/SessionStarted.php";
 session_start();
 (new SessionStarted())->verifySessionStarted();
 ?>
 <?php
-require_once(COMPONENT_PATH . "upperpart.php");
+require_once COMPONENT_PATH . "upperpart.php";
 ?>
     <div class="container">
         <div class="row d-flex justify-content-around mt-5">
             <div class="col col-10 col-lg-5">
                 <div class="card mb-4 rounded">
                     <div class="card-body">
-                        <div class="card-title font-weight-bold text-dark">Información personal</div>
+                        <div class="card-title font-weight-bold text-dark mb-3">
+                            <h4>Información personal</h4>
+                        </div>
                         <form id="personal-info">
                             <input type="hidden" name="id" value="<?php echo $_SESSION['user_logged']['id']; ?>">
                             <div class="form-group">
@@ -54,7 +56,9 @@ require_once(COMPONENT_PATH . "upperpart.php");
             <div class="col col-10 col-lg-5">
                 <div class="card mb-4">
                     <div class="card-body">
-                        <div class="card-title font-weight-bold text-dark">Información de acceso</div>
+                        <div class="card-title font-weight-bold text-dark mb-3">
+                            <h4>Información de acceso</h4>
+                        </div>
                         <form id="access-info">
                             <input type="hidden" name="id" value="<?php echo $_SESSION['user_logged']['id']; ?>">
                             <div class="form-group">
@@ -87,5 +91,5 @@ require_once(COMPONENT_PATH . "upperpart.php");
     <script src="public/js/profile.js"></script>
 
 <?php
-require_once(COMPONENT_PATH . "downpart.php");
+require_once COMPONENT_PATH . "downpart.php";
 ?>

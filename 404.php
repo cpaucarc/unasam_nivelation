@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
+include_once 'dirs.php';
 require_once(UTIL_PATH . "sessions/SessionStarted.php");
 session_start();
 (new SessionStarted())->verifySessionStarted();
@@ -20,7 +20,7 @@ require_once(COMPONENT_PATH . "upperpart.php");
             <br>
             <h3 class="text-gray-500 mb-0">:( </h3>
             <br>
-            <a href="http://localhost/nivelation/inicio">&larr; Volver al inicio</a>
+            <a href="inicio">&larr; Volver al inicio</a>
         </div>
     </div>
 <?php

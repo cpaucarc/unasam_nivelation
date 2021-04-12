@@ -1,5 +1,5 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
+include_once '../../dirs.php';
 require_once(DB_PATH . "MySqlConnection.php");
 require_once(UTIL_PATH . "PDF.php");
 
@@ -98,15 +98,10 @@ if (isset($_POST['stdIDPDF'])) {
         $pdf->Output();
 
     } else {
-//        echo 'Error, no se ha especificado el estudiante';
-//        echo '</br>';
-//        echo '<a href="http://localhost/nivelation/vista/estudiante">Volver</a>';
-        header("Location: http://localhost/nivelation/404.php");
+        header("Location: error");
     }
 } else {
-    echo 'Error, no se ha especificado el estudiante.';
-    echo '</br>';
-    echo '<a href="http://localhost/nivelation/vista/estudiante/0">Volver</a>';
+    header("Location: error");
 }
 
 ?>

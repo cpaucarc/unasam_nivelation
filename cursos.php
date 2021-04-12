@@ -1,9 +1,9 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
-require_once(UTIL_PATH . "sessions/SessionStarted.php");
+require_once 'dirs.php';
+require_once UTIL_PATH . "sessions/SessionStarted.php";
 session_start();
 (new SessionStarted())->verifySessionStarted();
-require_once "app/components/upperpart.php";
+require_once COMPONENT_PATH . "upperpart.php";
 ?>
     <!-- Begin Page Content -->
     <div class="container-fluid">
@@ -23,7 +23,7 @@ require_once "app/components/upperpart.php";
 
                         <div class="alert alert-info my-3" role="alert">
                             Para añadir un curso a una area dirijase <a
-                                    href="http://localhost/nivelation/areas">aqui</a>
+                                    href="areas">aqui</a>
                         </div>
 
                     </div>
@@ -68,12 +68,10 @@ require_once "app/components/upperpart.php";
         </div>
     </div>
 
-    <!--<script src="public/js/datatable.js"></script>-->
     <script src="public/js/components/Card.js"></script>
     <script src="public/js/components/Table.js"></script>
     <script src="public/js/components/Button.js"></script>
     <script src="public/js/courses.js"></script>
-    <!--    <script src="public/js/datatable.js"></script>-->
 <?php
-require_once "app/components/downpart.php";
+require_once COMPONENT_PATH . "downpart.php";
 ?>
