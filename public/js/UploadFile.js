@@ -82,7 +82,7 @@ function validarExt(form) {
 }
 
 function getLastProcess() {
-    fetch('http://localhost/nivelation/app/controllers/process/getLastProcess.php/', {
+    fetch('app/controllers/process/getLastProcess.php/', {
         method: 'GET',
         headers: {
             "Accept": "application/json"

@@ -38,7 +38,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-light font-weight-bold" type="button" data-dismiss="modal">Cancelar</button>
-                <form action="http://localhost/nivelation/app/controllers/login/makeLogout.php?">
+                <form action="app/controllers/login/makeLogout.php?">
                     <button class="btn btn-danger font-weight-bold" type="submit">Cerrar sesión</button>
                 </form>
             </div>
@@ -47,9 +47,7 @@
 </div>
 
 <!-- Custom scripts for all pages-->
-<script src="http://localhost/nivelation/public/js/sb-admin-2.min.js"></script>
-
-<!--<script src="public/js/main.js"></script>-->
+<script src="public/js/sb-admin-2.min.js"></script>
 
 </body>
 

@@ -96,14 +96,8 @@ if (isset($_POST['csAREAPDF']) && isset($_POST['csCOURSEPDF']) && isset($_POST['
 
         $pdf->Output();
     } else {
-//        echo 'Error, no se ha especificado el datos para emprimir';
-//        echo '</br>';
-//        echo '<a href="http://localhost/nivelation/vista/estudiante/0">Volver</a>';
         header("Location: error");
     }
 } else {
-//    echo 'Error, no se ha especificado el datos.';
-//    echo '</br>';
-//    echo '<a href="http://localhost/nivelation/vista/estudiante/0">Volver</a>';
     header("Location: error");
 }

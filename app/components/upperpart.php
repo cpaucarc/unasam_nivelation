@@ -2,7 +2,7 @@
 $rtax = isset($routeAux) ? $routeAux : "";
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
@@ -18,7 +18,6 @@ $rtax = isset($routeAux) ? $routeAux : "";
 
 <body id="page-top">
 
-<!-- Page Wrapper -->
 <div id="wrapper">
 
     <!-- Sidebar -->
@@ -37,10 +36,8 @@ $rtax = isset($routeAux) ? $routeAux : "";
             </div>
         </a>
 
-        <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
-        <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
             <a class="nav-link" href="inicio">
                 <i class="fas fa-home"></i>
@@ -48,15 +45,11 @@ $rtax = isset($routeAux) ? $routeAux : "";
             </a>
         </li>
 
-
-        <!-- Divider -->
         <hr class="sidebar-divider">
 
-        <!-- Heading -->
         <div class="sidebar-heading">
             Vistas
         </div>
-        <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
@@ -74,7 +67,6 @@ $rtax = isset($routeAux) ? $routeAux : "";
             </div>
         </li>
 
-        <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                aria-expanded="true" aria-controls="collapseUtilities">
@@ -86,7 +78,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Vista por:</h6>
                     <a class="collapse-item" href="<?php echo $rtax; ?>rangos">Rangos</a>
-                    <a class="collapse-item" href="<?php echo $rtax; ?>areas">Area</a>
+                    <a class="collapse-item" href="<?php echo $rtax; ?>areas">Areas</a>
                     <a class="collapse-item" href="<?php echo $rtax; ?>admision">Admisión</a>
                     <a class="collapse-item" href="<?php echo $rtax; ?>cursos">Cursos</a>
                 </div>
@@ -112,34 +104,9 @@ $rtax = isset($routeAux) ? $routeAux : "";
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Vistas de usuario</h6>
                     <a class="collapse-item" href="<?php echo $rtax; ?>usuarios">Usuarios registrados</a>
-                    <a class="collapse-item" href="profile.php">Perfil de usuario <span
-                                class="badge bg-danger text-white">Nuevo</span></a>
-                    <a class="collapse-item" href="login2.php">Login alternativo <span
-                                class="badge bg-danger text-white">Nuevo</span></a>
-                    <a class="collapse-item" href="404.php">Error 404 <span
-                                class="badge bg-danger text-white">Nuevo</span></a>
-                    <!--                    <a class="collapse-item" href="editpassword.php">cambiar Contraseña</a>-->
-                    <!--                    <div class="collapse-divider"></div>-->
-                    <!--                    <h6 class="collapse-header">Other Pages:</h6>-->
-                    <!--                    <a class="collapse-item" href="404.html">404 Page</a>-->
-                    <!--                    <a class="collapse-item" href="blank.html">Blank Page</a>-->
                 </div>
             </div>
         </li>
-
-        <!-- Nav Item - Charts -->
-        <!--        <li class="nav-item">-->
-        <!--            <a class="nav-link" href="charts.html">-->
-        <!--                <i class="fas fa-fw fa-chart-area"></i>-->
-        <!--                <span>Charts</span></a>-->
-        <!--        </li>-->
-
-        <!-- Nav Item - Tables -->
-        <!--        <li class="nav-item">-->
-        <!--            <a class="nav-link" href="tables.html">-->
-        <!--                <i class="fas fa-fw fa-wrench"></i>-->
-        <!--                <span>Utilidades</span></a>-->
-        <!--        </li>-->
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
@@ -242,8 +209,5 @@ $rtax = isset($routeAux) ? $routeAux : "";
                             </a>
                         </div>
                     </li>
-
                 </ul>
-
             </nav>
-            <!-- End of Topbar -->
