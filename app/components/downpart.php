@@ -2,7 +2,7 @@
 <!-- End of Main Content -->
 
 <!-- Footer -->
-<footer class="sticky-footer bg-light">
+<footer class="sticky-footer bg-light border-top">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
             <span>Copyright &copy; Sistema de Nivelación 2021</span>
@@ -23,7 +23,8 @@
 </a>
 
 <!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" data-backdrop="static" id="logoutModal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -47,7 +48,8 @@
 </div>
 
 <!-- Custom scripts for all pages-->
-<script src="public/js/sb-admin-2.min.js"></script>
+<script src="<?php echo $rtax;//esta variable se hereda desde dependencies.php ?>public/js/sb-admin-2.min.js"></script>
+
 
 </body>
 

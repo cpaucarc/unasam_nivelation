@@ -97,7 +97,7 @@ require_once COMPONENT_PATH . "upperpart.php";
 
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="school_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" data-backdrop="static" id="school_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -124,7 +124,7 @@ require_once COMPONENT_PATH . "upperpart.php";
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-light" type="button" data-dismiss="modal">Cancelar</button>
                     <button class="btn btn-primary">Guardar</button>
                 </div>
             </div>

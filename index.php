@@ -7,29 +7,34 @@ session_start();
 
 <?php @include_once "app/components/upperpart.php" ?>
     <div class="container-fluid">
-        <div class="card mb-2">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col col-sm-12 col-md-9 mb-2">
-                        <label for="lastProcess">Proceso de Admision</label>
-                        <h3 class="font-weight-bold text-primary" id="lastProcess"
-                            aria-describedby="help">
-                            Cargando...
-                        </h3>
-                        <small id="help" class="form-text text-muted">
-                            Los datos que cargue ahora se guardaran para este proceso de admisión.
-                            Puede añadir un nuevo proceso entrando a <a href="admision">esta pagina</a>
-                        </small>
-                    </div>
-                    <div class="col col-sm-12 col-md-3 my-auto mx-auto">
-                        <button class="btn btn-primary btn-lg font-weight-bold" data-toggle="modal"
-                                data-target="#file_modal">
-                            <i class="fas fa-upload fa-sm text-white-50"></i> Subir documento
-                        </button>
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-9">
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <div class="row d-flex justify-content-between">
+                            <div class="col col-12 col-lg-7 mb-4">
+                                <label for="lastProcess">Proceso de Admision</label>
+                                <h3 class="font-weight-bold text-primary" aria-describedby="help">
+                                    <i class="fas fa-calendar-day"></i> <span id="lastProcess">Cargando...</span>
+                                </h3>
+                                <small id="help" class="form-text text-muted">
+                                    Los datos que cargue ahora se guardaran para este proceso de admisión.
+                                    Puede añadir un nuevo proceso entrando a <a href="admision">esta pagina</a>
+                                </small>
+                            </div>
+                            <div class="col col-12 col-lg-4 my-auto">
+                                <button class="btn btn-primary btn-lg" data-toggle="modal"
+                                        data-target="#file_modal">
+                                    <i class="fas fa-upload fa-sm text-white-50"></i> Subir documento
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 
     <!-- Modal -->

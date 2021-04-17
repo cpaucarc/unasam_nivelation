@@ -10,7 +10,7 @@ require_once COMPONENT_PATH . "upperpart.php";
         <div class="row my-3" id="card-areas">
         </div>
         <div class="row my-3">
-            <div class="col col-md-12 col-lg-6 mb-4">
+            <div class="col col-12 col-lg-6 mb-4">
                 <div class="card">
                     <div class="card-header">
                         Escuelas del area <span class="font-weight-bold" id="areaNameSchool"></span>
@@ -33,7 +33,7 @@ require_once COMPONENT_PATH . "upperpart.php";
                     </div>
                 </div>
             </div>
-            <div class="col col-md-12 col-lg-6">
+            <div class="col col-12 col-lg-6">
                 <div class="card">
                     <div class="card-header">
                         Cursos del area <span class="font-weight-bold" id="areaNameCourse"></span>
@@ -56,14 +56,21 @@ require_once COMPONENT_PATH . "upperpart.php";
                         </table>
 
                         <div class="alert alert-info my-2" role="alert">
-                            <ul>
-                                <li>Para ver y modificar los rangos de cada curso
-                                    <a href="rangos">pulse aqui</a>
-                                </li>
-                                <li>Para añadir nuevos cursos
-                                    <a href="cursos">pulse aqui</a>
-                                </li>
-                            </ul>
+                            <div class="row">
+                                <div class="col col-1">
+                                    <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+                                </div>
+                                <div class="col col-11">
+                                    <ul>
+                                        <li>Para ver y modificar los rangos de cada curso
+                                            <a href="rangos">pulse aqui</a>.
+                                        </li>
+                                        <li>Para añadir nuevos cursos
+                                            <a href="cursos">pulse aqui</a>.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -71,7 +78,7 @@ require_once COMPONENT_PATH . "upperpart.php";
         </div>
 
         <!-- Areas Modal-->
-        <div class="modal fade" id="add-area" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" data-backdrop="static" id="add-area" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">

@@ -9,6 +9,7 @@ const btShowPDF = document.getElementById('btShowPDF');
 
 card = new Card();
 table = new Table();
+badge = new Badge();
 
 window.onload = function () {
     if (stdID > 0) {
@@ -84,7 +85,7 @@ function getCoursesByFullname(fullname) {
             num = 1;
             data.forEach(c => {
                 row = table.createRow(num, c.course, c.percent);
-                row.appendChild(createCell(c.stat, c.num));
+                row.appendChild(table.createCell(badge.createBadge(c.stat, c.num)));
                 tbBody.appendChild(row);
                 num++;
             });
@@ -112,7 +113,7 @@ function getCoursesByID(id) {
             let num = 1;
             data.forEach(c => {
                 let row = table.createRow(num, c.course, c.percent);
-                row.appendChild(createCell(c.stat, c.num));
+                row.appendChild(table.createCell(badge.createBadge(c.stat, c.num)));
                 tbBody.appendChild(row);
                 num++;
             });
@@ -174,37 +175,6 @@ function getStudentInfo(fullname) {
             tbBody.innerHTML = '';
             stdIDPDF.value = '0';
         });
-}
-
-function createCell(text, numero) { //1 no nec, 2 si, pero no obl, 3 obl
-    cell = document.createElement('td');
-    span = document.createElement('span');
-    span.innerText = text;
-    span.classList.add('py-2');
-    switch (parseInt(numero)) {
-        case 1: { // No requiere
-            span.classList.add('alert');
-            span.classList.add('alert-success');
-            break;
-        }
-        case 2: { // requiere, no obligatorio
-            span.classList.add('alert');
-            span.classList.add('alert-warning');
-            break;
-        }
-        case 3: { // si requiere, obligatorio
-            span.classList.add('alert');
-            span.classList.add('alert-danger');
-            break;
-        }
-        default: { // si requiere, obligatorio
-            span.classList.add('badge');
-            span.classList.add('badge-danger');
-            break;
-        }
-    }
-    cell.appendChild(span);
-    return cell;
 }
 
 function setDataTables(table) {

@@ -16,7 +16,7 @@ require_once COMPONENT_PATH . "upperpart.php";
     <!-- Begin Page Content -->
     <div class="container-fluid">
         <div class="hide">
-            <input type="text" id="stdID" class="" value="<?php echo $stdID; ?>">
+            <input type="hidden" id="stdID" class="" value="<?php echo $stdID; ?>">
         </div>
 
         <!-- Page Heading -->
@@ -41,7 +41,7 @@ require_once COMPONENT_PATH . "upperpart.php";
                     </div>
                     <div class="ml-auto bd-highlight">
                         <form action="<?php echo $routeAux; ?>reporte/estudiante" method="post">
-                            <input name="stdIDPDF" id="stdIDPDF" type="text" value="<?php echo $stdID; ?>">
+                            <input name="stdIDPDF" id="stdIDPDF" type="hidden" value="<?php echo $stdID; ?>">
                             <button type="submit" id="btShowPDF" class="btn btn-outline-danger">
                                 <i class="fas fa-file-pdf"></i>
                             </button>
@@ -53,7 +53,7 @@ require_once COMPONENT_PATH . "upperpart.php";
             <div class="card-body">
 
                 <div class="row">
-                    <div class="col col-sm-12 col-md-4 mb-3">
+                    <div class="col col-12 col-lg-4 mb-3">
                         <div id="student-info-card">
                             <!-- Student Info Card Here-->
                         </div>
@@ -61,10 +61,10 @@ require_once COMPONENT_PATH . "upperpart.php";
                             <!-- Just when stdID in POST is 0 -->
                         </div>
                     </div>
-                    <div class="col col-sm-12 col-md-8">
+                    <div class="col col-12 col-lg-8">
                         <div class="card">
                             <div class="card-header">
-                                <h6 class="m-0 font-weight-bold">Analis de cursos</h6>
+                                <h6 class="m-0 font-weight-bold">Analisis de cursos</h6>
                             </div>
                             <div class="card-body">
                                 <table id="table-courses" class="table">
@@ -90,6 +90,7 @@ require_once COMPONENT_PATH . "upperpart.php";
 
     <!--<script src="public/js/datatable.js"></script>-->
     <script type="text/javascript">const routeAux = "<?php echo $routeAux;?>";</script>
+    <script src="<?php echo $routeAux; ?>public/js/components/Badge.js"></script>
     <script src="<?php echo $routeAux; ?>public/js/components/Card.js"></script>
     <script src="<?php echo $routeAux; ?>public/js/components/Table.js"></script>
     <script src="<?php echo $routeAux; ?>public/js/studentView.js"></script>
