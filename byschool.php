@@ -75,7 +75,7 @@ require_once COMPONENT_PATH . "upperpart.php";
 
     <script src="public/js/components/Table.js"></script>
     <script src="public/js/components/Button.js"></script>
-    <script src="public/js/components/Alert.js"></script>
+    <script src="public/js/components/Badge.js"></script>
     <script src="public/js/schoolsView.js"></script>
 
 <?php

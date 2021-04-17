@@ -126,7 +126,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
         <div id="content">
 
             <!-- Topbar -->
-            <nav class="navbar navbar-expand navbar-light bg-light topbar mb-4 static-top shadow">
+            <nav class="navbar navbar-expand navbar-light bg-light topbar mb-4 static-top border-bottom">
 
                 <!-- Sidebar Toggle (Topbar) -->
                 <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -188,11 +188,15 @@ $rtax = isset($routeAux) ? $routeAux : "";
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600">
                                     <?php
-                                    echo isset($_SESSION['user_logged']) ? ucfirst($_SESSION['user_logged']['username']) : 'Guest'
+                                    echo isset($_SESSION['user_logged']) ? (ucfirst($_SESSION['user_logged']['name']) . ' ' . ucfirst($_SESSION['user_logged']['lastname'])) : 'Guest'
                                     ?>
                                 </span>
-                            <img class="img-profile rounded-circle"
-                                 src="<?php echo $rtax; ?>public/images/user.png">
+
+                            <button class="mt-3 avatar img-profile rounded-circle text-center text-capitalize font-weight-bold alert alert-primary"
+                                    role="alert">
+                                <?php echo substr($_SESSION['user_logged']['name'], 0, 1); ?>
+                            </button>
+
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

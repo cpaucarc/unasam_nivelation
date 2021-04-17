@@ -23,11 +23,6 @@ require_once COMPONENT_PATH . "upperpart.php";
                         <label for="process">Proceso de Admisión</label>
                         <select class="form-control" id="process">
                             <option value="0">Selecciona...</option>
-                            <option value="5">2020-II</option>
-                            <option value="4">2021-I</option>
-                            <option value="3">2019-II</option>
-                            <option value="2">2019-I</option>
-                            <option value="6">2022-II</option>
                         </select>
                     </div>
                 </div>
@@ -59,18 +54,27 @@ require_once COMPONENT_PATH . "upperpart.php";
                 <!--                Informacion con fondo azul-->
                 <div class="my-4">
                     <div class="alert alert-info">
-                        <p class="card-text">
-                            Los alumnos con:
-                        <ul>
-                            <li>Aciertos menor al minimo requerido, requieren nivelación obligatoria.</li>
-                            <li>Aciertos entre el minimo y el maximo, pueden tomar nivelación pero no obligatoria.</li>
-                            <li>Aciertos mayor al maximo requerido, no deben tomar nivelación.</li>
-                        </ul>
-                        </p>
+                        <div class="row">
+                            <div class="col col-1">
+                                <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+                            </div>
+                            <div class="col col-11">
+                                <p class="card-text">
+                                    Los alumnos con:
+                                <ul>
+                                    <li>Aciertos menor al minimo requerido, requieren nivelación obligatoria.</li>
+                                    <li>Aciertos entre el minimo y el maximo, pueden tomar nivelación pero no
+                                        obligatoria.
+                                    </li>
+                                    <li>Aciertos mayor al maximo requerido, no deben tomar nivelación.</li>
+                                </ul>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="modal fade" id="modal-rank" tabindex="-1" aria-labelledby="exampleModalLabel"
+                <div class="modal fade" data-backdrop="static" id="modal-rank" tabindex="-1" aria-labelledby="exampleModalLabel"
                      aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">

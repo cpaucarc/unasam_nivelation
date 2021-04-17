@@ -14,7 +14,7 @@ let csPROCESSPDF = document.getElementById('csPROCESSPDF');
 
 table = new Table();
 button = new Button();
-alert = new Alert();
+badge = new Badge();
 
 window.onload = function () {
     console.log('cargo con exito');
@@ -121,13 +121,12 @@ function fillTableWhitCourses(area, course, process) {
             data = data.students;
             tbody.innerHTML = '';
             $('#table-students').DataTable().clear().destroy();
-            num = 1;
+            let num = 1;
             data.forEach(std => {
                 let row = table.createRow(num, std.dni, std.code,
                     (std.lastname + ' ' + std.name), std.school);
-                // let btnShowStudent = createRedirectButton(std.stdID);
                 let btnShowStudent = button.createButtonForRedirectToStudentView(std.stdID);
-                row.appendChild(table.createCell(alert.createAlert(std.stat, std.num)));
+                row.appendChild(table.createCell(badge.createBadge(std.stat, std.num)));
                 row.appendChild(table.createCell(btnShowStudent));
                 tbody.appendChild(row);
                 num++;

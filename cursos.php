@@ -15,19 +15,27 @@ require_once COMPONENT_PATH . "upperpart.php";
         <div class="card">
             <div class="card-body">
                 <div class="row">
-                    <div class="col col-sm-12 col-md-12 col-lg-4 mb-2">
+                    <div class="col col-12 col-lg-3 mb-2">
                         <button type="button" class="btn btn-primary my-2" data-toggle="modal"
                                 data-target="#courses_modal" id="new-course">
                             <i class="fas fa-plus"></i> Agregar curso
                         </button>
 
                         <div class="alert alert-info my-3" role="alert">
-                            Para añadir un curso a una area dirijase <a
-                                    href="areas">aqui</a>
+                            <div class="row">
+                                <div class="col col-2 col-md-3">
+                                    <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+                                </div>
+                                <div class="col col-10 col-md-9">
+                                    <p>
+                                        Para añadir un curso a una area dirijase
+                                        <a href="areas">aqui</a>.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-
                     </div>
-                    <div class="col col-sm-12 col-md-12 col-lg-8">
+                    <div class="col col-12 col-lg-9">
                         <table id="table-courses" class="table table-sm">
                             <thead class="thead-light">
                             <tr class="text-center">
@@ -45,7 +53,7 @@ require_once COMPONENT_PATH . "upperpart.php";
         </div>
     </div>
 
-    <div class="modal fade" id="courses_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" data-backdrop="static" id="courses_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -53,7 +61,7 @@ require_once COMPONENT_PATH . "upperpart.php";
                     <form id="form-course">
                         <input type="hidden" value="0" name="procID" id="procID">
                         <div class="form-group">
-                            <input type="text" value="0" id="courseID" name="courseID">
+                            <input type="hidden" value="0" id="courseID" name="courseID">
                             <label for="course" class="col-form-label-sm">Nombre del curso:</label>
                             <input name="course" type="text" class="form-control" id="course"
                                    placeholder="Curso...">

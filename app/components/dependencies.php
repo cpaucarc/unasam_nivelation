@@ -25,6 +25,8 @@ $rtax = isset($routeAux) ? $routeAux : "";
 <!-- Core plugin JavaScript-->
 <script src="<?php echo $rtax; ?>public/vendor/jquery-easing/jquery.easing.min.js"></script>
 
+<!--<script src="--><?php //echo $rtax; ?><!--public/js/sbadmin.js"></script>-->
+
 <!--Datatables-->
 <!--Archivos descargados-->
 
