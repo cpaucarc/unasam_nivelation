@@ -4,7 +4,7 @@ class Card {
 
     getStudentInfoCard(stdLastname, stdName, stdSchool, stdDni, stdCode, stdProcess) {
         return `
-            <div class="card bg-light">
+            <div class="card">
                 <div class="card-header">
                     <h6 class="m-0 font-weight-bold">Datos del alumno</h6>
                 </div>
@@ -13,15 +13,7 @@ class Card {
                         <h4 class="text-uppercase font-weight-bold">${stdLastname}</h4>&nbsp;
                         <h4 class="text-capitalize">${stdName}</h4>
                     </div>
-
-                    <div class="col col-12 mt-4 form-inline">
-                        <span class="font-weight-bold">Escuela:</span>&nbsp;
-                        <span>${stdSchool}</span>
-                    </div>
-                    <div class="col col-12 mt-2 form-inline">
-                        <span class="font-weight-bold">Admision de Ingreso:</span>&nbsp;
-                        <span>${stdProcess}</span>
-                    </div>
+                    <hr>
                     <div class="col col-12 mt-2 form-inline">
                         <span class="font-weight-bold">DNI:</span>&nbsp;
                         <span>${stdDni}</span>
@@ -29,7 +21,38 @@ class Card {
                     <div class="col col-12 mt-2 form-inline">
                         <span class="font-weight-bold">Código:</span>&nbsp;
                         <span>${stdCode}</span>
-                    </div>                    
+                    </div> 
+                    <hr>
+                    <div class="col col-12 mt-4 form-inline">
+                        <span class="font-weight-bold">Escuela:</span>&nbsp;
+                        <span>${stdSchool}</span>
+                    </div>
+                    <hr>
+                    <div class="col col-12 mt-2 form-inline">
+                        <span class="font-weight-bold">Admision de Ingreso:</span>&nbsp;
+                        <span>${stdProcess}</span>
+                    </div>   
+                    <div class="col col-12 mt-2 form-inline">
+                        <span class="font-weight-bold">OMG:</span>&nbsp;
+                        <span>15</span>
+                    </div>   
+                    <div class="col col-12 mt-2 form-inline">
+                        <span class="font-weight-bold">OMP:</span>&nbsp;
+                        <span>7</span>
+                    </div>     
+                    <hr>                    
+                    <div class="col col-12 mt-2 form-inline">
+                        <span class="font-weight-bold">Preguntas Correctas:</span>&nbsp;
+                        <span>50</span>
+                    </div>                   
+                    <div class="col col-12 mt-2 form-inline">
+                        <span class="font-weight-bold">Preguntas Incorrectas:</span>&nbsp;
+                        <span>40</span>
+                    </div>                   
+                    <div class="col col-12 mt-2 form-inline">
+                        <span class="font-weight-bold">Preguntas en Blanco:</span>&nbsp;
+                        <span>10</span>
+                    </div>                 
                 </div>
             </div>
             `;

@@ -6,24 +6,26 @@ session_start();
 require_once COMPONENT_PATH . "upperpart.php";
 ?>
     <div class="container">
-        <h1 class="h3 mb-0 text-gray-800">Areas</h1>
+
         <div class="row my-3" id="card-areas">
+            <!--            Las areas se cargan dinamicamente con JS-->
         </div>
+
         <div class="row my-3">
             <div class="col col-12 col-lg-6 mb-4">
                 <div class="card">
                     <div class="card-header">
-                        Escuelas del area <span class="font-weight-bold" id="areaNameSchool"></span>
+                        Programas Académicos del Área <span class="font-weight-bold" id="areaNameSchool"></span>
                     </div>
                     <div class="card-body" id="card-body-school">
                         <button type="button" class="btn btn-primary mb-3" data-toggle="modal"
                                 data-target="#SchoolModal" id="newSchool">
-                            Agregar nueva escuela
+                            Agregar nuevo Programa Académico
                         </button>
-                        <table class="table" id="table-schools">
+                        <table class="table table-bordered" id="table-schools">
                             <thead class="thead-light">
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col">N°</th>
                                 <th scope="col">Escuela</th>
                             </tr>
                             </thead>
@@ -36,17 +38,17 @@ require_once COMPONENT_PATH . "upperpart.php";
             <div class="col col-12 col-lg-6">
                 <div class="card">
                     <div class="card-header">
-                        Cursos del area <span class="font-weight-bold" id="areaNameCourse"></span>
+                        Cursos del Área <span class="font-weight-bold" id="areaNameCourse"></span>
                     </div>
                     <div class="card-body" id="card-body-school">
                         <button type="button" class="btn btn-primary mb-3" data-toggle="modal"
                                 data-target="#CoursesModal" id="addCourse">
                             Agregar nuevo curso
                         </button>
-                        <table class="table" id="table-courses">
+                        <table class="table table-bordered" id="table-courses">
                             <thead class="thead-light">
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col">N°</th>
                                 <th scope="col">Curso</th>
                                 <th scope="col">Proceso</th>
                             </tr>
@@ -78,7 +80,8 @@ require_once COMPONENT_PATH . "upperpart.php";
         </div>
 
         <!-- Areas Modal-->
-        <div class="modal fade" data-backdrop="static" id="add-area" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" data-backdrop="static" id="add-area" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalLabel"
              aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -93,10 +96,10 @@ require_once COMPONENT_PATH . "upperpart.php";
                             <div class="form-group">
                                 <label for="area" class="col-form-label-sm">Ingrese abreviatura del area:</label>
                                 <input type="text" name="area" class="form-control form-control-user" id="area"
-                                       placeholder="A">
+                                       placeholder="Ej. A">
                                 <label for="desc" class="col-form-label-sm">Ingrese descripcion del area:</label>
                                 <input type="text" name="desc" class="form-control form-control-user" id="desc"
-                                       placeholder="Ciencias e Ingenieria">
+                                       placeholder="Ej. Ciencias e Ingenieria">
                             </div>
                     </div>
                     <div class="modal-footer">

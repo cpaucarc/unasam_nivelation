@@ -6,16 +6,12 @@ session_start();
 require_once COMPONENT_PATH . "upperpart.php";
 ?>
     <!-- Begin Page Content -->
-    <div class="container-fluid">
-
-        <div class="mb-4">
-            <h2 class="mb-0 text-gray-800">Cursos</h2>
-        </div>
+    <div class="container">
 
         <div class="card">
             <div class="card-body">
-                <div class="row">
-                    <div class="col col-12 col-lg-3 mb-2">
+                <div class="row d-flex justify-content-between">
+                    <div class="col col-12 col-lg-4 mb-2">
                         <button type="button" class="btn btn-primary my-2" data-toggle="modal"
                                 data-target="#courses_modal" id="new-course">
                             <i class="fas fa-plus"></i> Agregar curso
@@ -35,16 +31,16 @@ require_once COMPONENT_PATH . "upperpart.php";
                             </div>
                         </div>
                     </div>
-                    <div class="col col-12 col-lg-9">
-                        <table id="table-courses" class="table table-sm">
+                    <div class="col col-12 col-lg-7 mt-2">
+                        <table id="table-courses" class="table table-bordered table-sm text-left">
                             <thead class="thead-light">
-                            <tr class="text-center">
-                                <th>#</th>
-                                <th>Cursos</th>
-                                <th>Acciones</th>
+                            <tr>
+                                <th style="width: 10%;">N°</th>
+                                <th style="width: 80%;">Cursos</th>
+                                <th style="width: 10%;">&nbsp;</th>
                             </tr>
                             </thead>
-                            <tbody id="tbody" class="text-center">
+                            <tbody id="tbody">
                             </tbody>
                         </table>
                     </div>
@@ -53,7 +49,8 @@ require_once COMPONENT_PATH . "upperpart.php";
         </div>
     </div>
 
-    <div class="modal fade" data-backdrop="static" id="courses_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" data-backdrop="static" id="courses_modal" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalLabel"
          aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

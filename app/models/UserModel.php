@@ -36,6 +36,21 @@ class UserModel
         }
     }
 
+    public function updateRol($rol){
+        $connection = new MySqlConnection();
+        if ($connection) {
+            $pdo = $connection->getConnection();
+            $sql = "UPDATE users SET roles_id = (SELECT id FROM roles WHERE name = ?) WHERE id = ?;";
+            $pdo->prepare($sql)->execute([
+                $rol,
+                $this->id
+            ]);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function updatePersonalInfo()
     {
         $connection = new MySqlConnection();

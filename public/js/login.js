@@ -15,9 +15,10 @@ login_form.addEventListener('submit', (e) => {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 if (data.status === "1") {
                     window.location.href = "inicio";
+                } else {
+                    alert(data.response);
                 }
             });
     } catch (e) {

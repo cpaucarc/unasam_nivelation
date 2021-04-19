@@ -15,7 +15,7 @@ require_once COMPONENT_PATH . "upperpart.php";
         <div class="card">
             <div class="card-body">
                 <div class="row d-flex justify-content-between">
-                    <div class="col col-12 col-lg-3 mb-2">
+                    <div class="col col-12 col-lg-3 mb-3">
                         <button type="button" class="btn btn-primary my-2" data-toggle="modal"
                                 data-target="#process_modal" id="new-process">
                             <i class="fas fa-plus"></i> Agregar proceso
@@ -30,12 +30,12 @@ require_once COMPONENT_PATH . "upperpart.php";
 
                     </div>
                     <div class="col col-12 col-lg-8">
-                        <table id="table-process" class="table table-sm">
+                        <table id="table-process" class="table table-bordered table-sm">
                             <thead class="thead-light">
                             <tr class="text-center">
                                 <th>#</th>
                                 <th>Nombre</th>
-                                <th>Acciones</th>
+                                <th>&nbsp;</th>
                             </tr>
                             </thead>
                             <tbody id="tbody" class="text-center">
@@ -47,13 +47,14 @@ require_once COMPONENT_PATH . "upperpart.php";
         </div>
     </div>
 
-    <div class="modal fade" data-backdrop="static" id="process_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" data-backdrop="static" id="process_modal" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalLabel"
          aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-body">
                     <form id="form">
-                        <input type="hidden" value="0" name="procID" id="procID">
+                        <input type="text" value="0" name="procID" id="procID">
                         <div class="form-group">
                             <label for="proceso" class="col-form-label-sm text-uppercase">Admisión:</label>
                             <input name="denomination" type="text" class="form-control" id="denomination"

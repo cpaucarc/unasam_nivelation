@@ -25,6 +25,7 @@ form.addEventListener('submit', (e) => {
                 getAllProcess();
                 alert(data.message);
                 $('#process_modal').modal('hide');
+                getLastProcess();
             }
         });
 });

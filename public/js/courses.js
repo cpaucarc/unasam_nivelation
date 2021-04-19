@@ -7,6 +7,7 @@ button = new Button();
 
 window.onload = () => {
     getAllCourses();
+    document.getElementById('view-title').innerText = 'Cursos';
 }
 
 formCourse.addEventListener('submit', (e) => {
@@ -46,6 +47,7 @@ function getAllCourses() {
             data.forEach(course => {
                 let row = table.createRow(num, course.name);
                 let btn = button.createBtnEdit(showModalForEditCourse, course.id, course.name);
+                btn.classList.add('btn-sm');
                 row.appendChild(table.createCell(btn));
                 tbody.appendChild(row);
                 num++;

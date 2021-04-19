@@ -3,6 +3,7 @@ const uploadForm = document.getElementById('upload_form');
 
 window.addEventListener('load', () => {
     getLastProcess();
+    document.getElementById('view-title').innerText = 'Inicio del Sitio';
 });
 
 uploadForm.addEventListener('submit', (e) => {
@@ -13,7 +14,9 @@ uploadForm.addEventListener('submit', (e) => {
         console.log(data);
         if (data.status === true) {
             alert('Espere mientras se guarda el archivo');
+            // Mostrar un msg: Espere mientras los datos se procesan
             processStudentsData(data.message);
+            //message: Los datos ya se guardaron
         } else {
             alert(data.message)
         }

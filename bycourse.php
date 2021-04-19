@@ -8,12 +8,8 @@ session_start();
 <?php
 require_once COMPONENT_PATH . "upperpart.php";
 ?>
-
-
     <!-- Begin Page Content -->
-    <div class="container-fluid">
-
-        <h2 class="text-dark">Reporte por cursos</h2>
+    <div class="container">
 
         <div class="card">
             <div class="card-header">

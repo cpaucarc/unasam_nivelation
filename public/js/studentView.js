@@ -16,10 +16,10 @@ window.onload = function () {
         getStudentInfoByID(stdID);
         getCoursesByID(stdID);
     } else {
-        // When std is not asigned
         stdInfoCard.innerHTML = '';
         notStdInfo.innerHTML = card.getNotStudentSelectedCard();
     }
+    document.getElementById('view-title').innerText = 'Vista por Estudiante';
 }
 
 btSearch.addEventListener('click', (e) => {
@@ -79,18 +79,7 @@ function getCoursesByFullname(fullname) {
         .then(response => response.json())
         .then(data => {
             data = data.courses;
-            //destroyDataTables('table-courses');
-            //$(`#table-courses`).DataTable().clear().destroy();
-            tbBody.innerHTML = '';
-            num = 1;
-            data.forEach(c => {
-                row = table.createRow(num, c.course, c.percent);
-                row.appendChild(table.createCell(badge.createBadge(c.stat, c.num)));
-                tbBody.appendChild(row);
-                num++;
-            });
-
-            //$(`#table-courses`).DataTable();
+            fillStudentData(data);
         });
 }
 
@@ -108,17 +97,19 @@ function getCoursesByID(id) {
         .then(response => response.json())
         .then(data => {
             data = data.courses;
-            //$(`#table-courses`).DataTable().clear().destroy();
-            tbBody.innerHTML = '';
-            let num = 1;
-            data.forEach(c => {
-                let row = table.createRow(num, c.course, c.percent);
-                row.appendChild(table.createCell(badge.createBadge(c.stat, c.num)));
-                tbBody.appendChild(row);
-                num++;
-            });
-            //$(`#table-courses`).DataTable();
+            fillStudentData(data);
         });
+}
+
+function fillStudentData(data) {
+    tbBody.innerHTML = '';
+    let num = 1;
+    data.forEach(c => {
+        let row = table.createRow(num, c.course, `${c.percent}%`);
+        row.appendChild(table.createCell(badge.createBadge(c.stat, c.num)));
+        tbBody.appendChild(row);
+        num++;
+    });
 }
 
 function getStudentInfoByID(id) {

@@ -8,12 +8,8 @@ session_start();
 <?php
 require_once COMPONENT_PATH . "upperpart.php";
 ?>
-
-
     <!-- Begin Page Content -->
-    <div class="container-fluid">
-
-        <h2 class="text-dark">Reporte por escuelas</h2>
+    <div class="container">
 
         <div class="card">
             <div class="card-header">
@@ -54,14 +50,14 @@ require_once COMPONENT_PATH . "upperpart.php";
             </div>
             <div class="card-body">
                 <!--Tabla-->
-                <table class="table mt-2" id="table-students">
+                <table class="table mt-2 table-bordered" id="table-students">
                     <thead class="thead-light">
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">DNI</th>
                         <th scope="col">Código</th>
                         <th scope="col">Alumno</th>
-                        <th scope="col">Acción</th>
+                        <th scope="col">&nbsp;</th>
                     </tr>
                     </thead>
                     <tbody id="tbody">

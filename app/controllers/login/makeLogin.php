@@ -25,11 +25,8 @@ try {
         $_SESSION['user_logged']['lastname'] = $user->getLastname();
         $_SESSION['user_logged']['name'] = $user->getName();
         $_SESSION['user_logged']['rol'] = $user->getRol();
-
-        echo json_encode($response);
-    } else {
-        echo json_encode($response);
     }
+    echo json_encode($response);
 } catch (Exception $e) {
     echo (new SendMessage("Error " . $e->getMessage(), false))->getEncodedMessage();
 }

@@ -19,6 +19,7 @@ window.onload = () => {
     //for dpdf
     scAREAPDF.value = "";
     scPROCESSPDF.value = "";
+    document.getElementById('view-title').innerText = 'Vista por Escuelas';
 }
 
 cbSchool.addEventListener('change', () => {

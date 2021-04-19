@@ -24,6 +24,7 @@ var areaName = '';
 window.onload = () => {
     appendAddNewAreasCard();
     getAllAreas();
+    document.getElementById('view-title').innerText = 'Áreas';
 }
 
 btnAddCourse.addEventListener('click', () => {

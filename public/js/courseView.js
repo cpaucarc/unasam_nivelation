@@ -4,22 +4,20 @@ const cbProcess = document.getElementById('process');
 const tbody = document.getElementById('tbody');
 
 //for fpdf
-
 let btShowPDF = document.getElementById('btShowPDF');
 
 let csAREAPDF = document.getElementById('csAREAPDF');
 let csCOURSEPDF = document.getElementById('csCOURSEPDF');
 let csPROCESSPDF = document.getElementById('csPROCESSPDF');
 
-
 table = new Table();
 button = new Button();
 badge = new Badge();
 
 window.onload = function () {
-    console.log('cargo con exito');
     fillWhitCourses();
     fillWhitProcess();
+    document.getElementById('view-title').innerText = 'Vista por Cursos';
     //for fpdf
     csAREAPDF.value = "";
     csCOURSEPDF.value = "";
@@ -72,7 +70,6 @@ function fillWhitCourses() {
         .then(response => response.json())
         .then(data => {
             data = data.courses;
-            console.log(data);
             cbCourse.innerHTML = ``;
             cbCourse.appendChild(createOptionForSelect('0', 'Selecciona...'));
             data.forEach(course => {

@@ -16,8 +16,7 @@ class LoginModel
     {
         $conn = (new MySqlConnection())->getConnection();
         $sql = "CALL spLogin('$this->username', '$this->password');";
-        $result = $conn->query($sql)->fetch(PDO::FETCH_ASSOC);
-        return $result;
+        return $conn->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
 
     public function findUserByUsernameAndPassword()

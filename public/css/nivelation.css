@@ -4907,7 +4907,7 @@ input[type=button].btn-block {
     background-color: #fff;
     background-clip: border-box;
     border: 1px solid #e3e6f0;
-    border-radius: 0.35rem;
+    border-radius: 0.5rem;
 }
 
 .card > hr {
@@ -11914,7 +11914,8 @@ a:focus {
 }
 
 .bg-login-image {
-    background: url("http://localhost/nivelation/public/images/logo.jpg");
+    /*background: url("http://localhost/nivelation/public/images/logo.jpg");*/
+    background: url("https://latiendita247.com/img/929960993715040/20190103194624929960993715040.png");
     background-position: center;
     background-size: cover;
 }

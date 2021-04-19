@@ -15,6 +15,7 @@ button = new Button();
 
 window.onload = function () {
     getAllProcess();
+    document.getElementById('view-title').innerText = 'Rangos';
 }
 
 cbArea.addEventListener('change', () => {

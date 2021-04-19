@@ -14,14 +14,9 @@ require_once COMPONENT_PATH . "upperpart.php";
 
 
     <!-- Begin Page Content -->
-    <div class="container-fluid">
+    <div class="container">
         <div class="hide">
             <input type="hidden" id="stdID" class="" value="<?php echo $stdID; ?>">
-        </div>
-
-        <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h5 mb-0 text-gray-800">Reporte por Estudiante</h1>
         </div>
 
         <div class="card mb-4">
@@ -67,7 +62,7 @@ require_once COMPONENT_PATH . "upperpart.php";
                                 <h6 class="m-0 font-weight-bold">Analisis de cursos</h6>
                             </div>
                             <div class="card-body">
-                                <table id="table-courses" class="table">
+                                <table id="table-courses" class="table table-bordered">
                                     <thead class="thead-light">
                                     <tr class="text-center">
                                         <th scope="col" class="text-left">N°</th>
