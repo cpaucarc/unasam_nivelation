@@ -5,8 +5,6 @@ const tbody = document.getElementById('tbody');
 
 //for fpdf
 
-let btShowPDF = document.getElementById('btShowPDF');
-
 let scAREAPDF = document.getElementById('scAREAPDF');
 let scSCHOOLPDF = document.getElementById('scSCHOOLPDF');
 let scPROCESSPDF = document.getElementById('scPROCESSPDF');
@@ -17,8 +15,6 @@ button = new Button();
 window.onload = () => {
     fillWhitProcess();
     //for dpdf
-    scAREAPDF.value = "";
-    scPROCESSPDF.value = "";
     document.getElementById('view-title').innerText = 'Vista por Escuelas';
 }
 
@@ -107,7 +103,6 @@ function fillTableWhitStudents(school, process) {
     let formData = new FormData();
     formData.append('school', school);
     formData.append('process', process);
-    console.log(school, process);
 
     //for fpdf
     scSCHOOLPDF.value = school;
