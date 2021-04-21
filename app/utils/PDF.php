@@ -7,7 +7,7 @@ class PDF extends FPDF
 
     function Header()
     {
-        $this->SetTextColor(33, 37, 41);
+       /*  $this->SetTextColor(33, 37, 41);
         $this->Image(PUBLIC_PATH . '/unasamheader.png', 10, 7, 40);
         $this->SetFont('Helvetica', '', 7);
         $this->Cell(190, 1, utf8_decode('Universidad Nacional Santiago Antúnez de Mayolo'), 0, 2, 'C');
@@ -16,7 +16,7 @@ class PDF extends FPDF
         $this->Image(PUBLIC_PATH . '/ogculength.png', 160, 7, 40);
         $this->SetDrawColor(238, 238, 238);
         $this->Line(10, 20, 200, 20);
-        $this->Ln(15);
+        $this->Ln(15); */
     }
 
     function Footer()

@@ -5,11 +5,10 @@ const tbody = document.getElementById('tbody');
 
 //for fpdf
 
-let btShowPDF = document.getElementById('btShowPDF');
-
-let scAREAPDF = document.getElementById('scAREAPDF');
-let scSCHOOLPDF = document.getElementById('scSCHOOLPDF');
-let scPROCESSPDF = document.getElementById('scPROCESSPDF');
+let areaPdf = document.getElementById('areaPdf');
+let programPdf = document.getElementById('programPdf');
+let processPdf = document.getElementById('processPdf');
+let processChart = document.getElementById('processChart');
 
 table = new Table();
 button = new Button();
@@ -17,8 +16,8 @@ button = new Button();
 window.onload = () => {
     fillWhitProcess();
     //for dpdf
-    scAREAPDF.value = "";
-    scPROCESSPDF.value = "";
+    areaPdf.value = "";
+    processPdf.value = "";
     document.getElementById('view-title').innerText = 'Vista por Programas Académicos';
 }
 
@@ -73,7 +72,7 @@ function fillWhitSchools(area) {
     let formData = new FormData();
     formData.append('area', area);
     //for fpdf
-    scAREAPDF.value = area;
+    areaPdf.value = area;
     fetch('app/controllers/school/getSchoolsByArea.php/', {
         method: 'POST',
         headers: {
@@ -108,8 +107,9 @@ function fillTableWhitStudents(school, process) {
     formData.append('school', school);
     formData.append('process', process);
     //for fpdf
-    scSCHOOLPDF.value = school;
-    scPROCESSPDF.value = process;
+    programPdf.value = school;
+    processPdf.value = process;
+    processChart.value=process;
 
     fetch('app/controllers/student/getStudentsBySchool.php/', {
         method: 'POST',
