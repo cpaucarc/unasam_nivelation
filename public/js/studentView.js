@@ -24,13 +24,11 @@ window.onload = function () {
 
 btSearch.addEventListener('click', (e) => {
     e.preventDefault();
-    //console.log(txSearch.value)
     getStudentInfo(txSearch.value)
     getCoursesByFullname(txSearch.value)
 })
 
 txSearch.addEventListener('keyup', () => {
-    //console.log(txSearch.value)
     getStudentsLike(txSearch.value);
 });
 
@@ -128,7 +126,7 @@ function getStudentInfoByID(id) {
             console.log(data);
             notStdInfo.innerHTML = '';
             stdInfoCard.innerHTML = card.getStudentInfoCard(
-                data.lastname, data.name, data.school, data.dni, data.code, data.process
+                data.lastname, data.name, data.program, data.dni, data.code, data.process
             );
             stdIDPDF.value = data.id;
         })

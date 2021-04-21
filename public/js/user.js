@@ -80,7 +80,6 @@ function fillTableWhitAllUsers() {
             let num = 1;
             data.forEach(user => {
                 let btnEdit = button.createBtnEdit(editUserRol, user.id, user.rol, `${user.lastname} ${user.name}`);
-                btnEdit.classList.add('btn-sm')
                 let row = table.createRow(
                     num, user.dni, `${user.lastname} ${user.name}`,
                     user.rol, user.username
@@ -106,13 +105,13 @@ function fillSelectWithRoles(roles, cb, valueSelected = null) {
     cb.innerHTML = '';
     roles.forEach(rol => {
         let opt = document.createElement('option');
-        opt.setAttribute('value', rol.name);
+        opt.setAttribute('value', rol.type);
         if (valueSelected !== null) {
-            if (rol.name === valueSelected) {
+            if (rol.type === valueSelected) {
                 opt.setAttribute('selected', 'true');
             }
         }
-        opt.appendChild(document.createTextNode(rol.name));
+        opt.appendChild(document.createTextNode(rol.type));
         cb.appendChild(opt);
     })
 }

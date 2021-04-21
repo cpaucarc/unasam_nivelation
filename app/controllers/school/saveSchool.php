@@ -12,8 +12,8 @@ try {
         $school = new SchoolsModel();
         $school->setName($name);
 
-        if ($school->saveNewSchool($areaID)) {
-            echo (new SendMessage("¡La escuela " . $name . " fue guardado con exito!", true))->getEncodedMessage();
+        if ($school->saveNewProgram($areaID)) {
+            echo (new SendMessage("¡El Programa Académico " . $name . " fue guardado con exito!", true))->getEncodedMessage();
         } else {
             echo (new SendMessage("No se pudo registrar", false))->getEncodedMessage();
         }

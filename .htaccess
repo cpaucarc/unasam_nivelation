@@ -11,8 +11,8 @@ RewriteRule ^estudiante$ bystudent.php
 #bycourse
 RewriteRule ^curso$ bycourse.php
 
-#byschool
-RewriteRule ^escuela$ byschool.php
+#byprogram
+RewriteRule ^programas$ byprogram.php
 
 #ranks
 RewriteRule ^rangos$ rangevalues.php
@@ -23,7 +23,7 @@ RewriteRule ^areas$ area.php
 #admision process
 RewriteRule ^admision$ admission.php
 
-#byschool
+#courses
 RewriteRule ^cursos$ cursos.php
 
 #users

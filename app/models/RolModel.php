@@ -10,13 +10,13 @@ class RolModel
     public function getAllRoles()
     {
         $conn = (new MySqlConnection())->getConnection();
-        $sql = "SELECT * FROM roles ORDER BY name ASC;";
+        $sql = "SELECT * FROM user_type ORDER BY id ASC;";
 
         $response['roles'] = array();
         foreach ($conn->query($sql) as $row) {
             $rol = array();
             $rol['id'] = $row['id'];
-            $rol['name'] = $row['name'];
+            $rol['type'] = $row['type'];
             array_push($response['roles'], $rol);
         }
         return json_encode($response);

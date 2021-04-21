@@ -34,22 +34,24 @@ require_once COMPONENT_PATH . "upperpart.php";
                 </h5>
 
                 <!--Tabla-->
-                <table class="table mt-2" id="table-ranks">
-                    <thead class="thead-light">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Curso</th>
-                        <th scope="col">Area</th>
-                        <th scope="col">Proceso</th>
-                        <th scope="col">Minimo</th>
-                        <th scope="col">Maximo</th>
-                        <th scope="col">Acción</th>
-                    </tr>
-                    </thead>
-                    <tbody id="tbody">
+                <div class="table-responsive">
+                    <table class="table table-bordered mt-2" id="table-ranks">
+                        <thead class="thead-light">
+                        <tr>
+                            <th scope="col">N°</th>
+                            <th scope="col">Área</th>
+                            <th scope="col" style="width: 30%;">Curso</th>
+                            <th scope="col">Proceso</th>
+                            <th scope="col">Minimo (%)</th>
+                            <th scope="col">Recomendado (%)</th>
+                            <th scope="col">&nbsp;</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody">
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
 
                 <!--                Informacion con fondo azul-->
                 <div class="my-4">
@@ -74,7 +76,8 @@ require_once COMPONENT_PATH . "upperpart.php";
                     </div>
                 </div>
 
-                <div class="modal fade" data-backdrop="static" id="modal-rank" tabindex="-1" aria-labelledby="exampleModalLabel"
+                <div class="modal fade" data-backdrop="static" id="modal-rank" tabindex="-1"
+                     aria-labelledby="exampleModalLabel"
                      aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">

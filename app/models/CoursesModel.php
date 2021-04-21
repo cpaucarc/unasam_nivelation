@@ -6,15 +6,17 @@ class CoursesModel
 {
     private $name;
     private $id;
+    private $dimension;
 
     public function saveNewCourses()
     {
         $connection = new MySqlConnection();
         if ($connection) {
             $pdo = $connection->getConnection();
-            $sql = "INSERT INTO courses VALUES (null, ?);";
+            $sql = "INSERT INTO courses VALUES (null, ?, (SELECT id FROM dimensions WHERE name = ?));";
             $pdo->prepare($sql)->execute([
-                $this->name
+                $this->name,
+                $this->dimension
             ]);
             return true;
         } else {
@@ -25,11 +27,12 @@ class CoursesModel
     public function updateCourse()
     {
         $connection = new MySqlConnection();
-        if ($connection) {
+        if ($connection and $this->id > 0) {
             $pdo = $connection->getConnection();
-            $sql = "UPDATE courses SET name = ? WHERE id = ?;";
+            $sql = "UPDATE courses SET name = ?, dimensions_id = (SELECT id FROM dimensions WHERE name = ?) WHERE id = ?;";
             $pdo->prepare($sql)->execute([
                 $this->name,
+                $this->dimension,
                 $this->id
             ]);
             return true;
@@ -41,13 +44,14 @@ class CoursesModel
     public function getAllCourses()
     {
         $conn = (new MySqlConnection())->getConnection();
-        $sql = "SELECT * FROM courses ORDER BY name ASC;";
+        $sql = "SELECT * FROM vcourses;";
 
         $response['courses'] = array();
         foreach ($conn->query($sql) as $row) {
             $p = array();
             $p['id'] = $row['id'];
-            $p['name'] = $row['name'];
+            $p['course'] = $row['course'];
+            $p['dimension'] = $row['dimension'];
             array_push($response['courses'], $p);
         }
         return json_encode($response);
@@ -56,13 +60,12 @@ class CoursesModel
     public function getCoursesByAreaAndLastProcess($area)
     {
         $conn = (new MySqlConnection())->getConnection();
-        $sql = "SELECT cr.name course, pr.denomination process
+        $sql = "SELECT cr.name course, pr.name process
                 FROM ranks AS rk
-                JOIN areas AS ar ON ar.id = rk.areas_id 
-                JOIN courses AS cr ON cr.id = rk.courses_id 
-                JOIN process AS pr ON pr.id = rk.process_id
-                
-                WHERE pr.denomination = (SELECT denomination FROM process ORDER BY denomination DESC LIMIT 1)
+                    JOIN areas 	 AS ar ON ar.id = rk.areas_id
+                    JOIN courses AS cr ON cr.id = rk.courses_id
+                    JOIN process AS pr ON pr.id = rk.process_id
+                WHERE pr.name = (SELECT name FROM process ORDER BY name DESC LIMIT 1) 
                     AND ar.name = '" . $area . "';";
 
         $response['courses'] = array();
@@ -78,10 +81,11 @@ class CoursesModel
     public function getCoursesNoAddedToArea($areaID)
     {
         $conn = (new MySqlConnection())->getConnection();
-        $sql = "SELECT * FROM courses 
-                WHERE id NOT IN (SELECT courses_id FROM ranks 
+        $sql = "SELECT id, name FROM courses
+                    WHERE id NOT IN (SELECT courses_id FROM ranks 
                     WHERE process_id = (SELECT id FROM process 
-                    WHERE denomination = (SELECT denomination FROM process ORDER BY denomination DESC LIMIT 1)) AND areas_id = " . $areaID . ");";
+                    WHERE name = (SELECT name FROM process ORDER BY name DESC LIMIT 1))
+                    AND areas_id = $areaID);";
 
         $response['courses'] = array();
         foreach ($conn->query($sql) as $row) {
@@ -98,14 +102,14 @@ class CoursesModel
         $connection = new MySqlConnection();
         if ($connection) {
             $pdo = $connection->getConnection();
-            $sql = "INSERT INTO ranks VALUES (null, 
-                    (SELECT id FROM courses WHERE name = ?), ?, 
-                    (SELECT id FROM process ORDER BY denomination DESC LIMIT 1), ?, ?);";
+            $sql = "INSERT INTO ranks VALUES (null, ?, ?, ?,
+                    (SELECT id FROM courses WHERE name = ?),
+                    (SELECT id FROM process ORDER BY name DESC LIMIT 1));";
             $pdo->prepare($sql)->execute([
-                $course,
-                $areaID,
                 $min,
-                $max
+                $max,
+                $areaID,
+                $course
             ]);
             return true;
         } else {
@@ -133,6 +137,24 @@ class CoursesModel
     public function setId($id)
     {
         $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDimension()
+    {
+        return $this->dimension;
+    }
+
+    /**
+     * @param mixed $dimension
+     * @return CoursesModel
+     */
+    public function setDimension($dimension)
+    {
+        $this->dimension = $dimension;
         return $this;
     }
 

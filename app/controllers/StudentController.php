@@ -45,18 +45,27 @@ class StudentController
     {
         try {
             $students = $this->loadStudentsFromJSON($path);
-            if ($students != null) {
+            if (!is_null($students)) {
                 foreach ($students as $student) {
                     $student->saveStudent();
                     $student->saveQuestions();
                     $student->doClasificationOfCourses();
                 }
-                return true;
+                return array(
+                    'response' => true,
+                    'message' => 'Exito'
+                );
             } else {
-                return false;
+                return array(
+                    'response' => false,
+                    'message' => 'No hay estudiantes en el archivo'
+                );
             }
         } catch (Exception $e) {
-            return false;
+            return array(
+                'response' => false,
+                'message' => $e
+            );
         }
     }
 }

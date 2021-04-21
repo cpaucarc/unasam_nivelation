@@ -151,9 +151,9 @@ class StudentModel
 
     public function getStudentsbySchool($school, $process)
     {
-        //This function is used in byschool view
+        //This function is used in byprogram view
         $conn = (new MySqlConnection())->getConnection();
-        $sql = "call spShowStudentsBySchool('" . $school . "', '" . $process . "');";
+        $sql = "SELECT id, dni, name, lastname, code FROM vstudents WHERE process = '$process' and program = '$school' ORDER BY omp;";
 
         $response['students'] = array();
 
@@ -174,42 +174,58 @@ class StudentModel
     public function getStudentInfoByID()
     {
         $conn = (new MySqlConnection())->getConnection();
-        if ($conn and intval($this->id) > 0) {
 
-            $sql = "SELECT * FROM vstudents WHERE id = $this->id;";
-
-            $result = $conn->query($sql)->fetch(PDO::FETCH_ASSOC);
-
-            return json_encode(array(
-                "id" => $result['id'],
-                "code" => $result['code'],
-                "dni" => $result['dni'],
-                "name" => $result['name'],
-                "lastname" => $result['lastname'],
-                "school" => $result['school'],
-                "process" => $result['process']
-            ));
+        if (!$conn or intval($this->id) === 0) {
+            return null;
         }
+
+        $sql = "SELECT * FROM vstudents WHERE id = $this->id;";
+
+        $result = $conn->query($sql)->fetch(PDO::FETCH_ASSOC);
+
+        return json_encode(array(
+            "id" => $result['id'],
+            "code" => $result['code'],
+            "dni" => $result['dni'],
+            "name" => $result['name'],
+            "lastname" => $result['lastname'],
+            "program" => $result['program'],
+            "area" => $result['area'],
+            "process" => $result['process'],
+            "omg" => $result['omg'],
+            "omp" => $result['omp'],
+            "correct" => $result['correct'],
+            "incorrect" => $result['incorrect'],
+            "blank" => $result['blank']
+        ));
     }
 
     public function getStudentInfoByFullName($pattern)
     {
         $conn = (new MySqlConnection())->getConnection();
-        if ($conn) {
-            $sql = "SELECT * FROM vstudents WHERE concat(lastname, ' ', name) = '" . $pattern . "';";
-
-            $result = $conn->query($sql)->fetch(PDO::FETCH_ASSOC);
-
-            return json_encode(array(
-                "id" => $result['id'],
-                "code" => $result['code'],
-                "dni" => $result['dni'],
-                "name" => $result['name'],
-                "lastname" => $result['lastname'],
-                "school" => $result['school'],
-                "process" => $result['process']
-            ));
+        if (!$conn) {
+            return null;
         }
+
+        $sql = "SELECT * FROM vstudents WHERE concat(lastname, ' ', name) = '" . $pattern . "';";
+
+        $result = $conn->query($sql)->fetch(PDO::FETCH_ASSOC);
+
+        return json_encode(array(
+            "id" => $result['id'],
+            "code" => $result['code'],
+            "dni" => $result['dni'],
+            "name" => $result['name'],
+            "lastname" => $result['lastname'],
+            "program" => $result['program'],
+            "area" => $result['area'],
+            "process" => $result['process'],
+            "omg" => $result['omg'],
+            "omp" => $result['omp'],
+            "correct" => $result['correct'],
+            "incorrect" => $result['incorrect'],
+            "blank" => $result['blank']
+        ));
     }
 
     public function getStudentsLike($pattern)

@@ -24,20 +24,21 @@ require_once COMPONENT_PATH . "upperpart.php";
                                 </div>
                                 <div class="col col-10 col-md-9">
                                     <p>
-                                        Para añadir un curso a una area dirijase
+                                        Para relacionar un <strong>curso</strong> a una <strong>area</strong> dirijase
                                         <a href="areas">aqui</a>.
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col col-12 col-lg-7 mt-2">
+                    <div class="col col-12 col-lg-8 mt-2">
                         <table id="table-courses" class="table table-bordered table-sm text-left">
                             <thead class="thead-light">
                             <tr>
-                                <th style="width: 10%;">N°</th>
-                                <th style="width: 80%;">Cursos</th>
-                                <th style="width: 10%;">&nbsp;</th>
+                                <th style="width: 8%">N°</th>
+                                <th style="width: 50%">Curso</th>
+                                <th style="width: 35%">Dimensión</th>
+                                <th style="width: 7%">&nbsp;</th>
                             </tr>
                             </thead>
                             <tbody id="tbody">
@@ -58,6 +59,23 @@ require_once COMPONENT_PATH . "upperpart.php";
                     <form id="form-course">
                         <input type="hidden" value="0" name="procID" id="procID">
                         <div class="form-group">
+                            <div class="row">
+                                <div class="col col-12">
+                                    <label for="dimension" class="col-form-label-sm">Dimensión:</label>
+                                </div>
+                                <div class="col col-9 mr-0">
+                                    <select name="dimension" id="dimension" class="form-control"></select>
+                                </div>
+                                <div class="col col-3 ml-0 pl-0">
+                                    <button type="button" class="btn btn-light btn-sm mt-1 text-dark"
+                                            data-toggle="modal"
+                                            data-target="#modal-dimension">
+                                        <i class="fas fa-plus"></i> Nuevo
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <input type="hidden" value="0" id="courseID" name="courseID">
                             <label for="course" class="col-form-label-sm">Nombre del curso:</label>
                             <input name="course" type="text" class="form-control" id="course"
@@ -68,6 +86,26 @@ require_once COMPONENT_PATH . "upperpart.php";
                     <button class="btn btn-light" type="button" data-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Dimensions -->
+    <div class="modal fade" id="modal-dimension" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="form-dimension">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="col-form-label-sm">Nueva Dimensión:</label>
+                            <input type="text" name="dimension" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Guardar Dimensión</button>
+                    </div>
                 </form>
             </div>
         </div>

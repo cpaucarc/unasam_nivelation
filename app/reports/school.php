@@ -32,12 +32,12 @@ if (isset($_POST['scAREAPDF']) && isset($_POST['scSCHOOLPDF']) && isset($_POST['
         $pdf->SetFont('Helvetica', 'B', 15);
         $pdf->Cell(0, 10, 'Reporte General por curso', 0, 0, 'C', 0);
         $pdf->Ln(20);
+        $pdf->setTitle('Programa Académico', true);
 
         /* $sql = "SELECT * FROM vstudents WHERE id = " . $stdID;
         $response = $conn->query($sql);
         $student = $response->fetch(); */
 
-        $pdf->SetTextColor(33, 37, 41);
         $pdf->SetFont('Helvetica', '', $fontSizeTitle);
         $pdf->Cell(0, $heightTitleCell, utf8_decode(strtoupper($scSCHOOL)), 0, 1, 'L');
         $pdf->Ln(2);
@@ -60,20 +60,18 @@ if (isset($_POST['scAREAPDF']) && isset($_POST['scSCHOOLPDF']) && isset($_POST['
         $pdf->SetLineWidth($cellLineWidth);
         $pdf->SetFillColor(233, 236, 239);
         $pdf->SetFont('Helvetica', 'B', $fontSizeTableHeader);
-        $pdf->Cell($width1C, $heightTableCell, '#', 1, 0, 'C', 1);
+        $pdf->Cell($width1C, $heightTableCell, utf8_decode('N°'), 1, 0, 'C', 1);
         $pdf->Cell($width3C, $heightTableCell, 'DNI', 1, 0, 'L', 1);
         $pdf->Cell($width3C, $heightTableCell, utf8_decode('Código'), 1, 0, 'L', 1);
-        $pdf->Cell($width4C, $heightTableCell, 'Alumno **', 1, 1, 'L', 1);;
+        $pdf->Cell($width4C, $heightTableCell, 'Alumno', 1, 1, 'L', 1);;
 
-        $sql = "call spShowStudentsBySchool('" . $scSCHOOL . "', '" . $scPROCESS . "');";
+        $sql = "SELECT id, dni, name, lastname, code FROM vstudents WHERE process = '$scPROCESS' and program = '$scSCHOOL' ORDER BY omp;";
         $std = $conn->query($sql);
         $num = 1;
         //$response = $conn->query($sql);
         foreach ($std as $row) {
-            $pdf->SetTextColor(73, 80, 87);
             $pdf->SetFont('Helvetica', 'B', $fontSizeTableBody);
             $pdf->Cell($width1C, $heightTableCell, $num, 1, 0, 'C');
-            $pdf->SetTextColor(33, 37, 41);
             $pdf->SetFont('Helvetica', '', $fontSizeTableBody);
             $pdf->Cell($width3C, $heightTableCell, utf8_decode($row['dni']), 1, 0, 'L');
             $pdf->Cell($width3C, $heightTableCell, utf8_decode($row['code']), 1, 0, 'L');

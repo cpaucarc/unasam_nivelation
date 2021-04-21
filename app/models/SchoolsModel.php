@@ -13,12 +13,12 @@ class SchoolsModel
     }
 
 
-    function saveNewSchool($areaID)
+    function saveNewProgram($areaID)
     {
         $connection = new MySqlConnection();
         if ($connection) {
             $pdo = $connection->getConnection();
-            $sql = "INSERT INTO schools VALUES (null, ?, ?);";
+            $sql = "INSERT INTO programs VALUES (null, ?, ?);";
             $pdo->prepare($sql)->execute([
                 $this->name,
                 $areaID
@@ -29,14 +29,14 @@ class SchoolsModel
         }
     }
 
-    function updateSchool()
+    function updateProgram()
     {
         $connection = new MySqlConnection();
         if ($connection) {
             $pdo = $connection->getConnection();
-            $sql = "UPDATE schools SET name = ? WHERE id = ?;";
+            $sql = "UPDATE programs SET name = ? WHERE id = ?;";
             $pdo->prepare($sql)->execute([
-                $this->denomination,
+                $this->name,
                 $this->id
             ]);
             return true;
@@ -50,7 +50,7 @@ class SchoolsModel
         $connection = new MySqlConnection();
         if ($connection) {
             $pdo = $connection->getConnection();
-            $sql = "DELETE FROM schools WHERE id = ?;";
+            $sql = "DELETE FROM programs WHERE id = ?;";
             $pdo->prepare($sql)->execute([
                 $this->id
             ]);
@@ -63,9 +63,9 @@ class SchoolsModel
     public function getSchools()
     {
         $conn = (new MySqlConnection())->getConnection();
-        $sql = "SELECT * FROM schools;";
+        $sql = "SELECT * FROM programs;";
 
-        $response['schools'] = array();
+        $response['programs'] = array();
 
         foreach ($conn->query($sql) as $row) {
             $school = array();
@@ -74,7 +74,7 @@ class SchoolsModel
             $school['id'] = $row['id'];
             $school['areas_id'] = $row['areas_id'];
 
-            array_push($response['schools'], $school);
+            array_push($response['programs'], $school);
         }
         return json_encode($response);
     }
@@ -82,9 +82,9 @@ class SchoolsModel
     public function getSchoolsByArea()
     {
         $conn = (new MySqlConnection())->getConnection();
-        $sql = "SELECT * FROM schools WHERE areas_id = (SELECT id FROM areas WHERE name = '" . $this->area . "');;";
+        $sql = "SELECT * FROM programs WHERE areas_id = (SELECT id FROM areas WHERE name = '" . $this->area . "');;";
 
-        $response['schools'] = array();
+        $response['programs'] = array();
 
         foreach ($conn->query($sql) as $row) {
             $school = array();
@@ -93,7 +93,7 @@ class SchoolsModel
             $school['id'] = $row['id'];
             $school['areas_id'] = $row['areas_id'];
 
-            array_push($response['schools'], $school);
+            array_push($response['programs'], $school);
         }
         return json_encode($response);
     }

@@ -1,6 +1,10 @@
 const formPersonalInfo = document.getElementById('personal-info');
 const formAccessInfo = document.getElementById('access-info');
 
+window.onload = () => {
+    document.getElementById('view-title').innerText = 'Verfil del Usuario';
+}
+
 formPersonalInfo.addEventListener('submit', (e) => {
     e.preventDefault();
     let formData = new FormData(formPersonalInfo);

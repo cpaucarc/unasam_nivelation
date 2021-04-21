@@ -190,7 +190,7 @@ function showSchools(area) {
     })
         .then(response => response.json())
         .then(data => {
-            data = data.schools;
+            data = data.programs;
             tbodySchools.innerHTML = ``;
             $('#table-schools').DataTable().clear().destroy();
             let num = 1;

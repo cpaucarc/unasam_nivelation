@@ -42,6 +42,7 @@ class Button {
         let btn = this.createIconBtn('<i class="fas fa-pen"></i>', fun, ...params);
         btn.classList.add('btn');
         btn.classList.add('btn-outline-info');
+        btn.classList.add('btn-sm');
         return btn;
     }
 
@@ -68,6 +69,7 @@ class Button {
         let btn = document.createElement('a');
         btn.classList.add('btn');
         btn.classList.add('btn-link');
+        btn.classList.add('btn-sm');
         btn.setAttribute('href', `${url}/${id}`);
         // btn.setAttribute('target', '_blank');
         btn.setAttribute('role', 'button');

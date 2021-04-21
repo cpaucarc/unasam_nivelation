@@ -9,13 +9,13 @@ window.addEventListener('load', () => {
 uploadForm.addEventListener('submit', (e) => {
     e.preventDefault();
     let formData = new FormData(uploadForm);
-    // console.log(saveFile(formData));
     saveFile(formData).then(data => {
         console.log(data);
         if (data.status === true) {
             alert('Espere mientras se guarda el archivo');
             // Mostrar un msg: Espere mientras los datos se procesan
             processStudentsData(data.message);
+
             //message: Los datos ya se guardaron
         } else {
             alert(data.message)
@@ -41,17 +41,6 @@ function getLastProcess() {
         });
 }
 
-const file = async function saveFile(formData) {
-    return await fetch('app/controllers/index/saveUploadFile.php/', {
-        method: 'POST',
-        body: formData
-    })
-        .then(response => response.text())
-        .then(data => {
-            console.log(data);
-        });
-}
-
 async function saveFile(formData) {
     const response = await fetch('app/controllers/index/saveUploadFile.php/', {
         method: 'POST',
@@ -63,11 +52,12 @@ async function saveFile(formData) {
 async function processStudentsData(path) {
     let formData = new FormData();
     formData.append('path', path);
+    await console.log(path);
 
     const response = await fetch('app/controllers/index/processJson.php/', {
         method: 'POST',
         body: formData
     });
     const json = await response.json();
-    console.log(json);
+    await console.log(json);
 }

@@ -71,9 +71,8 @@ function fillTable(process) {
     $('#table-process').DataTable().clear().destroy();
     let num = 1;
     process.forEach(p => {
-        let row = table.createRow(num, p.denomination);
-        let btnEdit = button.createBtnEdit(updateProcess, p.id, p.denomination);
-        btnEdit.classList.add('btn-sm');
+        let row = table.createRow(num, p.name);
+        let btnEdit = button.createBtnEdit(updateProcess, p.id, p.name);
         row.appendChild(table.createCell(btnEdit));
         tbody.appendChild(row);
         num++;

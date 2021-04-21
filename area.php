@@ -26,7 +26,7 @@ require_once COMPONENT_PATH . "upperpart.php";
                             <thead class="thead-light">
                             <tr>
                                 <th scope="col">N°</th>
-                                <th scope="col">Escuela</th>
+                                <th scope="col">Programa Académico</th>
                             </tr>
                             </thead>
                             <tbody id="tbody-schools">
@@ -49,7 +49,7 @@ require_once COMPONENT_PATH . "upperpart.php";
                             <thead class="thead-light">
                             <tr>
                                 <th scope="col">N°</th>
-                                <th scope="col">Curso</th>
+                                <th scope="col" style="width: 60%;">Curso</th>
                                 <th scope="col">Proceso</th>
                             </tr>
                             </thead>
@@ -110,13 +110,13 @@ require_once COMPONENT_PATH . "upperpart.php";
                 </div>
             </div>
         </div>
-        <!-- Schools Modal -->
+        <!-- Programs Modal -->
         <div class="modal fade" id="SchoolModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
              aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Agregar nueva escuela</h5>
+                        <h5 class="modal-title" id="staticBackdropLabel">Agregar nuevo Programa Académico</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -125,7 +125,7 @@ require_once COMPONENT_PATH . "upperpart.php";
                         <form id="form-schools">
                             <div class="form-group">
                                 <input id="areaIDSch" value="0" name="areaIDSch" type="hidden"/>
-                                <label for="school">Nombre de la escuela</label>
+                                <label for="school">Nombre del Programa Académico</label>
                                 <input type="text" class="form-control" id="school" name="school" required>
                             </div>
                     </div>
@@ -155,7 +155,10 @@ require_once COMPONENT_PATH . "upperpart.php";
                                 <div class="col col-sm-12">
                                     <div class="form-group">
                                         <label for="cbCourses">Curso que aun no estan registrados</label>
-                                        <select name="courses" id="cbCourses" class="form-control" required></select>
+                                        <select name="courses" id="cbCourses" class="form-control"
+                                                aria-describedby="courseHelp" required></select>
+                                        <small id="courseHelp" class="form-text text-muted">Los cursos que se muestran
+                                            son los que aun no estan registrados en el area.</small>
                                     </div>
                                 </div>
                                 <div class="col col-sm-6">

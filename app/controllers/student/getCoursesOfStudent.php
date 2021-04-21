@@ -8,7 +8,6 @@ try {
 
     if (isset($fullname)) {
         $student = new StudentModel();
-
         echo($student->getCoursesOfStudentByFullName($fullname));
     } else {
         echo (new SendMessage("Error, no se pudo obtener los cursos", false))->getEncodedMessage();

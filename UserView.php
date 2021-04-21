@@ -45,33 +45,71 @@ require_once COMPONENT_PATH . "upperpart.php";
             <div class="modal-content">
                 <form id="user-form">
                     <div class="modal-body">
-                        <div class="form-group">
-                            <label for="user_dni">DNI</label>
-                            <input type="number" class="form-control" id="user_dni" name="user_dni" required
-                                   maxlength="8" minlength="8" size="8">
+                        <div class="row">
+                            <div class="col col-6">
+                                <div class="form-group">
+                                    <label for="user_dni">DNI</label>
+                                    <input type="number" class="form-control" id="user_dni" name="user_dni" required
+                                           maxlength="8" minlength="8" size="8">
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="user_name">Nombres</label>
-                            <input type="text" class="form-control" id="user_name" name="user_name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="user_lastname">Apellidos</label>
-                            <input type="text" class="form-control" id="user_lastname" name="user_lastname" required>
+                        <div class="row">
+                            <div class="col col-6">
+                                <div class="form-group">
+                                    <label for="user_name">Nombres</label>
+                                    <input type="text" class="form-control" id="user_name" name="user_name" required>
+                                </div>
+                            </div>
+                            <div class="col col-6">
+                                <div class="form-group">
+                                    <label for="user_lastname">Apellidos</label>
+                                    <input type="text" class="form-control" id="user_lastname" name="user_lastname"
+                                           required>
+                                </div>
+                            </div>
                         </div>
                         <hr>
-                        <div class="form-group">
-                            <label for="user_rol">Rol del usuario</label>
-                            <select class="form-control" id="user_rol" name="user_rol" required>
-                            </select>
+                        <div class="row">
+                            <div class="col col-12">
+                                <div class="form-group">
+                                    <label for="user_rol">Rol del usuario</label>
+                                    <select class="form-control" id="user_rol" name="user_rol" required>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col col-6">
+                                <div class="form-group">
+                                    <label for="user_username">Nombre de Usuario</label>
+                                    <input type="text" class="form-control" id="user_username" name="user_username"
+                                           required>
+                                </div>
+                            </div>
+                            <div class="col col-6">
+                                <div class="form-group">
+                                    <label for="user_password">Contraseña</label>
+                                    <input type="password" class="form-control" id="user_password" name="user_password"
+                                           required>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="user_username">Nombre de Usuario</label>
-                            <input type="text" class="form-control" id="user_username" name="user_username" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="user_password">Contraseña</label>
-                            <input type="password" class="form-control" id="user_password" name="user_password"
-                                   required>
+                        <div class="row">
+                            <div class="col col-12">
+                                <div class="alert alert-info my-2" role="alert">
+                                    <div class="row">
+                                        <div class="col col-1">
+                                            <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="col col-11">
+                                            <p>El <strong>Nombre de usuario</strong> y <strong>Contraseña</strong> por
+                                                defecto toma el
+                                                valor del <strong>DNI</strong> del usuario, estos valores se pueden
+                                                modificar en este formulario, o más adelante en la pantalla de perfil
+                                                del usuario.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">

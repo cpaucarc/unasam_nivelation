@@ -40,7 +40,7 @@ class RanksModel
             $connection = new MySqlConnection();
             if ($connection) {
                 $pdo = $connection->getConnection();
-                $sql = "UPDATE ranks SET minimal = ?, maximun = ? WHERE id = ?";
+                $sql = "UPDATE ranks SET minimum = ?, recommended = ? WHERE id = ?";
                 $pdo->prepare($sql)->execute([
                     $this->minimal,
                     $this->maximum,
@@ -67,8 +67,8 @@ class RanksModel
                 $rank['course'] = $row['course'];
                 $rank['area'] = $row['area'];
                 $rank['process'] = $row['process'];
-                $rank['minimal'] = $row['minimal'];
-                $rank['maximun'] = $row['maximun'];
+                $rank['minimum'] = $row['minimum'];
+                $rank['recommended'] = $row['recommended'];
                 array_push($response['ranks'], $rank);
             }
             return json_encode($response);

@@ -48,7 +48,7 @@ session_start();
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form id="upload_form">
+                <form id="upload_form" enctype="multipart/form-data">
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="file">Adjunto</label>

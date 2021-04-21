@@ -1,5 +1,5 @@
 <?php
-
+include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
 
 class FileModel
 {
@@ -11,7 +11,7 @@ class FileModel
 
     public function __construct()
     {
-        $this->finalDir = '../files/';
+        $this->finalDir = STORAGE_PATH;
     }
 
     public function moveFileToFinalDir()
@@ -30,7 +30,7 @@ class FileModel
 
     public function generateName($name)
     {
-        //Generate a new name using current timestamp and a random num betwwn 100 and 999
+        //Generate a new name using current timestamp and a random num between 100 and 999
         //Ex. name = file.json -> name = file20200319180212120.json
         $name = str_replace(' ', '', $name);
         $name = explode(".", $name);

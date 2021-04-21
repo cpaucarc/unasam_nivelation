@@ -36,11 +36,12 @@ class UserModel
         }
     }
 
-    public function updateRol($rol){
+    public function updateRol($rol)
+    {
         $connection = new MySqlConnection();
         if ($connection) {
             $pdo = $connection->getConnection();
-            $sql = "UPDATE users SET roles_id = (SELECT id FROM roles WHERE name = ?) WHERE id = ?;";
+            $sql = "UPDATE users SET user_type_id = (SELECT id FROM user_type WHERE type = ?) WHERE id = ?;";
             $pdo->prepare($sql)->execute([
                 $rol,
                 $this->id
@@ -56,7 +57,7 @@ class UserModel
         $connection = new MySqlConnection();
         if ($connection) {
             $pdo = $connection->getConnection();
-            $sql = "UPDATE persons SET name = ?, lastname = ?, dni = ? WHERE id = (SELECT persons_id FROM users WHERE id = ?);";
+            $sql = "UPDATE people SET name = ?, lastname = ?, dni = ? WHERE id = (SELECT people_id FROM users WHERE id = ?);";
             $pdo->prepare($sql)->execute([
                 $this->name,
                 $this->lastname,
@@ -124,7 +125,7 @@ class UserModel
         $connection = new MySqlConnection();
         if ($connection) {
             $pdo = $connection->getConnection();
-            $sql = "SELECT count(1) as num FROM persons WHERE dni = '" . $this->dni . "'";
+            $sql = "SELECT count(1) as num FROM people WHERE dni = '" . $this->dni . "'";
             $num = $pdo->query($sql)->fetchColumn();
             $num = intval($num);
             if ($num === 0) {
@@ -233,6 +234,4 @@ class UserModel
         $this->lastname = $lastname;
         return $this;
     }
-
-
 }

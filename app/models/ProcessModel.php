@@ -5,7 +5,7 @@ require_once(DB_PATH . "MySqlConnection.php");
 class processModel
 {
     private $id;
-    private $denomination;
+    private $name;
 
     public function __construct()
     {
@@ -18,7 +18,7 @@ class processModel
             $pdo = $connection->getConnection();
             $sql = "INSERT INTO process VALUES (null, ?);";
             $pdo->prepare($sql)->execute([
-                $this->denomination
+                $this->name
             ]);
             return true;
         } else {
@@ -31,9 +31,9 @@ class processModel
         $connection = new MySqlConnection();
         if ($connection) {
             $pdo = $connection->getConnection();
-            $sql = "UPDATE process SET denomination = ? WHERE id = ?;";
+            $sql = "UPDATE process SET name = ? WHERE id = ?;";
             $pdo->prepare($sql)->execute([
-                $this->denomination,
+                $this->name,
                 $this->id
             ]);
             return true;
@@ -61,11 +61,9 @@ class processModel
     {
         if (!$this->id == NULL or !$this->id == 0) {
             $conn = (new MySqlConnection())->getConnection();
-            $sql = "SELECT denomination FROM process WHERE id = $this->id;";
+            $sql = "SELECT name FROM process WHERE id = $this->id;";
 
-            $denomination = $conn->query($sql)->fetchColumn();
-
-            $this->setDenomination($denomination);
+            $this->setName($conn->query($sql)->fetchColumn());
 
             return $this;
         } else {
@@ -76,13 +74,13 @@ class processModel
     function getAllProcess()
     {
         $conn = (new MySqlConnection())->getConnection();
-        $sql = "select * from process order by denomination DESC;";
+        $sql = "SELECT * FROM process ORDER BY name DESC";
 
         $response['process'] = array();
         foreach ($conn->query($sql) as $row) {
             $p = array();
             $p['id'] = $row['id'];
-            $p['denomination'] = $row['denomination'];
+            $p['name'] = $row['name'];
             array_push($response['process'], $p);
         }
         return json_encode($response);
@@ -91,7 +89,7 @@ class processModel
     function getLastProcess()
     {
         $conn = (new MySqlConnection())->getConnection();
-        $sql = "SELECT denomination FROM process ORDER BY denomination DESC LIMIT 1;";
+        $sql = "SELECT name FROM process ORDER BY name DESC LIMIT 1;";
 
         return $conn->query($sql)->fetchColumn();
     }
@@ -109,14 +107,14 @@ class processModel
         return $this;
     }
 
-    public function getDenomination()
+    public function getName()
     {
-        return $this->denomination;
+        return $this->name;
     }
 
-    public function setDenomination($denomination)
+    public function setName($name)
     {
-        $this->denomination = $denomination;
+        $this->name = $name;
         return $this;
     }
 

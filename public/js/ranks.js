@@ -47,7 +47,6 @@ formRank.addEventListener('submit', (e) => {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             if (data.status === true) {
                 $('#modal-rank').modal('hide');
                 getAllRanksByProcessID(currentProcess, currentArea);
@@ -100,7 +99,6 @@ function getAllRanksByProcessID(process, area) {
 function fillWhitAreaA(data) {
     const area = data.filter(rank => rank.area === 'A');
     if (area.length > 0) {
-        console.log(area);
         createRowsAndFillTable(area);
     }
 }
@@ -108,7 +106,6 @@ function fillWhitAreaA(data) {
 function fillWhitAreaB(data) {
     const area = data.filter(rank => rank.area === 'B');
     if (area.length > 0) {
-        console.log(area);
         createRowsAndFillTable(area);
     }
 }
@@ -116,7 +113,6 @@ function fillWhitAreaB(data) {
 function fillWhitAreaC(data) {
     const area = data.filter(rank => rank.area === 'C');
     if (area.length > 0) {
-        console.log(area);
         createRowsAndFillTable(area);
     }
 }
@@ -124,7 +120,6 @@ function fillWhitAreaC(data) {
 function fillWhitAreaD(data) {
     const area = data.filter(rank => rank.area === 'D');
     if (area.length > 0) {
-        console.log(area);
         createRowsAndFillTable(area);
     }
 }
@@ -133,12 +128,9 @@ function createRowsAndFillTable(area) {
     tbody.innerHTML = '';
     let i = 1;
     area.forEach(courses => {
-        let row = table.createRow(i, courses.course, courses.area,
-            courses.process, courses.minimal, courses.maximun);
+        let row = table.createRow(i, courses.area, courses.course,
+            courses.process, courses.minimum, courses.recommended);
 
-        // let btnTD = document.createElement('td');
-        // btnTD.appendChild(button.createBtnPrimary('e', updateRank, courses.id));
-        // btnTD.appendChild(button.createBtnPrimary('d', deleteRank, courses.id));
         row.appendChild(table.createCell(button.createBtnEdit(updateRank, courses.id)));
 
         tbody.appendChild(row);
@@ -150,8 +142,8 @@ function updateRank(id) {
     let rankGetIt = getRankDataByID(parseInt(id));
     if (rankGetIt) {
         document.getElementById('txCourse').value = rankGetIt.course;
-        document.getElementById('txMin').value = rankGetIt.minimal;
-        document.getElementById('txMax').value = rankGetIt.maximun;
+        document.getElementById('txMin').value = rankGetIt.minimum;
+        document.getElementById('txMax').value = rankGetIt.recommended;
         document.getElementById('rankID').value = rankGetIt.id;
         document.getElementById('btnSubmitForm').innerText = 'Editar Valores';
         $('#modal-rank').modal('show');
@@ -177,7 +169,7 @@ function getAllProcess() {
 
             cbProcess.appendChild(createOptionForSelect('0', 'Selecciona...'));
             data.forEach(proc => {
-                cbProcess.appendChild(createOptionForSelect(proc.id, proc.denomination));
+                cbProcess.appendChild(createOptionForSelect(proc.id, proc.name));
             });
         });
 }

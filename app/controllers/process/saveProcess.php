@@ -10,7 +10,7 @@ try {
     if (isset($denomination) and isset($procID)) {
 
         $process = new ProcessModel();
-        $process->setDenomination($denomination);
+        $process->setName($denomination);
 
         if ($procID > 0) {
             $process->setId($procID);

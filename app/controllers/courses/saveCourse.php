@@ -7,10 +7,12 @@ try {
 
     $courseID = intval($_POST['courseID']);
     $course = $_POST['course'];
+    $dimension = $_POST['dimension'];
 
     if (isset($courseID) and isset($course)) {
         $courses = new CoursesModel();
         $courses->setName($course);
+        $courses->setDimension($dimension);
         $rsp = false;
 
         if ($courseID === 0) {

@@ -59,10 +59,9 @@ $rtax = isset($routeAux) ? $routeAux : "";
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Vistas por:</h6>
-                    <a class="collapse-item" href="<?php echo $rtax; ?>estudiante">Vista por
-                        Estudiante</a>
-                    <a class="collapse-item" href="<?php echo $rtax; ?>curso">Vista por Curso</a>
-                    <a class="collapse-item" href="<?php echo $rtax; ?>escuela">Vista por Escuela</a>
+                    <a class="collapse-item" href="<?php echo $rtax; ?>estudiante">Vista por Estudiante</a>
+                    <a class="collapse-item" href="<?php echo $rtax; ?>curso">Vista por Cursos</a>
+                    <a class="collapse-item" href="<?php echo $rtax; ?>programas">Vista por Programas</a>
                 </div>
             </div>
         </li>
@@ -139,27 +138,6 @@ $rtax = isset($routeAux) ? $routeAux : "";
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
 
-
-                    <!-- Nav Item - Alerts -->
-                    <li class="nav-item dropdown no-arrow mx-1">
-                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-bell fa-fw"></i>
-                            <!-- Counter - Alerts -->
-                            <span class="badge badge-danger badge-counter">3+</span>
-                        </a>
-                    </li>
-
-                    <!-- Nav Item - Messages -->
-                    <li class="nav-item dropdown no-arrow mx-1">
-                        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-envelope fa-fw"></i>
-                            <!-- Counter - Messages -->
-                            <span class="badge badge-danger badge-counter">7</span>
-                        </a>
-                    </li>
-
                     <div class="topbar-divider d-none d-sm-block"></div>
 
                     <!-- Nav Item - User Information -->
@@ -172,7 +150,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
                                     ?>
                                 </span>
 
-                            <button class="mt-3 avatar img-profile rounded-circle text-center text-capitalize font-weight-bold alert alert-primary"
+                            <button class="mt-3 p-1 avatar img-profile rounded-circle text-center text-capitalize font-weight-bold alert alert-primary"
                                     role="alert">
                                 <?php echo substr($_SESSION['user_logged']['name'], 0, 1); ?>
                             </button>

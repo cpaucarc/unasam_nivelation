@@ -19,7 +19,7 @@ window.onload = () => {
     //for dpdf
     scAREAPDF.value = "";
     scPROCESSPDF.value = "";
-    document.getElementById('view-title').innerText = 'Vista por Escuelas';
+    document.getElementById('view-title').innerText = 'Vista por Programas Académicos';
 }
 
 cbSchool.addEventListener('change', () => {
@@ -64,7 +64,7 @@ function fillWhitProcess() {
             cbProcess.innerHTML = ``;
             cbProcess.appendChild(createOptionForSelect('0', 'Selecciona...'));
             data.forEach(proc => {
-                cbProcess.appendChild(createOptionForSelect(proc.id, proc.denomination));
+                cbProcess.appendChild(createOptionForSelect(proc.id, proc.name));
             });
         });
 }
@@ -83,7 +83,7 @@ function fillWhitSchools(area) {
     })
         .then(response => response.json())
         .then(data => {
-            data = data.schools;
+            data = data.programs;
             cbSchool.innerHTML = ``;
             cbSchool.appendChild(createOptionForSelect('0', 'Selecciona...'));
             data.forEach(proc => {
@@ -107,8 +107,6 @@ function fillTableWhitStudents(school, process) {
     let formData = new FormData();
     formData.append('school', school);
     formData.append('process', process);
-    console.log(school, process);
-
     //for fpdf
     scSCHOOLPDF.value = school;
     scPROCESSPDF.value = process;
@@ -122,16 +120,12 @@ function fillTableWhitStudents(school, process) {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             data = data.students;
-            console.log(data);
             tbody.innerHTML = '';
             $('#table-students').DataTable().clear().destroy();
             let num = 1;
             data.forEach(std => {
-                let row = table.createRow(num, std.dni, std.code,
-                    (std.lastname + ' ' + std.name));
-                // let btnShowStudent = createRedirectButton(std.id);
+                let row = table.createRow(num, std.dni, std.code, `${std.lastname} ${std.name}`);
                 let btnShowStudent = button.createButtonForRedirectToStudentView(std.id);
                 row.appendChild(table.createCell(btnShowStudent));
                 tbody.appendChild(row);

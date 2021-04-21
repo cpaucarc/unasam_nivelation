@@ -12,5 +12,6 @@ define("PUBLIC_PATH", ROOT_PATH . "public/images/");
 define("CSS_PATH", ROOT_PATH . "public/css/");
 define("REPORT_PATH", ROOT_PATH . "app/reports/");
 define("COMPONENT_PATH", ROOT_PATH . "app/components/");
+define("STORAGE_PATH", ROOT_PATH . "app/files/");
 
 
