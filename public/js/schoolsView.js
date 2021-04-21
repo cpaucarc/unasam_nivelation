@@ -9,6 +9,8 @@ let scAREAPDF = document.getElementById('scAREAPDF');
 let scSCHOOLPDF = document.getElementById('scSCHOOLPDF');
 let scPROCESSPDF = document.getElementById('scPROCESSPDF');
 
+let scPDFCHART = document.getElementById('scPDFCHART');
+
 table = new Table();
 button = new Button();
 
@@ -107,7 +109,8 @@ function fillTableWhitStudents(school, process) {
     //for fpdf
     scSCHOOLPDF.value = school;
     scPROCESSPDF.value = process;
-
+    scPDFCHART.value = process;
+    
     fetch('app/controllers/student/getStudentsBySchool.php/', {
         method: 'POST',
         headers: {

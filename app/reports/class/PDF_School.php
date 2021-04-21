@@ -39,10 +39,10 @@ class PDF_School
     {
         $this->pdf->SetTextColor(33, 37, 41);
         $this->pdf->Image(PUBLIC_PATH . '/unasamheader.png', 10, $y, 65);
-        /*  $this->pdf->SetFont('Helvetica', '', 7);
-        $this->pdf->Cell(190, 10, utf8_decode('Universidad Nacional Santiago Antúnez de Mayolo'), 0, 2, 'C');
+         /*  $this->pdf->SetFont('Helvetica', '', 7);
+        $this->pdf->Cell(190, 10, utf8_decode($this->pdf->GetPageHeight()), 0, 2, 'C');
         $this->pdf->SetFont('Helvetica', '', 6);
-        $this->pdf->Cell(190, 5, utf8_decode('Oficina de Calidad Universitaria'), 0, 0, 'C'); */
+        $this->pdf->Cell(190, 5, utf8_decode($y), 0, 0, 'C');  */
         $this->pdf->Image(PUBLIC_PATH . '/ogculength.png', 137, $y, 65);
         $this->pdf->SetDrawColor(238, 238, 238);
         $this->pdf->Line(10, $y + 20, 200, $y + 20);

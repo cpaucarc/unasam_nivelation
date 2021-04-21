@@ -50,7 +50,6 @@
 <!-- Custom scripts for all pages-->
 <script src="<?php echo $rtax;//esta variable se hereda desde dependencies.php ?>public/js/sb-admin-2.min.js"></script>
 
-
 </body>
 
 </html>

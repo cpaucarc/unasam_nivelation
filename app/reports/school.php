@@ -29,12 +29,12 @@ if (isset($_POST['scPROCESSPDF'])) {
 
     foreach ($response as $row1) {
         //Escuelas
-        if ( $scAREA != '' && $scSCHOOL != '') {
+        if ($scAREA != '' && $scSCHOOL != '') {
             $sql = "SELECT * FROM `schools` WHERE name='$scSCHOOL'";
-        }else{
+        } else {
             $sql = "SELECT * FROM `schools` WHERE areas_id=(SELECT id FROM areas WHERE name='" . $row1['name'] . "')";
         }
-        
+
         $std = $conn->query($sql);
         //Cabercera
         $pdfSchool->headerReport($pdf->GetY());
@@ -51,7 +51,7 @@ if (isset($_POST['scPROCESSPDF'])) {
             $pdfSchool->programHeader($row2['name']);
 
             $sql = "SELECT id, dni, name, lastname, code  FROM vstudents  WHERE  process ='" . $scPROCESS . "'   and  school ='" . $row2['name'] . "'  ORDER BY lastname;";
-            
+
             $result = $conn->query($sql);
             //Table Header
             $pdfSchool->tableHeader();
@@ -69,10 +69,10 @@ if (isset($_POST['scPROCESSPDF'])) {
         }
         $pdf->Ln(10);
     }
+    
     $pdf->SetTextColor(86, 97, 108);
     $pdf->SetFont('Helvetica', '', $pdfSchool->fontSizeTableBody - 2);
     $pdf->Cell(0, 4, utf8_decode("**\t Alumnos por escuela seleccionada."), 0, 1, 'L');
-
     $pdf->Output();
 } else {
     header("Location: error");

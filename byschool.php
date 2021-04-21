@@ -38,9 +38,9 @@ require_once COMPONENT_PATH . "upperpart.php";
         </div>
         <div class="d-flex bd-highlight mr-4 mt-3 justify-content-end">
             <div class="ml-auto bd-highlight d-flex">
-                <form action="http://localhost/nivelation/app/reports/schoolChart.php" method="post" id="form-report" class="mx-2">
+                <form action="http://localhost/nivelation/byschoolG.php" method="post" class="mx-2">
                     <input name="scPDFCHART" id="scPDFCHART" type="text">
-                    <button type="submit" id="btShowPDFCHART" class="btn btn-outline-danger">
+                    <button type="submit"  class="btn btn-outline-danger">
                         <i class="fas fa-chart-pie"></i>
                     </button>
                 </form>
@@ -48,7 +48,7 @@ require_once COMPONENT_PATH . "upperpart.php";
                     <input name="scAREAPDF" id="scAREAPDF" type="text">
                     <input name="scSCHOOLPDF" id="scSCHOOLPDF" type="text">
                     <input name="scPROCESSPDF" id="scPROCESSPDF" type="text">
-                    <button type="submit" id="btShowPDF" class="btn btn-outline-danger">
+                    <button type="submit"  class="btn btn-outline-danger">
                         <i class="fas fa-file-pdf"></i>
                     </button>
                 </form>
@@ -79,6 +79,7 @@ require_once COMPONENT_PATH . "upperpart.php";
 <script src="public/js/components/Button.js"></script>
 <script src="public/js/components/Badge.js"></script>
 <script src="public/js/schoolsView.js"></script>
+
 
 <?php
 require_once COMPONENT_PATH . "downpart.php";

@@ -14,6 +14,8 @@ $rtax = isset($routeAux) ? $routeAux : "";
     <title>Sistema de Nivelacion</title>
 
     <?php require_once(COMPONENT_PATH . "dependencies.php"); ?>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
 </head>
 
 <body id="page-top">
