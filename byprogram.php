@@ -39,15 +39,15 @@ require_once COMPONENT_PATH . "upperpart.php";
         <div class="d-flex bd-highlight mr-4 mt-3 justify-content-end">
             <div class="ml-auto bd-highlight d-flex">
                 <form action="http://localhost/nivelation/byprogramG.php" method="post" class="mx-2">
-                    <input name="processChart" id="processChart" type="text">
+                    <input name="processChart" id="processChart" required type="text" placeholder="Requerid process">
                     <button type="submit" class="btn btn-outline-danger">
                         <i class="fas fa-chart-pie"></i>
                     </button>
                 </form>
                 <form action="reporte/escuela" method="post">
-                    <input name="areaPdf" id="areaPdf" type="text">
-                    <input name="programPdf" id="programPdf" type="text">
-                    <input name="processPdf" id="processPdf" type="text">
+                    <input name="areaPdf" id="areaPdf" type="text" placeholder="No requerid program">
+                    <input name="programPdf" id="programPdf" type="text" placeholder="No requerid program">
+                    <input name="processPdf" id="processPdf" required type="text" placeholder="Requerid process">
                     <button type="submit" id="btShowPDF" class="btn btn-outline-danger">
                         <i class="fas fa-file-pdf"></i>
                     </button>

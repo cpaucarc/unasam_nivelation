@@ -12,7 +12,7 @@ class schoolModel
     {
         $conn = (new MySqlConnection())->getConnection();
 
-        $sql = "SELECT school,COUNT(code) AS students FROM vstudents WHERE process='$process' GROUP BY school ; ";
+        $sql = "SELECT program,COUNT(code) AS students FROM vstudents WHERE process='$process' GROUP BY program ; ";
         $arreglo = array();
         $consulta = $conn->query($sql);
 

@@ -1,6 +1,7 @@
 let process = document.getElementById('process');
 window.onload = () => {
     Diagrams();
+    document.getElementById('view-title').innerText = 'Diagramas por Programas Académicos';
 }
 
 function Diagrams() {
@@ -24,11 +25,11 @@ function Diagrams() {
                 numbers.push(data[i][1]);
                 colors.push(colorRGB());
             }
-            chart('chartBar', 'bar', colors, lists, numbers, 'Diagrama de barras');
-            chart('chartDoughnut', 'doughnut', colors, lists, numbers, 'Diagrama de barras');
-            chart('chartHorizontalBar', 'horizontalBar', colors, lists, numbers, 'Diagrama de barras'); 
+            chart('chartBar', 'bar', colors, lists, numbers, 'Diagrama de barras vertical');
+            chart('chartDoughnut', 'doughnut', colors, lists, numbers, 'Diagrama doughnut');
+            chart('chartHorizontalBar', 'horizontalBar', colors, lists, numbers, 'Diagrama de barras horizontal'); 
             /* chart('chartPie', 'pie', colors, lists, numbers, 'Diagrama de barras'); */
-            chart('chartPie', 'pie', colors, lists, numbers, 'Diagrama de barras');
+            chart('chartPie', 'pie', colors, lists, numbers, 'Diagrama de pastel');
         });
 
 }

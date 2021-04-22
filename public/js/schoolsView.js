@@ -16,8 +16,6 @@ button = new Button();
 window.onload = () => {
     fillWhitProcess();
     //for dpdf
-    areaPdf.value = "";
-    processPdf.value = "";
     document.getElementById('view-title').innerText = 'Vista por Programas Académicos';
 }
 
@@ -32,10 +30,14 @@ cbSchool.addEventListener('change', () => {
 });
 
 cbProcess.addEventListener('change', () => {
-    let _schoolText = cbSchool.options[cbSchool.selectedIndex].text;
-    let _schoolValue = parseInt(cbSchool.value);
     let _processText = cbProcess.options[cbProcess.selectedIndex].text;
     let _processValue = parseInt(cbProcess.value);
+    processPdf.value = _processText;
+    processChart.value = _processText;
+    
+    let _schoolText = cbSchool.options[cbSchool.selectedIndex].text;
+    let _schoolValue = parseInt(cbSchool.value);
+    
     if (_schoolValue > 0 && _processValue > 0) {
         fillTableWhitStudents(_schoolText, _processText);
     }
@@ -109,7 +111,7 @@ function fillTableWhitStudents(school, process) {
     //for fpdf
     programPdf.value = school;
     processPdf.value = process;
-    processChart.value=process;
+    processChart.value = process;
 
     fetch('app/controllers/student/getStudentsBySchool.php/', {
         method: 'POST',

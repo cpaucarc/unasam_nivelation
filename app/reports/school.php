@@ -30,9 +30,9 @@ if (isset($_POST['processPdf'])) {
     foreach ($response as $row1) {
         //Escuelas
         if ($areaPdf != '' && $programPdf != '') {
-            $sql = "SELECT * FROM `schools` WHERE name='$programPdf'";
+            $sql = "SELECT * FROM programs WHERE name='$programPdf'";
         } else {
-            $sql = "SELECT * FROM `schools` WHERE areas_id=(SELECT id FROM areas WHERE name='" . $row1['name'] . "')";
+            $sql = "SELECT * FROM programs WHERE areas_id=(SELECT id FROM areas WHERE name='" . $row1['name'] . "')";
         }
 
         $std = $conn->query($sql);
@@ -50,7 +50,7 @@ if (isset($_POST['processPdf'])) {
 
             $pdfSchool->programHeader($row2['name']);
 
-            $sql = "SELECT id, dni, name, lastname, code  FROM vstudents  WHERE  process ='" . $processPdf . "'   and  school ='" . $row2['name'] . "'  ORDER BY lastname;";
+            $sql = "SELECT id, dni, name, lastname, code  FROM vstudents  WHERE  process ='" . $processPdf . "'   and  program ='" . $row2['name'] . "'  ORDER BY lastname;";
 
             $result = $conn->query($sql);
             //Table Header
@@ -71,7 +71,7 @@ if (isset($_POST['processPdf'])) {
     }
     
     $pdf->SetTextColor(86, 97, 108);
-    $pdf->SetFont('Helvetica', '', $pdfSchool->fontSizeTableBody - 2);
+    $pdf->SetFont('Helvetica', '', $pdfSchool->fontSizeTableBody);
     $pdf->Cell(0, 4, utf8_decode("**\t Alumnos por escuela seleccionada."), 0, 1, 'L');
     $pdf->Output();
 } else {

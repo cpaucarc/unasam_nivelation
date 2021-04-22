@@ -11,7 +11,7 @@ require_once COMPONENT_PATH . "upperpart.php";
 <!-- Begin Page Content -->
 <div class="container">
     <div class="row my-3">
-        <div class="col col-lg-6 col-md-6 col-sm-12 col-12 mb-2">
+        <div class="col col-lg-6 col-md-6 col-sm-12 col-12 mb-4">
             <div class="card">
                 <div class="card-header text-center">
                     <div class="text-md font-weight-bold text-primary">
@@ -20,22 +20,11 @@ require_once COMPONENT_PATH . "upperpart.php";
                     </div>
                 </div>
                 <div class="card-body">
-                    <canvas id="chartDoughnut" width="400" height="300"></canvas>
+                    <canvas id="chartDoughnut" height="200"></canvas>
                 </div>
             </div>
         </div>
-        <div class="col col-lg-6 col-md-6 col-sm-12 col-12 mb-2">
-            <div class="card">
-                <div class="text-md font-weight-bold text-primary">
-                    Proceso <span class="badge bg-primary text-light"><?php echo $_POST['processChart'] ?></span>
-                    <input type="hidden" id="process" name="process" value="<?php echo $_POST['processChart']  ?>">
-                </div>
-                <div class="card-body">
-                    <canvas id="chartBar" width="400" height="300"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="col col-lg-6 col-md-6 col-sm-12 col-12 mb-2">
+        <div class="col col-lg-6 col-md-6 col-sm-12 col-12 mb-4">
             <div class="card">
                 <div class="card-header text-center">
                     <div class="text-md font-weight-bold text-primary">
@@ -44,11 +33,11 @@ require_once COMPONENT_PATH . "upperpart.php";
                     </div>
                 </div>
                 <div class="card-body">
-                    <canvas id="chartHorizontalBar" width="400" height="300"></canvas>
+                    <canvas id="chartBar" height="200"></canvas>
                 </div>
             </div>
         </div>
-        <div class="col col-lg-6 col-md-6 col-sm-12 col-12 mb-2">
+        <div class="col col-lg-6 col-md-6 col-sm-12 col-12 mb-4">
             <div class="card">
                 <div class="card-header text-center">
                     <div class="text-md font-weight-bold text-primary">
@@ -57,7 +46,20 @@ require_once COMPONENT_PATH . "upperpart.php";
                     </div>
                 </div>
                 <div class="card-body">
-                    <canvas id="chartPie" width="400" height="400"></canvas>
+                    <canvas id="chartHorizontalBar" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col col-lg-6 col-md-6 col-sm-12 col-12 mb-4">
+            <div class="card">
+                <div class="card-header text-center">
+                    <div class="text-md font-weight-bold text-primary">
+                        Proceso <span class="badge bg-primary text-light"><?php echo $_POST['processChart'] ?></span>
+                        <input type="hidden" id="process" name="process" value="<?php echo $_POST['processChart']  ?>">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <canvas id="chartPie" height="200"></canvas>
                 </div>
             </div>
         </div>
