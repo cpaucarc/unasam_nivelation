@@ -5,11 +5,10 @@ const tbody = document.getElementById('tbody');
 
 //for fpdf
 
-let btShowPDF = document.getElementById('btShowPDF');
-
-let scAREAPDF = document.getElementById('scAREAPDF');
-let scSCHOOLPDF = document.getElementById('scSCHOOLPDF');
-let scPROCESSPDF = document.getElementById('scPROCESSPDF');
+let areaPdf = document.getElementById('areaPdf');
+let programPdf = document.getElementById('programPdf');
+let processPdf = document.getElementById('processPdf');
+let processChart = document.getElementById('processChart');
 
 table = new Table();
 button = new Button();
@@ -17,8 +16,6 @@ button = new Button();
 window.onload = () => {
     fillWhitProcess();
     //for dpdf
-    scAREAPDF.value = "";
-    scPROCESSPDF.value = "";
     document.getElementById('view-title').innerText = 'Vista por Programas Académicos';
 }
 
@@ -33,10 +30,14 @@ cbSchool.addEventListener('change', () => {
 });
 
 cbProcess.addEventListener('change', () => {
-    let _schoolText = cbSchool.options[cbSchool.selectedIndex].text;
-    let _schoolValue = parseInt(cbSchool.value);
     let _processText = cbProcess.options[cbProcess.selectedIndex].text;
     let _processValue = parseInt(cbProcess.value);
+    processPdf.value = _processText;
+    processChart.value = _processText;
+    
+    let _schoolText = cbSchool.options[cbSchool.selectedIndex].text;
+    let _schoolValue = parseInt(cbSchool.value);
+    
     if (_schoolValue > 0 && _processValue > 0) {
         fillTableWhitStudents(_schoolText, _processText);
     }
@@ -73,7 +74,7 @@ function fillWhitSchools(area) {
     let formData = new FormData();
     formData.append('area', area);
     //for fpdf
-    scAREAPDF.value = area;
+    areaPdf.value = area;
     fetch('app/controllers/school/getSchoolsByArea.php/', {
         method: 'POST',
         headers: {
@@ -108,8 +109,9 @@ function fillTableWhitStudents(school, process) {
     formData.append('school', school);
     formData.append('process', process);
     //for fpdf
-    scSCHOOLPDF.value = school;
-    scPROCESSPDF.value = process;
+    programPdf.value = school;
+    processPdf.value = process;
+    processChart.value = process;
 
     fetch('app/controllers/student/getStudentsBySchool.php/', {
         method: 'POST',
