@@ -57,6 +57,21 @@ class CoursesModel
         return json_encode($response);
     }
 
+    public function getCoursesByDim($dimID)
+    {
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "SELECT id, name FROM courses WHERE dimensions_id = $dimID;";
+
+        $response['courses'] = array();
+        foreach ($conn->query($sql) as $row) {
+            $p = array();
+            $p['id'] = $row['id'];
+            $p['name'] = $row['name'];
+            array_push($response['courses'], $p);
+        }
+        return json_encode($response);
+    }
+
     public function getCoursesByAreaAndLastProcess($area)
     {
         $conn = (new MySqlConnection())->getConnection();

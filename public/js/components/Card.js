@@ -2,7 +2,7 @@ class Card {
     constructor() {
     }
 
-    getStudentInfoCard(stdLastname, stdName, stdSchool, stdDni, stdCode, stdProcess) {
+    getStudentInfoCard2(stdLastname, stdName, stdSchool, stdDni, stdCode, stdProcess) {
         return `
             <div class="card">
                 <div class="card-header">
@@ -58,6 +58,79 @@ class Card {
             `;
     }
 
+    getStudentInfoCard(lastname, name, program, dni, code, process, omg, omp, correct, incorrect, blank) {
+        return `
+            <div class="card text-dark">
+                <div class="card-header">
+                    <h6 class="m-0 font-weight-bold">Datos del alumno</h6>
+                </div>
+                <div class="card-body text-center">
+                    <div class="row">
+                        <div class="col col-12 text-primary mb-0">
+                            <h4>
+                                <span class="text-uppercase font-weight-bold">${lastname}</span>
+                                <span class="text-capitalize">${name}</span>
+                            </h4>
+                        </div>
+    
+                        <div class="col col-12">
+                            <span>${program}</span>
+                        </div>
+    
+                        <div class="col col-12 mt-3">
+                            <h4><span class="badge badge-pill badge-light px-3 py-1 font-weight-normal">${process}</span></h4>
+                        </div>
+    
+                        <div class="col col-12 my-3">
+                            <div class="row">
+                                <div class="col col-lg-6 mb-2">
+                                    <h6 class="mb-0 font-weight-bold">${dni}</h6>
+                                    <span class="small text-gray-600">DNI</span>
+                                </div>
+                                <div class="col col-lg-6">
+                                    <h6 class="mb-0 font-weight-bold">${code}</h6>
+                                    <span class="small text-gray-600">Código</span>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col col-12 my-2">
+                            <div class="row">
+                                <div class="col col-lg-6">
+                                    <h3 class="mb-0"><span class="badge badge-light">${omg}</span></h3>
+                                    <span class="small text-gray-600">OMP</span>
+                                </div>
+                                <div class="col col-lg-6">
+                                    <h3 class="mb-0"><span class="badge badge-light">${omp}</span></h3>
+                                    <span class="small text-gray-600">OMP</span>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col col-12 mt-3">
+                            <span>Preguntas Contestadas</span>
+                            <div class="row">
+                                <div class="col col-4 mt-2">
+                                    <h5 class="font-weight-bold text-success mb-0">${correct}</h5>
+                                    <span class="small">Correctas</span>
+                                </div>
+                                <div class="col col-4 mt-2">
+                                    <h5 class="font-weight-bold text-danger mb-0">${incorrect}</h5>
+                                    <span class="small">Incorrectas</span>
+                                </div>
+                                <div class="col col-4 mt-2">
+                                    <h5 class="font-weight-bold text-secondary mb-0">${blank}</h5>
+                                    <span class="small">En Blanco</span>
+                                </div>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+            `;
+    }
+
     getNotStudentSelectedCard() {
         return `<div class="alert alert-danger" role="alert">
             <div class="row">
@@ -70,7 +143,6 @@ class Card {
                 </div>
             </div>
         </div>`;
-
     }
 
     getAddNewAreaCard() {
