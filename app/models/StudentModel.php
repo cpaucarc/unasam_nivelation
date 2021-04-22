@@ -70,7 +70,7 @@ class StudentModel
 
             //$stID = $pdo->query("SELECT id FROM students WHERE persons_id = " . $this->id . ";")->fetchColumn();
 
-            $sql = "CALL spDoCourseClasify(?)";
+            $sql = "CALL spDoCourseClassification(?)";
             $pdo->prepare($sql)->execute([
                 $this->id
             ]);
@@ -84,7 +84,7 @@ class StudentModel
     public function getCoursesOfStudentByID()
     {
         $conn = (new MySqlConnection())->getConnection();
-        $sql = "CALL spShowStudentCurses($this->id);";
+        $sql = "CALL spShowStudentCourses($this->id);";
 
         $response['courses'] = array();
 
@@ -131,13 +131,12 @@ class StudentModel
 
         foreach ($conn->query($sql) as $row) {
             $course = array();
-
+//stdID, dni, name, lastname, code, program, area, process, course, num, stat, id
             $course['stdID'] = $row['stdID'];
-            $course['dni'] = $row['dni'];
             $course['name'] = $row['name'];
             $course['lastname'] = $row['lastname'];
             $course['code'] = $row['code'];
-            $course['school'] = $row['school'];
+            $course['program'] = $row['program'];
             $course['area'] = $row['area'];
             $course['process'] = $row['process'];
             $course['course'] = $row['course'];

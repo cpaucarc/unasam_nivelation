@@ -125,8 +125,10 @@ function getStudentInfoByID(id) {
         .then(data => {
             console.log(data);
             notStdInfo.innerHTML = '';
+
             stdInfoCard.innerHTML = card.getStudentInfoCard(
-                data.lastname, data.name, data.program, data.dni, data.code, data.process
+                data.lastname, data.name, data.program, data.dni, data.code, data.process, data.omg,
+                data.omp, data.correct, data.incorrect, data.blank
             );
             stdIDPDF.value = data.id;
         })
@@ -153,7 +155,8 @@ function getStudentInfo(fullname) {
         .then(data => {
             console.log(data);
             stdInfoCard.innerHTML = card.getStudentInfoCard(
-                data.lastname, data.name, data.school, data.dni, data.code, data.process
+                data.lastname, data.name, data.program, data.dni, data.code, data.process, data.omg,
+                data.omp, data.correct, data.incorrect, data.blank
             );
             notStdInfo.innerHTML = '';
             stdIDPDF.value = data.id;

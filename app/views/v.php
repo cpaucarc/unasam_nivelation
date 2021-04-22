@@ -10,26 +10,88 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <title>Document</title>
-    <style>
-        .avatar {
-            width: 40px;
-            height: 40px;
-            padding: 5px;
-            outline: none;
-        }
-    </style>
 </head>
-<body>
-<div class="container mt-5">
+<body class="container bg-light">
 
 
-    <div>
-        <button class="py-2 px-3 img-profile rounded-circle border border-primary text-primary text-center text-capitalize  alert alert-primary"
-                role="alert">
-            <?php echo substr("Frank", 0, 1); ?>
-        </button>
+<div class="row mt-5">
+    <div class="col col-4">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="m-0 font-weight-bold">Datos del alumno</h6>
+            </div>
+            <div class="card-body text-dark text-center">
+                <div class="row">
+                    <div class="col col-12 text-primary mb-0">
+                        <h5>
+                            <span class="text-uppercase font-weight-bold">MCALLISTER FAULER</span>
+                            <span class="text-capitalize">Luisa Victoria</span>
+                        </h5>
+                    </div>
+
+                    <div class="col col-12">
+                        <span>Ingenieria de Sistemas e Informatica</span>
+                    </div>
+
+                    <div class="col col-12 mt-3">
+                        <h4><span class="badge badge-pill badge-light px-3 py-1">2018-II</span></h4>
+                    </div>
+
+                    <div class="col col-12 my-3">
+                        <div class="row">
+                            <div class="col col-lg-6 mb-2">
+                                <h6 class="mb-0">03234567</h6>
+                                <span class="small text-gray-600">DNI</span>
+                            </div>
+                            <div class="col col-lg-6">
+                                <h6 class="mb-0">181.0001.001</h6>
+                                <span class="small text-gray-600">Código</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col col-12 my-1">
+                        <div class="row">
+                            <div class="col col-lg-6">
+                                <h3 class="mb-0"><span class="badge badge-light">15</span></h3>
+                                <span class="small text-gray-600">OMP</span>
+                            </div>
+                            <div class="col col-lg-6">
+                                <h3 class="mb-0"><span class="badge badge-light">7</span></h3>
+                                <span class="small text-gray-600">OMP</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col col-12 mt-3">
+                        <span class="font-weight-bold">Preguntas Contestadas:</span>
+                        <div class="row">
+                            <div class="col col-12 col-lg-4 mt-2">
+                                <div class="alert alert-success p-0 py-2" role="alert">
+                                    <h5 class="font-weight-bold">50</h5>
+                                    <span class="small">Correctas</span>
+                                </div>
+                            </div>
+                            <div class="col col-12 col-lg-4 mt-2">
+                                <div class="alert alert-danger p-0 py-2" role="alert">
+                                    <h5 class="font-weight-bold">50</h5>
+                                    <span class="small">Incorrectas</span>
+                                </div>
+                            </div>
+                            <div class="col col-12 col-lg-4 mt-2">
+                                <div class="alert alert-secondary p-0 py-2" role="alert">
+                                    <h5 class="font-weight-bold">50</h5>
+                                    <span class="small">En Blanco</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
-
+    <div class="col col-7"></div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

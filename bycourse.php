@@ -25,6 +25,11 @@ require_once COMPONENT_PATH . "upperpart.php";
                         </select>
                     </div>
                     <div class="ml-4 bd-highlight">
+                        <label for="dimension">Dimensión</label>
+                        <select class="form-control" id="dimension">
+                        </select>
+                    </div>
+                    <div class="ml-4 bd-highlight">
                         <label for="course">Curso</label>
                         <select class="form-control" id="course">
                         </select>
@@ -50,24 +55,24 @@ require_once COMPONENT_PATH . "upperpart.php";
                 </div>
             </div>
             <div class="card-body">
+                <div class="table-responsive">
+                    <!--Tabla-->
+                    <table class="table table-bordered mt-2" id="table-students">
+                        <thead class="thead-light">
+                        <tr>
+                            <th scope="col">N°</th>
+                            <th scope="col">Código</th>
+                            <th scope="col">Alumno</th>
+                            <th scope="col">Escuela</th>
+                            <th scope="col">Recomendación</th>
+                            <th scope="col">&nbsp;</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody">
 
-                <!--Tabla-->
-                <table class="table mt-2" id="table-students">
-                    <thead class="thead-light">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">DNI</th>
-                        <th scope="col">Código</th>
-                        <th scope="col">Alumno</th>
-                        <th scope="col">Escuela</th>
-                        <th scope="col">Recomendación</th>
-                        <th scope="col">Acción</th>
-                    </tr>
-                    </thead>
-                    <tbody id="tbody">
-
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -75,6 +80,7 @@ require_once COMPONENT_PATH . "upperpart.php";
 
     <script src="public/js/components/Table.js"></script>
     <script src="public/js/components/Button.js"></script>
+    <script src="public/js/components/Select.js"></script>
     <script src="public/js/components/Badge.js"></script>
     <script src="public/js/courseView.js"></script>
 
