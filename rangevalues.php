@@ -116,6 +116,7 @@ require_once COMPONENT_PATH . "upperpart.php";
     <!-- /.container-fluid -->
     <script src="public/js/components/Table.js"></script>
     <script src="public/js/components/Button.js"></script>
+    <script src="public/js/components/Select.js"></script>
     <script src="public/js/ranks.js"></script>
 
 <?php

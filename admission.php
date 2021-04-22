@@ -30,7 +30,7 @@ require_once COMPONENT_PATH . "upperpart.php";
 
                     </div>
                     <div class="col col-12 col-lg-8">
-                        <table id="table-process" class="table table-bordered table-sm">
+                        <table id="table-process" class="table table-sm table-bordered">
                             <thead class="thead-light">
                             <tr class="text-center">
                                 <th>#</th>

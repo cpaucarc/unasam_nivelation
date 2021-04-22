@@ -12,6 +12,7 @@ var currentProcess;
 
 table = new Table();
 button = new Button();
+select = new Select();
 
 window.onload = function () {
     getAllProcess();
@@ -166,19 +167,11 @@ function getAllProcess() {
         .then(data => {
             data = data.process;
             cbProcess.innerHTML = ``;
-
-            cbProcess.appendChild(createOptionForSelect('0', 'Selecciona...'));
+            cbProcess.appendChild(select.createOption(0, 'Selecciona...'));
             data.forEach(proc => {
-                cbProcess.appendChild(createOptionForSelect(proc.id, proc.name));
+                cbProcess.appendChild(select.createOption(proc.id, proc.name));
             });
         });
-}
-
-function createOptionForSelect(value, text) {
-    let opt = document.createElement('option');
-    opt.setAttribute("value", value);
-    opt.innerText = text;
-    return opt;
 }
 
 function getRankDataByID(id) {

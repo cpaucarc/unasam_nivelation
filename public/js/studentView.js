@@ -10,6 +10,7 @@ const btShowPDF = document.getElementById('btShowPDF');
 card = new Card();
 table = new Table();
 badge = new Badge();
+select = new Select();
 
 window.onload = function () {
     if (stdID > 0) {

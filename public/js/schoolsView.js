@@ -12,6 +12,7 @@ let processChart = document.getElementById('processChart');
 
 table = new Table();
 button = new Button();
+select = new Select();
 
 window.onload = () => {
     fillWhitProcess();
@@ -34,10 +35,10 @@ cbProcess.addEventListener('change', () => {
     let _processValue = parseInt(cbProcess.value);
     processPdf.value = _processText;
     processChart.value = _processText;
-    
+
     let _schoolText = cbSchool.options[cbSchool.selectedIndex].text;
     let _schoolValue = parseInt(cbSchool.value);
-    
+
     if (_schoolValue > 0 && _processValue > 0) {
         fillTableWhitStudents(_schoolText, _processText);
     }
@@ -63,9 +64,9 @@ function fillWhitProcess() {
         .then(data => {
             data = data.process;
             cbProcess.innerHTML = ``;
-            cbProcess.appendChild(createOptionForSelect('0', 'Selecciona...'));
+            cbProcess.appendChild(select.createOption(0, 'Selecciona...'));
             data.forEach(proc => {
-                cbProcess.appendChild(createOptionForSelect(proc.id, proc.name));
+                cbProcess.appendChild(select.createOption(proc.id, proc.name));
             });
         });
 }
@@ -86,22 +87,15 @@ function fillWhitSchools(area) {
         .then(data => {
             data = data.programs;
             cbSchool.innerHTML = ``;
-            cbSchool.appendChild(createOptionForSelect('0', 'Selecciona...'));
+            cbSchool.appendChild(select.createOption(0, 'Selecciona...'));
             data.forEach(proc => {
-                cbSchool.appendChild(createOptionForSelect(proc.id, proc.name));
+                cbSchool.appendChild(select.createOption(proc.id, proc.name));
             });
         });
 }
 
 function clearTable() {
     tbody.innerHTML = '';
-}
-
-function createOptionForSelect(value, text) {
-    let opt = document.createElement('option');
-    opt.setAttribute("value", value);
-    opt.innerText = text;
-    return opt;
 }
 
 function fillTableWhitStudents(school, process) {
@@ -134,5 +128,23 @@ function fillTableWhitStudents(school, process) {
                 num++;
             })
             $('#table-students').DataTable();
+        });
+}
+
+function getAllAreas() {
+    fetch('app/controllers/area/getAllAreas.php/', {
+        method: 'GET',
+        headers: {
+            "Accept": "application/json"
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            data = data.areas;
+            cbArea.innerHTML = ``;
+            cbArea.appendChild(select.createOption(0, 'Selecciona...'));
+            data.forEach(area => {
+                cbArea.appendChild(select.createOption(area.id, area.name));
+            });
         });
 }

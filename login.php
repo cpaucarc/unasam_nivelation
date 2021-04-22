@@ -13,7 +13,7 @@
 
 </head>
 
-<body style="background: #FAFBFC">
+<body class="bg-gradient-dark">
 
 <div class="container">
     <div class="row justify-content-center">
