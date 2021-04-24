@@ -1,0 +1,5 @@
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spCourses`(IN `proceso` VARCHAR(10))
+    NO SQL
+SELECT  co.name as course, COUNT(stdt.code) as code FROM clasifications AS clf JOIN courses AS co ON co.id = clf.courses_id JOIN student_data AS stdt ON stdt.id = clf.student_data_id JOIN students AS st ON st.id = stdt.students_id JOIN people AS pe ON pe.id = st.people_id JOIN programs AS pr ON pr.id = stdt.programs_id JOIN areas AS ar ON ar.id = pr.areas_id JOIN process AS pc ON pc.id = stdt.process_id JOIN status AS sts ON sts.id = clf.status_id WHERE pc.name=proceso GROUP BY co.name ORDER BY sts.id ASC$$
+DELIMITER ;

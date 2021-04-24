@@ -4,7 +4,6 @@ const cbSchool = document.getElementById('school');
 const tbody = document.getElementById('tbody');
 
 //for fpdf
-
 let areaPdf = document.getElementById('areaPdf');
 let programPdf = document.getElementById('programPdf');
 let processPdf = document.getElementById('processPdf');

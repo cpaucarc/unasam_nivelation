@@ -2,102 +2,89 @@
 include_once '../../dirs.php';
 require_once(DB_PATH . "MySqlConnection.php");
 require_once(UTIL_PATH . "PDF.php");
+require_once(REPORT_PATH . "class/PDF_Course.php");
 
-if (isset($_POST['csAREAPDF']) && isset($_POST['csCOURSEPDF']) && isset($_POST['csPROCESSPDF'])) {
+if (isset($_POST['processPdf'])) {
 
-    $csAREA = $_POST['csAREAPDF'];
-    $csCOURSE = $_POST['csCOURSEPDF'];
-    $csPROCESS = $_POST['csPROCESSPDF'];
+    $areaPdf = $_POST['areaPdf'];
+    $dimensionPdf = $_POST['dimensionPdf'];
+    $coursePdf = $_POST['coursePdf'];
+    $processPdf = $_POST['processPdf'];
 
-    $heightTitleCell = 8;
-    $fontSizeTitle = 13;
-    $fontSizeSubtitle = 8;
+    $pdf = new PDF('P', 'mm', 'A4');
+    $pdf->AliasNbPages();
+    $pdf->AddPage();
+    $conn = (new MySqlConnection())->getConnection();
+    $pdfCourse = new PDF_Course($pdf);
 
-    $width1C = 10;
-    $width2C = 17;
-    $width25C = 23;
-    $width3C = 44;
-    $width4C = 52;
-    $heightTableCell = 8;
-    $cellLineWidth = 0.05;
-    $fontSizeTableHeader = 9;
-    $fontSizeTableBody = 9;
-
-    if ($csAREA != '' && $csCOURSE != '' && $csPROCESS != '') {
-        $pdf = new PDF('P', 'mm', 'A4');
-        $pdf->AliasNbPages();
-        $pdf->AddPage();
-        $conn = (new MySqlConnection())->getConnection();
-
-        //Title of document
-        $pdf->SetFont('Helvetica', 'B', 15);
-        $pdf->Cell(0, 10, 'Reporte General por curso', 0, 0, 'C', 0);
-        $pdf->Ln(20);
-
-        /* $sql = "SELECT * FROM vstudents WHERE id = " . $stdID;
-        $response = $conn->query($sql);
-        $student = $response->fetch(); */
-
-        $pdf->SetTextColor(33, 37, 41);
-        $pdf->SetFont('Helvetica', '', $fontSizeTitle);
-        $pdf->Cell(0, $heightTitleCell, utf8_decode(strtoupper($csCOURSE)), 0, 1, 'L');
-        $pdf->Ln(2);
-        $pdf->SetFont('Helvetica', 'B', $fontSizeSubtitle);
-        $pdf->Cell(15, $heightTitleCell - 2, utf8_decode('Area: '), 0, 0, 'L');
-        $pdf->SetFont('Helvetica', '', $fontSizeSubtitle);
-        $pdf->Cell(80, $heightTitleCell - 2, utf8_decode($csAREA), 0, 0, 'L');
-        $pdf->SetFont('Helvetica', 'B', $fontSizeSubtitle);
-        $pdf->Cell(20, $heightTitleCell - 2, utf8_decode('Proceso: '), 0, 0, 'L');
-        $pdf->SetFont('Helvetica', '', $fontSizeSubtitle);
-        $pdf->Cell(0, $heightTitleCell - 2, utf8_decode($csPROCESS), 0, 1, 'L');
-
-        $pdf->Ln(10);
-        $pdf->SetFont('Helvetica', '', $fontSizeSubtitle + 2);
-        $pdf->Cell(40, $heightTitleCell - 2, utf8_decode('Estudiantes '), 0, 0, 'L');
-        $pdf->Ln(10);
-
-        //Table Header
-        $pdf->SetDrawColor(222, 226, 230);
-        $pdf->SetLineWidth($cellLineWidth);
-        $pdf->SetFillColor(233, 236, 239);
-        $pdf->SetFont('Helvetica', 'B', $fontSizeTableHeader);
-        $pdf->Cell($width1C, $heightTableCell, '#', 1, 0, 'C', 1);
-        $pdf->Cell($width2C, $heightTableCell, 'DNI', 1, 0, 'L', 1);
-        $pdf->Cell($width25C, $heightTableCell, utf8_decode('Código'), 1, 0, 'L', 1);
-        $pdf->Cell($width3C, $heightTableCell, 'Alumno', 1, 0, 'L', 1);
-        $pdf->Cell($width3C, $heightTableCell, 'Escuela', 1, 0, 'L', 1);
-        $pdf->Cell($width4C, $heightTableCell, utf8_decode('Recomendación **'), 1, 1, 'L', 1);
-
-        $sql = "CALL spShowStudentsByCourse('" . $csAREA . "', '" . $csCOURSE . "', '" . $csPROCESS . "');";
-
-        $std = $conn->query($sql);
-        $num = 1;
-        //$response = $conn->query($sql);
-        foreach ($std as $row) {
-            $pdf->SetTextColor(73, 80, 87);
-            $pdf->SetFont('Helvetica', 'B', $fontSizeTableBody);
-            $pdf->Cell($width1C, $heightTableCell, $num, 1, 0, 'C');
-            $pdf->SetTextColor(33, 37, 41);
-            $pdf->SetFont('Helvetica', '', $fontSizeTableBody);
-            $pdf->Cell($width2C, $heightTableCell, utf8_decode($row['dni']), 1, 0, 'L');
-            $pdf->Cell($width25C, $heightTableCell, utf8_decode($row['code']), 1, 0, 'L');
-            $pdf->Cell($width3C, $heightTableCell, utf8_decode($row['lastname'] . ' ' . $row['name']), 1, 0, 'L');
-            $pdf->Cell($width3C, $heightTableCell, utf8_decode($row['school']), 1, 0, 'L');
-            $pdf->Cell($width4C, $heightTableCell, utf8_decode($row['stat']), 1, 1, 'L');
-            $num++;
-        }
-
-        $pdf->Ln(5);
-
-        $pdf->SetTextColor(86, 97, 108);
-        $pdf->SetFont('Helvetica', '', $fontSizeTableBody - 2);
-        $pdf->Cell(0, 4, utf8_decode("**\tLa intervalo de valoración está establecida para cada curso en cada área."), 0, 1, 'L');
-
-
-        $pdf->Output();
+    //Áreas
+    if ($areaPdf != '') {
+        $sql = "SELECT * FROM areas WHERE name='$areaPdf';";
     } else {
-        header("Location: error");
+        $sql = "SELECT * FROM areas";
     }
+    $response = $conn->query($sql);
+
+    foreach ($response as $row1) {
+
+        //Cabercera
+        $pdfCourse->headerReport($pdf->GetY());
+        //Proceso:
+        $pdfCourse->processHeader("Reporte general por Cursos", $processPdf);
+        $pdfCourse->areaHeader($row1['name'], $row1['description']);
+
+        //Escuelas
+        if ($areaPdf != '' && $dimensionPdf != '') {
+            $sql = "SELECT *  FROM dimensions  WHERE name='$dimensionPdf'";
+        } else {
+            $sql = "SELECT *  FROM dimensions";
+        }
+        $std = $conn->prepare($sql);
+        $std->execute();
+        $rst = $std->fetchAll();
+        foreach ($rst as $row2) {
+
+           /*  $pdfCourse->programHeader($row2['name']); */
+
+            if ($areaPdf != '' && $dimensionPdf != '') {
+                $sql = "SELECT * FROM vcourses WHERE dimension='" . $dimensionPdf . "'";
+            } else {
+                $sql = "SELECT * FROM vcourses WHERE dimension='" . $row2['name'] . "'";
+            }
+            $result = $conn->prepare($sql);
+            $result->execute();
+            $rs = $result->fetchAll();
+
+            foreach ($rs as $row3) {
+                $pdfCourse->dimensionCourse($row2['name'], $row3['course']);
+                //Tabla
+                $sql = "call spShowStudentsByCourse('" . $row1['name'] . "','" . $row3['course'] . "','" . $processPdf . "');";
+                $consulta = $conn->prepare($sql);
+                $consulta->execute();
+                $resultado = $consulta->fetchAll();
+
+                //Table Header
+                $pdfCourse->tableHeader();
+                //Table body            
+                if ($consulta->rowCount() > 0) {
+                    $num = 1;
+                    foreach ($resultado as $row4) {
+                        $pdfCourse->tableBody($num, $row4['code'], $row4['lastname'], $row4['name'], $row4['program'], $row4['stat']);
+                        $num++;
+                    }
+                } else {
+                    $pdfCourse->tableBody('..', '..', '.', '.', '..', '..');
+                }
+                $pdf->Ln(5);
+            }
+        }
+        $pdf->Ln(10);
+    }
+
+    $pdf->SetTextColor(86, 97, 108);
+    $pdf->SetFont('Helvetica', '', $pdfCourse->fontSizeTableBody);
+    $pdf->Cell(0, 4, utf8_decode("**\t Alumnos por:::: escuela seleccionada."), 0, 1, 'L');
+    $pdf->Output();
 } else {
     header("Location: error");
 }
