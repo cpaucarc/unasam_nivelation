@@ -15,22 +15,23 @@ if (isset($_POST['studentPdf'])) {
         $conn = (new MySqlConnection())->getConnection();
 
         $pdfStudent = new PDF_Student($pdf);
-        $pdfStudent->headerReport($pdf->GetY());
-        //Title of document
 
-        $pdfStudent->processHeader('Reporte Individual del estudiante', '2018-II');
+         //Report header
+         $pdf->HeaderReport($pdf->GetY());
+        //Proceso:
+        //======= ¿El reporte es del ultimo proceso de adminisión?
+        $sql = "SELECT * FROM process ORDER BY id ASC LIMIT 1;";
+        $response = $conn->query($sql);
+        $process = $response->fetch();
+        $pdf->ProcessHeader(102,"Reporte Individual del estudiante",$process['name']);
 
 
         $sql = "SELECT * FROM vstudents WHERE id = " . $studentPdf;
         $response = $conn->query($sql);
         $student = $response->fetch();
 
-        $pdfStudent->studenteHeader($student['lastname'], $student['name'], $student['code'], $student['dni'], $student['program'], $student['process'], $student['omg'], $student['omp']);
+        $pdfStudent->StudenteHeader($student['lastname'], $student['name'], $student['code'], $student['dni'], $student['program'], $student['process'], $student['omg'], $student['omp']);
 
-        /* $pdf->SetFont('Helvetica', '', $pdfStudent->fontSizeH2 + 2);
-        $pdf->Cell(40, $pdfStudent->heightTitleCell - 2, utf8_decode('Cursos '), 0, 0, 'L');
-        $pdf->Ln(10); */
-        //Table Header
         $pdfStudent->tableHeader();
 
 
@@ -46,8 +47,9 @@ if (isset($_POST['studentPdf'])) {
         $pdf->Ln(5);
 
         $pdf->SetTextColor(86, 97, 108);
-        $pdf->SetFont('Helvetica', '', $pdfStudent->fontSizeTableBody - 2);
+        $pdf->SetFont('Helvetica', '', $pdfStudent->fontSizeTableBody -1);
         $pdf->Cell(0, 4, utf8_decode("*\t\tRepresenta al porcentaje de respuestas correctas que se tuvo sobre dicho curso durante el desarrollo del examen."), 0, 1, 'L');
+        $pdf->Cell(0, 4, utf8_decode("**\t\tRepresenta al número de respuestas correctas que se tuvo sobre dicho curso durante el desarrollo del examen."), 0, 1, 'L');
         $pdf->Cell(0, 4, utf8_decode("**\tLa intervalo de valoración está establecida para cada curso en cada área."), 0, 1, 'L');
 
 

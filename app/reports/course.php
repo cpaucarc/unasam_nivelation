@@ -26,12 +26,12 @@ if (isset($_POST['processPdf'])) {
     $response = $conn->query($sql);
 
     foreach ($response as $row1) {
+        //Report header
+        $pdf->HeaderReport($pdf->GetY());
 
-        //Cabercera
-        $pdfCourse->headerReport($pdf->GetY());
         //Proceso:
-        $pdfCourse->processHeader("Reporte general por Cursos", $processPdf);
-        $pdfCourse->areaHeader($row1['name'], $row1['description']);
+        $pdf->ProcessHeader(63,"Reporte por cursos", $processPdf);
+        $pdf->AreaHeader($row1['name'], $row1['description']);
 
         //Escuelas
         if ($areaPdf != '' && $dimensionPdf != '') {
@@ -44,7 +44,7 @@ if (isset($_POST['processPdf'])) {
         $rst = $std->fetchAll();
         foreach ($rst as $row2) {
 
-           /*  $pdfCourse->programHeader($row2['name']); */
+            /*  $pdfCourse->programHeader($row2['name']); */
 
             if ($areaPdf != '' && $dimensionPdf != '') {
                 $sql = "SELECT * FROM vcourses WHERE dimension='" . $dimensionPdf . "'";
@@ -56,7 +56,7 @@ if (isset($_POST['processPdf'])) {
             $rs = $result->fetchAll();
 
             foreach ($rs as $row3) {
-                $pdfCourse->dimensionCourse($row2['name'], $row3['course']);
+                $pdfCourse->DimensionCourse($row2['name'], $row3['course']);
                 //Tabla
                 $sql = "call spShowStudentsByCourse('" . $row1['name'] . "','" . $row3['course'] . "','" . $processPdf . "');";
                 $consulta = $conn->prepare($sql);
@@ -83,7 +83,8 @@ if (isset($_POST['processPdf'])) {
 
     $pdf->SetTextColor(86, 97, 108);
     $pdf->SetFont('Helvetica', '', $pdfCourse->fontSizeTableBody);
-    $pdf->Cell(0, 4, utf8_decode("**\t Alumnos por:::: escuela seleccionada."), 0, 1, 'L');
+    $pdf->Cell(0, 4, utf8_decode("*\t Alumnos por escuela seleccionada."), 0, 1, 'L');
+    $pdf->Cell(0, 4, utf8_decode("**\t Estados por alumno seleccionada."), 0, 1, 'L');
     $pdf->Output();
 } else {
     header("Location: error");
