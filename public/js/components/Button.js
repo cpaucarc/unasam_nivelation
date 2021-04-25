@@ -39,9 +39,9 @@ class Button {
     }
 
     createBtnEdit(fun, ...params) {
-        let btn = this.createIconBtn('<i class="fas fa-pen"></i>', fun, ...params);
+        let btn = this.createIconBtn('<i class="fas fa-edit"></i>', fun, ...params);
         btn.classList.add('btn');
-        btn.classList.add('btn-outline-info');
+        btn.classList.add('btn-light');
         btn.classList.add('btn-sm');
         return btn;
     }

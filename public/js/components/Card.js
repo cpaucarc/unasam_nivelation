@@ -58,7 +58,7 @@ class Card {
             `;
     }
 
-    getStudentInfoCard(lastname, name, program, dni, code, process, omg, omp, correct, incorrect, blank) {
+    getStudentInfoCard(data) {
         return `
             <div class="card text-dark">
                 <div class="card-header">
@@ -68,27 +68,27 @@ class Card {
                     <div class="row">
                         <div class="col col-12 text-primary mb-0">
                             <h4>
-                                <span class="text-uppercase font-weight-bold">${lastname}</span>
-                                <span class="text-capitalize">${name}</span>
+                                <span class="text-uppercase font-weight-bold">${data.lastname}</span>
+                                <span class="text-capitalize">${data.name}</span>
                             </h4>
                         </div>
     
                         <div class="col col-12">
-                            <span>${program}</span>
+                            <span>${data.program}</span>
                         </div>
     
                         <div class="col col-12 mt-3">
-                            <h4><span class="badge badge-pill badge-light px-3 py-1 font-weight-normal">${process}</span></h4>
+                            <h4><span class="badge badge-pill badge-light px-3 py-1 font-weight-normal">${data.process}</span></h4>
                         </div>
     
                         <div class="col col-12 my-3">
                             <div class="row">
                                 <div class="col col-lg-6 mb-2">
-                                    <h6 class="mb-0 font-weight-bold">${dni}</h6>
+                                    <h6 class="mb-0 font-weight-bold">${data.dni}</h6>
                                     <span class="small text-gray-600">DNI</span>
                                 </div>
                                 <div class="col col-lg-6">
-                                    <h6 class="mb-0 font-weight-bold">${code}</h6>
+                                    <h6 class="mb-0 font-weight-bold">${data.code}</h6>
                                     <span class="small text-gray-600">Código</span>
                                 </div>
                             </div>
@@ -97,11 +97,11 @@ class Card {
                         <div class="col col-12 my-2">
                             <div class="row">
                                 <div class="col col-lg-6">
-                                    <h3 class="mb-0"><span class="badge badge-light">${omg}</span></h3>
+                                    <h3 class="mb-0"><span class="badge badge-light">${data.omg}</span></h3>
                                     <span class="small text-gray-600">OMP</span>
                                 </div>
                                 <div class="col col-lg-6">
-                                    <h3 class="mb-0"><span class="badge badge-light">${omp}</span></h3>
+                                    <h3 class="mb-0"><span class="badge badge-light">${data.omp}</span></h3>
                                     <span class="small text-gray-600">OMP</span>
                                 </div>
                             </div>
@@ -111,15 +111,15 @@ class Card {
                             <span>Preguntas Contestadas</span>
                             <div class="row">
                                 <div class="col col-4 mt-2">
-                                    <h5 class="font-weight-bold text-success mb-0">${correct}</h5>
+                                    <h5 class="font-weight-bold text-success mb-0">${data.correct}</h5>
                                     <span class="small">Correctas</span>
                                 </div>
                                 <div class="col col-4 mt-2">
-                                    <h5 class="font-weight-bold text-danger mb-0">${incorrect}</h5>
+                                    <h5 class="font-weight-bold text-danger mb-0">${data.incorrect}</h5>
                                     <span class="small">Incorrectas</span>
                                 </div>
                                 <div class="col col-4 mt-2">
-                                    <h5 class="font-weight-bold text-secondary mb-0">${blank}</h5>
+                                    <h5 class="font-weight-bold text-secondary mb-0">${data.blank}</h5>
                                     <span class="small">En Blanco</span>
                                 </div>
                             </div>
@@ -148,8 +148,8 @@ class Card {
     getAddNewAreaCard() {
         return `<div class="col col-lg-2 col-md-4 col-sm-6 col-12 mb-2" id="div-new-area">
                 <div class="card">
-                    <div class="card-header text-center">
-                        <div class="text-md font-weight-bold text-primary">
+                    <div class="card-header text-center p-2">
+                        <div class="text-md font-weight-bold">
                             Nueva area
                         </div>
                     </div>

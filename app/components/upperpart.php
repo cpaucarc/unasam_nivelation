@@ -13,8 +13,10 @@ $rtax = isset($routeAux) ? $routeAux : "";
     <link rel="icon" href="<?php echo $rtax; ?>public/images/ogcushort.png" type="image/x-icon"/>
     <title>Sistema de Nivelacion</title>
 
-    <?php require_once(COMPONENT_PATH . "dependencies.php"); ?>    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
+    <?php require_once(COMPONENT_PATH . "dependencies.php"); ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
+          integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w=="
+          crossorigin="anonymous"/>
 
 </head>
 
@@ -166,7 +168,8 @@ $rtax = isset($routeAux) ? $routeAux : "";
                                 Perfil
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item text-danger font-weight-bold" href="#" data-toggle="modal"
+                            <a class="dropdown-item text-danger font-weight-bold click-logout" href="#"
+                               data-toggle="modal"
                                data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-danger"></i>
                                 Cerrar sesión

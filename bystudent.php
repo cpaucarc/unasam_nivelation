@@ -87,6 +87,7 @@ require_once COMPONENT_PATH . "upperpart.php";
     <script type="text/javascript">const routeAux = "<?php echo $routeAux;?>";</script>
     <script src="<?php echo $routeAux; ?>public/js/components/Badge.js"></script>
     <script src="<?php echo $routeAux; ?>public/js/components/Card.js"></script>
+    <script src="<?php echo $routeAux; ?>public/js/components/Select.js"></script>
     <script src="<?php echo $routeAux; ?>public/js/components/Table.js"></script>
     <script src="<?php echo $routeAux; ?>public/js/studentView.js"></script>
 

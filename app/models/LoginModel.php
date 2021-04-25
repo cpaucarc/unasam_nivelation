@@ -5,8 +5,9 @@ include_once DB_PATH . "MySqlConnection.php";
 
 class LoginModel
 {
-    private $username;
-    private $password;
+    private string $username;
+    private string $password;
+    private int $rol; // user_type:ID
 
     public function __construct()
     {
@@ -15,7 +16,7 @@ class LoginModel
     public function login()
     {
         $conn = (new MySqlConnection())->getConnection();
-        $sql = "CALL spLogin('$this->username', '$this->password');";
+        $sql = "CALL spLogin('$this->username', '$this->password', $this->rol);";
         return $conn->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
 
@@ -23,12 +24,13 @@ class LoginModel
     {
         $user = new UserModel();
         $conn = (new MySqlConnection())->getConnection();
-        $sql = "CALL spGetUserInfoByUsernameAndPassword('$this->username', '$this->password');";
+        $sql = "CALL spGetUserLoggedInfo('$this->username', '$this->password', $this->rol);";
         $result = $conn->query($sql)->fetch(PDO::FETCH_ASSOC);
         $user->setId(intval($result['id']));
         $user->setDni($result['dni']);
         $user->setLastname($result['lastname']);
         $user->setName($result['name']);
+        $user->setRolID($result['utid']);
         $user->setRol($result['rol']);
         $user->setUsername($result['username']);
         return $user;
@@ -56,4 +58,23 @@ class LoginModel
         $this->password = $password;
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getRol()
+    {
+        return $this->rol;
+    }
+
+    /**
+     * @param mixed $rol
+     * @return LoginModel
+     */
+    public function setRol($rol)
+    {
+        $this->rol = $rol;
+        return $this;
+    }
+
 }

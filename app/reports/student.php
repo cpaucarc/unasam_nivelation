@@ -50,7 +50,7 @@ if (isset($_POST['stdIDPDF'])) {
         $pdf->SetFont('Helvetica', 'B', $fontSizeSubtitle);
         $pdf->Cell(15, $heightTitleCell - 2, utf8_decode('Escuela: '), 0, 0, 'L');
         $pdf->SetFont('Helvetica', '', $fontSizeSubtitle);
-        $pdf->Cell(80, $heightTitleCell - 2, utf8_decode(strtoupper($student['school'])), 0, 0, 'L');
+        $pdf->Cell(80, $heightTitleCell - 2, utf8_decode(strtoupper($student['program'])), 0, 0, 'L');
         $pdf->SetFont('Helvetica', 'B', $fontSizeSubtitle);
         $pdf->Cell(32, $heightTitleCell - 2, utf8_decode('Proceso de Admisión: '), 0, 0, 'L');
         $pdf->SetFont('Helvetica', '', $fontSizeSubtitle);
@@ -71,7 +71,7 @@ if (isset($_POST['stdIDPDF'])) {
         $pdf->Cell($width3C, $heightTableCell, 'Respuestas Correctas *', 1, 0, 'L', 1);
         $pdf->Cell($width4C, $heightTableCell, utf8_decode('Valoración **'), 1, 1, 'L', 1);
 
-        $sql = "call spShowCourses(" . $stdID . ");";
+        $sql = "call spShowStudentCourses( $stdID );";
         $courses = $conn->query($sql);
         $num = 1;
 //$response = $conn->query($sql);

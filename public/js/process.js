@@ -7,6 +7,7 @@ table = new Table();
 window.onload = () => {
     getAllProcess();
     getLastProcess();
+    document.getElementById('view-title').innerText = 'Procesos de Admisión';
 }
 
 form.addEventListener('submit', (e) => {

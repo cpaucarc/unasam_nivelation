@@ -8,10 +8,8 @@ require_once COMPONENT_PATH . "upperpart.php";
 
 
     <!-- Begin Page Content -->
-    <div class="container-fluid">
-        <div class="mb-4">
-            <h2 class="mb-0 text-gray-800">Procesos de admisión</h2>
-        </div>
+    <div class="container">
+
         <div class="card">
             <div class="card-body">
                 <div class="row d-flex justify-content-between">
@@ -57,7 +55,7 @@ require_once COMPONENT_PATH . "upperpart.php";
                         <input type="text" value="0" name="procID" id="procID">
                         <div class="form-group">
                             <label for="proceso" class="col-form-label-sm text-uppercase">Admisión:</label>
-                            <input name="denomination" type="text" class="form-control" id="denomination"
+                            <input name="denomination" type="text" class="form-control" id="denomination" required
                                    placeholder="Proceso de admisión">
                         </div>
                 </div>
