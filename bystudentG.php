@@ -71,6 +71,21 @@ require_once COMPONENT_PATH . "upperpart.php";
                 </div>
             </div>
         </div>
+
+        <div class="col col-lg-6 col-md-6 col-sm-12 col-12 mb-4">
+            <div class="card">
+                <div class="card-header text-center">
+                    <div class="text-md font-weight-bold text-primary">
+                        Proceso <span class="badge bg-primary text-light badge-process"></span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="chart-area">
+                        <canvas id="myAreaChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <!-- /.container-fluid -->
