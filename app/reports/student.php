@@ -34,8 +34,8 @@ if (isset($_POST['studentPdf'])) {
 
         $pdfStudent->tableHeader();
 
-
         $sql = "call spShowStudentCourses(" . $studentPdf . ");";
+
         $courses = $conn->query($sql);
         $num = 1;
         //$response = $conn->query($sql);

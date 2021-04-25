@@ -45,8 +45,9 @@ require_once COMPONENT_PATH . "upperpart.php";
                             <i class="fas fa-chart-pie"></i>
                         </button>
                     </form>
-                    <form action="reporte/escuela" method="post">
-                        <input name="areaPdf" id="areaPdf" type="text" placeholder="No requerid area">
+                    <form action="reporte/programa" method="post">
+                        <input name="areaPdf" id="areaPdf" type="text" placeholder="No requerid program">
+
                         <input name="programPdf" id="programPdf" type="text" placeholder="No requerid program">
                         <input name="processPdf" id="processPdf" required type="text" placeholder="Requerid process">
                         <button type="submit" class="btn btn-outline-danger">

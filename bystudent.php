@@ -88,14 +88,14 @@ require_once COMPONENT_PATH . "upperpart.php";
 </div>
 <!-- /.container-fluid -->
 
-<!--<script src="public/js/datatable.js"></script>-->
-<script type="text/javascript">
-    const routeAux = "<?php echo $routeAux; ?>";
-</script>
-<script src="<?php echo $routeAux; ?>public/js/components/Badge.js"></script>
-<script src="<?php echo $routeAux; ?>public/js/components/Card.js"></script>
-<script src="<?php echo $routeAux; ?>public/js/components/Table.js"></script>
-<script src="<?php echo $routeAux; ?>public/js/studentView.js"></script>
+    <!--<script src="public/js/datatable.js"></script>-->
+    <script type="text/javascript">const routeAux = "<?php echo $routeAux;?>";</script>
+    <script src="<?php echo $routeAux; ?>public/js/components/Badge.js"></script>
+    <script src="<?php echo $routeAux; ?>public/js/components/Card.js"></script>
+    <script src="<?php echo $routeAux; ?>public/js/components/Select.js"></script>
+    <script src="<?php echo $routeAux; ?>public/js/components/Table.js"></script>
+    <script src="<?php echo $routeAux; ?>public/js/studentView.js"></script>
+
 
 <?php
 require_once COMPONENT_PATH . "downpart.php";

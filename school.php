@@ -100,7 +100,7 @@ require_once "app/components/upperpart.php";
                 <form>
                     <div class="form-group">
                         <label for="escuela" class="col-form-label-sm text-uppercase">Ingrese escuela a crear:</label>
-                        <input type="text" class="form-control" id="escuela" placeholder="Escuela">
+                        <input type="text" class="form-control" id="escuela" placeholder="Escuela" required>
                     </div>
                 </form>
             </div>

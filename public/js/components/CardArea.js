@@ -16,11 +16,13 @@ class CardArea {
         let header = document.createElement('div');
         header.classList.add('card-header');
         header.classList.add('text-center');
+        header.classList.add('p-1');
 
-        let cmpText = document.createElement('div');
+        let cmpText = document.createElement('h5');
         cmpText.classList.add('text-md');
         cmpText.classList.add('font-weight-bold');
         cmpText.classList.add('text-primary');
+        cmpText.classList.add('my-1');
         cmpText.appendChild(document.createTextNode('Área '))
 
         let span = document.createElement('span');
@@ -38,6 +40,8 @@ class CardArea {
         let body = document.createElement('div');
         body.classList.add('card-body');
         body.classList.add('text-center');
+        body.classList.add('py-2');
+        body.classList.add('px-1');
         let span = document.createElement('span');
         // span.classList.add('text-uppercase');
         span.classList.add('text-dark');

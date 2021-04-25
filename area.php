@@ -95,10 +95,10 @@ require_once COMPONENT_PATH . "upperpart.php";
                         <form id="form-area">
                             <div class="form-group">
                                 <label for="area" class="col-form-label-sm">Ingrese abreviatura del area:</label>
-                                <input type="text" name="area" class="form-control form-control-user" id="area"
+                                <input type="text" name="area" class="form-control form-control-user" id="area" required
                                        placeholder="Ej. A">
                                 <label for="desc" class="col-form-label-sm">Ingrese descripcion del area:</label>
-                                <input type="text" name="desc" class="form-control form-control-user" id="desc"
+                                <input type="text" name="desc" class="form-control form-control-user" id="desc" required
                                        placeholder="Ej. Ciencias e Ingenieria">
                             </div>
                     </div>
@@ -164,14 +164,14 @@ require_once COMPONENT_PATH . "upperpart.php";
                                 <div class="col col-sm-6">
                                     <div class="form-group">
                                         <label for="min">Rango Minimo (%)</label>
-                                        <input name="min" type="number" class="form-control" id="min" value="50"
+                                        <input name="min" type="number" class="form-control" id="min" value="50" required
                                                max="100" min="0">
                                     </div>
                                 </div>
                                 <div class="col col-sm-6">
                                     <div class="form-group">
                                         <label for="max">Rango Recomendado (%)</label>
-                                        <input name="max" type="number" class="form-control" id="max" value="70"
+                                        <input name="max" type="number" class="form-control" id="max" value="70" required
                                                max="100" min="0">
                                     </div>
                                 </div>

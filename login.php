@@ -31,9 +31,6 @@
                                     <div class="form-group">
                                         <label for="role">Tipo de Usuario</label>
                                         <select class="form-control" id="role" name="role" required>
-                                            <option>Visor de recursos</option>
-                                            <option>Administrador</option>
-                                            <option>Alumno</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -63,6 +60,7 @@
 </div>
 <!-- Custom scripts for all pages-->
 <script src="public/js/sb-admin-2.min.js"></script>
+<script src="public/js/components/Select.js"></script>
 <script src="public/js/login.js"></script>
 </body>
 
