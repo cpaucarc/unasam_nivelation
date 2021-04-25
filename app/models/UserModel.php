@@ -7,6 +7,7 @@ class UserModel
     private $id;
     private $username;
     private $password;
+    private $rolID;
     private $rol;
     private $dni;
     private $name;
@@ -234,4 +235,23 @@ class UserModel
         $this->lastname = $lastname;
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getRolID()
+    {
+        return $this->rolID;
+    }
+
+    /**
+     * @param mixed $rolID
+     * @return UserModel
+     */
+    public function setRolID($rolID)
+    {
+        $this->rolID = $rolID;
+        return $this;
+    }
+    
 }

@@ -38,7 +38,7 @@ RewriteRule ^perfil$ profile.php
 #reports
 RewriteRule ^reporte/estudiante$ app/reports/student.php
 RewriteRule ^reporte/curso$ app/reports/course.php
-RewriteRule ^reporte/escuela$ app/reports/school.php
+RewriteRule ^reporte/programa$ app/reports/school.php
 
 #Error 404
 RewriteRule ^error$ 404.php

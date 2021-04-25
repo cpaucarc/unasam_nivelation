@@ -127,10 +127,7 @@ function getStudentInfoByID(id) {
             console.log(data);
             notStdInfo.innerHTML = '';
 
-            stdInfoCard.innerHTML = card.getStudentInfoCard(
-                data.lastname, data.name, data.program, data.dni, data.code, data.process, data.omg,
-                data.omp, data.correct, data.incorrect, data.blank
-            );
+            stdInfoCard.innerHTML = card.getStudentInfoCard(data);
             stdIDPDF.value = data.id;
         })
         .catch(function () {
@@ -154,11 +151,7 @@ function getStudentInfo(fullname) {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
-            stdInfoCard.innerHTML = card.getStudentInfoCard(
-                data.lastname, data.name, data.program, data.dni, data.code, data.process, data.omg,
-                data.omp, data.correct, data.incorrect, data.blank
-            );
+            stdInfoCard.innerHTML = card.getStudentInfoCard(data);
             notStdInfo.innerHTML = '';
             stdIDPDF.value = data.id;
         })

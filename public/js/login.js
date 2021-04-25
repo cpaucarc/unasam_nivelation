@@ -1,6 +1,34 @@
 const login_form = document.getElementById('login-form');
+const cbRole = document.getElementById('role');
 
-login_form.addEventListener('submit', (e) => {
+select = new Select();
+
+window.onload = () => {
+    fillWhitRoles();
+}
+
+function fillWhitRoles() {
+    try {
+        fetch('app/controllers/rol/getAllRoles.php/', {
+            method: 'GET',
+            headers: {
+                "Accept": "application/json"
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                data = data.roles;
+                cbRole.innerHTML = '';
+                data.forEach(rol => {
+                    cbRole.appendChild(select.createOption(rol.id, rol.type))
+                })
+            });
+    } catch (e) {
+        alert('No se puede acceder al sistema');
+    }
+}
+
+login_form.onsubmit = (e) => {
     e.preventDefault();
 
     let formData = new FormData(login_form);
@@ -24,5 +52,4 @@ login_form.addEventListener('submit', (e) => {
     } catch (e) {
         alert('No se puede acceder al sistema');
     }
-
-})
+}

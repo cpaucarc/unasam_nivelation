@@ -100,7 +100,7 @@ input[type="file"] {
 .button-content button {
     width: 120px;
     padding: 8px !important;
-    border-radius: 0 !important;
+    /*border-radius: 0 !important;*/
     background-color: #0564b7 !important;
 }
 
@@ -116,4 +116,26 @@ input[type="file"] {
 
 .ocultar-form {
     display: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gray);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gray);
+}
+
+/* Logout */
+.click-logout:active {
+    background-color: rgba(239, 68, 68, 0.1) !important;
 }

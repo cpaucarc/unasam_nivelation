@@ -10,9 +10,6 @@ if (isset($_POST['processPdf'])) {
     $programPdf = $_POST['programPdf'];
     $processPdf = $_POST['processPdf'];
 
-    if ($processPdf != '') {
-    } else {
-    }
     $pdf = new PDF('P', 'mm', 'A4');
     $pdf->AliasNbPages();
     $pdf->AddPage();
@@ -69,7 +66,7 @@ if (isset($_POST['processPdf'])) {
         }
         $pdf->Ln(10);
     }
-    
+
     $pdf->SetTextColor(86, 97, 108);
     $pdf->SetFont('Helvetica', '', $pdfSchool->fontSizeTableBody);
     $pdf->Cell(0, 4, utf8_decode("**\t Alumnos por escuela seleccionada."), 0, 1, 'L');

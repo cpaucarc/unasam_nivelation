@@ -19,15 +19,17 @@ require_once COMPONENT_PATH . "upperpart.php";
 
                         <div class="alert alert-info my-3" role="alert">
                             <div class="row">
-                                <div class="col col-2 col-md-3">
+
+                                <div class="col col-1 col-lg-2">
                                     <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
                                 </div>
-                                <div class="col col-10 col-md-9">
+                                <div class="col col-11 col-lg-10">
                                     <p>
-                                        Para relacionar un <strong>curso</strong> a una <strong>area</strong> dirijase
+                                        Para relacionar un <strong>curso</strong> a una <strong>área</strong> dirijase
                                         <a href="areas">aqui</a>.
                                     </p>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -50,7 +52,7 @@ require_once COMPONENT_PATH . "upperpart.php";
         </div>
     </div>
 
-    <div class="modal fade" data-backdrop="static" id="courses_modal" tabindex="-1" role="dialog"
+    <div class="modal fade" id="courses_modal" data-backdrop="static" tabindex="-1" role="dialog"
          aria-labelledby="exampleModalLabel"
          aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -58,28 +60,26 @@ require_once COMPONENT_PATH . "upperpart.php";
                 <div class="modal-body">
                     <form id="form-course">
                         <input type="hidden" value="0" name="procID" id="procID">
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col col-12">
+                        <div class="row">
+                            <div class="col col-9">
+                                <div class="form-group">
                                     <label for="dimension" class="col-form-label-sm">Dimensión:</label>
+                                    <select name="dimension" id="dimension" class="form-control" required></select>
                                 </div>
-                                <div class="col col-9 mr-0">
-                                    <select name="dimension" id="dimension" class="form-control"></select>
-                                </div>
-                                <div class="col col-3 ml-0 pl-0">
-                                    <button type="button" class="btn btn-light btn-sm mt-1 text-dark"
-                                            data-toggle="modal"
-                                            data-target="#modal-dimension">
-                                        <i class="fas fa-plus"></i> Nuevo
-                                    </button>
-                                </div>
+                            </div>
+                            <div class="col col-3 d-flex justify-content-end align-items-center">
+                                <button type="button" class="btn btn-light btn-sm mt-3 text-dark"
+                                        data-toggle="modal"
+                                        data-target="#modal-dimension">
+                                    <i class="fas fa-plus"></i> Nuevo
+                                </button>
                             </div>
                         </div>
                         <div class="form-group">
                             <input type="hidden" value="0" id="courseID" name="courseID">
                             <label for="course" class="col-form-label-sm">Nombre del curso:</label>
                             <input name="course" type="text" class="form-control" id="course"
-                                   placeholder="Curso...">
+                                   placeholder="Curso..." required>
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -92,14 +92,15 @@ require_once COMPONENT_PATH . "upperpart.php";
     </div>
 
     <!-- Modal Dimensions -->
-    <div class="modal fade" id="modal-dimension" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="modal-dimension" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <form id="form-dimension">
                     <div class="modal-body">
                         <div class="form-group">
                             <label class="col-form-label-sm">Nueva Dimensión:</label>
-                            <input type="text" name="dimension" class="form-control">
+                            <input type="text" name="dimension" class="form-control" placeholder="Dimension..."
+                                   required>
                         </div>
                     </div>
                     <div class="modal-footer">

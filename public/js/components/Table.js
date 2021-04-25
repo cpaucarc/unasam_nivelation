@@ -61,4 +61,9 @@ class Table {
         return td;
     }
 
+    appendColumnInRow(row, column) {
+        row.appendChild(column);
+        return row;
+    }
+
 }

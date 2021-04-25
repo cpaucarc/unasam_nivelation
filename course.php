@@ -111,15 +111,15 @@ require_once COMPONENT_PATH . "upperpart.php";
                     <form>
                         <div class="form-group">
                             <label for="curso" class="col-form-label-sm text-uppercase">Curso:</label>
-                            <input type="text" class="form-control " id="curso" placeholder="Curso">
+                            <input type="text" class="form-control " id="curso" placeholder="Curso" required>
                         </div>
                         <div class="form-group">
                             <label for="minimo" class="col-form-label-sm text-uppercase">Mínimo:</label>
-                            <input type="number" class="form-control " id="minimo" placeholder="Mímino">
+                            <input type="number" class="form-control " id="minimo" placeholder="Mímino" required>
                         </div>
                         <div class="form-group">
                             <label for="maximo" class="col-form-label-sm text-uppercase">Máximo</label>
-                            <input type="number" class="form-control " id="maximo" placeholder="Máximo">
+                            <input type="number" class="form-control " id="maximo" placeholder="Máximo" required>
                         </div>
                     </form>
                 </div>
