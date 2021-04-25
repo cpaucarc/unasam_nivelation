@@ -47,7 +47,7 @@ if (isset($_POST['processPdf'])) {
 
             $pdfSchool->programHeader($row2['name']);
 
-            $sql = "SELECT id, dni, name, lastname, code  FROM vstudents  WHERE  process ='" . $processPdf . "'   and  program ='" . $row2['name'] . "'  ORDER BY lastname;";
+            $sql = "SELECT id, dni, name, lastname, code  FROM vstudents  WHERE  process ='" . $processPdf . "' and  program ='" . $row2['name'] . "'  ORDER BY lastname;";
 
             $result = $conn->query($sql);
             //Table Header

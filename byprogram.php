@@ -47,9 +47,10 @@ require_once COMPONENT_PATH . "upperpart.php";
                     </form>
                     <form action="reporte/programa" method="post">
                         <input name="areaPdf" id="areaPdf" type="text" placeholder="No requerid program">
+
                         <input name="programPdf" id="programPdf" type="text" placeholder="No requerid program">
                         <input name="processPdf" id="processPdf" required type="text" placeholder="Requerid process">
-                        <button type="submit" id="btShowPDF" class="btn btn-outline-danger">
+                        <button type="submit" class="btn btn-outline-danger">
                             <i class="fas fa-file-pdf"></i>
                         </button>
                     </form>
