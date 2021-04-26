@@ -69,7 +69,7 @@ if (isset($_POST['processPdf'])) {
 
     $pdf->SetTextColor(86, 97, 108);
     $pdf->SetFont('Helvetica', '', $pdfSchool->fontSizeTableBody);
-    $pdf->Cell(0, 4, utf8_decode("**\t Alumnos por escuela seleccionada."), 0, 1, 'L');
+    $pdf->Cell(0, 4, utf8_decode("**\t Alumnos por Programa Académico seleccionada."), 0, 1, 'L');
     $pdf->Output();
 } else {
     header("Location: error");

@@ -1,11 +1,13 @@
 <?php
-@include_once "dirs.php";
-@include_once "app/utils/sessions/SessionStarted.php";
+require_once 'dirs.php';
+require_once UTIL_PATH . "sessions/SessionStarted.php";
 session_start();
-(new SessionStarted())->verifySessionStarted();
+$sessionStarted = new SessionStarted();
+$sessionStarted->verifySessionStarted();
+
+require_once $sessionStarted->getUpperPartByUserType();
 ?>
 
-<?php @include_once "app/components/upperpart.php" ?>
     <div class="container-fluid">
 
         <div class="row d-flex justify-content-center">

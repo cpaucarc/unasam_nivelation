@@ -1,5 +1,5 @@
 <?php
-include_once 'dirs.php';
+include_once '../../../dirs.php';
 require_once(DB_PATH . "MySqlConnection.php");
 
 $conn = (new MySqlConnection())->getConnection();
@@ -28,7 +28,7 @@ $sql = "SELECT * FROM vusers ORDER BY lastname;";
                 <td><?php echo $i ?></td>
                 <td><?php echo $row['dni'] ?></td>
                 <td><?php echo $row['lastname'] . ' ' . $row['name'] ?></td>
-                <td><?php echo $row['rol'] ?></td>
+                <!--                <td>--><?php //echo $row['rol'] ?><!--</td>-->
                 <td><?php echo $row['username'] ?></td>
                 <td class="text-center">
                         <span class="btn btn-outline-danger btn-sm" onclick="deleteUser('<?php echo $id ?>')">

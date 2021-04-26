@@ -2,11 +2,10 @@
 require_once "dirs.php";
 require_once UTIL_PATH . "sessions/SessionStarted.php";
 session_start();
-(new SessionStarted())->verifySessionStarted();
-?>
+$sessionStarted = new SessionStarted();
+$sessionStarted->verifySessionStarted();
 
-<?php
-require_once COMPONENT_PATH . "upperpart.php";
+require_once $sessionStarted->getUpperPartByUserType();
 ?>
     <!-- Begin Page Content -->
     <div class="container">
@@ -61,16 +60,25 @@ require_once COMPONENT_PATH . "upperpart.php";
                 <table class="table table-bordered mt-2" id="table-students">
                     <thead class="thead-light">
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">DNI</th>
-                        <th scope="col">Código</th>
-                        <th scope="col">Alumno</th>
-                        <th scope="col">&nbsp;</th>
+                        <th scope="col" style="width: 5%;">N°</th>
+                        <th scope="col" style="width: 5%;">OMG</th>
+                        <th scope="col" style="width: 5%;">OMP</th>
+                        <th scope="col" style="width: 12%;">DNI</th>
+                        <th scope="col" style="width: 13%;">Código</th>
+                        <th scope="col">Estudiante</th>
+                        <th scope="col" style="width: 5%;">&nbsp;</th>
                     </tr>
                     </thead>
                     <tbody id="tbody">
                     </tbody>
                 </table>
+
+                <div class="alert alert-dark mt-4" role="alert">
+                    <ul class="mb-0">
+                        <li><strong>OMG</strong>: Orden de Mérito General</li>
+                        <li><strong>OMP</strong>: Orden de Mérito por Programa Académico</li>
+                    </ul>
+                </div>
             </div>
         </div>
 

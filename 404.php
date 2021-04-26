@@ -2,12 +2,11 @@
 include_once 'dirs.php';
 require_once(UTIL_PATH . "sessions/SessionStarted.php");
 session_start();
-(new SessionStarted())->verifySessionStarted();
+$sessionStarted = new SessionStarted();
+$sessionStarted->verifySessionStarted();
 $stdID = empty ($_GET['std']) ? 0 : $_GET['std'];
-?>
 
-<?php
-require_once(COMPONENT_PATH . "upperpart.php");
+require_once $sessionStarted->getUpperPartByUserType();
 ?>
     <!-- Begin Page Content -->
     <div class="container">
@@ -23,6 +22,13 @@ require_once(COMPONENT_PATH . "upperpart.php");
             <a href="inicio">&larr; Volver al inicio</a>
         </div>
     </div>
+
+
+    <script>
+        window.onload = () => {
+            document.getElementById('view-title').innerText = '';
+        }
+    </script>
 <?php
 require_once(COMPONENT_PATH . "downpart.php");
 ?>

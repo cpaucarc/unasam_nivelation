@@ -67,52 +67,11 @@ $rtax = isset($routeAux) ? $routeAux : "";
             </div>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-               aria-expanded="true" aria-controls="collapseUtilities">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Componentes</span>
-            </a>
-            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                 data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Vista por:</h6>
-                    <a class="collapse-item" href="<?php echo $rtax; ?>rangos">Rangos</a>
-                    <a class="collapse-item" href="<?php echo $rtax; ?>areas">Areas</a>
-                    <a class="collapse-item" href="<?php echo $rtax; ?>admision">Admisión</a>
-                    <a class="collapse-item" href="<?php echo $rtax; ?>cursos">Cursos</a>
-                </div>
-            </div>
-        </li>
-
         <!-- Divider -->
-        <hr class="sidebar-divider">
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Addons
-        </div>
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-               aria-expanded="true" aria-controls="collapsePages">
-                <i class="fas fa-user"></i>
-                <span>Usuario</span>
-            </a>
-            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Vistas de usuario</h6>
-                    <a class="collapse-item" href="<?php echo $rtax; ?>usuarios">Usuarios registrados</a>
-                </div>
-            </div>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block">
+        <hr class="sidebar-divider d-none d-md-block mb-5">
 
         <!-- Sidebar Toggler (Sidebar) -->
-        <div class="text-center d-none d-md-inline">
+        <div class="text-center d-none d-md-inline mt-3">
             <button class="rounded-circle border-0" id="sidebarToggle"></button>
         </div>
 

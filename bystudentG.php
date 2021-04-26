@@ -2,11 +2,10 @@
 require_once "dirs.php";
 require_once UTIL_PATH . "sessions/SessionStarted.php";
 session_start();
-(new SessionStarted())->verifySessionStarted();
-?>
+$sessionStarted = new SessionStarted();
+$sessionStarted->verifySessionStarted();
 
-<?php
-require_once COMPONENT_PATH . "upperpart.php";
+require_once $sessionStarted->getUpperPartByUserType();
 ?>
 <!-- Begin Page Content -->
 <div class="container">

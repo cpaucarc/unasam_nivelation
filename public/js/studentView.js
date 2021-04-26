@@ -4,7 +4,7 @@ const btSearch = document.getElementById('btSearch');
 const txSearch = document.getElementById('txSearch');
 const tbBody = document.getElementById('table-courses-body');
 const stdID = parseInt(document.getElementById('stdID').value);
-const stdIDPDF = document.getElementById('stdIDPDF');
+const stdIDPDF = document.getElementById('studentPdf');
 const btShowPDF = document.getElementById('btShowPDF');
 
 card = new Card();
