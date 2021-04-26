@@ -7,7 +7,7 @@ window.onload = () => {
 function Diagrams() {
     let formData = new FormData();
     formData.append('process', process.value);
-    fetch('http://localhost/nivelation/app/controllers/graphics/course.php', {
+    fetch('app/controllers/graphics/course.php', {
         method: 'POST',
         headers: {
             "Accept": "application/json"

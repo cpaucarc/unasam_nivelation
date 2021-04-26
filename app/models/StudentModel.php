@@ -152,7 +152,7 @@ class StudentModel
     {
         //This function is used in byprogram view
         $conn = (new MySqlConnection())->getConnection();
-        $sql = "SELECT id, dni, name, lastname, code FROM vstudents WHERE process = '$process' and program = '$school' ORDER BY omp;";
+        $sql = "SELECT id, dni, name, lastname, code, omg, omp FROM vstudents WHERE process = '$process' and program = '$school' ORDER BY omp;";
 
         $response['students'] = array();
 
@@ -164,6 +164,8 @@ class StudentModel
             $course['name'] = $row['name'];
             $course['lastname'] = $row['lastname'];
             $course['code'] = $row['code'];
+            $course['omg'] = $row['omg'];
+            $course['omp'] = $row['omp'];
 
             array_push($response['students'], $course);
         }

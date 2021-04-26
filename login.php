@@ -27,7 +27,7 @@
                                 <h5 class="mb-4 font-weight-bold text-black">
                                     Bienvenido al Sistema de Nivelación de Estudiantes
                                 </h5>
-                                <form id="login-form" class="user my-3">
+                                <form class="user my-3" action="app/controllers/login/makeLogin.php" method="post">
                                     <div class="form-group">
                                         <label for="role">Tipo de Usuario</label>
                                         <select class="form-control" id="role" name="role" required>
@@ -50,6 +50,12 @@
                                         </button>
                                     </div>
                                 </form>
+                                <div class="alert alert-danger alert-dismissible fade show mb-0" role="alert">
+                                    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>

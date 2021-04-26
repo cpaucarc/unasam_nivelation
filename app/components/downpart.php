@@ -34,12 +34,15 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Seleccione "Cerrar sesión" a continuación si está listo para finalizar su sesión
-                actual.
+            <div class="modal-body">
+                <p>
+                    Seleccione <strong>Cerrar sesión</strong> a continuación si está listo para
+                    finalizar su sesión actual.
+                </p>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-light font-weight-bold" type="button" data-dismiss="modal">Cancelar</button>
-                <form action="app/controllers/login/makeLogout.php?">
+                <form action="/nivelation/app/controllers/login/makeLogout.php">
                     <button class="btn btn-danger font-weight-bold" type="submit">Cerrar sesión</button>
                 </form>
             </div>

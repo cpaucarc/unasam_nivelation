@@ -3,6 +3,7 @@
 $server = $_SERVER["DOCUMENT_ROOT"] . "/nivelation/";
 
 define("ROOT_PATH", $server);
+define("PROJECT", "/nivelation/");
 define("CONTROLLER_PATH", ROOT_PATH . "app/controllers/");
 define("MODEL_PATH", ROOT_PATH . "app/models/");
 define("VIEW_PATH", ROOT_PATH . "app/views/");

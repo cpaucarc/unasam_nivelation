@@ -2,10 +2,10 @@
 require_once 'dirs.php';
 require_once UTIL_PATH . "sessions/SessionStarted.php";
 session_start();
-(new SessionStarted())->verifySessionStarted();
-?>
-<?php
-require_once COMPONENT_PATH . "upperpart.php";
+$sessionStarted = new SessionStarted();
+$sessionStarted->verifySessionStarted();
+
+require_once $sessionStarted->getUpperPartByUserType();
 ?>
     <div class="container">
         <div class="row d-flex justify-content-around mt-5">
