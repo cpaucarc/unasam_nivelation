@@ -30,7 +30,7 @@ if (isset($_POST['processPdf'])) {
         $pdf->HeaderReport($pdf->GetY());
 
         //Proceso:
-        $pdf->ProcessHeader(63,"Reporte por cursos", $processPdf);
+        $pdf->ProcessHeader(63, "Reporte por cursos", $processPdf);
         $pdf->AreaHeader($row1['name'], $row1['description']);
 
         //Escuelas
@@ -51,6 +51,9 @@ if (isset($_POST['processPdf'])) {
             } else {
                 $sql = "SELECT * FROM vcourses WHERE dimension='" . $row2['name'] . "'";
             }
+            if ($areaPdf != '' && $dimensionPdf != '' && $coursePdf != '') {
+                $sql = "SELECT * FROM vcourses WHERE dimension='" . $dimensionPdf . "' AND course='" . $coursePdf . "'";
+            }
             $result = $conn->prepare($sql);
             $result->execute();
             $rs = $result->fetchAll();
@@ -58,7 +61,11 @@ if (isset($_POST['processPdf'])) {
             foreach ($rs as $row3) {
                 $pdfCourse->DimensionCourse($row2['name'], $row3['course']);
                 //Tabla
-                $sql = "call spShowStudentsByCourse('" . $row1['name'] . "','" . $row3['course'] . "','" . $processPdf . "');";
+                if ($areaPdf != '' && $dimensionPdf != '' && $coursePdf != '') {
+                    $sql = "call spShowStudentsByCourse('" . $areaPdf . "','" . $coursePdf . "','" . $processPdf . "');";
+                } else {
+                    $sql = "call spShowStudentsByCourse('" . $row1['name'] . "','" . $row3['course'] . "','" . $processPdf . "');";
+                }
                 $consulta = $conn->prepare($sql);
                 $consulta->execute();
                 $resultado = $consulta->fetchAll();
@@ -82,9 +89,9 @@ if (isset($_POST['processPdf'])) {
     }
 
     $pdf->SetTextColor(86, 97, 108);
-    $pdf->SetFont('Helvetica', '', $pdfCourse->fontSizeTableBody);
-    $pdf->Cell(0, 4, utf8_decode("*\t Alumnos por escuela seleccionada."), 0, 1, 'L');
-    $pdf->Cell(0, 4, utf8_decode("**\t Estados por alumno seleccionada."), 0, 1, 'L');
+    $pdf->SetFont('Helvetica', '', $pdfCourse->fontSizeTableBody+1);
+    $pdf->Cell(0, 5, utf8_decode("*\t\t Alumnos por dimensión/curso seleccionada."), 0, 1, 'L');
+    $pdf->Cell(0, 5, utf8_decode("**\t Recomendación de alumnos por dimensión/curso seleccionada."), 0, 1, 'L');
     $pdf->Output();
 } else {
     header("Location: error");

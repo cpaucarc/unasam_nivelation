@@ -49,7 +49,7 @@ class PDF_Course
         $this->pdf->Cell($this->width2C, $this->heightTableCell, utf8_decode('Código'), 1, 0, 'L', 1);
         $this->pdf->Cell($this->width3C, $this->heightTableCell, utf8_decode('Alumno *'), 1, 0, 'L', 1);
         $this->pdf->Cell($this->width4C, $this->heightTableCell, 'Programa', 1, 0, 'L', 1);
-        $this->pdf->Cell(0, $this->heightTableCell, 'Estado **', 1, 1, 'L', 1);
+        $this->pdf->Cell(0, $this->heightTableCell, utf8_decode('Recomendación **'), 1, 1, 'L', 1);
     }
     function TableBody($num, $code, $lastname, $name,$program, $status)
     {

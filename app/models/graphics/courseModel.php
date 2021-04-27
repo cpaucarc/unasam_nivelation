@@ -8,11 +8,11 @@ class courseModel
     }
 
 
-    function getSchoolStudents($process)
+    function getSchoolStudents($status,$process)
     {
         $conn = (new MySqlConnection())->getConnection();
 
-        $sql = "CALL spCourses('$process');";
+        $sql = "CALL spShowStatusByCourse($status,'$process');";
         $arreglo = array();
         $consulta = $conn->query($sql);
 

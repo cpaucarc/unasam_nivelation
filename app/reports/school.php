@@ -47,7 +47,12 @@ if (isset($_POST['processPdf'])) {
         foreach ($std as $row2) {
             $pdfSchool->ProgramHeader($row2['name']);
 
-            $sql = "SELECT id, dni, name, lastname, code  FROM vstudents  WHERE  process ='" . $processPdf . "' and  program ='" . $row2['name'] . "'  ORDER BY lastname;";
+            /* $sql = "SELECT id, dni, name, lastname, code  FROM vstudents  WHERE  process ='" . $processPdf . "' and  program ='" . $row2['name'] . "'  ORDER BY lastname;"; */
+
+            $sql = "SELECT id, dni, name, lastname, code, omg, omp FROM vstudents WHERE process = '" . $processPdf . "' and program = '" . $row2['name'] . "' ORDER BY omp;";
+
+
+            
 
             $result = $conn->query($sql);
             //Table Header
@@ -56,11 +61,11 @@ if (isset($_POST['processPdf'])) {
             if ($result->rowCount() > 0) {
                 $num = 1;
                 foreach ($result as $row3) {
-                    $pdfSchool->TableBody($num, $row3['dni'], $row3['code'], $row3['lastname'], $row3['name']);
+                    $pdfSchool->TableBody($num, $row3['omg'],$row3['omp'], $row3['dni'], $row3['code'], $row3['lastname'], $row3['name']);
                     $num++;
                 }
             } else {
-                $pdfSchool->TableBody('..', '..', '..', '.', '.');
+                $pdfSchool->TableBody('..','..','..', '..', '..', '.', '.');
             }
             $pdf->Ln(5);
         }
@@ -68,8 +73,10 @@ if (isset($_POST['processPdf'])) {
     }
 
     $pdf->SetTextColor(86, 97, 108);
-    $pdf->SetFont('Helvetica', '', $pdfSchool->fontSizeTableBody);
-    $pdf->Cell(0, 4, utf8_decode("**\t Alumnos por Programa Académico seleccionada."), 0, 1, 'L');
+    $pdf->SetFont('Helvetica', '', $pdfSchool->fontSizeTableBody+1);
+    $pdf->Cell(0, 5, utf8_decode("*\t\t\t OMG: Orden de Mérito General."), 0, 1, 'L');
+    $pdf->Cell(0, 5, utf8_decode("**\t\t OMP: Orden de Mérito por Programa Académico."), 0, 1, 'L');  
+    $pdf->Cell(0, 5, utf8_decode("***\t Alumnos por Programa Académico seleccionada."), 0, 1, 'L');
     $pdf->Output();
 } else {
     header("Location: error");

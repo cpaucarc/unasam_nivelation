@@ -1,12 +1,31 @@
-let process = document.getElementById('process');
+const process = document.getElementById('process');
+const cbStatus = document.getElementById('status');
 window.onload = () => {
-    Diagrams();
-    document.getElementById('view-title').innerText = 'Diagramas por coursos';
+    Diagrams(3, process.value, 'horizontalBar');
+    document.getElementById('view-title').innerText = 'Reporte por curso';
 }
+cbStatus.addEventListener('change', () => {
+    let _statusValue = 0;
+    let tipo = 'horizontalBar';
+    _statusValue = parseInt(cbStatus.value);
+    if (_statusValue == 1) {
+        /* tipo = 'bar'; */
+        tipo = 'horizontalBar';
+    } else if (_statusValue == 2) {
+        /* tipo = 'doughnut'; */
+        tipo = 'horizontalBar';
+    } else {
+        tipo = 'horizontalBar';
+    }
+    if (_statusValue > 0) {
+        Diagrams(_statusValue, process.value, tipo);
+    }
+});
 
-function Diagrams() {
+function Diagrams(status, procss, tipe) {
     let formData = new FormData();
-    formData.append('process', process.value);
+    formData.append('process', procss);
+    formData.append('status', status);
     fetch('app/controllers/graphics/course.php', {
         method: 'POST',
         headers: {
@@ -25,20 +44,22 @@ function Diagrams() {
                 numbers.push(data[i][1]);
                 colors.push(colorRGB());
             }
-            chart('chartBar', 'bar', colors, lists, numbers, 'Diagrama de barras vertical');
-            chart('chartDoughnut', 'doughnut', colors, lists, numbers, 'Diagrama doughnut');
-            chart('chartHorizontalBar', 'horizontalBar', colors, lists, numbers, 'Diagrama de barras horizontal'); 
-            /* chart('chartPie', 'pie', colors, lists, numbers, 'Diagrama de barras'); */
-            chart('chartPie', 'pie', colors, lists, numbers, 'Diagrama de pastel');
+
+
+            chart('chart', tipe, colors, lists, numbers, 'Diagrama de '+tipe);
+            /* chart('chartPie', 'pie', colors, lists, numbers, 'Diagrama de pastel');
+ */
+            /*   chart('chartDoughnut', 'doughnut', colors, lists, numbers, 'Diagrama doughnut');
+              chart('chartHorizontalBar', 'horizontalBar', colors, lists, numbers, 'Diagrama de barras horizontal'); */
+
         });
 
 }
 
-
 function chart($id, $tipo, $colores, $lista, $datos, $titulo) {
-
-    var ctx = document.getElementById($id);
-    var myChart = new Chart(ctx, {
+    if (window.myChart && window.myChart !== null) { window.myChart.destroy(); }
+    const ctx = document.getElementById($id);
+    window.myChart = new Chart(ctx, {
         type: $tipo,
         data: {
             labels: $lista,
@@ -53,7 +74,7 @@ function chart($id, $tipo, $colores, $lista, $datos, $titulo) {
         options: {
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: false
                 }
             }
         }
