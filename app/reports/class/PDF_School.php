@@ -11,7 +11,7 @@ class PDF_School
     public $fontSizeH3 = 10;
 
     public $width1C = 10;
-    public $width2C = 25;
+    public $width2C = 30;
     public $width3C = 50;
     public $width4C = 80;
     public $heightTableCell = 8;
@@ -41,19 +41,23 @@ class PDF_School
         $this->pdf->SetFillColor(233, 236, 239);
         $this->pdf->SetFont('Helvetica', 'B', $this->fontSizeTableHeader);
         $this->pdf->Cell($this->width1C, $this->heightTableCell, utf8_decode('Nº'), 1, 0, 'C', 1);
-        $this->pdf->Cell($this->width3C, $this->heightTableCell, 'DNI', 1, 0, 'L', 1);
-        $this->pdf->Cell($this->width3C, $this->heightTableCell, utf8_decode('Código'), 1, 0, 'L', 1);
-        $this->pdf->Cell(0, $this->heightTableCell, 'Alumno **', 1, 1, 'L', 1);
+        $this->pdf->Cell($this->width2C, $this->heightTableCell, 'OMG *', 1, 0, 'L', 1);
+        $this->pdf->Cell($this->width2C, $this->heightTableCell, 'OMP **', 1, 0, 'L', 1);
+        $this->pdf->Cell($this->width2C, $this->heightTableCell, 'DNI', 1, 0, 'L', 1);
+        $this->pdf->Cell($this->width2C, $this->heightTableCell, utf8_decode('Código'), 1, 0, 'L', 1);
+        $this->pdf->Cell(0, $this->heightTableCell, 'Alumno ***', 1, 1, 'L', 1);
     }
-    function TableBody($num, $dni, $code, $lastname, $name)
+    function TableBody($num,$omg, $omp, $dni, $code, $lastname, $name)
     {
         $this->pdf->SetTextColor(73, 80, 87);
         $this->pdf->SetFont('Helvetica', 'B', $this->fontSizeTableBody);
         $this->pdf->Cell($this->width1C, $this->heightTableCell, $num, 1, 0, 'C');
         $this->pdf->SetTextColor(33, 37, 41);
         $this->pdf->SetFont('Helvetica', '', $this->fontSizeTableBody);
-        $this->pdf->Cell($this->width3C, $this->heightTableCell, utf8_decode($dni), 1, 0, 'L');
-        $this->pdf->Cell($this->width3C, $this->heightTableCell, utf8_decode($code), 1, 0, 'L');
+        $this->pdf->Cell($this->width2C, $this->heightTableCell, utf8_decode($omg), 1, 0, 'L');
+        $this->pdf->Cell($this->width2C, $this->heightTableCell, utf8_decode($omp), 1, 0, 'L');
+        $this->pdf->Cell($this->width2C, $this->heightTableCell, utf8_decode($dni), 1, 0, 'L');
+        $this->pdf->Cell($this->width2C, $this->heightTableCell, utf8_decode($code), 1, 0, 'L');
         $this->pdf->Cell(0, $this->heightTableCell, utf8_decode($lastname . ' ' . $name), 1, 1, 'L');
     }
 }
