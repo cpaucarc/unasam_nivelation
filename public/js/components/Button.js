@@ -39,7 +39,7 @@ class Button {
     }
 
     createBtnEdit(fun, ...params) {
-        let btn = this.createIconBtn('<i class="fas fa-edit"></i>', fun, ...params);
+        let btn = this.createIconBtn('<i class="bi bi-pencil-square"></i>', fun, ...params);
         btn.classList.add('btn');
         btn.classList.add('btn-light');
         btn.classList.add('btn-sm');
@@ -47,7 +47,7 @@ class Button {
     }
 
     createBtnDelete(fun, ...params) {
-        let btn = this.createIconBtn('<i class="fas fa-trash"></i>', fun, ...params);
+        let btn = this.createIconBtn('<i class="bi bi-trash"></i>', fun, ...params);
         btn.classList.add('btn');
         btn.classList.add('btn-outline-danger');
         return btn;

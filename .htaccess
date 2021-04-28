@@ -31,7 +31,7 @@ RewriteRule ^usuarios$ UserView.php
 
 #login
 RewriteRule ^login$ login.php
-RewriteRule ^login/([A-Za-z]+)/([A-Za-z]+)/([A-Za-z]+)/([A-Za-z]+)$ login?error=$1&username=$2&password=$3&role=$4
+#RewriteRule ^login/([A-Za-z]+)/([A-Za-z]+)/([A-Za-z]+)/([A-Za-z]+)$ login?error=$1&username=$2&password=$3&role=$4
 
 #profile
 RewriteRule ^perfil$ profile.php

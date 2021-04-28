@@ -9,24 +9,28 @@ try {
     $name = $_POST['name'];
     $lastname = $_POST['lastname'];
     $dni = $_POST['dni'];
-    $id = intval($_POST['id']);
+    $id = $_SESSION['user_logged']['id'];
 
     if (isset($name) and isset($lastname) and isset($dni) and isset($id) and $id > 0) {
-        $userModel = new UserModel();
-        $userModel->setId($id);
-        $userModel->setLastname($lastname);
-        $userModel->setName($name);
-        $userModel->setDni($dni);
+        if (strlen($dni) === 8) {
+            $userModel = new UserModel();
+            $userModel->setId($id);
+            $userModel->setLastname($lastname);
+            $userModel->setName($name);
+            $userModel->setDni($dni);
 
-        $rsp = $userModel->updatePersonalInfo();
+            $rsp = $userModel->updatePersonalInfo();
 
-        if ($rsp) {
-            $_SESSION['user_logged']['dni'] = $dni;
-            $_SESSION['user_logged']['lastname'] = $lastname;
-            $_SESSION['user_logged']['name'] = $name;
-            echo (new SendMessage("Los datos se actualizaron con exito", true))->getEncodedMessage();
+            if ($rsp) {
+                $_SESSION['user_logged']['dni'] = $dni;
+                $_SESSION['user_logged']['lastname'] = $lastname;
+                $_SESSION['user_logged']['name'] = $name;
+                echo (new SendMessage("Los datos se actualizaron con exito", true))->getEncodedMessage();
+            } else {
+                echo (new SendMessage("Hubo un error al actualizar los datos", false))->getEncodedMessage();
+            }
         } else {
-            echo (new SendMessage("Hubo un error al actualizar los datos", false))->getEncodedMessage();
+            echo (new SendMessage("El DNI debe contener 8 digitos", false))->getEncodedMessage();
         }
     } else {
         echo (new SendMessage("Faltan datos ", false))->getEncodedMessage();

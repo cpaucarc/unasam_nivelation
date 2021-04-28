@@ -27,7 +27,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                             </datalist>
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="submit" id="btSearch">
-                                    <i class="fas fa-search "></i>
+                                    <i class="bi bi-search"></i>
                                 </button>
                             </div>
                         </div>
@@ -35,13 +35,13 @@ require_once $sessionStarted->getUpperPartByUserType();
                     <div class="ml-auto bd-highlight d-flex">
                         <form action="http://localhost/nivelation/bystudentG.php" method="post" class="mx-2">
                             <button type="submit" class="btn btn-outline-danger">
-                                <i class="fas fa-chart-pie"></i>
+                                <i class="bi bi-pie-chart-fill"></i>
                             </button>
                         </form>
                         <form action="<?php echo $routeAux; ?>reporte/estudiante" method="post">
                             <input name="studentPdf" id="studentPdf" type="text" value="<?php echo $stdID; ?>">
                             <button type="submit" id="btShowPDF" class="btn btn-outline-danger">
-                                <i class="fas fa-file-pdf"></i>
+                                <i class="bi bi-file-earmark-text-fill"></i>
                             </button>
                         </form>
 

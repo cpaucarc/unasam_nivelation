@@ -19,7 +19,7 @@ require_once $sessionStarted->getUpperPartByUserType();
             </div>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#school_modal">
-                <i class="fas fa-plus"></i> Nuevo curso
+                <i class="bi bi-plus mr-2"></i>Nuevo curso
             </button>
         </div>
         <!-- DataTales Example -->
@@ -56,8 +56,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <td class="text-center">
                                 <div class="btn-group">
                                     <button class="btn btn-warning btnEditar" data-toggle="modal"
-                                            data-target="#school_modal"><i class="fas fa-edit"></i></button>
-                                    <button class="btn btn-danger btnEliminar"><i class="fas fa-trash-alt"></i></button>
+                                            data-target="#school_modal"><i class="bi bi-pencil-square"></i></button>
+                                    <button class="btn btn-danger btnEliminar"><i class="bi bi-trash"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -69,8 +69,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <td class="text-center">
                                 <div class="btn-group">
                                     <button class="btn btn-warning btnEditar" data-toggle="modal"
-                                            data-target="#school_modal"><i class="fas fa-edit"></i></button>
-                                    <button class="btn btn-danger btnEliminar"><i class="fas fa-trash-alt"></i></button>
+                                            data-target="#school_modal"><i class="bi bi-pencil-square"></i></button>
+                                    <button class="btn btn-danger btnEliminar"><i class="bi bi-trash"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -82,8 +82,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <td class="text-center">
                                 <div class="btn-group">
                                     <button class="btn btn-warning btnEditar" data-toggle="modal"
-                                            data-target="#school_modal"><i class="fas fa-edit"></i></button>
-                                    <button class="btn btn-danger btnEliminar"><i class="fas fa-trash-alt"></i></button>
+                                            data-target="#school_modal"><i class="bi bi-pencil-square"></i></button>
+                                    <button class="btn btn-danger btnEliminar"><i class="bi bi-trash"></i></button>
                                 </div>
                             </td>
                         </tr>
