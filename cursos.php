@@ -16,14 +16,16 @@ require_once $sessionStarted->getUpperPartByUserType();
                     <div class="col col-12 col-lg-4 mb-2">
                         <button type="button" class="btn btn-primary my-2" data-toggle="modal"
                                 data-target="#courses_modal" id="new-course">
-                            <i class="fas fa-plus"></i> Agregar curso
+                            <i class="bi bi-plus mr-2"></i>Agregar curso
                         </button>
 
                         <div class="alert alert-info my-3" role="alert">
                             <div class="row">
 
                                 <div class="col col-1 col-lg-2">
-                                    <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+                                    <h2>
+                                        <i class="bi bi-info-circle-fill"></i>
+                                    </h2>
                                 </div>
                                 <div class="col col-11 col-lg-10">
                                     <p>
@@ -73,7 +75,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                                 <button type="button" class="btn btn-light btn-sm mt-3 text-dark"
                                         data-toggle="modal"
                                         data-target="#modal-dimension">
-                                    <i class="fas fa-plus"></i> Nuevo
+                                    <i class="bi bi-plus mr-2"></i>Nuevo
                                 </button>
                             </div>
                         </div>

@@ -18,13 +18,13 @@ require_once $sessionStarted->getUpperPartByUserType();
                     <div class="col col-12 col-lg-3 mb-3">
                         <button type="button" class="btn btn-primary my-2" data-toggle="modal"
                                 data-target="#process_modal" id="new-process">
-                            <i class="fas fa-plus"></i> Agregar proceso
+                            <i class="bi bi-plus mr-2"></i>Agregar proceso
                         </button>
 
                         <div class="alert alert-info my-3" role="alert">
                             <label for="lastProcess">Ultimo Proceso de Admision registrado</label>
                             <h3 class="font-weight-bold text-primary" aria-describedby="help">
-                                <i class="fas fa-calendar-day"></i> <span id="lastProcess">Cargando...</span>
+                                <i class="bi bi-calendar-check mr-2"></i> <span id="lastProcess">Cargando...</span>
                             </h3>
                         </div>
 

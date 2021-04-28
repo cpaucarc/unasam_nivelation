@@ -41,7 +41,9 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <div class="alert alert-info mt-3" role="alert">
                             <div class="row">
                                 <div class="col col-2">
-                                    <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+                                    <h2>
+                                        <i class="bi bi-info-circle-fill"></i>
+                                    </h2>
                                 </div>
                                 <div class="col col-10">
                                     Su rol <span

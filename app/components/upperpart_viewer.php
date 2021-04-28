@@ -26,7 +26,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center"
-           href="inicio">
+           href="#">
             <div class="sidebar-brand-icon ">
                 <img src="<?php echo $rtax; ?>public/images/logo.jpg" width="50px" class="rounded float-start"
                      alt="Escudo de la Unasam">
@@ -39,14 +39,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
 
         <hr class="sidebar-divider my-0">
 
-        <li class="nav-item active">
-            <a class="nav-link" href="inicio">
-                <i class="fas fa-home"></i>
-                <span>Inicio del sitio</span>
-            </a>
-        </li>
-
-        <hr class="sidebar-divider">
+        <hr class="sidebar-divider my-3">
 
         <div class="sidebar-heading">
             Vistas
@@ -54,8 +47,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Vistas</span>
+                <i class="bi bi-table mr-2"></i>Vistas
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
@@ -89,7 +81,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
 
                 <!-- Sidebar Toggle (Topbar) -->
                 <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                    <i class="fa fa-bars"></i>
+                    <i class="bi bi-list"></i>
                 </button>
                 <h5 class="ml-2 mt-3 font-weight-bold d-none d-lg-inline text-gray-600" id="view-title">
                     Cargando...
@@ -120,14 +112,13 @@ $rtax = isset($routeAux) ? $routeAux : "";
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="<?php echo $rtax; ?>perfil">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Perfil
+                                <i class="bi bi-person-lines-fill mr-2"></i>Mi Perfil
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item text-danger font-weight-bold click-logout" href="#"
                                data-toggle="modal"
                                data-target="#logoutModal">
-                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-danger"></i>
+                                <i class="bi bi-box-arrow-in-left mr-2 text-danger"></i>
                                 Cerrar sesión
                             </a>
                         </div>

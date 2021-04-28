@@ -135,7 +135,9 @@ class Card {
         return `<div class="alert alert-danger" role="alert">
             <div class="row">
                 <div class="col col-2">
-                    <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+                    <h2>
+                    <i class="bi bi-info-circle-fill"></i>
+                    </h2>
                 </div>
                 <div class="col col-10">
                     <h4 class="font-weight-bold">Atención:</h4>
@@ -154,8 +156,11 @@ class Card {
                         </div>
                     </div>
                     <div class="card-body text-center">
-                        <a href="#" class="text-secondary" data-toggle="modal"
-                           data-target="#add-area"><i class="fas fa-plus-circle fa-4x"></i>
+                        <a href="#" class="text-dark" data-toggle="modal"
+                           data-target="#add-area">
+                           <h1 class="display-4">
+                           <i class="bi bi-plus-circle-fill"></i>
+                           </h1> 
                         </a>
                     </div>
                 </div>

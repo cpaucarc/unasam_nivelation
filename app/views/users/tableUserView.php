@@ -32,7 +32,7 @@ $sql = "SELECT * FROM vusers ORDER BY lastname;";
                 <td><?php echo $row['username'] ?></td>
                 <td class="text-center">
                         <span class="btn btn-outline-danger btn-sm" onclick="deleteUser('<?php echo $id ?>')">
-                        <i class="fas fa-trash"></i>
+                        <i class="bi bi-trash"></i>
                         </span>
                 </td>
             </tr>

@@ -23,12 +23,12 @@ try {
 
             if ($rsp) {
                 $_SESSION['user_logged']['username'] = $username;
-                echo (new SendMessage("Los datos de acceso se actualizaron con exito", true))->getEncodedMessage();
+                echo (new SendMessage("Los datos de acceso se actualizaron con exito.", true))->getEncodedMessage();
             } else {
-                echo (new SendMessage("Hubo un error al actualizar los datos de acceso", false))->getEncodedMessage();
+                echo (new SendMessage("Hubo un error al actualizar los datos de acceso.", false))->getEncodedMessage();
             }
         } else {
-            echo (new SendMessage("Las contraseñas deben ser iguales", false))->getEncodedMessage();
+            echo (new SendMessage("Verifuq que las contraseñas sean iguales.", false))->getEncodedMessage();
         }
     } else {
         echo (new SendMessage("Faltan datos ", false))->getEncodedMessage();
