@@ -18,7 +18,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <div class="col col-12 col-lg-7 mb-4">
                                 <label for="lastProcess">Proceso de Admision</label>
                                 <h3 class="font-weight-bold text-primary" aria-describedby="help">
-                                    <i class="fas fa-calendar-day"></i> <span id="lastProcess">Cargando...</span>
+                                    <i class="bi bi-calendar-check mr-2"></i> <span id="lastProcess">Cargando...</span>
                                 </h3>
                                 <small id="help" class="form-text text-muted">
                                     Los datos que cargue ahora se guardaran para este proceso de admisión.
@@ -28,7 +28,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <div class="col col-12 col-lg-4 my-auto">
                                 <button class="btn btn-primary btn-lg" data-toggle="modal"
                                         data-target="#file_modal">
-                                    <i class="fas fa-upload fa-sm text-white-50"></i> Subir documento
+                                    <i class="bi bi-upload mr-2"></i>Subir documento
                                 </button>
                             </div>
                         </div>

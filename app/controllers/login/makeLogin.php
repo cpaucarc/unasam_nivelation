@@ -42,7 +42,7 @@ try {
 
     } else {
         $error = "$response";
-        header("Location: ".PROJECT."login?error=" . $response['response'] . "&username=$username?lastname=$password&role=$rolID", TRUE, 301);
+        header("Location: ".PROJECT."login?error=" . $response['response'], TRUE, 301);
         exit;
     }
 

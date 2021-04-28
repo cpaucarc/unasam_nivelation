@@ -126,7 +126,7 @@ formArea.addEventListener('submit', (e) => {
 function appendAreas(data) {
     data.forEach(area => {
         let btnShow = button.createIconAndTextBtn(
-            '<i class="fas fa-show"></i>', ' Ver',
+            '', ' Ver',
             showAreaCoursesAndSchools, area.name, area.id
         );
         let areaCard = cardArea.createCardArea(area.name, area.desc, btnShow);

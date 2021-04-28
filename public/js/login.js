@@ -5,6 +5,16 @@ select = new Select();
 
 window.onload = () => {
     fillWhitRoles();
+    if (errormsg !== "") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: errormsg,
+            confirmButtonText:
+                '<i class="bi bi-hand-thumbs-up mr-2"></i>Ok!',
+            confirmButtonColor: 'var(--primary)',
+        })
+    }
 }
 
 function fillWhitRoles() {

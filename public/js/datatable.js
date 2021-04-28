@@ -76,19 +76,19 @@ function tableButton(table) {
         dom: 'Bfrtilp',
         buttons: [{
             extend: 'excelHtml5',
-            text: '<i class="fas fa-file-excel"></i> ',
+            text: '<i class="bi bi-file-earmark-excel mr-2"></i>',
             titleAttr: 'Exportar a Excel',
             className: 'btn btn-success'
         },
             {
                 extend: 'pdfHtml5',
-                text: '<i class="fas fa-file-pdf"></i> ',
+                text: '<i class="bi bi-file-earmark-text-fill"></i>',
                 titleAttr: 'Exportar a PDF',
                 className: 'btn btn-danger'
             },
             {
                 extend: 'print',
-                text: '<i class="fa fa-print"></i> ',
+                text: '<i class="bi bi-printer mr-2"></i>',
                 titleAttr: 'Imprimir',
                 className: 'btn btn-info'
             },

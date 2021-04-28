@@ -13,7 +13,7 @@ require_once $sessionStarted->getUpperPartByUserType();
         <div class="card-body ">
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#user_modal">
-                    <i class="fas fa-plus"></i> Nuevo usuario
+                    <i class="bi bi-plus mr-2"></i>Nuevo usuario
                 </button>
             </div>
             <div id="table-courses">
@@ -100,7 +100,9 @@ require_once $sessionStarted->getUpperPartByUserType();
                                 <div class="alert alert-info my-2" role="alert">
                                     <div class="row">
                                         <div class="col col-1">
-                                            <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+                                            <h2>
+                                                <i class="bi bi-info-circle-fill"></i>
+                                            </h2>
                                         </div>
                                         <div class="col col-11">
                                             <p>El <strong>Nombre de usuario</strong> y <strong>Contraseña</strong> por

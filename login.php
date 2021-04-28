@@ -1,3 +1,7 @@
+<?php
+$error_message = $_GET['error'] ?? "";
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -44,18 +48,12 @@
                                                name="password" required>
                                     </div>
                                     <div class="mt-4">
-                                        <button class="btn btn-primary btn-block font-weight-bold"
+                                        <button class="btn btn-primary btn-block"
                                                 type="submit">
-                                            <i class="fas fa-sign-in-alt"></i> Ingresar
+                                            <i class="bi bi-box-arrow-in-right"></i> Ingresar
                                         </button>
                                     </div>
                                 </form>
-                                <div class="alert alert-danger alert-dismissible fade show mb-0" role="alert">
-                                    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -67,6 +65,7 @@
 <!-- Custom scripts for all pages-->
 <script src="public/js/sb-admin-2.min.js"></script>
 <script src="public/js/components/Select.js"></script>
+<script> var errormsg = '<?php echo $error_message;?>';</script>
 <script src="public/js/login.js"></script>
 </body>
 

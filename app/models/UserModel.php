@@ -58,14 +58,9 @@ class UserModel
         $connection = new MySqlConnection();
         if ($connection) {
             $pdo = $connection->getConnection();
-            $sql = "UPDATE people SET name = ?, lastname = ?, dni = ? WHERE id = (SELECT people_id FROM users WHERE id = ?);";
-            $pdo->prepare($sql)->execute([
-                $this->name,
-                $this->lastname,
-                $this->dni,
-                $this->id
-            ]);
-            return true;
+            $sql = "CALL spUpdatePersonPersonalInfo('$this->name', '$this->lastname', '$this->dni', $this->id);";
+            $response = intval($pdo->query($sql)->fetchColumn());
+            return $response == 1; // 1:true, 0:false
         } else {
             return false;
         }
@@ -253,5 +248,5 @@ class UserModel
         $this->rolID = $rolID;
         return $this;
     }
-    
+
 }

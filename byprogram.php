@@ -41,7 +41,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <input name="processChart" id="processChart" required type="text"
                                placeholder="Requerid process">
                         <button type="submit" class="btn btn-outline-danger">
-                            <i class="fas fa-chart-pie"></i>
+                            <i class="bi bi-pie-chart-fill"></i>
                         </button>
                     </form>
                     <form action="reporte/programa" method="post">
@@ -50,7 +50,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <input name="programPdf" id="programPdf" type="text" placeholder="No requerid program">
                         <input name="processPdf" id="processPdf" required type="text" placeholder="Requerid process">
                         <button type="submit" class="btn btn-outline-danger">
-                            <i class="fas fa-file-pdf"></i>
+                            <i class="bi bi-file-earmark-text-fill"></i>
                         </button>
                     </form>
                 </div>

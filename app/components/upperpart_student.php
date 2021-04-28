@@ -81,7 +81,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
                             <a class="dropdown-item text-danger font-weight-bold click-logout" href="#"
                                data-toggle="modal"
                                data-target="#logoutModal">
-                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-danger"></i>
+                                <i class="bi bi-box-arrow-in-left mr-2 text-danger"></i>
                                 Cerrar sesión
                             </a>
                         </div>

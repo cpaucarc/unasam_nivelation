@@ -2,7 +2,7 @@ const formPersonalInfo = document.getElementById('personal-info');
 const formAccessInfo = document.getElementById('access-info');
 
 window.onload = () => {
-    document.getElementById('view-title').innerText = 'Verfil del Usuario';
+    document.getElementById('view-title').innerText = 'Mi Perfil';
 }
 
 formPersonalInfo.addEventListener('submit', (e) => {
