@@ -22,7 +22,7 @@ require_once $sessionStarted->getUpperPartByUserType();
         </div>
     </div>
     <div class="row my-3">
-        <div class="col col-lg-6 col-md-6 col-sm-12 col-12 mb-4">
+        <!--    <div class="col col-lg-6 col-md-6 col-sm-12 col-12 mb-4">
             <div class="card">
                 <div class="card-header text-center">
                     <div class="text-md font-weight-bold text-primary">
@@ -69,9 +69,9 @@ require_once $sessionStarted->getUpperPartByUserType();
                     <canvas id="chartPie" height="200"></canvas>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-        <div class="col col-lg-6 col-md-6 col-sm-12 col-12 mb-4">
+        <div class="col col-lg-12 col-md-12 col-sm-12 col-12 mb-4">
             <div class="card">
                 <div class="card-header text-center">
                     <div class="text-md font-weight-bold text-primary">
@@ -79,9 +79,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                     </div>
                 </div>
                 <div class="card-body">
-                    <div class="chart-area">
-                        <canvas id="myAreaChart"></canvas>
-                    </div>
+                    <canvas id="chart" height="200"></canvas>
                 </div>
             </div>
         </div>
