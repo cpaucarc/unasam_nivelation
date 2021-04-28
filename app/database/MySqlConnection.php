@@ -15,7 +15,7 @@ class MySqlConnection
         $this->host = "localhost";
         $this->db = "ogcu";
         $this->user = "root";
-        $this->password = "";
+        $this->password = "1234";
         $this->port = "3306";
     }
 
