@@ -11,7 +11,7 @@ class courseModel
     {
         $conn = (new MySqlConnection())->getConnection();
 
-        $sql = "CALL spCoursessProcess('$process');";
+        $sql = "SELECT status, COUNT(students) as students FROM studentsxstatus WHERE process='$process' GROUP BY status;";
         $arreglo = array();
         $consulta = $conn->query($sql);
 
