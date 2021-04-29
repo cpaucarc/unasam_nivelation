@@ -4,9 +4,12 @@ const cbSchool = document.getElementById('school');
 const tbody = document.getElementById('tbody');
 
 //for fpdf
-let areaPdf = document.getElementById('areaPdf');
-let programPdf = document.getElementById('programPdf');
-let processPdf = document.getElementById('processPdf');
+let areaPdf_1 = document.getElementById('areaPdf_1');
+let areaPdf_2 = document.getElementById('areaPdf_2');
+let programPdf_1 = document.getElementById('programPdf_1');
+let processPdf_1 = document.getElementById('processPdf_1');
+let processPdf_2 = document.getElementById('processPdf_2');
+let processPdf_3 = document.getElementById('processPdf_3');
 let processChart = document.getElementById('processChart');
 
 table = new Table();
@@ -15,7 +18,6 @@ select = new Select();
 
 window.onload = () => {
     fillWhitProcess();
-    //for dpdf
     document.getElementById('view-title').innerText = 'Vista por Programas Académicos';
 }
 
@@ -32,7 +34,7 @@ cbSchool.addEventListener('change', () => {
 cbProcess.addEventListener('change', () => {
     let _processText = cbProcess.options[cbProcess.selectedIndex].text;
     let _processValue = parseInt(cbProcess.value);
-    processPdf.value = _processText;
+    //processPdf.value = _processText;
     processChart.value = _processText;
 
     let _schoolText = cbSchool.options[cbSchool.selectedIndex].text;
@@ -74,7 +76,9 @@ function fillWhitSchools(area) {
     let formData = new FormData();
     formData.append('area', area);
     //for fpdf
-    areaPdf.value = area;
+    areaPdf_1.value = area;
+    areaPdf_2.value = area;
+
     fetch('app/controllers/school/getSchoolsByArea.php/', {
         method: 'POST',
         headers: {
@@ -102,8 +106,10 @@ function fillTableWhitStudents(school, process) {
     formData.append('school', school);
     formData.append('process', process);
     //for fpdf
-    programPdf.value = school;
-    processPdf.value = process;
+    programPdf_1.value = school;
+    processPdf_1.value = process;
+    processPdf_2.value = process;
+    processPdf_3.value = process;
     processChart.value = process;
 
     fetch('app/controllers/student/getStudentsBySchool.php/', {

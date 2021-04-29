@@ -24,7 +24,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                         </select>
                     </div>
                     <div class="ml-4 bd-highlight">
-                        <label for="school">Escuelas</label>
+                        <label for="school">Programa</label>
                         <select class="form-control" id="school">
                         </select>
                     </div>
@@ -37,22 +37,71 @@ require_once $sessionStarted->getUpperPartByUserType();
             </div>
             <div class="d-flex bd-highlight mr-4 mt-3 justify-content-end">
                 <div class="ml-auto bd-highlight d-flex">
-                    <form action="http://localhost/nivelation/byprogramG.php" method="post" class="mx-2">
-                        <input name="processChart" id="processChart" required type="text"
-                               placeholder="Requerid process">
-                        <button type="submit" class="btn btn-outline-danger">
-                            <i class="bi bi-pie-chart-fill"></i>
-                        </button>
-                    </form>
-                    <form action="reporte/programa" method="post">
-                        <input name="areaPdf" id="areaPdf" type="text" placeholder="No requerid program">
+                    <!--                    <form action="http://localhost/nivelation/byprogramG.php" method="post" class="mx-2">-->
+                    <!--                        <input name="processChart" id="processChart" required type="text"-->
+                    <!--                               placeholder="Requerid process">-->
+                    <!--                        <button type="submit" class="btn btn-outline-danger">-->
+                    <!--                            <i class="bi bi-pie-chart-fill"></i>-->
+                    <!--                        </button>-->
+                    <!--                    </form>-->
+                    <!--                    <form action="reporte/programa" method="post">-->
+                    <!--                        <input name="areaPdf" id="areaPdf" type="text" placeholder="No requerid program">-->
+                    <!---->
+                    <!--                        <input name="programPdf" id="programPdf" type="text" placeholder="No requerid program">-->
+                    <!--                        <input name="processPdf" id="processPdf" required type="text" placeholder="Requerid process">-->
+                    <!--                        <button type="submit" class="btn btn-outline-danger">-->
+                    <!--                            <i class="bi bi-file-earmark-text-fill"></i>-->
+                    <!--                        </button>-->
+                    <!--                    </form>-->
 
-                        <input name="programPdf" id="programPdf" type="text" placeholder="No requerid program">
-                        <input name="processPdf" id="processPdf" required type="text" placeholder="Requerid process">
-                        <button type="submit" class="btn btn-outline-danger">
-                            <i class="bi bi-file-earmark-text-fill"></i>
-                        </button>
-                    </form>
+                    <div class="dropdown ml-2">
+                        <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="bi bi-graph-up mr-2"></i>Reportes y Graficos
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <h6 class="dropdown-header">Reportes</h6>
+                            <a>
+                                <form action="reporte/programa" method="post">
+                                    <input id="areaPdf_1" name="areaPdf" required type="hidden">
+                                    <input id="programPdf_1" name="programPdf" required type="hidden">
+                                    <input id="processPdf_1" name="processPdf" required type="hidden">
+                                    <button type="submit" class="dropdown-item">
+                                        <i class="bi bi-stop mr-2"></i>Ver solo este Programa
+                                    </button>
+                                </form>
+                            </a>
+                            <a>
+                                <form action="reporte/programa" method="post">
+                                    <input id="areaPdf_2" name="areaPdf" required type="hidden">
+                                    <input id="processPdf_2" name="processPdf" required type="hidden">
+                                    <button type="submit" class="dropdown-item">
+                                        <i class="bi bi-grid mr-2"></i>Ver todos los Programas
+                                    </button>
+                                </form>
+                            </a>
+                            <a>
+                                <form action="reporte/programa" method="post">
+                                    <input id="processPdf_3" name="processPdf" required type="hidden">
+                                    <button type="submit" class="dropdown-item">
+                                        <i class="bi bi-grid-3x2-gap mr-2"></i>Ver todas las Áreas
+                                    </button>
+                                </form>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <h6 class="dropdown-header">Gráficos</h6>
+                            <a>
+                                <form action="http://localhost/nivelation/byprogramG.php" method="post" class="mx-2">
+                                    <input name="processChart" id="processChart" required type="hidden">
+                                    <button type="submit" class="dropdown-item">
+                                        <i class="bi bi-pie-chart-fill mr-2"></i> Ver Graficos
+                                    </button>
+                                </form>
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div class="card-body">
