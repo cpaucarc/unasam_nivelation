@@ -6,14 +6,13 @@ require_once(REPORT_PATH . "class/PDF_Course.php");
 
 if (isset($_POST['processPdf'])) {
 
-    $areaPdf = $_POST['areaPdf'];
-    $dimensionPdf = $_POST['dimensionPdf'];
-    $coursePdf = $_POST['coursePdf'];
+    $areaPdf = $_POST['areaPdf'] ?? '';
+    $dimensionPdf = $_POST['dimensionPdf'] ?? '';
+    $coursePdf = $_POST['coursePdf'] ?? '';
     $processPdf = $_POST['processPdf'];
 
     $pdf = new PDF('P', 'mm', 'A4');
     $pdf->AliasNbPages();
-    $pdf->AddPage();
     $conn = (new MySqlConnection())->getConnection();
     $pdfCourse = new PDF_Course($pdf);
 
@@ -26,6 +25,8 @@ if (isset($_POST['processPdf'])) {
     $response = $conn->query($sql);
 
     foreach ($response as $row1) {
+        $pdf->AddPage();
+        
         //Report header
         $pdf->HeaderReport($pdf->GetY());
 
@@ -89,7 +90,7 @@ if (isset($_POST['processPdf'])) {
     }
 
     $pdf->SetTextColor(86, 97, 108);
-    $pdf->SetFont('Helvetica', '', $pdfCourse->fontSizeTableBody+1);
+    $pdf->SetFont('Helvetica', '', $pdfCourse->fontSizeTableBody + 1);
     $pdf->Cell(0, 5, utf8_decode("*\t\t Alumnos por dimensión/curso seleccionada."), 0, 1, 'L');
     $pdf->Cell(0, 5, utf8_decode("**\t Recomendación de alumnos por dimensión/curso seleccionada."), 0, 1, 'L');
     $pdf->Output();

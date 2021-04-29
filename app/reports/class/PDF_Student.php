@@ -41,6 +41,7 @@ class PDF_Student
         $this->pdf->SetFont('Helvetica', '', $this->fontSizeH4);
         $this->pdf->Cell(0, $this->heightTitleCell - 2, utf8_decode($dni), 0, 1, 'L');
         $this->pdf->SetFont('Helvetica', 'B', $this->fontSizeH4);
+        $this->pdf->Ln(2);
         $this->pdf->Cell(15, $this->heightTitleCell - 2, utf8_decode('Escuela: '), 0, 0, 'L');
         $this->pdf->SetFont('Helvetica', '', $this->fontSizeH4);
         $this->pdf->Cell(80, $this->heightTitleCell - 2, utf8_decode(strtoupper($program)), 0, 0, 'L');
@@ -57,7 +58,7 @@ class PDF_Student
         $this->pdf->Cell(15, $this->heightTitleCell - 2, utf8_decode('OMP: '), 0, 0, 'L');
         $this->pdf->SetFont('Helvetica', '', $this->fontSizeH4);
         $this->pdf->Cell(0, $this->heightTitleCell - 2, utf8_decode($omp), 0, 1, 'L');
-        $this->pdf->Ln(2);
+        $this->pdf->Ln(5);
     }
     function TableHeader()
     {
