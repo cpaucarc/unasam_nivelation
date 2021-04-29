@@ -5,10 +5,16 @@ const cbDimension = document.getElementById('dimension');
 const tbody = document.getElementById('tbody');
 
 //for fpdf
-let areaPdf = document.getElementById('areaPdf');
-let dimensionPdf = document.getElementById('dimensionPdf');
-let coursePdf = document.getElementById('coursePdf');
-let processPdf = document.getElementById('processPdf');
+let areaPdf_1 = document.getElementById('areaPdf_1');
+let areaPdf_2 = document.getElementById('areaPdf_2');
+let areaPdf_3 = document.getElementById('areaPdf_3');
+let dimensionPdf_1 = document.getElementById('dimensionPdf_1');
+let dimensionPdf_2 = document.getElementById('dimensionPdf_2');
+let coursePdf_1 = document.getElementById('coursePdf_1');
+let processPdf_1 = document.getElementById('processPdf_1');
+let processPdf_2 = document.getElementById('processPdf_2');
+let processPdf_3 = document.getElementById('processPdf_3');
+let processPdf_4 = document.getElementById('processPdf_4');
 let processChart = document.getElementById('processChart');
 
 table = new Table();
@@ -23,8 +29,6 @@ window.onload = function () {
 };
 
 cbArea.onchange = () => {
-    let _areaText = cbArea.options[cbArea.selectedIndex].text;
-    areaPdf.value = _areaText;
     getData();
 }
 
@@ -37,9 +41,9 @@ cbProcess.onchange = () => {
 };
 
 cbDimension.onchange = () => {
-    coursePdf.value = "";
     let _dimensionText = cbDimension.options[cbDimension.selectedIndex].text;
-    dimensionPdf.value = _dimensionText;
+    dimensionPdf_1.value = _dimensionText;
+    dimensionPdf_2.value = _dimensionText;
 
     let dimensionID = parseInt(cbDimension.value);
     if (dimensionID > 0) {
@@ -52,16 +56,20 @@ cbDimension.onchange = () => {
 function getData() {
     let _processText = cbProcess.options[cbProcess.selectedIndex].text;
     let _processValue = parseInt(cbProcess.value);
-    processPdf.value = _processText;
-    processChart.value = _processText;
-
+    if (_processValue > 0) {
+        processPdf_1.value = _processText;
+        processPdf_2.value = _processText;
+        processPdf_3.value = _processText;
+        processPdf_4.value = _processText;
+        processChart.value = _processText;
+    }
     let _areaText = cbArea.options[cbArea.selectedIndex].text;
     let _areaValue = parseInt(cbArea.value);
 
     if (cbCourse.length > 0) {
         let _courseText = cbCourse.options[cbCourse.selectedIndex].text;
         let _courseValue = parseInt(cbCourse.value);
-        coursePdf.value = _courseText;
+        /*  coursePdf.value = _courseText; */
         if (_areaValue > 0 && _courseValue > 0 && _processValue > 0) {
             fillTableWhitCourses(_areaText, _courseText, _processText);
         } else {
@@ -115,11 +123,17 @@ function fillTableWhitCourses(area, course, process) {
     formData.append('area', area);
     formData.append('course', course);
     formData.append('process', process);
-    //for fpdf
-    areaPdf.value = area;
-    coursePdf.value = course;
-    processPdf.value = process;
+    //for fpdfareaPdf_1.value = area;
+    areaPdf_1.value = area;
+    areaPdf_2.value = area;
+    areaPdf_3.value = area;
+    coursePdf_1.value = course;
+    processPdf_1.value = process;
+    processPdf_2.value = process;
+    processPdf_3.value = process;
+    processPdf_4.value = process;
     processChart.value = process;
+
 
     fetch('app/controllers/student/getStudentsbyCourse.php/', {
         method: 'POST',

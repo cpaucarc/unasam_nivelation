@@ -37,23 +37,6 @@ require_once $sessionStarted->getUpperPartByUserType();
             </div>
             <div class="d-flex bd-highlight mr-4 mt-3 justify-content-end">
                 <div class="ml-auto bd-highlight d-flex">
-                    <!--                    <form action="http://localhost/nivelation/byprogramG.php" method="post" class="mx-2">-->
-                    <!--                        <input name="processChart" id="processChart" required type="text"-->
-                    <!--                               placeholder="Requerid process">-->
-                    <!--                        <button type="submit" class="btn btn-outline-danger">-->
-                    <!--                            <i class="bi bi-pie-chart-fill"></i>-->
-                    <!--                        </button>-->
-                    <!--                    </form>-->
-                    <!--                    <form action="reporte/programa" method="post">-->
-                    <!--                        <input name="areaPdf" id="areaPdf" type="text" placeholder="No requerid program">-->
-                    <!---->
-                    <!--                        <input name="programPdf" id="programPdf" type="text" placeholder="No requerid program">-->
-                    <!--                        <input name="processPdf" id="processPdf" required type="text" placeholder="Requerid process">-->
-                    <!--                        <button type="submit" class="btn btn-outline-danger">-->
-                    <!--                            <i class="bi bi-file-earmark-text-fill"></i>-->
-                    <!--                        </button>-->
-                    <!--                    </form>-->
-
                     <div class="dropdown ml-2">
                         <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
