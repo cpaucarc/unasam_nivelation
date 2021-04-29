@@ -1,34 +1,41 @@
 const cbProcess = document.getElementById('process');
 const badge_process = document.querySelectorAll('.badge-process');
+const cbTipeChart = document.getElementById('tipeChart');
+//default
+let _tip_tipeValueeText = 'Diagrama de barras vertical';
+let _tipeValue = 'bar';
+let _process;
+
+
 select = new Select();
+
 window.onload = () => {
     fillWhitProcess();
-    document.getElementById('view-title').innerText = 'Diagramas por general';
-
+    document.getElementById('view-title').innerText = 'Diagramas por estdos de estudiantes';
 }
-
-cbProcess.addEventListener('change', () => {
-    let _processValue = 0;
-    let _processText = cbProcess.options[cbProcess.selectedIndex].text;
-    _processValue = parseInt(cbProcess.value);
-    if (_processValue == 1) {
-        tipo = 'pie';
-        /* tipo = 'doughnut'; */
-    } else if (_processValue == 2) {
-        tipo = 'doughnut';
-        /* tipo = 'doughnut'; */
-    } else {
-        tipo = 'horizontabar ';
-    }
-    if (_processValue > 0) {
-        badge_process.forEach((texto) => {
-            texto.innerText = _processText;
-        });
-        Diagrams(_processText, tipo);
+cbTipeChart.addEventListener('change', () => {
+    _tip_tipeValueeText = cbTipeChart.options[cbTipeChart.selectedIndex].text;
+    _tipeValue = cbTipeChart.value;
+    alert(_process + _tipeValue + _tip_tipeValueeText);
+    if (_tipeValue != '') {
+        Diagrams(_process, _tipeValue, _tip_tipeValueeText);
     }
 });
 
-function Diagrams(process, tipe) {
+cbProcess.addEventListener('change', () => {
+    let _processValue = 0;
+    _process = cbProcess.options[cbProcess.selectedIndex].text;
+    _processValue = parseInt(cbProcess.value);
+    if (_processValue > 0) {
+
+        Diagrams(_process, _tipeValue, _tip_tipeValueeText);
+        badge_process.forEach((texto) => {
+            texto.innerText = _process;
+        });
+    }
+});
+
+function Diagrams(process, tipe, title) {
     let formData = new FormData();
     formData.append('process', process);
     fetch('http://localhost/nivelation/app/controllers/graphics/student.php', {
@@ -49,9 +56,8 @@ function Diagrams(process, tipe) {
                 numbers.push(data[i][1]);
                 colors.push(colorRGB());
             }
-            chart('chart', tipe, colors, lists, numbers, 'Diagrama de ' + tipe);
+            chart('chart', tipe, colors, lists, numbers, title);
         });
-
 }
 
 
@@ -115,7 +121,9 @@ function fillWhitProcess() {
             cbProcess.appendChild(select.createOption(0, 'Selecciona...'));
             data.forEach(proc => {
                 if (proc.id == 1) {
-                    Diagrams(proc.name, 'horizontalBar');
+                    //Capturar proceso name final
+                    Diagrams(proc.name, _tipeValue, _tip_tipeValueeText);
+                    _process = proc.name;
                 }
                 cbProcess.appendChild(select.createOption(proc.id, proc.name));
             });

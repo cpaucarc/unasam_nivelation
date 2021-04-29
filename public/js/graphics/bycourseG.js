@@ -1,30 +1,34 @@
 const process = document.getElementById('process');
 const cbStatus = document.getElementById('status');
+const cbTipeChart = document.getElementById('tipeChart');
+//default
+let _tip_tipeValueeText='Diagrama de barras vertical' ;
+let _tipeValue='bar';
+let _statusValue = 3;
+
 window.onload = () => {
-    Diagrams(3, process.value, 'horizontalBar');
-    document.getElementById('view-title').innerText = 'Reporte por curso';
+    Diagrams(_statusValue, _tipeValue, _tip_tipeValueeText);
+    document.getElementById('view-title').innerText = 'Diagramas por cursos especificos';
 }
-cbStatus.addEventListener('change', () => {
-    let _statusValue = 0;
-    let tipo = 'horizontalBar';
-    _statusValue = parseInt(cbStatus.value);
-    if (_statusValue == 1) {
-        /* tipo = 'bar'; */
-        tipo = 'horizontalBar';
-    } else if (_statusValue == 2) {
-        /* tipo = 'doughnut'; */
-        tipo = 'horizontalBar';
-    } else {
-        tipo = 'horizontalBar';
-    }
-    if (_statusValue > 0) {
-        Diagrams(_statusValue, process.value, tipo);
+
+cbTipeChart.addEventListener('change', () => {
+    _tip_tipeValueeText = cbTipeChart.options[cbTipeChart.selectedIndex].text;
+    _tipeValue = cbTipeChart.value;
+    if (_tipeValue != '') {
+        Diagrams(_statusValue, _tipeValue, _tip_tipeValueeText);
     }
 });
 
-function Diagrams(status, procss, tipe) {
+cbStatus.addEventListener('change', () => {
+    _statusValue = parseInt(cbStatus.value);
+    if (_statusValue > 0) {
+        Diagrams(_statusValue, _tipeValue, _tip_tipeValueeText);
+    }
+});
+
+function Diagrams(status, tipe, title) {
     let formData = new FormData();
-    formData.append('process', procss);
+    formData.append('process', process.value);
     formData.append('status', status);
     fetch('app/controllers/graphics/course.php', {
         method: 'POST',
@@ -44,16 +48,8 @@ function Diagrams(status, procss, tipe) {
                 numbers.push(data[i][1]);
                 colors.push(colorRGB());
             }
-
-
-            chart('chart', tipe, colors, lists, numbers, 'Diagrama de '+tipe);
-            /* chart('chartPie', 'pie', colors, lists, numbers, 'Diagrama de pastel');
- */
-            /*   chart('chartDoughnut', 'doughnut', colors, lists, numbers, 'Diagrama doughnut');
-              chart('chartHorizontalBar', 'horizontalBar', colors, lists, numbers, 'Diagrama de barras horizontal'); */
-
+            chart('chart', tipe, colors, lists, numbers, title);
         });
-
 }
 
 function chart($id, $tipo, $colores, $lista, $datos, $titulo) {

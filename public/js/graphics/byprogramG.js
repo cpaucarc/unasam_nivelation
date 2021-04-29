@@ -1,10 +1,21 @@
 let process = document.getElementById('process');
+const cbTipeChart = document.getElementById('tipeChart');
+
 window.onload = () => {
-    Diagrams();
-    document.getElementById('view-title').innerText = 'Diagramas por Programas Académicos';
+    Diagrams('bar','Diagrama de barras vertical');
+    document.getElementById('view-title').innerText = 'Diagramas por programas académicos';
 }
 
-function Diagrams() {
+
+cbTipeChart.addEventListener('change', () => {
+    let _tip_tipeValueeText = cbTipeChart.options[cbTipeChart.selectedIndex].text;
+    let _tipeValue = cbTipeChart.value;
+    if (_tipeValue !='') {
+        Diagrams(_tipeValue, _tip_tipeValueeText);
+    }
+});
+
+function Diagrams(tipe, title) {
     let formData = new FormData();
     formData.append('process', process.value);
     fetch('http://localhost/nivelation/app/controllers/graphics/school.php', {
@@ -25,20 +36,16 @@ function Diagrams() {
                 numbers.push(data[i][1]);
                 colors.push(colorRGB());
             }
-            chart('chartBar', 'bar', colors, lists, numbers, 'Diagrama de barras vertical');
-            chart('chartDoughnut', 'doughnut', colors, lists, numbers, 'Diagrama doughnut');
-            chart('chartHorizontalBar', 'horizontalBar', colors, lists, numbers, 'Diagrama de barras horizontal'); 
-            /* chart('chartPie', 'pie', colors, lists, numbers, 'Diagrama de barras'); */
-            chart('chartPie', 'pie', colors, lists, numbers, 'Diagrama de pastel');
+            chart('chart', tipe, colors, lists, numbers, title);
         });
 
 }
 
 
 function chart($id, $tipo, $colores, $lista, $datos, $titulo) {
-
+    if (window.myChart && window.myChart !== null) { window.myChart.destroy(); }
     var ctx = document.getElementById($id);
-    var myChart = new Chart(ctx, {
+    window.myChart = new Chart(ctx, {
         type: $tipo,
         data: {
             labels: $lista,
