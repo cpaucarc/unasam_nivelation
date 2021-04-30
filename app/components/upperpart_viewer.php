@@ -37,8 +37,6 @@ $rtax = isset($routeAux) ? $routeAux : "";
             </div>
         </a>
 
-        <hr class="sidebar-divider my-0">
-
         <hr class="sidebar-divider my-3">
 
         <div class="sidebar-heading">
@@ -47,7 +45,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
-                <i class="bi bi-table mr-2"></i>Vistas
+                <i class="bi bi-table mr-2"></i><span>Vistas</span>
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">

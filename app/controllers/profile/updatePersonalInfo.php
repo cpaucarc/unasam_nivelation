@@ -9,6 +9,7 @@ try {
     $name = $_POST['name'];
     $lastname = $_POST['lastname'];
     $dni = $_POST['dni'];
+    $gender = $_POST['gender'];
     $id = $_SESSION['user_logged']['id'];
 
     if (isset($name) and isset($lastname) and isset($dni) and isset($id) and $id > 0) {
@@ -18,6 +19,7 @@ try {
             $userModel->setLastname($lastname);
             $userModel->setName($name);
             $userModel->setDni($dni);
+            $userModel->setGenderID($gender);
 
             $rsp = $userModel->updatePersonalInfo();
 

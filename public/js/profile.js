@@ -1,8 +1,10 @@
 const formPersonalInfo = document.getElementById('personal-info');
 const formAccessInfo = document.getElementById('access-info');
+const cbGender = document.getElementById('gender');
 
 window.onload = () => {
     document.getElementById('view-title').innerText = 'Mi Perfil';
+    selectGender();
 }
 
 formPersonalInfo.addEventListener('submit', (e) => {
@@ -36,3 +38,12 @@ formAccessInfo.addEventListener('submit', (e) => {
             alert(data.message);
         });
 })
+
+function selectGender() {
+    let options = cbGender.querySelectorAll('option')
+    options.forEach(opt => {
+        if (opt.innerText === gender) {
+            opt.setAttribute('selected', 'true');
+        }
+    })
+}

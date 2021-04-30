@@ -18,31 +18,31 @@ try {
 
     if ($response['status'] == "1") {
         session_start();
-
         $user = $login->findUserByUsernameAndPassword();
         $_SESSION['user_logged'] = array();
         $_SESSION['user_logged']['id'] = $user->getId();
         $_SESSION['user_logged']['dni'] = $user->getDni();
         $_SESSION['user_logged']['lastname'] = $user->getLastname();
         $_SESSION['user_logged']['name'] = $user->getName();
+        $_SESSION['user_logged']['gender'] = $user->getGender();
         $_SESSION['user_logged']['utid'] = $user->getRolID();
         $_SESSION['user_logged']['rol'] = $user->getRol();
         $_SESSION['user_logged']['username'] = $user->getUsername();
 
         if (intval($_SESSION['user_logged']['utid']) === 1) { //Administrador
-            header("Location: ".PROJECT."inicio", TRUE, 301);
+            header("Location: " . PROJECT . "inicio", TRUE, 301);
             exit;
         } elseif (intval($_SESSION['user_logged']['utid']) === 2) { //Visor de Recursos
-            header("Location: ".PROJECT."programas", TRUE, 301);
+            header("Location: " . PROJECT . "programas", TRUE, 301);
             exit;
         } elseif (intval($_SESSION['user_logged']['utid']) === 3) { //Estudiante
-            header("Location: ".PROJECT."estudiante/" . $_SESSION['user_logged']['id'], TRUE, 301);
+            header("Location: " . PROJECT . "estudiante/" . $_SESSION['user_logged']['id'], TRUE, 301);
             exit;
         }
 
     } else {
         $error = "$response";
-        header("Location: ".PROJECT."login?error=" . $response['response'], TRUE, 301);
+        header("Location: " . PROJECT . "login?error=" . $response['response'], TRUE, 301);
         exit;
     }
 

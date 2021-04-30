@@ -89,7 +89,7 @@ CREATE TABLE `courses` (
   PRIMARY KEY (`id`),
   KEY `fk_courses_dimensions1_idx` (`dimensions_id`),
   CONSTRAINT `fk_courses_dimensions1` FOREIGN KEY (`dimensions_id`) REFERENCES `dimensions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +98,7 @@ CREATE TABLE `courses` (
 
 LOCK TABLES `courses` WRITE;
 /*!40000 ALTER TABLE `courses` DISABLE KEYS */;
-INSERT INTO `courses` VALUES (1,'Razonamiento Lógico Matemático',1),(2,'Razonamiento Verbal',1),(3,'Aritmética',2),(4,'Algebra',2),(5,'Lenguaje',3),(6,'Literatura',3),(7,'Historia Universal',4),(8,'Historia del Peru',4),(9,'Economía',4);
+INSERT INTO `courses` VALUES (1,'Razonamiento Lógico Matemático',1),(2,'Razonamiento Verbal',1),(3,'Aritmética',2),(4,'Algebra',2),(5,'Lenguaje',3),(6,'Literatura',3),(7,'Historia Universal',4),(8,'Historia del Peru',4),(9,'Economía',4),(10,'Gramatica',3),(11,'Geometria',2),(12,'Trigonometria',2),(13,'Geografia',4),(14,'Psicologia',5),(15,'Cultura General',5),(16,'Educacion Civica',5),(17,'Cultura Regional y Local',5),(18,'Fisica',6),(19,'Quimica',6),(20,'Biologia',6),(21,'Educacion Ambiental',6);
 /*!40000 ALTER TABLE `courses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -113,7 +113,7 @@ CREATE TABLE `dimensions` (
   `id` tinyint(4) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,8 +122,63 @@ CREATE TABLE `dimensions` (
 
 LOCK TABLES `dimensions` WRITE;
 /*!40000 ALTER TABLE `dimensions` DISABLE KEYS */;
-INSERT INTO `dimensions` VALUES (1,'Aptitud Academica'),(2,'Matematica'),(3,'Comunicacion'),(4,'Ciencias Sociales'),(5,'Prueba');
+INSERT INTO `dimensions` VALUES (1,'Aptitud Academica'),(2,'Matematica'),(3,'Comunicacion'),(4,'Ciencias Sociales'),(5,'Persona Familia'),(6,'CTA');
 /*!40000 ALTER TABLE `dimensions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `distributions`
+--
+
+DROP TABLE IF EXISTS `distributions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `distributions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dfrom` tinyint(4) NOT NULL,
+  `dto` tinyint(4) NOT NULL,
+  `areas_id` tinyint(4) NOT NULL,
+  `courses_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `areas_id` (`areas_id`),
+  KEY `courses_id` (`courses_id`),
+  CONSTRAINT `distributions_ibfk_1` FOREIGN KEY (`areas_id`) REFERENCES `areas` (`id`),
+  CONSTRAINT `distributions_ibfk_2` FOREIGN KEY (`courses_id`) REFERENCES `courses` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `distributions`
+--
+
+LOCK TABLES `distributions` WRITE;
+/*!40000 ALTER TABLE `distributions` DISABLE KEYS */;
+INSERT INTO `distributions` VALUES (1,1,15,1,1),(2,16,30,1,2),(3,31,36,1,3),(4,37,42,1,4),(5,43,48,1,11),(6,49,53,1,12),(7,54,56,1,5),(8,57,59,1,10),(9,60,61,1,6),(10,62,63,1,14),(11,64,65,1,15),(12,66,66,1,16),(13,67,68,1,17),(14,69,70,1,7),(15,71,72,1,8),(16,73,74,1,13),(17,75,76,1,9),(18,77,84,1,18),(19,85,92,1,19),(20,93,97,1,20),(21,98,100,1,21),(22,1,15,2,1),(23,16,30,2,2),(24,31,33,2,3),(25,34,36,2,4),(26,37,38,2,11),(27,39,40,2,12),(28,41,43,2,5),(29,44,46,2,10),(30,47,48,2,6),(31,49,52,2,14),(32,53,56,2,15),(33,57,58,2,16),(34,59,62,2,17),(35,63,65,2,7),(36,66,68,2,8),(37,69,71,2,13),(38,72,73,2,9),(39,74,75,2,18),(40,76,84,2,19),(41,85,97,2,20),(42,98,100,2,21),(43,1,15,3,1),(44,16,30,3,2),(45,31,36,3,3),(46,37,42,3,4),(47,43,46,3,11),(48,47,48,3,12),(49,49,51,3,5),(50,52,54,3,10),(51,55,56,3,6),(52,57,58,3,14),(53,59,61,3,15),(54,62,64,3,16),(55,65,67,3,17),(56,68,72,3,7),(57,73,77,3,8),(58,78,82,3,13),(59,83,91,3,9),(60,92,93,3,18),(61,94,95,3,19),(62,96,97,3,20),(63,98,100,3,21),(64,1,15,4,1),(65,16,30,4,2),(66,31,32,4,3),(67,33,34,4,4),(68,35,35,4,11),(69,36,36,4,12),(70,37,43,4,5),(71,44,50,4,10),(72,51,57,4,6),(73,58,61,4,14),(74,62,65,4,15),(75,66,69,4,16),(76,70,73,4,17),(77,74,78,4,7),(78,79,83,4,8),(79,84,87,4,13),(80,88,91,4,9),(81,92,93,4,18),(82,94,95,4,19),(83,96,97,4,20),(84,98,100,4,21);
+/*!40000 ALTER TABLE `distributions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `genders`
+--
+
+DROP TABLE IF EXISTS `genders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `genders` (
+  `id` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `gender` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `genders`
+--
+
+LOCK TABLES `genders` WRITE;
+/*!40000 ALTER TABLE `genders` DISABLE KEYS */;
+INSERT INTO `genders` VALUES (1,'Femenino'),(2,'Masculino');
+/*!40000 ALTER TABLE `genders` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -167,9 +222,11 @@ CREATE TABLE `people` (
   `dni` varchar(8) NOT NULL,
   `name` varchar(45) NOT NULL,
   `lastname` varchar(45) NOT NULL,
+  `genders_id` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `dni_UNIQUE` (`dni`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+  UNIQUE KEY `dni_UNIQUE` (`dni`),
+  KEY `fk_people_genders1_idx` (`genders_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,7 +235,7 @@ CREATE TABLE `people` (
 
 LOCK TABLES `people` WRITE;
 /*!40000 ALTER TABLE `people` DISABLE KEYS */;
-INSERT INTO `people` VALUES (1,'03234567','Luisa Victoria','McAllister Fauler'),(2,'01234568','David','Huaman'),(3,'91234567','George','Harrison'),(4,'01234567','Juan','Flores'),(5,'11234567','Carlos','Castillo'),(6,'21234567','Pedro','Montana'),(7,'31234567','Andrea','Guerrero'),(8,'41234567','Paola','Caceres'),(9,'51234567','Federico','Lopez'),(10,'61234567','Luciana','Ruiz'),(11,'71234567','Simon','Sanchez'),(12,'81234567','Ruperto','Alvarado'),(14,'02234567','Andre','Guimaraez');
+INSERT INTO `people` VALUES (1,'03234567','Luisa Victoria','McAllister Fauler',1),(2,'12345693','David Enrique','Huaman Leyva',2),(3,'91234567','Lindsey','Harrison',1),(4,'01234567','Juan','Flores',2),(5,'11234567','Carlos','Castillo',2),(6,'21234567','Pedro','Montana',2),(7,'31234567','Andrea','Guerrero',1),(8,'41234567','Paola','Caceres',1),(9,'51234567','Federico','Lopez',2),(10,'61234567','Luciana','Ruiz',1),(11,'71234567','Simon','Sanchez',2),(12,'81234567','Ruperto','Alvarado',2),(14,'02234567','Andre','Guimaraez',2),(15,'78963214','Charly','Harper',2);
 /*!40000 ALTER TABLE `people` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -246,12 +303,11 @@ CREATE TABLE `questions` (
   `number` tinyint(4) NOT NULL,
   `student_data_id` mediumint(9) NOT NULL,
   `responses_id` tinyint(4) NOT NULL,
-  `courses_id` int(11) NOT NULL,
+  `distributions_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_questions_student_data1_idx` (`student_data_id`),
   KEY `fk_questions_responses1_idx` (`responses_id`),
-  KEY `fk_questions_courses1_idx` (`courses_id`),
-  CONSTRAINT `fk_questions_courses1` FOREIGN KEY (`courses_id`) REFERENCES `courses` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  KEY `fk_questions_distributions1_idx` (`distributions_id`),
   CONSTRAINT `fk_questions_responses1` FOREIGN KEY (`responses_id`) REFERENCES `responses` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_questions_student_data1` FOREIGN KEY (`student_data_id`) REFERENCES `student_data` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=357 DEFAULT CHARSET=utf8;
@@ -263,7 +319,7 @@ CREATE TABLE `questions` (
 
 LOCK TABLES `questions` WRITE;
 /*!40000 ALTER TABLE `questions` DISABLE KEYS */;
-INSERT INTO `questions` VALUES (1,1,1,1,1),(2,2,1,1,1),(3,3,1,2,1),(4,4,1,1,1),(5,5,1,1,1),(6,6,1,1,1),(7,7,1,2,2),(8,8,1,1,2),(9,9,1,2,2),(10,10,1,3,2),(11,11,1,3,2),(12,12,1,1,2),(13,13,1,1,3),(14,14,1,2,3),(15,15,1,2,3),(16,16,1,1,3),(17,17,1,1,3),(18,18,1,1,3),(19,19,1,1,3),(20,20,1,3,3),(21,1,2,1,1),(22,2,2,1,1),(23,3,2,2,1),(24,4,2,1,1),(25,5,2,2,2),(26,6,2,3,2),(27,7,2,1,2),(28,10,2,1,2),(29,11,2,2,3),(30,16,2,3,3),(31,18,2,3,3),(32,19,2,3,7),(33,23,2,3,7),(34,25,2,1,7),(35,26,2,1,7),(36,27,2,1,8),(37,30,2,2,8),(38,31,2,1,8),(39,33,2,2,8),(40,34,2,1,8),(41,100,3,1,1),(42,99,3,1,2),(43,98,3,1,7),(44,97,3,1,8),(45,96,3,1,7),(46,95,3,2,8),(47,94,3,2,7),(48,93,3,3,8),(49,92,3,3,7),(50,91,3,1,8),(51,90,3,3,1),(52,89,3,1,2),(53,88,3,2,3),(54,87,3,1,1),(55,86,3,2,2),(56,85,3,2,3),(57,84,3,3,1),(58,83,3,3,2),(59,82,3,1,3),(60,81,3,1,7),(61,80,3,1,1),(62,79,3,1,2),(63,1,4,1,1),(64,2,4,2,2),(65,3,4,3,3),(66,4,4,1,1),(67,5,4,1,2),(68,6,4,1,3),(69,7,4,1,1),(70,8,4,1,2),(71,9,4,1,3),(72,10,4,1,1),(73,11,4,1,2),(74,12,4,1,3),(75,13,4,1,7),(76,14,4,2,8),(77,15,4,3,7),(78,16,4,1,8),(79,17,4,1,7),(80,18,4,2,8),(81,19,4,3,1),(82,20,4,3,7),(83,21,4,3,8),(84,22,4,2,7),(85,23,4,3,8),(86,24,4,2,2),(87,25,5,1,1),(88,26,5,2,2),(89,27,5,3,3),(90,28,5,1,4),(91,29,5,2,5),(92,30,5,3,6),(93,31,5,1,1),(94,32,5,1,2),(95,33,5,1,3),(96,34,5,2,4),(97,35,5,2,5),(98,36,5,3,6),(99,37,5,1,1),(100,38,5,1,2),(101,39,5,1,3),(102,40,5,2,4),(103,41,5,3,5),(104,42,5,1,6),(105,43,5,2,1),(106,44,5,2,2),(107,45,5,3,3),(108,46,5,1,4),(109,47,5,3,5),(110,48,5,2,6),(111,49,5,3,1),(112,50,5,2,5),(113,55,6,1,1),(114,56,6,1,2),(115,57,6,1,3),(116,58,6,1,1),(117,59,6,1,2),(118,60,6,1,3),(119,61,6,1,4),(120,62,6,1,5),(121,63,6,1,6),(122,64,6,2,4),(123,65,6,2,5),(124,67,6,2,6),(125,68,6,2,1),(126,69,6,3,1),(127,70,6,3,1),(128,71,6,1,1),(129,72,6,1,2),(130,73,6,2,2),(131,74,6,3,3),(132,75,6,1,3),(133,76,6,1,4),(134,77,6,2,4),(135,78,6,3,5),(136,79,6,3,5),(137,80,6,3,6),(138,81,6,1,6),(139,82,6,1,1),(140,83,6,2,1),(141,84,6,3,2),(142,85,6,2,2),(143,86,6,3,3),(144,87,6,1,4),(145,88,6,1,5),(146,89,6,1,6),(147,1,7,1,1),(148,2,7,2,2),(149,3,7,3,3),(150,4,7,1,4),(151,5,7,2,5),(152,6,7,3,6),(153,7,7,1,1),(154,8,7,2,2),(155,9,7,3,3),(156,10,7,1,4),(157,11,7,2,5),(158,12,7,3,6),(159,13,7,1,1),(160,14,7,2,2),(161,15,7,3,3),(162,16,7,1,4),(163,17,7,1,5),(164,18,7,1,6),(165,19,7,1,1),(166,20,7,1,2),(167,21,7,1,3),(168,22,7,1,1),(169,23,7,2,2),(170,24,7,3,3),(171,25,7,2,4),(172,26,7,1,5),(173,27,7,1,6),(174,28,7,1,4),(175,29,7,1,5),(176,30,7,1,6),(177,31,7,1,1),(178,32,8,1,1),(179,33,8,1,2),(180,34,8,1,3),(181,35,8,1,4),(182,36,8,1,5),(183,37,8,2,6),(184,38,8,2,1),(185,39,8,2,2),(186,40,8,3,3),(187,41,8,3,4),(188,42,8,3,5),(189,43,8,3,6),(190,45,8,1,5),(191,46,8,1,4),(192,47,8,1,3),(193,48,8,1,2),(194,49,8,2,1),(195,50,8,2,2),(196,51,8,3,3),(197,52,8,3,4),(198,53,8,1,5),(199,54,8,3,6),(200,55,8,1,5),(201,56,8,2,4),(202,57,8,3,3),(203,58,8,1,2),(204,59,8,2,1),(205,60,8,3,4),(206,61,9,1,1),(207,62,9,2,1),(208,63,9,3,1),(209,64,9,1,1),(210,65,9,1,1),(211,66,9,1,1),(212,67,9,1,2),(213,68,9,1,2),(214,69,9,1,2),(215,70,9,1,2),(216,71,9,2,2),(217,72,9,2,2),(218,73,9,3,3),(219,74,9,3,3),(220,75,9,1,3),(221,76,9,1,3),(222,77,9,1,3),(223,78,9,1,4),(224,79,9,2,4),(225,80,9,2,4),(226,81,9,3,4),(227,82,9,3,5),(228,83,9,3,5),(229,84,9,1,5),(230,85,9,1,5),(231,86,9,1,6),(232,87,9,3,6),(233,88,9,2,6),(234,1,10,1,1),(235,2,10,1,1),(236,3,10,1,1),(237,4,10,1,1),(238,5,10,1,1),(239,6,10,1,1),(240,7,10,1,1),(241,8,10,2,2),(242,9,10,2,2),(243,10,10,2,2),(244,11,10,2,2),(245,12,10,2,3),(246,13,10,3,3),(247,14,10,3,3),(248,15,10,3,3),(249,16,10,3,4),(250,17,10,1,4),(251,18,10,1,4),(252,19,10,1,4),(253,20,10,1,4),(254,21,10,1,4),(255,22,10,1,4),(256,23,10,1,5),(257,24,10,1,5),(258,25,10,2,5),(259,26,10,1,5),(260,27,10,1,5),(261,28,10,2,5),(262,29,10,2,5),(263,30,10,3,6),(264,31,10,1,6),(265,32,10,2,6),(266,33,10,3,6),(267,34,10,1,6),(268,35,10,2,6),(269,36,10,1,6),(328,37,11,2,1),(329,38,11,3,2),(330,39,11,1,3),(331,40,11,2,1),(332,41,11,3,2),(333,42,11,1,3),(334,43,11,1,1),(335,44,11,1,2),(336,45,11,1,3),(337,46,11,1,7),(338,47,11,1,8),(339,48,11,1,7),(340,49,11,1,8),(341,50,11,2,7),(342,51,11,2,8),(343,52,11,3,7),(344,53,11,3,8),(345,54,11,1,7),(346,55,11,1,8),(347,56,11,1,1),(348,57,11,2,2),(349,58,11,2,3),(350,59,11,1,1),(351,60,11,3,2),(352,61,11,1,3),(353,62,11,2,7),(354,63,11,3,8),(355,64,11,1,7),(356,65,11,2,8);
+INSERT INTO `questions` VALUES (1,1,1,1,1),(2,2,1,1,1),(3,3,1,2,1),(4,4,1,1,1),(5,5,1,1,1),(6,6,1,1,1),(7,7,1,2,1),(8,8,1,1,1),(9,9,1,2,1),(10,10,1,3,1),(11,11,1,3,1),(12,12,1,1,1),(13,13,1,1,1),(14,14,1,2,1),(15,15,1,2,1),(16,16,1,1,2),(17,17,1,1,2),(18,18,1,1,2),(19,19,1,1,2),(20,20,1,3,2),(21,1,2,1,22),(22,2,2,1,22),(23,3,2,2,22),(24,4,2,1,22),(25,5,2,2,22),(26,6,2,3,22),(27,7,2,1,22),(28,10,2,1,22),(29,11,2,2,22),(30,16,2,3,23),(31,18,2,3,23),(32,19,2,3,23),(33,23,2,3,23),(34,25,2,1,23),(35,26,2,1,23),(36,27,2,1,23),(37,30,2,2,23),(38,31,2,1,24),(39,33,2,2,24),(40,34,2,1,25),(41,100,3,1,42),(42,99,3,1,42),(43,98,3,1,42),(44,97,3,1,41),(45,96,3,1,41),(46,95,3,2,41),(47,94,3,2,41),(48,93,3,3,41),(49,92,3,3,41),(50,91,3,1,41),(51,90,3,3,41),(52,89,3,1,41),(53,88,3,2,41),(54,87,3,1,41),(55,86,3,2,41),(56,85,3,2,41),(57,84,3,3,40),(58,83,3,3,40),(59,82,3,1,40),(60,81,3,1,40),(61,80,3,1,40),(62,79,3,1,40),(63,1,4,1,22),(64,2,4,2,22),(65,3,4,3,22),(66,4,4,1,22),(67,5,4,1,22),(68,6,4,1,22),(69,7,4,1,22),(70,8,4,1,22),(71,9,4,1,22),(72,10,4,1,22),(73,11,4,1,22),(74,12,4,1,22),(75,13,4,1,22),(76,14,4,2,22),(77,15,4,3,22),(78,16,4,1,23),(79,17,4,1,23),(80,18,4,2,23),(81,19,4,3,23),(82,20,4,3,23),(83,21,4,3,23),(84,22,4,2,23),(85,23,4,3,23),(86,24,4,2,23),(87,25,5,1,2),(88,26,5,2,2),(89,27,5,3,2),(90,28,5,1,2),(91,29,5,2,2),(92,30,5,3,2),(93,31,5,1,3),(94,32,5,1,3),(95,33,5,1,3),(96,34,5,2,3),(97,35,5,2,3),(98,36,5,3,3),(99,37,5,1,4),(100,38,5,1,4),(101,39,5,1,4),(102,40,5,2,4),(103,41,5,3,4),(104,42,5,1,4),(105,43,5,2,5),(106,44,5,2,5),(107,45,5,3,5),(108,46,5,1,5),(109,47,5,3,5),(110,48,5,2,5),(111,49,5,3,6),(112,50,5,2,6),(113,55,6,1,7),(114,56,6,1,7),(115,57,6,1,8),(116,58,6,1,8),(117,59,6,1,8),(118,60,6,1,9),(119,61,6,1,9),(120,62,6,1,10),(121,63,6,1,10),(122,64,6,2,11),(123,65,6,2,11),(124,67,6,2,13),(125,68,6,2,13),(126,69,6,3,14),(127,70,6,3,14),(128,71,6,1,15),(129,72,6,1,15),(130,73,6,2,16),(131,74,6,3,16),(132,75,6,1,17),(133,76,6,1,17),(134,77,6,2,18),(135,78,6,3,18),(136,79,6,3,18),(137,80,6,3,18),(138,81,6,1,18),(139,82,6,1,18),(140,83,6,2,18),(141,84,6,3,18),(142,85,6,2,19),(143,86,6,3,19),(144,87,6,1,19),(145,88,6,1,19),(146,89,6,1,19),(147,1,7,1,1),(148,2,7,2,1),(149,3,7,3,1),(150,4,7,1,1),(151,5,7,2,1),(152,6,7,3,1),(153,7,7,1,1),(154,8,7,2,1),(155,9,7,3,1),(156,10,7,1,1),(157,11,7,2,1),(158,12,7,3,1),(159,13,7,1,1),(160,14,7,2,1),(161,15,7,3,1),(162,16,7,1,2),(163,17,7,1,2),(164,18,7,1,2),(165,19,7,1,2),(166,20,7,1,2),(167,21,7,1,2),(168,22,7,1,2),(169,23,7,2,2),(170,24,7,3,2),(171,25,7,2,2),(172,26,7,1,2),(173,27,7,1,2),(174,28,7,1,2),(175,29,7,1,2),(176,30,7,1,2),(177,31,7,1,3),(178,32,8,1,3),(179,33,8,1,3),(180,34,8,1,3),(181,35,8,1,3),(182,36,8,1,3),(183,37,8,2,4),(184,38,8,2,4),(185,39,8,2,4),(186,40,8,3,4),(187,41,8,3,4),(188,42,8,3,4),(189,43,8,3,5),(190,45,8,1,5),(191,46,8,1,5),(192,47,8,1,5),(193,48,8,1,5),(194,49,8,2,6),(195,50,8,2,6),(196,51,8,3,6),(197,52,8,3,6),(198,53,8,1,6),(199,54,8,3,7),(200,55,8,1,7),(201,56,8,2,7),(202,57,8,3,8),(203,58,8,1,8),(204,59,8,2,8),(205,60,8,3,9),(206,61,9,1,9),(207,62,9,2,10),(208,63,9,3,10),(209,64,9,1,11),(210,65,9,1,11),(211,66,9,1,12),(212,67,9,1,13),(213,68,9,1,13),(214,69,9,1,14),(215,70,9,1,14),(216,71,9,2,15),(217,72,9,2,15),(218,73,9,3,16),(219,74,9,3,16),(220,75,9,1,17),(221,76,9,1,17),(222,77,9,1,18),(223,78,9,1,18),(224,79,9,2,18),(225,80,9,2,18),(226,81,9,3,18),(227,82,9,3,18),(228,83,9,3,18),(229,84,9,1,18),(230,85,9,1,19),(231,86,9,1,19),(232,87,9,3,19),(233,88,9,2,19),(234,1,10,1,1),(235,2,10,1,1),(236,3,10,1,1),(237,4,10,1,1),(238,5,10,1,1),(239,6,10,1,1),(240,7,10,1,1),(241,8,10,2,1),(242,9,10,2,1),(243,10,10,2,1),(244,11,10,2,1),(245,12,10,2,1),(246,13,10,3,1),(247,14,10,3,1),(248,15,10,3,1),(249,16,10,3,2),(250,17,10,1,2),(251,18,10,1,2),(252,19,10,1,2),(253,20,10,1,2),(254,21,10,1,2),(255,22,10,1,2),(256,23,10,1,2),(257,24,10,1,2),(258,25,10,2,2),(259,26,10,1,2),(260,27,10,1,2),(261,28,10,2,2),(262,29,10,2,2),(263,30,10,3,2),(264,31,10,1,3),(265,32,10,2,3),(266,33,10,3,3),(267,34,10,1,3),(268,35,10,2,3),(269,36,10,1,3),(328,37,11,2,26),(329,38,11,3,26),(330,39,11,1,27),(331,40,11,2,27),(332,41,11,3,28),(333,42,11,1,28),(334,43,11,1,28),(335,44,11,1,29),(336,45,11,1,29),(337,46,11,1,29),(338,47,11,1,30),(339,48,11,1,30),(340,49,11,1,31),(341,50,11,2,31),(342,51,11,2,31),(343,52,11,3,31),(344,53,11,3,32),(345,54,11,1,32),(346,55,11,1,32),(347,56,11,1,32),(348,57,11,2,33),(349,58,11,2,33),(350,59,11,1,34),(351,60,11,3,34),(352,61,11,1,34),(353,62,11,2,34),(354,63,11,3,35),(355,64,11,1,35),(356,65,11,2,35);
 /*!40000 ALTER TABLE `questions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -389,6 +445,8 @@ CREATE TABLE `student_data` (
   `students_id` smallint(6) NOT NULL,
   `programs_id` tinyint(4) NOT NULL,
   `process_id` tinyint(4) NOT NULL,
+  `score` decimal(4,1) DEFAULT '0.0',
+  `postulant_code` varchar(6) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_student_data_students1_idx` (`students_id`),
   KEY `fk_student_data_programs1_idx` (`programs_id`),
@@ -405,7 +463,7 @@ CREATE TABLE `student_data` (
 
 LOCK TABLES `student_data` WRITE;
 /*!40000 ALTER TABLE `student_data` DISABLE KEYS */;
-INSERT INTO `student_data` VALUES (1,'181.0001.001',5,3,1,2,1),(2,'181.0001.102',1,1,2,4,1),(3,'181.0001.003',2,22,3,4,1),(4,'181.0001.321',3,13,4,4,1),(5,'181.0001.205',4,15,5,3,1),(6,'181.0001.645',6,20,6,1,1),(7,'181.0001.007',7,12,7,2,1),(8,'181.0001.023',8,14,8,3,1),(9,'181.0001.069',9,11,9,5,1),(10,'181.0001.312',10,16,10,2,1),(11,'181.0123.148',11,30,11,4,1);
+INSERT INTO `student_data` VALUES (1,'181.0001.001',5,3,1,2,1,125.0,'123456'),(2,'181.0001.102',1,1,2,4,1,136.5,'654321'),(3,'181.0001.003',2,22,3,4,1,159.0,'587412'),(4,'181.0001.321',3,13,4,4,1,153.0,'369852'),(5,'181.0001.205',4,15,5,3,1,157.5,'147852'),(6,'181.0001.645',6,20,6,1,1,102.0,'325856'),(7,'181.0001.007',7,12,7,2,1,320.0,'159357'),(8,'181.0001.023',8,14,8,3,1,385.5,'157935'),(9,'181.0001.069',9,11,9,5,1,139.0,'124312'),(10,'181.0001.312',10,16,10,2,1,187.0,'123321'),(11,'181.0123.148',11,30,11,4,1,296.5,'741147');
 /*!40000 ALTER TABLE `student_data` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -434,6 +492,21 @@ LOCK TABLES `students` WRITE;
 INSERT INTO `students` VALUES (1,1),(2,4),(3,5),(4,6),(5,7),(6,8),(7,9),(8,10),(9,11),(10,12),(11,14);
 /*!40000 ALTER TABLE `students` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `studentsxstatus`
+--
+
+DROP TABLE IF EXISTS `studentsxstatus`;
+/*!50001 DROP VIEW IF EXISTS `studentsxstatus`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `studentsxstatus` AS SELECT 
+ 1 AS `students`,
+ 1 AS `status_id`,
+ 1 AS `status`,
+ 1 AS `process`*/;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Table structure for table `user_type`
@@ -478,7 +551,7 @@ CREATE TABLE `users` (
   KEY `fk_users_people1_idx` (`people_id`),
   CONSTRAINT `fk_users_people1` FOREIGN KEY (`people_id`) REFERENCES `people` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_users_user_type` FOREIGN KEY (`user_type_id`) REFERENCES `user_type` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -487,7 +560,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','d033e22ae348aeb5660fc2140aec35850c4da997',1,2),(2,'91234567','1d3ddcd0d2dd6e9a52016b429f0b188dd101d42b',2,3);
+INSERT INTO `users` VALUES (1,'admin','d033e22ae348aeb5660fc2140aec35850c4da997',1,2),(2,'visor','b200f2b0dd538f7f21e8edf5e120dbf2c08c3f96',2,3),(3,'78963214','3f0eb8b3268f9d7848e6b7d3e7a9827e0568abeb',2,15);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -503,6 +576,21 @@ SET character_set_client = utf8;
  1 AS `id`,
  1 AS `course`,
  1 AS `dimension`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vnumberofquestions`
+--
+
+DROP TABLE IF EXISTS `vnumberofquestions`;
+/*!50001 DROP VIEW IF EXISTS `vnumberofquestions`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vnumberofquestions` AS SELECT 
+ 1 AS `id`,
+ 1 AS `area`,
+ 1 AS `course`,
+ 1 AS `questions`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -536,11 +624,14 @@ SET character_set_client = utf8;
 /*!50001 CREATE VIEW `vstudents` AS SELECT 
  1 AS `id`,
  1 AS `code`,
+ 1 AS `postulant_code`,
  1 AS `dni`,
  1 AS `omg`,
  1 AS `omp`,
+ 1 AS `score`,
  1 AS `name`,
  1 AS `lastname`,
+ 1 AS `gender`,
  1 AS `program`,
  1 AS `area`,
  1 AS `process`,
@@ -562,6 +653,7 @@ SET character_set_client = utf8;
  1 AS `dni`,
  1 AS `lastname`,
  1 AS `name`,
+ 1 AS `gender`,
  1 AS `utid`,
  1 AS `rol`,
  1 AS `username`*/;
@@ -582,12 +674,13 @@ SET character_set_client = @saved_cs_client;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` FUNCTION `countAllResponsesByCourse`(stdID int, courseID int) RETURNS int(11)
 BEGIN
 
-	SET @all_responses = (SELECT count(1) FROM questions WHERE student_data_id = stdID AND courses_id = courseID);
+	SET @areaID = getAreaIDByStudentID(stdID);
+	SET @all_responses = (SELECT count(1) FROM questions WHERE student_data_id = stdID AND distributions_id = (SELECT id FROM distributions WHERE areas_id = @areaID AND courses_id = courseID));
 
 RETURN @all_responses;
 END ;;
@@ -604,12 +697,14 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` FUNCTION `countCorrectResponsesByCourse`(stdID int, courseID int) RETURNS int(11)
 BEGIN
-
-	SET @correct = (SELECT count(1) FROM questions WHERE student_data_id = stdID AND courses_id = courseID AND responses_id = 1);
+    
+    SET @areaID = getAreaIDByStudentID(stdID);
+    
+	SET @correct = (SELECT count(1) FROM questions WHERE student_data_id = stdID AND distributions_id = (SELECT id FROM distributions WHERE areas_id = @areaID AND courses_id = courseID) AND responses_id = 1);
 
 RETURN @correct;
 END ;;
@@ -650,7 +745,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `getBlankResponses`(stdtID mediumint) RETURNS int(11)
+CREATE DEFINER=`root`@`localhost` FUNCTION `GETBLANKRESPONSES`(stdtID mediumint) RETURNS int(11)
 BEGIN
 SET @blank = (SELECT count(1) FROM questions WHERE student_data_id = stdtID AND responses_id = 3);
 RETURN @blank;
@@ -670,7 +765,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `getCorrectResponses`(stdtID mediumint) RETURNS int(11)
+CREATE DEFINER=`root`@`localhost` FUNCTION `GETCORRECTRESPONSES`(stdtID mediumint) RETURNS int(11)
 BEGIN
 	SET @correct = (SELECT count(1) FROM questions WHERE student_data_id = stdtID AND responses_id = 1);
 RETURN @correct;
@@ -690,7 +785,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `getIncorrectResponses`(stdtID mediumint) RETURNS int(11)
+CREATE DEFINER=`root`@`localhost` FUNCTION `GETINCORRECTRESPONSES`(stdtID mediumint) RETURNS int(11)
 BEGIN
 SET @incorrect = (SELECT count(1) FROM questions WHERE student_data_id = stdtID AND responses_id = 2);
 RETURN @incorrect;
@@ -780,13 +875,15 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `createNewUser`(in _username varchar(45), _password varchar(45), _name varchar(45), _lastname varchar(45),_dni varchar(8), _rol varchar(45))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `createNewUser`(in _username varchar(45), _password varchar(45), _name varchar(45), _lastname varchar(45),_dni varchar(8), _rol varchar(45), genderID tinyint(4))
 BEGIN
 
-	if (SELECT count(*) FROM people WHERE dni = _dni) = 0 then		
-        INSERT INTO people VALUES (null, _dni, _name, _lastname);        
+	if (SELECT count(*) FROM people WHERE dni = _dni) = 0 then	
+	
+        INSERT INTO people VALUES (null, _dni, _name, _lastname, genderID);  
+        
     end if;
 
 	SET @personID = (SELECT id FROM people WHERE dni = _dni);
@@ -815,15 +912,16 @@ BEGIN
 SELECT  
 	co.name as course, 
     COUNT(stdt.code) as code 
-FROM clasifications AS clf 
-JOIN courses AS co ON co.id = clf.courses_id 
-JOIN student_data AS stdt ON stdt.id = clf.student_data_id 
-JOIN students AS st ON st.id = stdt.students_id 
-JOIN people AS pe ON pe.id = st.people_id 
-JOIN programs AS pr ON pr.id = stdt.programs_id 
-JOIN areas AS ar ON ar.id = pr.areas_id 
-JOIN process AS pc ON pc.id = stdt.process_id 
-JOIN status AS sts ON sts.id = clf.status_id 
+    
+FROM clasifications 	AS clf 
+JOIN courses 			AS co 	ON co.id = clf.courses_id 
+JOIN student_data 		AS stdt ON stdt.id = clf.student_data_id 
+	JOIN students 		AS st 	ON st.id = stdt.students_id 
+		JOIN people 	AS pe 	ON pe.id = st.people_id 
+	JOIN programs 		AS pr 	ON pr.id = stdt.programs_id 
+		JOIN areas 		AS ar 	ON ar.id = pr.areas_id 
+	JOIN process 		AS pc 	ON pc.id = stdt.process_id 
+JOIN status 			AS sts 	ON sts.id = clf.status_id 
 
 WHERE pc.name=proceso GROUP BY co.name ORDER BY sts.id ASC;
 
@@ -875,7 +973,7 @@ BEGIN
 DECLARE courseID INT;
 DECLARE done BOOLEAN DEFAULT FALSE;
 
-DECLARE courses_cursor CURSOR FOR (SELECT DISTINCT courses_id FROM questions WHERE student_data_id = stdataID);
+DECLARE courses_cursor CURSOR FOR (SELECT courses_id FROM distributions WHERE id IN (SELECT DISTINCT distributions_id FROM questions WHERE student_data_id = stdataID));
 
 DECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET done = TRUE;
 
@@ -917,23 +1015,19 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `spGetUserLoggedInfo`(in user varchar(45), psw varchar(45), ustpID int)
 BEGIN
 
-	if ( ustpID = 3 )then
-		-- Get Student Info
-        -- id, dni, lastname, name,        [ut.id as utid], rol, username
-        -- id, code, dni, omg, omp, name, lastname, program, area, process, correct, incorrect, blank
+	if ( ustpID = 3 )then  -- Estudiante
+		
         SET @stdID = (SELECT id FROM vstudents WHERE code = user AND dni = psw LIMIT 1);
 			
 		if @stdID IS NOT NULL then
-			
-			SELECT id, dni, lastname, name, (ustpID) as utid,  (SELECT type FROM user_type WHERE id = ustpID) as rol, code as username FROM vstudents WHERE id = @stdID; 
+			SELECT id, dni, lastname, name, gender, (ustpID) as utid,  (SELECT type FROM user_type WHERE id = ustpID) as rol, code as username FROM vstudents WHERE id = @stdID; 
 			
 		end if;
         
-    else
+    else -- Administrador y Visor
 		SET @userID = (SELECT id FROM users WHERE username = user AND password = sha1(psw));
 			
 		if @userID IS NOT NULL then
-			
 			SELECT * FROM vusers WHERE id = @userID; 
 			
 		end if;
@@ -995,6 +1089,36 @@ BEGIN
 			SELECT 'Error, revise sus credenciales de acceso.' as 'response', false as 'status';
 		end if;
 	END IF;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `spShowStatusByCourse` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spShowStatusByCourse`(IN `idstatus` INT(11), IN `proc` VARCHAR(10))
+BEGIN
+
+
+SELECT co.name, COUNT(sts.name) FROM clasifications AS clf
+        JOIN courses AS co 	ON co.id = clf.courses_id        
+        JOIN student_data	AS stdt	ON stdt.id = clf.student_data_id
+		JOIN programs	AS pr	ON pr.id = stdt.programs_id
+		JOIN process	AS pc	ON pc.id = stdt.process_id
+		JOIN status AS sts	ON sts.id = clf.status_id
+        WHERE sts.id=idstatus AND pc.name=proc
+		GROUP BY co.name  
+        ORDER BY sts.id ASC;
 
 END ;;
 DELIMITER ;
@@ -1155,6 +1279,53 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `spUpdatePersonPersonalInfo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spUpdatePersonPersonalInfo`(_name Varchar(45), _lastn Varchar(45), _dni Varchar(8), usID int, genderID tinyint(4))
+BEGIN
+
+	SET @personID = (SELECT people_id FROM users WHERE id = usID);
+	SET @verifDNI = (SELECT count(1) FROM people WHERE dni = _dni AND id <> @personID);
+	
+    IF (@verifDNI = 0 AND length(_dni) = 8) THEN
+		UPDATE people SET name = _name, lastname = _lastn, dni = _dni, genders_id = genderID WHERE id = @personID;
+        SELECT true;
+	ELSE
+		SELECT false;
+    END IF;   
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+--
+-- Final view structure for view `studentsxstatus`
+--
+
+/*!50001 DROP VIEW IF EXISTS `studentsxstatus`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `studentsxstatus` AS select `cl`.`student_data_id` AS `students`,`cl`.`status_id` AS `status_id`,`st`.`name` AS `status`,`p`.`name` AS `process` from (((`clasifications` `cl` join `status` `st`) join `student_data` `sd`) join `process` `p`) where ((`cl`.`status_id` = `st`.`id`) and (`cl`.`student_data_id` = `sd`.`id`) and (`sd`.`process_id` = `p`.`id`)) group by `cl`.`status_id`,`cl`.`student_data_id` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
 -- Final view structure for view `vcourses`
@@ -1170,6 +1341,24 @@ DELIMITER ;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `vcourses` AS select `co`.`id` AS `id`,`co`.`name` AS `course`,`dm`.`name` AS `dimension` from (`courses` `co` join `dimensions` `dm` on((`dm`.`id` = `co`.`dimensions_id`))) order by `dm`.`name`,`co`.`name` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vnumberofquestions`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vnumberofquestions`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vnumberofquestions` AS select `dt`.`courses_id` AS `id`,`ar`.`name` AS `area`,`co`.`name` AS `course`,((`dt`.`dto` - `dt`.`dfrom`) + 1) AS `questions` from ((`distributions` `dt` join `areas` `ar` on((`ar`.`id` = `dt`.`areas_id`))) join `courses` `co` on((`co`.`id` = `dt`.`courses_id`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -1205,7 +1394,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vstudents` AS select `st`.`id` AS `id`,`stdt`.`code` AS `code`,`pl`.`dni` AS `dni`,`stdt`.`omg` AS `omg`,`stdt`.`omp` AS `omp`,`pl`.`name` AS `name`,`pl`.`lastname` AS `lastname`,`pg`.`name` AS `program`,`ar`.`name` AS `area`,`pr`.`name` AS `process`,`getCorrectResponses`(`stdt`.`id`) AS `correct`,`getIncorrectResponses`(`stdt`.`id`) AS `incorrect`,`getBlankResponses`(`stdt`.`id`) AS `blank` from (((((`student_data` `stdt` join `students` `st` on((`st`.`id` = `stdt`.`students_id`))) join `people` `pl` on((`pl`.`id` = `st`.`people_id`))) join `programs` `pg` on((`pg`.`id` = `stdt`.`programs_id`))) join `areas` `ar` on((`ar`.`id` = `pg`.`areas_id`))) join `process` `pr` on((`pr`.`id` = `stdt`.`process_id`))) */;
+/*!50001 VIEW `vstudents` AS select `st`.`id` AS `id`,`stdt`.`code` AS `code`,`stdt`.`postulant_code` AS `postulant_code`,`pl`.`dni` AS `dni`,`stdt`.`omg` AS `omg`,`stdt`.`omp` AS `omp`,`stdt`.`score` AS `score`,`pl`.`name` AS `name`,`pl`.`lastname` AS `lastname`,`gd`.`gender` AS `gender`,`pg`.`name` AS `program`,`ar`.`name` AS `area`,`pr`.`name` AS `process`,`GETCORRECTRESPONSES`(`stdt`.`id`) AS `correct`,`GETINCORRECTRESPONSES`(`stdt`.`id`) AS `incorrect`,`GETBLANKRESPONSES`(`stdt`.`id`) AS `blank` from ((((((`student_data` `stdt` join `students` `st` on((`st`.`id` = `stdt`.`students_id`))) join `people` `pl` on((`pl`.`id` = `st`.`people_id`))) join `genders` `gd` on((`gd`.`id` = `pl`.`genders_id`))) join `programs` `pg` on((`pg`.`id` = `stdt`.`programs_id`))) join `areas` `ar` on((`ar`.`id` = `pg`.`areas_id`))) join `process` `pr` on((`pr`.`id` = `stdt`.`process_id`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -1223,7 +1412,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vusers` AS select `u`.`id` AS `id`,`p`.`dni` AS `dni`,`p`.`lastname` AS `lastname`,`p`.`name` AS `name`,`ut`.`id` AS `utid`,`ut`.`type` AS `rol`,`u`.`username` AS `username` from ((`users` `u` join `people` `p` on((`p`.`id` = `u`.`people_id`))) join `user_type` `ut` on((`ut`.`id` = `u`.`user_type_id`))) */;
+/*!50001 VIEW `vusers` AS select `u`.`id` AS `id`,`p`.`dni` AS `dni`,`p`.`lastname` AS `lastname`,`p`.`name` AS `name`,`gd`.`gender` AS `gender`,`ut`.`id` AS `utid`,`ut`.`type` AS `rol`,`u`.`username` AS `username` from (((`users` `u` join `people` `p` on((`p`.`id` = `u`.`people_id`))) join `genders` `gd` on((`gd`.`id` = `p`.`genders_id`))) join `user_type` `ut` on((`ut`.`id` = `u`.`user_type_id`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -1237,4 +1426,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-25 22:41:04
+-- Dump completed on 2021-04-30 16:51:57

@@ -41,7 +41,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
 
         <li class="nav-item active">
             <a class="nav-link" href="inicio">
-                <i class="bi bi-house-fill mr-2"></i>Inicio del sitio
+                <i class="bi bi-house-fill mr-2"></i><span>Inicio del sitio</span>
             </a>
         </li>
 
@@ -53,7 +53,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
-                <i class="bi bi-table mr-2"></i>Vistas
+                <i class="bi bi-table mr-2"></i><span>Vistas</span>
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
@@ -68,7 +68,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                aria-expanded="true" aria-controls="collapseUtilities">
-                <i class="bi bi-speedometer2 mr-2"></i>Componentes
+                <i class="bi bi-speedometer2 mr-2"></i><span>Componentes</span>
             </a>
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                  data-parent="#accordionSidebar">
@@ -94,7 +94,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                aria-expanded="true" aria-controls="collapsePages">
-                <i class="bi bi-people-fill mr-2"></i>Usuarios
+                <i class="bi bi-people-fill mr-2"></i><span>Usuarios</span>
             </a>
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">

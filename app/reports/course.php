@@ -11,7 +11,7 @@ if (isset($_POST['processPdf'])) {
     $coursePdf = $_POST['coursePdf'] ?? '';
     $processPdf = $_POST['processPdf'];
 
-    $pdf = new PDF('P', 'mm', 'A4');
+    $pdf = new PDF('P', 'mm', 'Letter');
     $pdf->AliasNbPages();
     $conn = (new MySqlConnection())->getConnection();
     $pdfCourse = new PDF_Course($pdf);
@@ -25,15 +25,6 @@ if (isset($_POST['processPdf'])) {
     $response = $conn->query($sql);
 
     foreach ($response as $row1) {
-        $pdf->AddPage();
-        
-        //Report header
-        $pdf->HeaderReport($pdf->GetY());
-
-        //Proceso:
-        $pdf->ProcessHeader(63, "Reporte por cursos", $processPdf);
-        $pdf->AreaHeader($row1['name'], $row1['description']);
-
         //Escuelas
         if ($areaPdf != '' && $dimensionPdf != '') {
             $sql = "SELECT *  FROM dimensions  WHERE name='$dimensionPdf'";
@@ -44,8 +35,6 @@ if (isset($_POST['processPdf'])) {
         $std->execute();
         $rst = $std->fetchAll();
         foreach ($rst as $row2) {
-
-            /*  $pdfCourse->programHeader($row2['name']); */
 
             if ($areaPdf != '' && $dimensionPdf != '') {
                 $sql = "SELECT * FROM vcourses WHERE dimension='" . $dimensionPdf . "'";
@@ -60,6 +49,15 @@ if (isset($_POST['processPdf'])) {
             $rs = $result->fetchAll();
 
             foreach ($rs as $row3) {
+                $pdf->AddPage();
+
+                //Report header
+                $pdf->HeaderReport($pdf->GetY());
+
+                //Proceso:
+                $pdf->ProcessHeader(63, "Reporte por cursos", $processPdf);
+                $pdf->AreaHeader($row1['name'], $row1['description']);
+
                 $pdfCourse->DimensionCourse($row2['name'], $row3['course']);
                 //Tabla
                 if ($areaPdf != '' && $dimensionPdf != '' && $coursePdf != '') {

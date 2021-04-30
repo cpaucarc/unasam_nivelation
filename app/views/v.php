@@ -1,36 +1,21 @@
 <?php
-require_once '../../dirs.php';
-require_once(DB_PATH . "MySqlConnection.php");
-session_start();
+include_once $_SERVER['DOCUMENT_ROOT'] . "/nivelation/dirs.php";
+include_once MODEL_PATH . "UserModel.php";
 
-$name = 'Frank Cesare Fop';
-$lastname = 'Paucar Colonia Lopez';
-$dni = 'Paucar Colonia Lopez';
-$id = 1;
+$user = new UserModel();
+$user->setGenderID(1);
+var_dump($user->getGender());
 
-$connection = new MySqlConnection();
-if ($connection) {
-    $pdo = $connection->getConnection();
-    $sql = "SELECT curdate(), concat('Hola ', ?);";
-    $exec = $pdo->prepare($sql)->execute([
-        $name
-    ]);
+echo $_POST['gender']
+?>
 
-    echo $sql;
-    echo '<br>';
-    echo $exec;
-    echo '<br>';
-    echo $pdo->query("SELECT curdate();")->fetchAll();
-    echo '<br>';
-    $sql = "CALL spUpdatePersonPersonalInfo('$name', '$lastname', '$dni', $id);";
-    $response = intval($pdo->query($sql)->fetchColumn());
-    var_dump($response);
-    echo '<br>';
-    echo $response;
-    echo '<br>';
-    echo $_SESSION['user_logged']['id'];
-    echo '<br>';
-    var_dump($_SESSION['user_logged']['id']);
+<form action="v.php" method="post">
+    <label for="user_dni">Género</label>
+    <select name="gender" id="gender" class="form-control" required>
+        <option value="0">Seleccione...</option>
+        <option value="1">Femenino</option>
+        <option value="2">Masculino</option>
+    </select>
+    <button type="submit">Submit</button>
+</form>
 
-
-}

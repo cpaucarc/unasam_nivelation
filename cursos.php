@@ -80,9 +80,9 @@ require_once $sessionStarted->getUpperPartByUserType();
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="hidden" value="0" id="courseID" name="courseID">
+                            <input type="text" value="0" id="courseID" name="courseID">
                             <label for="course" class="col-form-label-sm">Nombre del curso:</label>
-                            <input name="course" type="text" class="form-control" id="course"
+                            <input name="course" type="text" class="form-control" id="course" value=""
                                    placeholder="Curso..." required>
                         </div>
                 </div>

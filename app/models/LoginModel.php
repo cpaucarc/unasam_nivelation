@@ -33,6 +33,7 @@ class LoginModel
         $user->setRolID($result['utid']);
         $user->setRol($result['rol']);
         $user->setUsername($result['username']);
+        $user->setGender($result['gender']);
         return $user;
     }
 
