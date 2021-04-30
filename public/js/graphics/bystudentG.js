@@ -6,7 +6,6 @@ let _tip_tipeValueeText = 'Diagrama de barras vertical';
 let _tipeValue = 'bar';
 let _process;
 
-
 select = new Select();
 
 window.onload = () => {
@@ -16,8 +15,8 @@ window.onload = () => {
 cbTipeChart.addEventListener('change', () => {
     _tip_tipeValueeText = cbTipeChart.options[cbTipeChart.selectedIndex].text;
     _tipeValue = cbTipeChart.value;
-    alert(_process + _tipeValue + _tip_tipeValueeText);
-    if (_tipeValue != '') {
+    // alert(_process + _tipeValue + _tip_tipeValueeText);
+    if (_tipeValue !== '') {
         Diagrams(_process, _tipeValue, _tip_tipeValueeText);
     }
 });
@@ -62,7 +61,9 @@ function Diagrams(process, tipe, title) {
 
 
 function chart($id, $tipo, $colores, $lista, $datos, $titulo) {
-    if (window.myChart && window.myChart !== null) { window.myChart.destroy(); }
+    if (window.myChart) {
+        window.myChart.destroy();
+    }
     const ctx = document.getElementById($id);
     window.myChart = new Chart(ctx, {
         type: $tipo,
@@ -100,7 +101,6 @@ function colorRGB() {
 }
 
 
-
 function fillWhitProcess() {
     fetch('app/controllers/process/getAllProcess.php/', {
         method: 'GET',
@@ -120,7 +120,7 @@ function fillWhitProcess() {
             cbProcess.innerHTML = ``;
             cbProcess.appendChild(select.createOption(0, 'Selecciona...'));
             data.forEach(proc => {
-                if (proc.id == 1) {
+                if (proc.id === 1) {
                     //Capturar proceso name final
                     Diagrams(proc.name, _tipeValue, _tip_tipeValueeText);
                     _process = proc.name;

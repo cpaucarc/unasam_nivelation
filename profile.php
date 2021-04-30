@@ -32,13 +32,20 @@ require_once $sessionStarted->getUpperPartByUserType();
                                 <input type="text" class="form-control bg-light" id="name" name="name"
                                        value="<?php echo $_SESSION['user_logged']['name']; ?>" required>
                             </div>
+                            <div class="form-group">
+                                <label for="gender">Género</label>
+                                <select name="gender" id="gender" class="form-control bg-light" required>
+                                    <option value="1">Femenino</option>
+                                    <option value="2">Masculino</option>
+                                </select>
+                            </div>
                             <div class="form-group d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary mt-3">
                                     Guardar informacion personal
                                 </button>
                             </div>
                         </form>
-                        <div class="alert alert-info mt-3" role="alert">
+                        <div class="alert alert-info mt-3 alert-dismissible fade show" role="alert">
                             <div class="row">
                                 <div class="col col-2">
                                     <h2>
@@ -51,6 +58,9 @@ require_once $sessionStarted->getUpperPartByUserType();
                                     solo puede ser modificado por el administrador.
                                 </div>
                             </div>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -90,6 +100,9 @@ require_once $sessionStarted->getUpperPartByUserType();
         </div>
     </div>
 
+    <script>
+        const gender = '<?php echo $_SESSION['user_logged']['gender']; ?>';
+    </script>
     <script src="public/js/profile.js"></script>
 
 <?php

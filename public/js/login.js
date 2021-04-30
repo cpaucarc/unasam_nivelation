@@ -11,7 +11,7 @@ window.onload = () => {
             title: 'Oops...',
             text: errormsg,
             confirmButtonText:
-                '<i class="bi bi-hand-thumbs-up mr-2"></i>Ok!',
+                'Ok!',
             confirmButtonColor: 'var(--primary)',
         })
     }

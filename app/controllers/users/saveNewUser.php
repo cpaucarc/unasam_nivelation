@@ -9,37 +9,42 @@ $dni = $_POST['user_dni'];
 $rol = $_POST['user_rol'];
 $username = $_POST['user_username'];
 $password = $_POST['user_password'];
+$genderID = intval($_POST['gender']);
 
 $message = 'Error, datos incompletos: ';
 $finalMessage = '';
 
 try {
     if (verifyDataComplete($name, $lastname, $dni, $rol, $username, $password, $finalMessage)) {
+        if ($genderID > 0) {
 
-        $user = new UserModel();
-        $user->setName($name);
-        $user->setLastname($lastname);
-        $user->setDni($dni);
-        $user->setRol($rol);
-        $user->setUsername($username);
-        $user->setPassword($password);
+            $user = new UserModel();
+            $user->setName($name);
+            $user->setLastname($lastname);
+            $user->setDni($dni);
+            $user->setRol($rol);
+            $user->setUsername($username);
+            $user->setPassword($password);
+            $user->setGenderID($genderID);
 
-        if (!$user->dniIsAlreadyRegistered()) {
-            echo (new SendMessage("Este DNI ya se encuentra registrado", false))->getEncodedMessage();
-        } else {
-            if (!$user->usernameIsAlreadyInUse()) {
-                echo (new SendMessage("Este nombre de usuario ya se encuentra en uso, escoja otro", false))->getEncodedMessage();
+            if (!$user->dniIsAlreadyRegistered()) {
+                echo (new SendMessage("Este DNI ya se encuentra registrado", false))->getEncodedMessage();
             } else {
-                if ($user->saveNewUser()) {
-                    echo (new SendMessage("Se registro con exito al usuario.", true))->getEncodedMessage();
+                if (!$user->usernameIsAlreadyInUse()) {
+                    echo (new SendMessage("Este nombre de usuario ya se encuentra en uso, escoja otro", false))->getEncodedMessage();
                 } else {
-                    echo (new SendMessage("Hubo problemas al registrar al usuario.", false))->getEncodedMessage();
+                    if ($user->saveNewUser()) {
+                        echo (new SendMessage("Se registro con exito al usuario.", true))->getEncodedMessage();
+                    } else {
+                        echo (new SendMessage("Hubo problemas al registrar al usuario.", false))->getEncodedMessage();
+                    }
                 }
             }
+        } else {
+            echo (new SendMessage("Falta seleccionar un genero.", false))->getEncodedMessage();
         }
     } else {
         echo (new SendMessage($message . $finalMessage, false))->getEncodedMessage();
-
     }
 } catch (Exception $e) {
     echo (new SendMessage("Error " . $e, false))->getEncodedMessage();

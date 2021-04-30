@@ -55,6 +55,16 @@ require_once $sessionStarted->getUpperPartByUserType();
                                            maxlength="8" minlength="8" size="8">
                                 </div>
                             </div>
+                            <div class="col col-6">
+                                <div class="form-group">
+                                    <label for="user_dni">Género</label>
+                                    <select name="gender" id="gender" class="form-control" required>
+                                        <option value="0">Seleccione...</option>
+                                        <option value="1">Femenino</option>
+                                        <option value="2">Masculino</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col col-6">
@@ -97,7 +107,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                         </div>
                         <div class="row">
                             <div class="col col-12">
-                                <div class="alert alert-info my-2" role="alert">
+                                <div class="alert alert-info my-2 alert-dismissible fade show" role="alert">
                                     <div class="row">
                                         <div class="col col-1">
                                             <h2>
@@ -112,6 +122,9 @@ require_once $sessionStarted->getUpperPartByUserType();
                                                 del usuario.</p>
                                         </div>
                                     </div>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
                             </div>
                         </div>

@@ -4,6 +4,7 @@ const courseID = document.getElementById('courseID');
 const cbDimension = document.getElementById('dimension');
 const formCourse = document.getElementById('form-course');
 const formDimension = document.getElementById('form-dimension');
+const btnNewCourse = document.getElementById('new-course');
 
 table = new Table();
 button = new Button();
@@ -12,6 +13,11 @@ window.onload = () => {
     getAllCourses();
     getAllDimensions();
     document.getElementById('view-title').innerText = 'Cursos';
+}
+
+btnNewCourse.onclick = () => {
+    courseID.value = 0;
+    txCourse.value = '';
 }
 
 formCourse.addEventListener('submit', (e) => {

@@ -12,6 +12,8 @@ class UserModel
     private $dni;
     private $name;
     private $lastname;
+    private $gender;
+    private $genderID;
 
     public function __construct()
     {
@@ -22,14 +24,15 @@ class UserModel
         $connection = new MySqlConnection();
         if ($connection) {
             $pdo = $connection->getConnection();
-            $sql = "CALL createNewUser(?, ?, ?, ?, ?, ?);";
+            $sql = "CALL createNewUser(?, ?, ?, ?, ?, ?, ?);";
             $pdo->prepare($sql)->execute([
                 $this->username,
                 $this->password,
                 $this->name,
                 $this->lastname,
                 $this->dni,
-                $this->rol
+                $this->rol,
+                $this->genderID
             ]);
             return true;
         } else {
@@ -58,7 +61,7 @@ class UserModel
         $connection = new MySqlConnection();
         if ($connection) {
             $pdo = $connection->getConnection();
-            $sql = "CALL spUpdatePersonPersonalInfo('$this->name', '$this->lastname', '$this->dni', $this->id);";
+            $sql = "CALL spUpdatePersonPersonalInfo('$this->name', '$this->lastname', '$this->dni', $this->id, $this->genderID);";
             $response = intval($pdo->query($sql)->fetchColumn());
             return $response == 1; // 1:true, 0:false
         } else {
@@ -249,4 +252,39 @@ class UserModel
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getGenderID()
+    {
+        return $this->genderID;
+    }
+
+    /**
+     * @param mixed $genderID
+     * @return UserModel
+     */
+    public function setGenderID($genderID)
+    {
+        $this->genderID = $genderID;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGender()
+    {
+        return $this->gender;
+    }
+
+    /**
+     * @param mixed $gender
+     * @return UserModel
+     */
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+        return $this;
+    }
 }

@@ -1,6 +1,0 @@
-DROP VIEW studentsxstatus;
-CREATE VIEW studentsxstatus AS
-SELECT cl.student_data_id as students,cl.status_id,st.name as status,  p.name process
-FROM clasifications cl, status st, student_data sd, process p
-WHERE cl.status_id=st.id AND cl.student_data_id=sd.id AND sd.process_id=p.id
-GROUP BY cl.status_id,cl.student_data_id;
