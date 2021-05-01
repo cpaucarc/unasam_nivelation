@@ -11,25 +11,29 @@ if (isset($_FILES['file'])) {
     $type = $file['type'];
     $temporal = $file['tmp_name'];
 
-    if ($type == 'application/json') {
+    session_start();
+
+    if ($type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
         $fileModel = new FileModel();
         $fileModel->setName($name);
         $fileModel->setSize($size);
         $fileModel->setType($type);
         $fileModel->setTemporalDir($temporal);
 
-
         $rsp = $fileModel->moveFileToFinalDir();
 
         if ($rsp) {
-            //echo $fileModel->getPath();
-            echo (new SendMessage($fileModel->getPath(), true))->getEncodedMessage();
+            $_SESSION['files']['tmppath'] = $temporal;
+            $_SESSION['files']['filepath'] = $fileModel->getPath();
+            echo (new SendMessage($fileModel->getPath() . ' - ' . $temporal, true))->getEncodedMessage();
         } else {
+            $_SESSION['files']['tmppath'] = '';
+            $_SESSION['files']['filepath'] = "";
             echo (new SendMessage('Error, el archivo no fue guardado', false))->getEncodedMessage();
         }
     } else {
-        echo (new SendMessage('Error, el archivo debe ser un JSON', false))->getEncodedMessage();
+        $_SESSION['files']['tmppath'] = '';
+        $_SESSION['files']['filepath'] = "";
+        echo (new SendMessage('Error, el archivo debe ser un Excel', false))->getEncodedMessage();
     }
-
-
 }

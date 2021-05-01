@@ -6034,11 +6034,17 @@ a.badge-dark.focus {
 .close:hover {
     color: #000;
     text-decoration: none;
+    outline: none;
 }
 
 .close:not(:disabled):not(.disabled):hover,
 .close:not(:disabled):not(.disabled):focus {
     opacity: 0.75;
+    outline: none;
+}
+
+.close:focus {
+    outline: none;
 }
 
 button.close {
