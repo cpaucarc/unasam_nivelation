@@ -15,13 +15,14 @@ window.addEventListener('load', () => {
 
 uploadForm.addEventListener('change', (e) => {
     e.preventDefault();
+    alert('Espere mientras se guarda el archivo');
     setIconToFile();
     tbody_data = '';
     let formData = new FormData(uploadForm);
     saveFile(formData).then(data => {
         console.log(data);
         if (data.status === true) {
-            alert('Espere mientras se guarda el archivo');
+            alert('Archivo subido');
             // Mostrar un msg: Espere mientras los datos se procesan
 
             //processStudentsData(data.message);
@@ -38,7 +39,7 @@ uploadForm.addEventListener('change', (e) => {
 
 btnPreview.onclick = () => {
     if (tbody_data === '') {
-        getTableFromExcel();
+        getDataForTable();
     }
 }
 
@@ -59,8 +60,8 @@ function getLastProcess() {
         });
 }
 
-function getTableFromExcel() {
-    fetch('app/controllers/index/getTableFromExcel.php/', {
+function getDataForTable() {
+    fetch('app/controllers/index/getDataForTable.php/', {
         method: 'GET'
     })
         .then(response => response.text())

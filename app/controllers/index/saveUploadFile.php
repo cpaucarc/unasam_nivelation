@@ -2,7 +2,7 @@
 include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
 require_once(MODEL_PATH . "FileModel.php");
 require_once(UTIL_PATH . "SendMessage.php");
-
+require_once(UTIL_PATH . "ExcelReader.php");
 
 if (isset($_FILES['file'])) {
     $file = $_FILES['file'];
@@ -25,15 +25,19 @@ if (isset($_FILES['file'])) {
         if ($rsp) {
             $_SESSION['files']['tmppath'] = $temporal;
             $_SESSION['files']['filepath'] = $fileModel->getPath();
+            $excelReader = new ExcelReader($fileModel->getPath());
+            $_SESSION['files']['students'] = $excelReader->read();
             echo (new SendMessage($fileModel->getPath() . ' - ' . $temporal, true))->getEncodedMessage();
         } else {
             $_SESSION['files']['tmppath'] = '';
             $_SESSION['files']['filepath'] = "";
+            $_SESSION['files']['students'] = null;
             echo (new SendMessage('Error, el archivo no fue guardado', false))->getEncodedMessage();
         }
     } else {
         $_SESSION['files']['tmppath'] = '';
         $_SESSION['files']['filepath'] = "";
+        $_SESSION['files']['students'] = null;
         echo (new SendMessage('Error, el archivo debe ser un Excel', false))->getEncodedMessage();
     }
 }
