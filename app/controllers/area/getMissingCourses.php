@@ -4,10 +4,10 @@ require_once(DB_PATH . "MySqlConnection.php");
 require_once(UTIL_PATH . "SendMessage.php");
 
 $conn = (new MySqlConnection())->getConnection();
-$sql = "SELECT name FROM areas ORDER BY name;";
+$sql = "SELECT name FROM areas WHERE name = 'A' ORDER BY name;";
 $areas = $conn->query($sql);
 
-$lista = '<ul>';
+$lista = '';
 $response = 0;
 foreach ($areas as $area) {
     $name = $area['name'];
@@ -20,7 +20,9 @@ foreach ($areas as $area) {
         $response = $stat;
     }
 }
-$lista .= '</ul>';
+if (strlen($lista) === 0) {
+    $lista = '<li>Todos los cursos tienen un rango, puede subir el archivo</li>';
+}
 
 //si response = 1, entonces no se puede subir el archivo excel
 echo (new SendMessage($lista, $response))->getEncodedMessage();

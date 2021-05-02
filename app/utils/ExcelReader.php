@@ -29,6 +29,7 @@ class ExcelReader
             foreach ($data as $row) {
                 $student = new Student();
                 $student->setId(0);
+                $student->setNum(intval($row['0']));
                 $student->setDni($row['1']);
                 $student->setPostulantCode($row['2']);
                 $student->setCode($row['3']);
@@ -141,6 +142,8 @@ class ExcelReader
                 array_push($questions, new Question(98, floatval($row['107'])));
                 array_push($questions, new Question(99, floatval($row['108'])));
                 array_push($questions, new Question(100, floatval($row['109'])));
+
+                $student->setQuestions($questions);
 
                 $student->setScore(floatval($row['110']));
                 $student->setBlank(intval($row['111']));

@@ -1,8 +1,6 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
-require_once(MODEL_PATH . "FileModel.php");
 require_once(UTIL_PATH . "SendMessage.php");
-require_once(UTIL_PATH . "ExcelReader.php");
 
 if (isset($_FILES['file'])) {
     $file = $_FILES['file'];
@@ -14,6 +12,8 @@ if (isset($_FILES['file'])) {
     session_start();
 
     if ($type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
+        require_once(MODEL_PATH . "FileModel.php");
+
         $fileModel = new FileModel();
         $fileModel->setName($name);
         $fileModel->setSize($size);
@@ -23,6 +23,8 @@ if (isset($_FILES['file'])) {
         $rsp = $fileModel->moveFileToFinalDir();
 
         if ($rsp) {
+            require_once(UTIL_PATH . "ExcelReader.php");
+
             $_SESSION['files']['tmppath'] = $temporal;
             $_SESSION['files']['filepath'] = $fileModel->getPath();
             $excelReader = new ExcelReader($fileModel->getPath());

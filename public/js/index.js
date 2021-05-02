@@ -1,17 +1,27 @@
 const lastProcess = document.getElementById('lastProcess');
 const uploadForm = document.getElementById('upload_form');
 const fileIcon = document.getElementById('file-icon');
+const coursesIcon = document.getElementById('courses-icon');
 const btnPreview = document.getElementById('preview');
 const btnUpload = document.getElementById('btn_upload');
 const inputFile = document.getElementById('file');
 const tbody = document.getElementById('tbody');
+const missingCourses = document.getElementById('missing-courses');
 
 let tbody_data = '';
+let coursesOK = false;
+let fileOK = false;
 
 window.addEventListener('load', () => {
     getLastProcess();
     document.getElementById('view-title').innerText = 'Inicio del Sitio';
+    getMissingCourses();
 });
+
+uploadForm.onsubmit = (e) => {
+    e.preventDefault();
+    alert('Esta funcion se implementará mas adelante')
+}
 
 uploadForm.addEventListener('change', (e) => {
     e.preventDefault();
@@ -20,19 +30,17 @@ uploadForm.addEventListener('change', (e) => {
     tbody_data = '';
     let formData = new FormData(uploadForm);
     saveFile(formData).then(data => {
-        console.log(data);
         if (data.status === true) {
             alert('Archivo subido');
             // Mostrar un msg: Espere mientras los datos se procesan
-
             //processStudentsData(data.message);
-
             //message: Los datos ya se guardaron
         } else {
             alert(data.message)
         }
+        fileOK = data.status;
         toggleBtnPreview(data.status);
-        toggleBtnUpload(data.status);
+        toggleBtnUpload();
     });
 
 });
@@ -66,9 +74,24 @@ function getDataForTable() {
     })
         .then(response => response.text())
         .then(data => {
-            console.log(data);
             tbody_data = data;
             tbody.innerHTML = data;
+        });
+}
+
+function getMissingCourses() {
+    fetch('app/controllers/area/getMissingCourses.php/', {
+        method: 'GET'
+    })
+        .then(response => response.json())
+        .then(data => {
+            missingCourses.innerHTML = data.message;
+            coursesOK = data.status;
+            if (coursesOK) {
+                coursesIcon.innerHTML = '<i class="bi bi-emoji-frown text-danger mr-2"></i>Ver pasos faltantes';
+            } else {
+                coursesIcon.innerHTML = '<i class="bi bi-emoji-smile text-success mr-2"></i>Completo';
+            }
         });
 }
 
@@ -126,6 +149,6 @@ function toggleBtnPreview(response) {
     btnPreview.disabled = !response;
 }
 
-function toggleBtnUpload(response) {
-    btnUpload.disabled = !response;
+function toggleBtnUpload() {
+    btnUpload.disabled = !(!coursesOK && fileOK);
 }

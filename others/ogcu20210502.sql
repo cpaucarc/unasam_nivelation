@@ -89,7 +89,7 @@ CREATE TABLE `courses` (
   PRIMARY KEY (`id`),
   KEY `fk_courses_dimensions1_idx` (`dimensions_id`),
   CONSTRAINT `fk_courses_dimensions1` FOREIGN KEY (`dimensions_id`) REFERENCES `dimensions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -344,7 +344,7 @@ CREATE TABLE `ranks` (
   CONSTRAINT `fk_ranks_areas1` FOREIGN KEY (`areas_id`) REFERENCES `areas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_ranks_courses1` FOREIGN KEY (`courses_id`) REFERENCES `courses` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_ranks_process1` FOREIGN KEY (`process_id`) REFERENCES `process` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -353,7 +353,7 @@ CREATE TABLE `ranks` (
 
 LOCK TABLES `ranks` WRITE;
 /*!40000 ALTER TABLE `ranks` DISABLE KEYS */;
-INSERT INTO `ranks` VALUES (1,51,66,1,1,1),(2,48,72,1,2,1),(3,65,75,1,3,1),(4,30,45,1,5,1),(5,60,90,1,4,1),(6,23,41,1,6,1),(7,60,70,2,1,1),(8,50,70,2,2,1),(9,30,40,2,3,1),(10,50,70,2,7,1),(11,50,70,2,8,1);
+INSERT INTO `ranks` VALUES (1,51,66,1,1,1),(2,48,72,1,2,1),(3,65,75,1,3,1),(4,30,45,1,5,1),(5,60,90,1,4,1),(6,23,41,1,6,1),(7,60,70,2,1,1),(8,50,70,2,2,1),(9,30,40,2,3,1),(10,50,70,2,7,1),(11,50,70,2,8,1),(12,50,70,1,7,1),(13,50,70,1,8,1),(14,50,70,1,9,1),(15,50,70,1,10,1),(16,50,70,1,11,1),(17,50,70,1,12,1),(18,50,70,1,13,1),(19,50,70,1,14,1),(20,50,70,1,15,1),(21,50,70,1,16,1),(22,50,70,1,17,1),(23,50,70,1,18,1),(24,50,70,1,19,1),(25,50,70,1,21,1),(26,50,70,1,20,1);
 /*!40000 ALTER TABLE `ranks` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -1096,6 +1096,36 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `spShowMissingCourses` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spShowMissingCourses`(ar varchar(5))
+BEGIN
+
+	SET @areaID = (SELECT id FROM areas WHERE name = ar);
+    
+    IF (@areaID IS NOT NULL ) THEN
+		SET @procID = (SELECT id FROM process ORDER BY name DESC LIMIT 1);
+		SET @courses = (SELECT GROUP_CONCAT(name SEPARATOR ', ') FROM courses WHERE id IN (SELECT courses_id FROM distributions WHERE areas_id = @areaID AND courses_id NOT IN (SELECT courses_id FROM ranks WHERE process_id = @procID AND areas_id = @areaID))); 
+		SET @stat = IF(length(@courses)  > 0, true, false);
+        SELECT @courses as message, @stat as stat;
+	ELSE
+		SELECT 'Sin Datos' as message, false as stat;
+    END IF;
+    
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `spShowStatusByCourse` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -1426,4 +1456,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-30 16:51:57
+-- Dump completed on 2021-05-02 13:23:15

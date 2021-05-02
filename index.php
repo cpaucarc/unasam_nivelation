@@ -48,7 +48,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                     <a class="btn btn-light btn-sm" data-toggle="collapse" href="#collapseExample"
                        role="button"
                        aria-expanded="false" aria-controls="collapseExample">
-                        <i class="bi bi-emoji-frown text-danger"></i> <span>Ver pasos faltantes</span>
+                        <span id="courses-icon"></span>
                     </a>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -61,19 +61,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <div class="collapse mt-2" id="collapseExample">
                                 <div class="card card-body">
                                     <small>
-                                        <ul class="mb-0 pl-3">
-                                            <li>Falta rangos minimo y recomendado para los cursos Algebra, Fisica,
-                                                Quimica
-                                                del Area A
-                                            </li>
-                                            <li>Falta rangos minimo y recomendado para los cursos Lenguaje, Fisica,
-                                                Quimica
-                                                del Area B
-                                            </li>
-                                            <li>Falta rangos minimo y recomendado para los cursos Lenguaje, Cultura
-                                                General,
-                                                Quimica del Area B
-                                            </li>
+                                        <ul class="mb-0 pl-3" id="missing-courses">
                                         </ul>
                                     </small>
                                 </div>
