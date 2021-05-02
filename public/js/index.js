@@ -6,7 +6,7 @@ const btnUpload = document.getElementById('btn_upload');
 const inputFile = document.getElementById('file');
 const tbody = document.getElementById('tbody');
 
-var tbody_data = '';
+let tbody_data = '';
 
 window.addEventListener('load', () => {
     getLastProcess();
@@ -93,7 +93,7 @@ async function processStudentsData(path) {
 }
 
 function getFileIcon(extension) {
-    let icon = '';
+    let icon;
     if (extension === "xls" || extension === "xlsx" || extension === "csv") {
         icon = '<i class="bi bi-file-earmark-excel text-success"></i>';
     } else if (extension === "ppt" || extension === "pptx") {

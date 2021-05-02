@@ -1,9 +1,8 @@
 <?php
+
+use PhpOffice\PhpSpreadsheet\IOFactory;
+
 require $_SERVER['DOCUMENT_ROOT'] . '/nivelation/vendor/autoload.php';
-
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-
 
 session_start();
 
@@ -11,7 +10,7 @@ $filename = $_SESSION['files']['filepath'] ?? '';
 
 if ($filename !== '') {
 
-    $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($filename);
+    $spreadsheet = IOFactory::load($filename);
     $data = $spreadsheet->getActiveSheet()->toArray();
     $tb_body = "";
 
@@ -144,6 +143,7 @@ if ($filename !== '') {
         $tb_body .= "<td><small>$area</small></td>";
         $tb_body .= "<td><small>$school</small></td>";
         $tb_body .= "<td><small>$omg</small></td>";
+
         $tb_body .= "<td><small>$q1</small></td>";
         $tb_body .= "<td><small>$q2</small></td>";
         $tb_body .= "<td><small>$q3</small></td>";

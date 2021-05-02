@@ -5,13 +5,13 @@ require_once(UTIL_PATH . "Question.php");
 
 class StudentModel
 {
-    private $name;
-    private $lastname;
-    private $dni;
-    private $code;
-    private $school;
-    private $id; // This is StudentID, not PersonID
-    private $questions;
+    private string $name;
+    private string $lastname;
+    private string $dni;
+    private string $code;
+    private string $school;
+    private int $id; // This is StudentID, not PersonID
+    private array $questions;
 
     public function __construct()
     {
@@ -51,7 +51,6 @@ class StudentModel
                 $pdo->prepare($sql)->execute([
                     $question->getNumber(),
                     $question->getResponse(),
-                    $question->getCourse(),
                     $this->id
                 ]);
             }
