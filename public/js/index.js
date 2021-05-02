@@ -6,7 +6,6 @@ const btnUpload = document.getElementById('btn_upload');
 const inputFile = document.getElementById('file');
 const tbody = document.getElementById('tbody');
 
-const ruta = document.getElementById('ruta');
 var tbody_data = '';
 
 window.addEventListener('load', () => {
@@ -40,8 +39,6 @@ uploadForm.addEventListener('change', (e) => {
 btnPreview.onclick = () => {
     if (tbody_data === '') {
         getTableFromExcel();
-    } else {
-        tbody.innerHTML = tbody_data;
     }
 }
 
@@ -59,21 +56,6 @@ function getLastProcess() {
             } else {
                 alert(data.message);
             }
-        });
-}
-
-ruta.onclick = () => {
-    getPath();
-}
-
-function getPath() {
-    fetch('app/views/paratestear.php/', {
-        method: 'GET'
-    })
-        .then(response => response.text())
-        .then(data => {
-            console.log(data)
-            typeof data;
         });
 }
 

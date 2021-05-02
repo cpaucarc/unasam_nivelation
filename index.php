@@ -99,7 +99,6 @@ require_once $sessionStarted->getUpperPartByUserType();
                                     </div>
                                 </div>
                                 <div class="col-12 d-flex justify-content-end my-3 pr-0">
-                                    <span id="ruta">Ver ruta</span>
                                     <button type="button" class="btn btn-light btn-sm mr-2" data-toggle="modal"
                                             data-target="#exampleModal" id="preview" disabled>
                                         <i class="bi bi-table mr-2"></i>Vista previa
@@ -142,6 +141,113 @@ require_once $sessionStarted->getUpperPartByUserType();
                                 <th><small><strong>Apellidos</strong></small></th>
                                 <th><small><strong>Nombres</strong></small></th>
                                 <th><small><strong>Sexo</strong></small></th>
+                                <th><small><strong>Area</strong></small></th>
+                                <th><small><strong>Carrera</strong></small></th>
+                                <th><small><strong>OMG</strong></small></th>
+                                <th><small><strong>P1</strong></small></th>
+                                <th><small><strong>P2</strong></small></th>
+                                <th><small><strong>P3</strong></small></th>
+                                <th><small><strong>P4</strong></small></th>
+                                <th><small><strong>P5</strong></small></th>
+                                <th><small><strong>P6</strong></small></th>
+                                <th><small><strong>P7</strong></small></th>
+                                <th><small><strong>P8</strong></small></th>
+                                <th><small><strong>P9</strong></small></th>
+                                <th><small><strong>P10</strong></small></th>
+                                <th><small><strong>P11</strong></small></th>
+                                <th><small><strong>P12</strong></small></th>
+                                <th><small><strong>P13</strong></small></th>
+                                <th><small><strong>P14</strong></small></th>
+                                <th><small><strong>P15</strong></small></th>
+                                <th><small><strong>P16</strong></small></th>
+                                <th><small><strong>P17</strong></small></th>
+                                <th><small><strong>P18</strong></small></th>
+                                <th><small><strong>P19</strong></small></th>
+                                <th><small><strong>P20</strong></small></th>
+                                <th><small><strong>P21</strong></small></th>
+                                <th><small><strong>P22</strong></small></th>
+                                <th><small><strong>P23</strong></small></th>
+                                <th><small><strong>P24</strong></small></th>
+                                <th><small><strong>P25</strong></small></th>
+                                <th><small><strong>P26</strong></small></th>
+                                <th><small><strong>P27</strong></small></th>
+                                <th><small><strong>P28</strong></small></th>
+                                <th><small><strong>P29</strong></small></th>
+                                <th><small><strong>P30</strong></small></th>
+                                <th><small><strong>P31</strong></small></th>
+                                <th><small><strong>P32</strong></small></th>
+                                <th><small><strong>P33</strong></small></th>
+                                <th><small><strong>P34</strong></small></th>
+                                <th><small><strong>P35</strong></small></th>
+                                <th><small><strong>P36</strong></small></th>
+                                <th><small><strong>P37</strong></small></th>
+                                <th><small><strong>P38</strong></small></th>
+                                <th><small><strong>P39</strong></small></th>
+                                <th><small><strong>P40</strong></small></th>
+                                <th><small><strong>P41</strong></small></th>
+                                <th><small><strong>P42</strong></small></th>
+                                <th><small><strong>P43</strong></small></th>
+                                <th><small><strong>P44</strong></small></th>
+                                <th><small><strong>P45</strong></small></th>
+                                <th><small><strong>P46</strong></small></th>
+                                <th><small><strong>P47</strong></small></th>
+                                <th><small><strong>P48</strong></small></th>
+                                <th><small><strong>P49</strong></small></th>
+                                <th><small><strong>P50</strong></small></th>
+                                <th><small><strong>P51</strong></small></th>
+                                <th><small><strong>P52</strong></small></th>
+                                <th><small><strong>P53</strong></small></th>
+                                <th><small><strong>P54</strong></small></th>
+                                <th><small><strong>P55</strong></small></th>
+                                <th><small><strong>P56</strong></small></th>
+                                <th><small><strong>P57</strong></small></th>
+                                <th><small><strong>P58</strong></small></th>
+                                <th><small><strong>P59</strong></small></th>
+                                <th><small><strong>P60</strong></small></th>
+                                <th><small><strong>P61</strong></small></th>
+                                <th><small><strong>P62</strong></small></th>
+                                <th><small><strong>P63</strong></small></th>
+                                <th><small><strong>P64</strong></small></th>
+                                <th><small><strong>P65</strong></small></th>
+                                <th><small><strong>P66</strong></small></th>
+                                <th><small><strong>P67</strong></small></th>
+                                <th><small><strong>P68</strong></small></th>
+                                <th><small><strong>P69</strong></small></th>
+                                <th><small><strong>P70</strong></small></th>
+                                <th><small><strong>P71</strong></small></th>
+                                <th><small><strong>P72</strong></small></th>
+                                <th><small><strong>P73</strong></small></th>
+                                <th><small><strong>P74</strong></small></th>
+                                <th><small><strong>P75</strong></small></th>
+                                <th><small><strong>P76</strong></small></th>
+                                <th><small><strong>P77</strong></small></th>
+                                <th><small><strong>P78</strong></small></th>
+                                <th><small><strong>P79</strong></small></th>
+                                <th><small><strong>P80</strong></small></th>
+                                <th><small><strong>P81</strong></small></th>
+                                <th><small><strong>P82</strong></small></th>
+                                <th><small><strong>P83</strong></small></th>
+                                <th><small><strong>P84</strong></small></th>
+                                <th><small><strong>P85</strong></small></th>
+                                <th><small><strong>P86</strong></small></th>
+                                <th><small><strong>P87</strong></small></th>
+                                <th><small><strong>P88</strong></small></th>
+                                <th><small><strong>P89</strong></small></th>
+                                <th><small><strong>P90</strong></small></th>
+                                <th><small><strong>P91</strong></small></th>
+                                <th><small><strong>P92</strong></small></th>
+                                <th><small><strong>P93</strong></small></th>
+                                <th><small><strong>P94</strong></small></th>
+                                <th><small><strong>P95</strong></small></th>
+                                <th><small><strong>P96</strong></small></th>
+                                <th><small><strong>P97</strong></small></th>
+                                <th><small><strong>P98</strong></small></th>
+                                <th><small><strong>P99</strong></small></th>
+                                <th><small><strong>P100</strong></small></th>
+                                <th><small><strong>Puntaje</strong></small></th>
+                                <th><small><strong>Blanco</strong></small></th>
+                                <th><small><strong>Buena</strong></small></th>
+                                <th><small><strong>Mala</strong></small></th>
                             </tr>
                             </thead>
                             <tbody id="tbody">
