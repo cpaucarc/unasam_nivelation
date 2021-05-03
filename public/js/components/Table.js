@@ -56,8 +56,10 @@ class Table {
 
     createBodyColumn(text) {
         let td = document.createElement('td');
+        let small = document.createElement('small');
         let textContent = document.createTextNode(text);
-        td.appendChild(textContent);
+        small.appendChild(textContent);
+        td.appendChild(small);
         return td;
     }
 

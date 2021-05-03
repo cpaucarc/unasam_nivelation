@@ -3,8 +3,10 @@ class Badge {
     }
 
     createBadge(text, numero) { //1 no nec, 2 si, pero no obl, 3 obl
+        let small = document.createElement('small');
         let span = document.createElement('span');
-        span.innerText = text;
+        small.appendChild(document.createTextNode(text));
+        span.appendChild(small);
         span.classList.add('py-2');
         span.classList.add('alert');
         switch (parseInt(numero)) {

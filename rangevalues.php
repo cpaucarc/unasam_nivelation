@@ -40,13 +40,13 @@ require_once $sessionStarted->getUpperPartByUserType();
                     <table class="table table-bordered mt-2" id="table-ranks">
                         <thead class="thead-light">
                         <tr>
-                            <th scope="col">N°</th>
-                            <th scope="col">Área</th>
-                            <th scope="col" style="width: 30%;">Curso</th>
-                            <th scope="col">Proceso</th>
-                            <th scope="col">Minimo (%)</th>
-                            <th scope="col">Recomendado (%)</th>
-                            <th scope="col">&nbsp;</th>
+                            <th scope="col"><small><strong>N°</strong></small></th>
+                            <th scope="col"><small><strong>Área</strong></small></th>
+                            <th scope="col" style="width: 30%;"><small><strong>Curso</strong></small></th>
+                            <th scope="col"><small><strong>Proceso</strong></small></th>
+                            <th scope="col"><small><strong>Minimo (%)</strong></small></th>
+                            <th scope="col"><small><strong>Recomendado (%)</strong></small></th>
+                            <th scope="col"><small><strong>&nbsp;</strong></small></th>
                         </tr>
                         </thead>
                         <tbody id="tbody">
@@ -65,16 +65,18 @@ require_once $sessionStarted->getUpperPartByUserType();
                                 </h2>
                             </div>
                             <div class="col col-11">
-                                <p class="card-text">
-                                    Los alumnos con:
-                                <ul>
-                                    <li>Aciertos menor al minimo requerido, requieren nivelación obligatoria.</li>
-                                    <li>Aciertos entre el minimo y el maximo, pueden tomar nivelación pero no
-                                        obligatoria.
-                                    </li>
-                                    <li>Aciertos mayor al maximo requerido, no deben tomar nivelación.</li>
-                                </ul>
-                                </p>
+                                <small>
+                                    <p class="card-text">
+                                        Los alumnos con:
+                                    <ul>
+                                        <li>Aciertos menor al minimo requerido, requieren nivelación obligatoria.</li>
+                                        <li>Aciertos entre el minimo y el maximo, pueden tomar nivelación pero no
+                                            obligatoria.
+                                        </li>
+                                        <li>Aciertos mayor al maximo requerido, no deben tomar nivelación.</li>
+                                    </ul>
+                                    </p>
+                                </small>
                             </div>
                         </div>
                     </div>
@@ -105,8 +107,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                                     </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary" id="btnSubmitForm">Guardar</button>
+                                <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary btn-sm" id="btnSubmitForm">Guardar</button>
                             </div>
                             </form>
                         </div>

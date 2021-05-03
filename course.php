@@ -103,12 +103,6 @@ require_once $sessionStarted->getUpperPartByUserType();
          aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Agregar curso</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
                 <div class="modal-body">
                     <form>
                         <div class="form-group">
@@ -126,8 +120,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-light" type="button" data-dismiss="modal">Cancelar</button>
-                    <button class="btn btn-primary">Guardar</button>
+                    <button class="btn btn-light btn-sm" type="button" data-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-primary btn-sm">Guardar</button>
                 </div>
             </div>
         </div>

@@ -75,13 +75,14 @@ function fillTableWhitAllUsers() {
         .then(response => response.json())
         .then(data => {
             data = data.users;
+            console.log(data);
             $('#table-users').DataTable().clear().destroy();
             tbody.innerHTML = '';
             let num = 1;
             data.forEach(user => {
                 let btnEdit = button.createBtnEdit(editUserRol, user.id, user.rol, `${user.lastname} ${user.name}`);
                 let row = table.createRow(
-                    num, user.dni, `${user.lastname} ${user.name}`,
+                    num, user.dni, `${user.lastname} ${user.name}`, user.gender,
                     user.rol, user.username
                 );
                 row.appendChild(table.createCell(btnEdit));
