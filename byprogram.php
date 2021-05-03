@@ -92,13 +92,13 @@ require_once $sessionStarted->getUpperPartByUserType();
                 <table class="table table-bordered mt-2" id="table-students">
                     <thead class="thead-light">
                     <tr>
-                        <th scope="col" style="width: 5%;">N°</th>
-                        <th scope="col" style="width: 5%;">OMG</th>
-                        <th scope="col" style="width: 5%;">OMP</th>
-                        <th scope="col" style="width: 12%;">DNI</th>
-                        <th scope="col" style="width: 13%;">Código</th>
-                        <th scope="col">Estudiante</th>
-                        <th scope="col" style="width: 5%;">&nbsp;</th>
+                        <th scope="col" style="width: 5%;"><small><strong>N°</strong></small></th>
+                        <th scope="col" style="width: 5%;"><small><strong>OMG</strong></small></th>
+                        <th scope="col" style="width: 5%;"><small><strong>OMP</strong></small></th>
+                        <th scope="col" style="width: 12%;"><small><strong>DNI</strong></small></th>
+                        <th scope="col" style="width: 13%;"><small><strong>Código</strong></small></th>
+                        <th scope="col"><small><strong>Estudiante</strong></small></th>
+                        <th scope="col" style="width: 5%;"><small><strong>&nbsp;</strong></small></th>
                     </tr>
                     </thead>
                     <tbody id="tbody">

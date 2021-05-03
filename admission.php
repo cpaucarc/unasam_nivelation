@@ -62,8 +62,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-light" type="button" data-dismiss="modal">Cancelar</button>
-                    <button class="btn btn-primary">Guardar</button>
+                    <button class="btn btn-light btn-sm" type="button" data-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-primary btn-sm">Guardar</button>
                 </div>
                 </form>
             </div>

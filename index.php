@@ -92,7 +92,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                                         <i class="bi bi-table mr-2"></i>Vista previa
                                     </button>
                                     <button type="submit" class="btn btn-primary btn-sm" id="btn_upload" disabled>
-                                        <i class="bi bi-server"></i>Guardar y clasificar datos
+                                        <i class="bi bi-server mr-2"></i>Guardar y clasificar datos
                                     </button>
                                 </div>
                             </form>

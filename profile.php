@@ -53,9 +53,11 @@ require_once $sessionStarted->getUpperPartByUserType();
                                     </h2>
                                 </div>
                                 <div class="col col-10">
-                                    Su rol <span
-                                            class="font-weight-bold"><?php echo $_SESSION['user_logged']['rol']; ?></span>
-                                    solo puede ser modificado por el administrador.
+                                    <small>
+                                        Su rol <span
+                                                class="font-weight-bold"><?php echo $_SESSION['user_logged']['rol']; ?></span>
+                                        solo puede ser modificado por el administrador.
+                                    </small>
                                 </div>
                             </div>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">

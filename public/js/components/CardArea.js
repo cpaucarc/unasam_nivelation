@@ -43,9 +43,11 @@ class CardArea {
         body.classList.add('py-2');
         body.classList.add('px-1');
         let span = document.createElement('span');
+        let small = document.createElement('small');
         // span.classList.add('text-uppercase');
         span.classList.add('text-dark');
-        span.appendChild(document.createTextNode(desc));
+        small.appendChild(document.createTextNode(desc));
+        span.appendChild(small);
         body.appendChild(span);
         body.appendChild(btnShow);
         return body;

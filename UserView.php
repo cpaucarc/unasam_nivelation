@@ -23,12 +23,13 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <table id="table-users" class="table table-sm table-bordered">
                                 <thead class="thead-light">
                                 <tr>
-                                    <th style="width: 30px;">#</th>
-                                    <th>DNI</th>
-                                    <th>Nombre</th>
-                                    <th>Rol</th>
-                                    <th>Usuario</th>
-                                    <th>&nbsp;</th>
+                                    <th style="width: 30px;"><small><strong>N°</strong></small></th>
+                                    <th><small><strong>DNI</strong></small></th>
+                                    <th><small><strong>Nombre</strong></small></th>
+                                    <th><small><strong>Género</strong></small></th>
+                                    <th><small><strong>Rol</strong></small></th>
+                                    <th><small><strong>Usuario</strong></small></th>
+                                    <th style="width: 5px;">&nbsp;</th>
                                 </tr>
                                 </thead>
                                 <tbody id="table-body">
@@ -114,12 +115,13 @@ require_once $sessionStarted->getUpperPartByUserType();
                                                 <i class="bi bi-info-circle-fill"></i>
                                             </h2>
                                         </div>
-                                        <div class="col col-11">
-                                            <p>El <strong>Nombre de usuario</strong> y <strong>Contraseña</strong> por
-                                                defecto toma el
-                                                valor del <strong>DNI</strong> del usuario, estos valores se pueden
-                                                modificar en este formulario, o más adelante en la pantalla de perfil
-                                                del usuario.</p>
+                                        <div class="col col-11 pl-4 pr-0">
+                                            <small class="mb-0">
+                                                El <strong>Nombre de usuario</strong> y <strong>Contraseña</strong>
+                                                por defecto toma el valor del <strong>DNI</strong> del usuario,
+                                                estos valores se pueden modificar en este formulario, o más adelante
+                                                en la pantalla de perfil del usuario.
+                                            </small>
                                         </div>
                                     </div>
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -130,8 +132,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Registrar usuario
+                        <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Registrar usuario
                         </button>
                     </div>
                 </form>
@@ -153,8 +155,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Cambiar Rol
+                        <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Cambiar Rol
                         </button>
                     </div>
                 </form>

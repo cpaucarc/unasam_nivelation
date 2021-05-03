@@ -41,10 +41,10 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <table id="table-courses" class="table table-bordered table-sm text-left">
                             <thead class="thead-light">
                             <tr>
-                                <th style="width: 8%">N°</th>
-                                <th style="width: 50%">Curso</th>
-                                <th style="width: 35%">Dimensión</th>
-                                <th style="width: 7%">&nbsp;</th>
+                                <th style="width: 8%"><small><strong>N°</strong></small></th>
+                                <th style="width: 50%"><small><strong>Curso</strong></small></th>
+                                <th style="width: 35%"><small><strong>Dimensión</strong></small></th>
+                                <th style="width: 7%"><small><strong>&nbsp;</strong></small></th>
                             </tr>
                             </thead>
                             <tbody id="tbody">
@@ -87,8 +87,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-light" type="button" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button class="btn btn-light btn-sm" type="button" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
                 </div>
                 </form>
             </div>
@@ -108,8 +108,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Guardar Dimensión</button>
+                        <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Guardar Dimensión</button>
                     </div>
                 </form>
             </div>

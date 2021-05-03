@@ -29,7 +29,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">¿Preparado para partir?</h5>
+                <h6 class="modal-title" id="exampleModalLabel">¿Preparado para partir?</h6>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -41,9 +41,9 @@
                 </p>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-light font-weight-bold" type="button" data-dismiss="modal">Cancelar</button>
+                <button class="btn btn-light font-weight-bold btn-sm" type="button" data-dismiss="modal">Cancelar</button>
                 <form action="/nivelation/app/controllers/login/makeLogout.php">
-                    <button class="btn btn-danger font-weight-bold" type="submit">Cerrar sesión</button>
+                    <button class="btn btn-danger btn-sm font-weight-bold" type="submit">Cerrar sesión</button>
                 </form>
             </div>
         </div>
