@@ -42,9 +42,6 @@ input[type="file"] {
     opacity: 0.1;
 }
 
-.card {
-    border-radius: 0 !important;
-}
 
 .login-header {
     display: flex;

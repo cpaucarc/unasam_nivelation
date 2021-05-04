@@ -20,15 +20,15 @@ require_once $sessionStarted->getUpperPartByUserType();
                         Programas Académicos del Área <span class="font-weight-bold" id="areaNameSchool"></span>
                     </div>
                     <div class="card-body" id="card-body-school">
-                        <button type="button" class="btn btn-primary mb-3" data-toggle="modal"
+                        <button type="button" class="btn btn-primary btn-sm mb-4" data-toggle="modal"
                                 data-target="#SchoolModal" id="newSchool">
                             Agregar nuevo Programa Académico
                         </button>
-                        <table class="table table-bordered" id="table-schools">
+                        <table class="table table-bordered table-sm mt-4" id="table-schools">
                             <thead class="thead-light">
                             <tr>
-                                <th scope="col">N°</th>
-                                <th scope="col">Programa Académico</th>
+                                <th scope="col"><small><strong>N°</strong></small></th>
+                                <th scope="col"><small><strong>Programa Académico</strong></small></th>
                             </tr>
                             </thead>
                             <tbody id="tbody-schools">
@@ -43,16 +43,16 @@ require_once $sessionStarted->getUpperPartByUserType();
                         Cursos del Área <span class="font-weight-bold" id="areaNameCourse"></span>
                     </div>
                     <div class="card-body" id="card-body-school">
-                        <button type="button" class="btn btn-primary mb-3" data-toggle="modal"
+                        <button type="button" class="btn btn-primary btn-sm mb-4" data-toggle="modal"
                                 data-target="#CoursesModal" id="addCourse">
                             Agregar nuevo curso
                         </button>
-                        <table class="table table-bordered" id="table-courses">
+                        <table class="table table-bordered table-sm mt-4" id="table-courses">
                             <thead class="thead-light">
                             <tr>
-                                <th scope="col">N°</th>
-                                <th scope="col" style="width: 60%;">Curso</th>
-                                <th scope="col">Proceso</th>
+                                <th scope="col" style="width: 5%;"><small><strong>N°</strong></small></th>
+                                <th scope="col" style="width: 60%;"><small><strong>Curso</strong></small></th>
+                                <th scope="col" style="width: 10%;"><small><strong>Proceso</strong></small></th>
                             </tr>
                             </thead>
                             <tbody id="tbody-courses">
@@ -67,14 +67,16 @@ require_once $sessionStarted->getUpperPartByUserType();
                                     </h2>
                                 </div>
                                 <div class="col col-11">
-                                    <ul>
-                                        <li>Para ver y modificar los rangos de cada curso
-                                            <a href="rangos">pulse aqui</a>.
-                                        </li>
-                                        <li>Para añadir nuevos cursos
-                                            <a href="cursos">pulse aqui</a>.
-                                        </li>
-                                    </ul>
+                                    <small>
+                                        <ul>
+                                            <li>Para ver y modificar los rangos de cada curso
+                                                <a href="rangos">pulse aqui</a>.
+                                            </li>
+                                            <li>Para añadir nuevos cursos
+                                                <a href="cursos">pulse aqui</a>.
+                                            </li>
+                                        </ul>
+                                    </small>
                                 </div>
                             </div>
                         </div>
@@ -89,26 +91,24 @@ require_once $sessionStarted->getUpperPartByUserType();
              aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Crear nueva área</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
                     <div class="modal-body">
                         <form id="form-area">
                             <div class="form-group">
-                                <label for="area" class="col-form-label-sm">Ingrese abreviatura del area:</label>
-                                <input type="text" name="area" class="form-control form-control-user" id="area" required
+                                <label for="area" class="col-form-label col-form-label-sm">Ingrese abreviatura del
+                                    area:</label>
+                                <input type="text" name="area" class="form-control form-control-user form-control-sm"
+                                       id="area" required
                                        placeholder="Ej. A">
-                                <label for="desc" class="col-form-label-sm">Ingrese descripcion del area:</label>
-                                <input type="text" name="desc" class="form-control form-control-user" id="desc" required
+                                <label for="desc" class="col-form-label col-form-label-sm">Ingrese descripcion del
+                                    area:</label>
+                                <input type="text" name="desc" class="form-control form-control-user form-control-sm"
+                                       id="desc" required
                                        placeholder="Ej. Ciencias e Ingenieria">
                             </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-light" type="button" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button class="btn btn-light btn-sm" type="button" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
                     </div>
                     </form>
                 </div>
@@ -119,23 +119,19 @@ require_once $sessionStarted->getUpperPartByUserType();
              aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Agregar nuevo Programa Académico</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
                     <div class="modal-body">
                         <form id="form-schools">
                             <div class="form-group">
                                 <input id="areaIDSch" value="0" name="areaIDSch" type="hidden"/>
-                                <label for="school">Nombre del Programa Académico</label>
-                                <input type="text" class="form-control" id="school" name="school" required>
+                                <label for="school" class="col-form-label col-form-label-sm">Nombre del Programa
+                                    Académico</label>
+                                <input type="text" class="form-control form-control-sm" id="school" name="school"
+                                       placeholder="Ej. Turismo" required>
                             </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
                     </div>
                     </form>
                 </div>
@@ -146,44 +142,45 @@ require_once $sessionStarted->getUpperPartByUserType();
              aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Agregar nuevo curso</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
                     <div class="modal-body">
                         <form id="form-courses">
                             <input id="areaIDCou" value="0" name="areaIDCou" type="hidden"/>
                             <div class="row">
-                                <div class="col col-sm-12">
+                                <div class="col-12 mb-3">
                                     <div class="form-group">
-                                        <label for="cbCourses">Curso que aun no estan registrados</label>
-                                        <select name="courses" id="cbCourses" class="form-control"
+                                        <label for="cbCourses" class="col-form-label col-form-label-sm">Curso que aun no
+                                            estan registrados</label>
+                                        <select name="courses" id="cbCourses" class="form-control form-control-sm"
                                                 aria-describedby="courseHelp" required></select>
                                         <small id="courseHelp" class="form-text text-muted">Los cursos que se muestran
                                             son los que aun no estan registrados en el area.</small>
                                     </div>
                                 </div>
-                                <div class="col col-sm-6">
+                                <div class="col-6">
                                     <div class="form-group">
-                                        <label for="min">Rango Minimo (%)</label>
-                                        <input name="min" type="number" class="form-control" id="min" value="50" required
+                                        <label for="min" class="col-form-label col-form-label-sm">Rango Minimo
+                                            (%)</label>
+                                        <input name="min" type="number" class="form-control form-control-sm" id="min"
+                                               value="50"
+                                               required
                                                max="100" min="0">
                                     </div>
                                 </div>
-                                <div class="col col-sm-6">
+                                <div class="col-6">
                                     <div class="form-group">
-                                        <label for="max">Rango Recomendado (%)</label>
-                                        <input name="max" type="number" class="form-control" id="max" value="70" required
+                                        <label for="max" class="col-form-label col-form-label-sm">Rango Recomendado
+                                            (%)</label>
+                                        <input name="max" type="number" class="form-control form-control-sm" id="max"
+                                               value="70"
+                                               required
                                                max="100" min="0">
                                     </div>
                                 </div>
                             </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
                     </div>
                     </form>
                 </div>

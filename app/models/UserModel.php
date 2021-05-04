@@ -148,6 +148,7 @@ class UserModel
             $user['id'] = $row['id'];
             $user['dni'] = $row['dni'];
             $user['lastname'] = $row['lastname'];
+            $user['gender'] = $row['gender'];
             $user['name'] = $row['name'];
             $user['rol'] = $row['rol'];
             $user['username'] = $row['username'];

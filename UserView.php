@@ -12,7 +12,7 @@ require_once $sessionStarted->getUpperPartByUserType();
     <div class="card mb-4">
         <div class="card-body ">
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#user_modal">
+                <button type="button" class="btn btn-primary btn-sm my-2" data-toggle="modal" data-target="#user_modal">
                     <i class="bi bi-plus mr-2"></i>Nuevo usuario
                 </button>
             </div>
@@ -23,12 +23,13 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <table id="table-users" class="table table-sm table-bordered">
                                 <thead class="thead-light">
                                 <tr>
-                                    <th style="width: 30px;">#</th>
-                                    <th>DNI</th>
-                                    <th>Nombre</th>
-                                    <th>Rol</th>
-                                    <th>Usuario</th>
-                                    <th>&nbsp;</th>
+                                    <th style="width: 30px;"><small><strong>N°</strong></small></th>
+                                    <th><small><strong>DNI</strong></small></th>
+                                    <th><small><strong>Nombre</strong></small></th>
+                                    <th><small><strong>Género</strong></small></th>
+                                    <th><small><strong>Rol</strong></small></th>
+                                    <th><small><strong>Usuario</strong></small></th>
+                                    <th style="width: 5px;">&nbsp;</th>
                                 </tr>
                                 </thead>
                                 <tbody id="table-body">
@@ -50,15 +51,15 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <div class="row">
                             <div class="col col-6">
                                 <div class="form-group">
-                                    <label for="user_dni">DNI</label>
-                                    <input type="number" class="form-control" id="user_dni" name="user_dni" required
+                                    <label for="user_dni" class="col-form-label col-form-label-sm">DNI</label>
+                                    <input type="number" class="form-control form-control-sm" id="user_dni" name="user_dni" required
                                            maxlength="8" minlength="8" size="8">
                                 </div>
                             </div>
                             <div class="col col-6">
                                 <div class="form-group">
-                                    <label for="user_dni">Género</label>
-                                    <select name="gender" id="gender" class="form-control" required>
+                                    <label for="user_dni" class="col-form-label col-form-label-sm">Género</label>
+                                    <select name="gender" id="gender" class="form-control form-control-sm" required>
                                         <option value="0">Seleccione...</option>
                                         <option value="1">Femenino</option>
                                         <option value="2">Masculino</option>
@@ -69,14 +70,14 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <div class="row">
                             <div class="col col-6">
                                 <div class="form-group">
-                                    <label for="user_name">Nombres</label>
-                                    <input type="text" class="form-control" id="user_name" name="user_name" required>
+                                    <label for="user_name" class="col-form-label col-form-label-sm">Nombres</label>
+                                    <input type="text" class="form-control form-control-sm" id="user_name" name="user_name" required>
                                 </div>
                             </div>
                             <div class="col col-6">
                                 <div class="form-group">
-                                    <label for="user_lastname">Apellidos</label>
-                                    <input type="text" class="form-control" id="user_lastname" name="user_lastname"
+                                    <label for="user_lastname" class="col-form-label col-form-label-sm">Apellidos</label>
+                                    <input type="text" class="form-control form-control-sm" id="user_lastname" name="user_lastname"
                                            required>
                                 </div>
                             </div>
@@ -85,22 +86,22 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <div class="row">
                             <div class="col col-12">
                                 <div class="form-group">
-                                    <label for="user_rol">Rol del usuario</label>
-                                    <select class="form-control" id="user_rol" name="user_rol" required>
+                                    <label for="user_rol" class="col-form-label col-form-label-sm">Rol del usuario</label>
+                                    <select class="form-control form-control-sm" id="user_rol" name="user_rol" required>
                                     </select>
                                 </div>
                             </div>
                             <div class="col col-6">
                                 <div class="form-group">
-                                    <label for="user_username">Nombre de Usuario</label>
-                                    <input type="text" class="form-control" id="user_username" name="user_username"
+                                    <label for="user_username" class="col-form-label col-form-label-sm">Nombre de Usuario</label>
+                                    <input type="text" class="form-control form-control-sm" id="user_username" name="user_username"
                                            required>
                                 </div>
                             </div>
                             <div class="col col-6">
                                 <div class="form-group">
-                                    <label for="user_password">Contraseña</label>
-                                    <input type="password" class="form-control" id="user_password" name="user_password"
+                                    <label for="user_password" class="col-form-label col-form-label-sm">Contraseña</label>
+                                    <input type="password" class="form-control form-control-sm" id="user_password" name="user_password"
                                            required>
                                 </div>
                             </div>
@@ -114,12 +115,13 @@ require_once $sessionStarted->getUpperPartByUserType();
                                                 <i class="bi bi-info-circle-fill"></i>
                                             </h2>
                                         </div>
-                                        <div class="col col-11">
-                                            <p>El <strong>Nombre de usuario</strong> y <strong>Contraseña</strong> por
-                                                defecto toma el
-                                                valor del <strong>DNI</strong> del usuario, estos valores se pueden
-                                                modificar en este formulario, o más adelante en la pantalla de perfil
-                                                del usuario.</p>
+                                        <div class="col col-11 pl-4 pr-0">
+                                            <small class="mb-0">
+                                                El <strong>Nombre de usuario</strong> y <strong>Contraseña</strong>
+                                                por defecto toma el valor del <strong>DNI</strong> del usuario,
+                                                estos valores se pueden modificar en este formulario, o más adelante
+                                                en la pantalla de perfil del usuario.
+                                            </small>
                                         </div>
                                     </div>
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -130,8 +132,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Registrar usuario
+                        <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Registrar usuario
                         </button>
                     </div>
                 </form>
@@ -147,14 +149,14 @@ require_once $sessionStarted->getUpperPartByUserType();
                     <div class="modal-body">
                         <input type="text" name="id_user" id="id_user" value="0">
                         <div class="form-group">
-                            <label for="user_roles">Rol de <span id="span_username"></span></label>
-                            <select class="form-control" id="user_roles" name="user_rol" required>
+                            <label for="user_roles" class="col-form-label col-form-label-sm">Rol de <span id="span_username"></span></label>
+                            <select class="form-control form-control-sm" id="user_roles" name="user_rol" required>
                             </select>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Cambiar Rol
+                        <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Cambiar Rol
                         </button>
                     </div>
                 </form>

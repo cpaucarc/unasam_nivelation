@@ -16,7 +16,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                     <div class="card-body">
                         <div class="row d-flex justify-content-around">
                             <div class="col col-12 col-lg-7 mb-4">
-                                <label for="lastProcess">Proceso de Admision</label>
+                                <label for="lastProcess" class="col-form-label col-form-label-sm">Proceso de Admision</label>
                                 <h3 class="font-weight-bold text-primary" aria-describedby="help">
                                     <i class="bi bi-calendar-check mr-2"></i> <span id="lastProcess">Cargando...</span>
                                 </h3>
@@ -79,7 +79,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                                         </div>
                                         <div class="col-11">
                                             <div class="form-group">
-                                                <label for="file" class="mb-1">Adjunto</label>
+                                                <label for="file" class="col-form-label col-form-label-sm mb-1">Adjunto</label>
                                                 <input type="file" class="form-control-file" name="file" id="file"
                                                        accept=".xls, .xlsx" required>
                                             </div>
@@ -92,7 +92,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                                         <i class="bi bi-table mr-2"></i>Vista previa
                                     </button>
                                     <button type="submit" class="btn btn-primary btn-sm" id="btn_upload" disabled>
-                                        <i class="bi bi-server"></i>Guardar y clasificar datos
+                                        <i class="bi bi-server mr-2"></i>Guardar y clasificar datos
                                     </button>
                                 </div>
                             </form>

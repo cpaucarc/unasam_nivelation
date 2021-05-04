@@ -249,11 +249,11 @@ class Card {
                         </div>
                     </div>
                     <div class="card-body text-center">
-                        <a href="#" class="text-dark" data-toggle="modal"
+                        <a href="#" class="text-secondary" data-toggle="modal"
                            data-target="#add-area">
-                           <h1 class="display-4">
-                           <i class="bi bi-plus-circle-fill"></i>
-                           </h1> 
+                           <h2 class="display-4">
+                           <i class="bi bi-plus-circle"></i>
+                           </h2> 
                         </a>
                     </div>
                 </div>

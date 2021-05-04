@@ -50,6 +50,7 @@ class Button {
         let btn = this.createIconBtn('<i class="bi bi-trash"></i>', fun, ...params);
         btn.classList.add('btn');
         btn.classList.add('btn-outline-danger');
+        btn.classList.add('btn-sm');
         return btn;
     }
 
@@ -58,6 +59,7 @@ class Button {
         btn.appendChild(document.createTextNode(text));
         btn.classList.add('btn');
         btn.classList.add('btn-light');
+        btn.classList.add('btn-sm');
         btn.classList.add('text-primary');
         btn.classList.add('w-100');
         btn.classList.add('my-2');

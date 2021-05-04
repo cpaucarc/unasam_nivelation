@@ -22,7 +22,7 @@ require_once $sessionStarted->getUpperPartByUserType();
             </div>
         </div>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#school_modal">
+        <button type="button" class="btn btn-primary btn-sm my-2" data-toggle="modal" data-target="#school_modal">
             <i class="bi bi-plus mr-2"></i>Nuevo programa
         </button>
     </div>
@@ -49,9 +49,9 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <td>Ingeniería de Sistemas e Informática</td>
                         <td class="text-center">
                             <div class="btn-group">
-                                <button class="btn btn-warning btnEditar" data-toggle="modal"
+                                <button class="btn btn-warning btn-sm btnEditar" data-toggle="modal"
                                         data-target="#school_modal"><i class="bi bi-pencil-square"></i></button>
-                                <button class="btn btn-danger btnEliminar"><i class="bi bi-trash"></i></button>
+                                <button class="btn btn-danger btn-sm btnEliminar"><i class="bi bi-trash"></i></button>
                             </div>
                         </td>
                     </tr>
@@ -60,9 +60,9 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <td>Ingeniería de Civil</td>
                         <td class="text-center">
                             <div class="btn-group">
-                                <button class="btn btn-warning btnEditar" data-toggle="modal"
+                                <button class="btn btn-warning btn-sm btnEditar" data-toggle="modal"
                                         data-target="#school_modal"><i class="bi bi-pencil-square"></i></button>
-                                <button class="btn btn-danger btnEliminar"><i class="bi bi-trash"></i></button>
+                                <button class="btn btn-danger btn-sm btnEliminar"><i class="bi bi-trash"></i></button>
                             </div>
                         </td>
                     </tr>
@@ -71,9 +71,9 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <td>Ingeniería de Industrial</td>
                         <td class="text-center">
                             <div class="btn-group">
-                                <button class="btn btn-warning btnEditar" data-toggle="modal"
+                                <button class="btn btn-warning btn-sm btnEditar" data-toggle="modal"
                                         data-target="#school_modal"><i class="bi bi-pencil-square"></i></button>
-                                <button class="btn btn-danger btnEliminar"><i class="bi bi-trash"></i></button>
+                                <button class="btn btn-danger btn-sm btnEliminar"><i class="bi bi-trash"></i></button>
                             </div>
                         </td>
                     </tr>
@@ -93,23 +93,18 @@ require_once $sessionStarted->getUpperPartByUserType();
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Agregar nueva escuela</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <label for="escuela" class="col-form-label-sm text-uppercase">Ingrese escuela a crear:</label>
-                        <input type="text" class="form-control" id="escuela" placeholder="Escuela" required>
+                        <label for="escuela" class="col-form-label col-form-label-sm">Ingrese escuela a crear:</label>
+                        <input type="text" class="form-control form-control-sm" id="escuela" placeholder="Escuela"
+                               required>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                <button class="btn btn-primary">Guardar</button>
+                <button class="btn btn-light btn-sm" type="button" data-dismiss="modal">Cancelar</button>
+                <button class="btn btn-primary btn-sm">Guardar</button>
             </div>
         </div>
     </div>

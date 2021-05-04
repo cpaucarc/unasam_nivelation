@@ -7,7 +7,6 @@ class LoginModel
 {
     private string $username;
     private string $password;
-    private int $rol; // user_type:ID
 
     public function __construct()
     {
@@ -16,7 +15,7 @@ class LoginModel
     public function login()
     {
         $conn = (new MySqlConnection())->getConnection();
-        $sql = "CALL spLogin('$this->username', '$this->password', $this->rol);";
+        $sql = "CALL spLogin('$this->username', '$this->password');";
         return $conn->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
 
@@ -24,7 +23,7 @@ class LoginModel
     {
         $user = new UserModel();
         $conn = (new MySqlConnection())->getConnection();
-        $sql = "CALL spGetUserLoggedInfo('$this->username', '$this->password', $this->rol);";
+        $sql = "CALL spGetUserLoggedInfo('$this->username', '$this->password');";
         $result = $conn->query($sql)->fetch(PDO::FETCH_ASSOC);
         $user->setId(intval($result['id']));
         $user->setDni($result['dni']);
@@ -59,23 +58,4 @@ class LoginModel
         $this->password = $password;
         return $this;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getRol()
-    {
-        return $this->rol;
-    }
-
-    /**
-     * @param mixed $rol
-     * @return LoginModel
-     */
-    public function setRol($rol)
-    {
-        $this->rol = $rol;
-        return $this;
-    }
-
 }
