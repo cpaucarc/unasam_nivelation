@@ -46,7 +46,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <h6 class="dropdown-header">Reportes</h6>
                             <a>
-                                <form action="reporte/programa" method="post">
+                                <form action="reporte/programa" target="_blank" method="post">
                                     <input id="areaPdf_1" name="areaPdf" required type="hidden">
                                     <input id="programPdf_1" name="programPdf" required type="hidden">
                                     <input id="processPdf_1" name="processPdf" required type="hidden">
@@ -56,7 +56,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                                 </form>
                             </a>
                             <a>
-                                <form action="reporte/programa" method="post">
+                                <form action="reporte/programa" target="_blank" method="post">
                                     <input id="areaPdf_2" name="areaPdf" required type="hidden">
                                     <input id="processPdf_2" name="processPdf" required type="hidden">
                                     <button type="submit" class="dropdown-item">
@@ -65,7 +65,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                                 </form>
                             </a>
                             <a>
-                                <form action="reporte/programa" method="post">
+                                <form action="reporte/programa" target="_blank" method="post">
                                     <input id="processPdf_3" name="processPdf" required type="hidden">
                                     <button type="submit" class="dropdown-item">
                                         <i class="bi bi-grid-3x2-gap mr-2"></i>Ver todas las Áreas
@@ -75,7 +75,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <div class="dropdown-divider"></div>
                             <h6 class="dropdown-header">Gráficos</h6>
                             <a>
-                                <form action="http://localhost/nivelation/byprogramG.php" method="post" class="mx-2">
+                                <form action="http://localhost/nivelation/byprogramG.php" target="_blank" method="post" class="mx-2">
                                     <input name="processChart" id="processChart" required type="hidden">
                                     <button type="submit" class="dropdown-item">
                                         <i class="bi bi-pie-chart-fill mr-2"></i> Ver Graficos

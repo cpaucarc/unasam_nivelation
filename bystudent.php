@@ -45,10 +45,29 @@ require_once $sessionStarted->getUpperPartByUserType();
                             </button>
                         </form> -->
 
-                        <div class="dropdown ml-2">
-                            <a class="btn btn-light btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="bi bi-graph-up mr-2"></i>Reportes y Graficos
+                    <div class="dropdown ml-2">
+                        <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="bi bi-graph-up mr-2"></i>Reportes y Graficos
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <h6 class="dropdown-header">Reportes</h6>
+                            <a>
+                                <form action="<?php echo $routeAux; ?>reporte/estudiante"  method="post" target="_blank">
+                                    <input id="studentPdf" name="studentPdf" required type="hidden">
+                                    <button type="submit" class="dropdown-item">
+                                        <i class="bi bi-stop mr-2"></i>Ver este alumno
+                                    </button>
+                                </form>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <h6 class="dropdown-header">Gráficos</h6>
+                            <a >
+                                <form action="http://localhost/nivelation/bystudentG.php" target="_blank" method="post" class="mx-2">
+                                    <button type="submit"  class="dropdown-item">
+                                        <i class="bi bi-pie-chart-fill mr-2"></i> Ver Graficos
+                                    </button>
+                                </form>
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -77,15 +96,21 @@ require_once $sessionStarted->getUpperPartByUserType();
                     </div>
                 </div>
             </div>
-            <div class="card-body">
-
-                <div class="row">
-                    <div class="col col-12 col-lg-4 mb-3">
-                        <div id="student-info-card">
-                            <!-- Student Info Card Here-->
-                        </div>
-                        <div id="not-student-card">
-                            <!-- Just when stdID in POST is 0 -->
+        </div>
+        <div class="card-body text-center">
+            <div class="row">
+                <div class="col col-12 col-lg-4 mb-3">
+                    <div id="student-info-card">
+                        <!-- Student Info Card Here-->
+                    </div>
+                    <div id="not-student-card">
+                        <!-- Just when stdID in POST is 0 -->
+                    </div>
+                </div>
+                <div class="col col-12 col-lg-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 class="m-0 font-weight-bold">Analisis de cursos</h6>
                         </div>
                     </div>
                     <div class="col col-12 col-lg-8">
