@@ -5,7 +5,6 @@ const txSearch = document.getElementById('txSearch');
 const tbBody = document.getElementById('table-courses-body');
 const stdID = parseInt(document.getElementById('stdID').value);
 const stdIDPDF = document.getElementById('studentPdf');
-const btShowPDF = document.getElementById('btShowPDF');
 
 card = new Card();
 table = new Table();
@@ -31,13 +30,6 @@ btSearch.addEventListener('click', (e) => {
 
 txSearch.addEventListener('keyup', () => {
     getStudentsLike(txSearch.value);
-});
-
-btShowPDF.addEventListener('click', () => {
-    let id = parseInt(stdIDPDF.value);
-    if (id > 0) {
-        console.log('Mostrando PDF')
-    }
 });
 
 function getStudentsLike(pattern) {
