@@ -18,7 +18,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                 </div>
             </div>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#school_modal">
+            <button type="button" class="btn btn-primary btn-sm my-2" data-toggle="modal" data-target="#school_modal">
                 <i class="bi bi-plus mr-2"></i>Nuevo curso
             </button>
         </div>
@@ -26,7 +26,7 @@ require_once $sessionStarted->getUpperPartByUserType();
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-sm-flex align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">Cursos</h6>
-                <select class="form-control text-primary" id="semestre" style="width:150px">
+                <select class="form-control form-control-sm text-primary" id="semestre" style="width:150px">
                     <option>Admisión</option>
                     <option>2020-II</option>
                     <option>2021-I</option>
@@ -55,9 +55,9 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <td>70%</td>
                             <td class="text-center">
                                 <div class="btn-group">
-                                    <button class="btn btn-warning btnEditar" data-toggle="modal"
+                                    <button class="btn btn-warning btn-sm btnEditar" data-toggle="modal"
                                             data-target="#school_modal"><i class="bi bi-pencil-square"></i></button>
-                                    <button class="btn btn-danger btnEliminar"><i class="bi bi-trash"></i></button>
+                                    <button class="btn btn-danger btn-sm btnEliminar"><i class="bi bi-trash"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -68,9 +68,9 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <td>70%</td>
                             <td class="text-center">
                                 <div class="btn-group">
-                                    <button class="btn btn-warning btnEditar" data-toggle="modal"
+                                    <button class="btn btn-warning btn-sm btnEditar" data-toggle="modal"
                                             data-target="#school_modal"><i class="bi bi-pencil-square"></i></button>
-                                    <button class="btn btn-danger btnEliminar"><i class="bi bi-trash"></i></button>
+                                    <button class="btn btn-danger btn-sm btnEliminar"><i class="bi bi-trash"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -81,9 +81,9 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <td>70%</td>
                             <td class="text-center">
                                 <div class="btn-group">
-                                    <button class="btn btn-warning btnEditar" data-toggle="modal"
+                                    <button class="btn btn-warning btn-sm btnEditar" data-toggle="modal"
                                             data-target="#school_modal"><i class="bi bi-pencil-square"></i></button>
-                                    <button class="btn btn-danger btnEliminar"><i class="bi bi-trash"></i></button>
+                                    <button class="btn btn-danger btn-sm btnEliminar"><i class="bi bi-trash"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -106,16 +106,16 @@ require_once $sessionStarted->getUpperPartByUserType();
                 <div class="modal-body">
                     <form>
                         <div class="form-group">
-                            <label for="curso" class="col-form-label-sm text-uppercase">Curso:</label>
-                            <input type="text" class="form-control " id="curso" placeholder="Curso" required>
+                            <label for="curso" class="col-form-label col-form-label-sm">Curso:</label>
+                            <input type="text" class="form-control form-control-sm" id="curso" placeholder="Curso" required>
                         </div>
                         <div class="form-group">
-                            <label for="minimo" class="col-form-label-sm text-uppercase">Mínimo:</label>
-                            <input type="number" class="form-control " id="minimo" placeholder="Mímino" required>
+                            <label for="minimo" class="col-form-label col-form-label-sm">Mínimo:</label>
+                            <input type="number" class="form-control form-control-sm" id="minimo" placeholder="Mímino" required>
                         </div>
                         <div class="form-group">
-                            <label for="maximo" class="col-form-label-sm text-uppercase">Máximo</label>
-                            <input type="number" class="form-control " id="maximo" placeholder="Máximo" required>
+                            <label for="maximo" class="col-form-label col-form-label-sm">Recomendado</label>
+                            <input type="number" class="form-control form-control-sm" id="maximo" placeholder="Máximo" required>
                         </div>
                     </form>
                 </div>

@@ -33,22 +33,22 @@ $error_message = $_GET['error'] ?? "";
                                 </h5>
                                 <form class="user my-3" action="app/controllers/login/makeLogin.php" method="post">
                                     <div class="form-group">
-                                        <label for="role">Tipo de Usuario</label>
+                                        <label for="role" class="col-form-label col-form-label-sm">Tipo de Usuario</label>
                                         <select class="form-control" id="role" name="role" required>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="username" class="text-dark">Nombre de Usuario</label>
+                                        <label for="username"  class="col-form-label col-form-label-sm">Nombre de Usuario</label>
                                         <input type="text" class="form-control" id="username"
                                                name="username" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="password" class="text-dark">Contraseña</label>
+                                        <label for="password" class="col-form-label col-form-label-sm">Contraseña</label>
                                         <input type="password" class="form-control" id="password"
                                                name="password" required>
                                     </div>
                                     <div class="mt-4">
-                                        <button class="btn btn-primary btn-block"
+                                        <button class="btn btn-primary btn-sm btn-block"
                                                 type="submit">
                                             <i class="bi bi-box-arrow-in-right"></i> Ingresar
                                         </button>

@@ -15,7 +15,7 @@ require_once $sessionStarted->getUpperPartByUserType();
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Reporte por Estudiante</h1>
-            <select class="form-control form-control text-primary" id="semestre" style="width:120px">
+            <select class="form-control form-control-sm text-primary" id="semestre" style="width:120px">
                 <option>Admisión</option>
                 <option>2020-II</option>
                 <option>2021-I</option>
@@ -35,7 +35,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <!-- Topbar Search -->
                         <form class="d-sm-inline-block  ">
                             <div class="input-group">
-                                <select class="form-select form-control form-control text-primary"
+                                <select class="form-select form-control form-control-sm text-primary"
                                         aria-label="Default select example">
                                     <option selected>Área</option>
                                     <option value="1">A</option>

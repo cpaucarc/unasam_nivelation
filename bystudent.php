@@ -22,11 +22,11 @@ require_once $sessionStarted->getUpperPartByUserType();
                 <div class="d-flex justify-content-between">
                     <div class="cp-2 bd-highlight">
                         <div class="input-group">
-                            <input list="students" class="form-control" name="txSearch" id="txSearch"/>
+                            <input list="students" class="form-control form-control-sm" name="txSearch" id="txSearch"/>
                             <datalist id="students">
                             </datalist>
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="submit" id="btSearch">
+                                <button class="btn btn-primary btn-sm" type="submit" id="btSearch">
                                     <i class="bi bi-search"></i>
                                 </button>
                             </div>
@@ -46,7 +46,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                         </form> -->
 
                         <div class="dropdown ml-2">
-                            <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            <a class="btn btn-light btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="bi bi-graph-up mr-2"></i>Reportes y Graficos
                             </a>

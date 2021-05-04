@@ -14,8 +14,8 @@ require_once $sessionStarted->getUpperPartByUserType();
             <div class="card-header">
                 <div class="d-flex bd-highlight mb-3">
                     <div class="bd-highlight">
-                        <label for="area">Area</label>
-                        <select class="form-control" id="area">
+                        <label for="area" class="col-form-label col-form-label-sm">Area</label>
+                        <select class="form-control form-control-sm" id="area">
                             <option value="0">Selecciona...</option>
                             <option value="1">A</option>
                             <option value="2">B</option>
@@ -24,12 +24,12 @@ require_once $sessionStarted->getUpperPartByUserType();
                         </select>
                     </div>
                     <div class="ml-4 bd-highlight">
-                        <label for="school">Programa</label>
-                        <select class="form-control" id="school">
+                        <label for="school" class="col-form-label col-form-label-sm">Programa</label>
+                        <select class="form-control form-control-sm" id="school">
                         </select>
                     </div>
                     <div class="ml-auto bd-highlight">
-                        <label for="process">Proceso de Admisión</label>
+                        <label for="process" class="col-form-label col-form-label-sm">Proceso de Admisión</label>
                         <select class="form-control" id="process">
                         </select>
                     </div>
@@ -38,7 +38,7 @@ require_once $sessionStarted->getUpperPartByUserType();
             <div class="d-flex bd-highlight mr-4 mt-3 justify-content-end">
                 <div class="ml-auto bd-highlight d-flex">
                     <div class="dropdown ml-2">
-                        <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                        <a class="btn btn-light btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="bi bi-graph-up mr-2"></i>Reportes y Graficos
                         </a>

@@ -16,13 +16,13 @@ require_once $sessionStarted->getUpperPartByUserType();
             <div class="card-body">
                 <div class="row d-flex justify-content-between">
                     <div class="col col-12 col-lg-3 mb-3">
-                        <button type="button" class="btn btn-primary my-2" data-toggle="modal"
+                        <button type="button" class="btn btn-primary btn-sm my-2" data-toggle="modal"
                                 data-target="#process_modal" id="new-process">
                             <i class="bi bi-plus mr-2"></i>Agregar proceso
                         </button>
 
                         <div class="alert alert-info my-3" role="alert">
-                            <label for="lastProcess">Ultimo Proceso de Admision registrado</label>
+                            <label for="lastProcess" class="col-form-label col-form-label-sm">Ultimo Proceso de Admision registrado</label>
                             <h3 class="font-weight-bold text-primary" aria-describedby="help">
                                 <i class="bi bi-calendar-check mr-2"></i> <span id="lastProcess">Cargando...</span>
                             </h3>
@@ -56,8 +56,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                     <form id="form">
                         <input type="text" value="0" name="procID" id="procID">
                         <div class="form-group">
-                            <label for="proceso" class="col-form-label-sm text-uppercase">Admisión:</label>
-                            <input name="denomination" type="text" class="form-control" id="denomination" required
+                            <label for="proceso" class="col-form-label col-form-label-sm">Admisión:</label>
+                            <input name="denomination" type="text" class="form-control form-control-sm" id="denomination" required
                                    placeholder="Proceso de admisión">
                         </div>
                 </div>

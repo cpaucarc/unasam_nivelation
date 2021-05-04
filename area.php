@@ -94,11 +94,15 @@ require_once $sessionStarted->getUpperPartByUserType();
                     <div class="modal-body">
                         <form id="form-area">
                             <div class="form-group">
-                                <label for="area" class="col-form-label-sm">Ingrese abreviatura del area:</label>
-                                <input type="text" name="area" class="form-control form-control-user" id="area" required
+                                <label for="area" class="col-form-label col-form-label-sm">Ingrese abreviatura del
+                                    area:</label>
+                                <input type="text" name="area" class="form-control form-control-user form-control-sm"
+                                       id="area" required
                                        placeholder="Ej. A">
-                                <label for="desc" class="col-form-label-sm">Ingrese descripcion del area:</label>
-                                <input type="text" name="desc" class="form-control form-control-user" id="desc" required
+                                <label for="desc" class="col-form-label col-form-label-sm">Ingrese descripcion del
+                                    area:</label>
+                                <input type="text" name="desc" class="form-control form-control-user form-control-sm"
+                                       id="desc" required
                                        placeholder="Ej. Ciencias e Ingenieria">
                             </div>
                     </div>
@@ -119,8 +123,9 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <form id="form-schools">
                             <div class="form-group">
                                 <input id="areaIDSch" value="0" name="areaIDSch" type="hidden"/>
-                                <label for="school">Nombre del Programa Académico</label>
-                                <input type="text" class="form-control" id="school" name="school"
+                                <label for="school" class="col-form-label col-form-label-sm">Nombre del Programa
+                                    Académico</label>
+                                <input type="text" class="form-control form-control-sm" id="school" name="school"
                                        placeholder="Ej. Turismo" required>
                             </div>
                     </div>
@@ -143,8 +148,9 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <div class="row">
                                 <div class="col-12 mb-3">
                                     <div class="form-group">
-                                        <label for="cbCourses">Curso que aun no estan registrados</label>
-                                        <select name="courses" id="cbCourses" class="form-control"
+                                        <label for="cbCourses" class="col-form-label col-form-label-sm">Curso que aun no
+                                            estan registrados</label>
+                                        <select name="courses" id="cbCourses" class="form-control form-control-sm"
                                                 aria-describedby="courseHelp" required></select>
                                         <small id="courseHelp" class="form-text text-muted">Los cursos que se muestran
                                             son los que aun no estan registrados en el area.</small>
@@ -152,16 +158,20 @@ require_once $sessionStarted->getUpperPartByUserType();
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label for="min">Rango Minimo (%)</label>
-                                        <input name="min" type="number" class="form-control" id="min" value="50"
+                                        <label for="min" class="col-form-label col-form-label-sm">Rango Minimo
+                                            (%)</label>
+                                        <input name="min" type="number" class="form-control form-control-sm" id="min"
+                                               value="50"
                                                required
                                                max="100" min="0">
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label for="max">Rango Recomendado (%)</label>
-                                        <input name="max" type="number" class="form-control" id="max" value="70"
+                                        <label for="max" class="col-form-label col-form-label-sm">Rango Recomendado
+                                            (%)</label>
+                                        <input name="max" type="number" class="form-control form-control-sm" id="max"
+                                               value="70"
                                                required
                                                max="100" min="0">
                                     </div>
