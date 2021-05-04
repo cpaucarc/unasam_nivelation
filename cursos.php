@@ -14,7 +14,7 @@ require_once $sessionStarted->getUpperPartByUserType();
             <div class="card-body">
                 <div class="row d-flex justify-content-between">
                     <div class="col col-12 col-lg-4 mb-2">
-                        <button type="button" class="btn btn-primary my-2" data-toggle="modal"
+                        <button type="button" class="btn btn-primary btn-sm my-2" data-toggle="modal"
                                 data-target="#courses_modal" id="new-course">
                             <i class="bi bi-plus mr-2"></i>Agregar curso
                         </button>
@@ -67,7 +67,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <div class="row">
                             <div class="col col-9">
                                 <div class="form-group">
-                                    <label for="dimension" class="col-form-label-sm">Dimensión:</label>
+                                    <label for="dimension" class="col-form-label col-form-label-sm">Dimensión:</label>
                                     <select name="dimension" id="dimension" class="form-control" required></select>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                         </div>
                         <div class="form-group">
                             <input type="text" value="0" id="courseID" name="courseID">
-                            <label for="course" class="col-form-label-sm">Nombre del curso:</label>
+                            <label for="course" class="col-form-label col-form-label-sm">Nombre del curso:</label>
                             <input name="course" type="text" class="form-control" id="course" value=""
                                    placeholder="Curso..." required>
                         </div>
@@ -102,7 +102,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                 <form id="form-dimension">
                     <div class="modal-body">
                         <div class="form-group">
-                            <label class="col-form-label-sm">Nueva Dimensión:</label>
+                            <label for="dimension" class="col-form-label col-form-label-sm">Nueva Dimensión:</label>
                             <input type="text" name="dimension" class="form-control" placeholder="Dimension..."
                                    required>
                         </div>

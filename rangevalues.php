@@ -12,8 +12,8 @@ require_once $sessionStarted->getUpperPartByUserType();
             <div class="card-header">
                 <div class="d-flex bd-highlight mb-3">
                     <div class="bd-highlight">
-                        <label for="area">Area</label>
-                        <select class="form-control" id="area">
+                        <label for="area" class="col-form-label col-form-label-sm">Area</label>
+                        <select class="form-control form-control-sm" id="area">
                             <option value="0">Selecciona...</option>
                             <option value="1">A</option>
                             <option value="2">B</option>
@@ -22,8 +22,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                         </select>
                     </div>
                     <div class="ml-auto bd-highlight">
-                        <label for="process">Proceso de Admisión</label>
-                        <select class="form-control" id="process">
+                        <label for="process" class="col-form-label col-form-label-sm">Proceso de Admisión</label>
+                        <select class="form-control form-control-sm" id="process">
                             <option value="0">Selecciona...</option>
                         </select>
                     </div>
@@ -37,7 +37,7 @@ require_once $sessionStarted->getUpperPartByUserType();
 
                 <!--Tabla-->
                 <div class="table-responsive">
-                    <table class="table table-bordered mt-2" id="table-ranks">
+                    <table class="table table-sm table-bordered mt-2" id="table-ranks">
                         <thead class="thead-light">
                         <tr>
                             <th scope="col"><small><strong>N°</strong></small></th>
@@ -91,23 +91,26 @@ require_once $sessionStarted->getUpperPartByUserType();
                                 <form id="form-rank">
                                     <input type="hidden" value="0" id="rankID" name="rankID">
                                     <div class="form-group">
-                                        <label for="txCourse">Cursos</label>
-                                        <input type="text" class="form-control" id="txCourse"
+                                        <label for="txCourse" class="col-form-label col-form-label-sm">Cursos</label>
+                                        <input type="text" class="form-control form-control-sm" id="txCourse"
                                                name="txCourse" disabled>
                                     </div>
                                     <div class="form-group">
-                                        <label for="txMin">Puntaje Minimo</label>
-                                        <input type="number" min="0" max="100" class="form-control" id="txMin"
+                                        <label for="txMin" class="col-form-label col-form-label-sm">Puntaje Minimo</label>
+                                        <input type="number" min="0" max="100" class="form-control form-control-sm"
+                                               id="txMin"
                                                name="txMin">
                                     </div>
                                     <div class="form-group">
-                                        <label for="txMax">Puntaje Optimo</label>
-                                        <input type="number" min="0" max="100" class="form-control" id="txMax"
+                                        <label for="txMax" class="col-form-label col-form-label-sm">Puntaje Optimo</label>
+                                        <input type="number" min="0" max="100" class="form-control form-control-sm"
+                                               id="txMax"
                                                name="txMax">
                                     </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancelar
+                                </button>
                                 <button type="submit" class="btn btn-primary btn-sm" id="btnSubmitForm">Guardar</button>
                             </div>
                             </form>

@@ -1,10 +1,10 @@
 <?php
-$error_message = $_GET['error'] ?? "";
+session_start();
+$error_message = $_SESSION['login']['error'] ?? '';
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,46 +17,52 @@ $error_message = $_GET['error'] ?? "";
 
 </head>
 
-<body class="bg-gradient-dark">
+<body>
 
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-xl-9 col-lg-12 col-md-8">
-            <div class="card o-hidden my-5">
-                <div class="card-body p-0">
-                    <div class="row">
-                        <div class="col-lg-5 d-none d-lg-block bg-login-image"></div>
-                        <div class="col-lg-7">
-                            <div class="p-5">
-                                <h5 class="mb-4 font-weight-bold text-black">
-                                    Bienvenido al Sistema de Nivelación de Estudiantes
-                                </h5>
-                                <form class="user my-3" action="app/controllers/login/makeLogin.php" method="post">
-                                    <div class="form-group">
-                                        <label for="role">Tipo de Usuario</label>
-                                        <select class="form-control" id="role" name="role" required>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="username" class="text-dark">Nombre de Usuario</label>
-                                        <input type="text" class="form-control" id="username"
-                                               name="username" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="password" class="text-dark">Contraseña</label>
-                                        <input type="password" class="form-control" id="password"
-                                               name="password" required>
-                                    </div>
-                                    <div class="mt-4">
-                                        <button class="btn btn-primary btn-block"
-                                                type="submit">
-                                            <i class="bi bi-box-arrow-in-right"></i> Ingresar
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
+    <div class="row justify-content-center mt-4">
+
+        <div class="col-11 col-md-6 col-xl-4 px-3">
+            <div class="text-center py-3">
+                <img src="public/images/ogcushort.png" class="img-fluid w-25" alt="Logo">
+                <h4 class="font-weight-lighter text-dark">
+                    Iniciar sesión en SNE-UNASAM
+                </h4>
+            </div>
+
+            <?php
+            if (strlen($error_message) > 0) { ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <small><?php echo $_SESSION['login']['error'] ?? ''; ?></small>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <?php } ?>
+
+
+            <div class="card bg-light">
+                <div class="card-body px-4 py-3">
+                    <form class="user my-3" action="app/controllers/login/makeLogin.php" method="post">
+                        <div class="form-group">
+                            <label for="username" class="col-form-label col-form-label-sm">Nombre de
+                                Usuario</label>
+                            <input type="text" class="form-control form-control-sm" id="username"
+                                   name="username" value="<?php echo $_SESSION['login']['user'] ?? ''; ?>" required>
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label for="password"
+                                   class="col-form-label col-form-label-sm">Contraseña</label>
+                            <input type="password" class="form-control form-control-sm" id="password"
+                                   name="password" required>
+                        </div>
+                        <div class="mt-4">
+                            <button class="btn btn-primary btn-sm btn-block font-weight-bold"
+                                    type="submit">
+                                Iniciar Sesión
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -64,8 +70,6 @@ $error_message = $_GET['error'] ?? "";
 </div>
 <!-- Custom scripts for all pages-->
 <script src="public/js/sb-admin-2.min.js"></script>
-<script src="public/js/components/Select.js"></script>
-<script> var errormsg = '<?php echo $error_message;?>';</script>
 <script src="public/js/login.js"></script>
 </body>
 

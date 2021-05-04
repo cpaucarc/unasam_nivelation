@@ -13,7 +13,7 @@ require_once $sessionStarted->getUpperPartByUserType();
             <div class="card-body">
                 <div class="row d-flex justify-content-between">
                     <div class="col col-12 col-lg-4 mb-2">
-                        <a class="btn btn-primary" data-toggle="collapse" href="#collapseFilter" role="button"
+                        <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#collapseFilter" role="button"
                            aria-expanded="false" aria-controls="collapseExample">
                             <i class="bi bi-funnel-fill mr-2"></i>Filtros
                         </a>
@@ -23,9 +23,9 @@ require_once $sessionStarted->getUpperPartByUserType();
                                     <div class="col col-6 col-lg-12">
                                         <div class="d-flex bd-highlight">
                                             <div class="form-group w-100">
-                                                <label for="tipeChart"><i class="bi bi-bar-chart-line mr-2"></i>Tipo de
+                                                <label for="tipeChart" class="col-form-label col-form-label-sm"><i class="bi bi-bar-chart-line mr-2"></i>Tipo de
                                                     Gráfico</label>
-                                                <select class="form-control" id="tipeChart">
+                                                <select class="form-control form-control-sm" id="tipeChart">
                                                     <option value="" selected>Seleccione...</option>
                                                     <option value="horizontalBar">Diagrama de barras horizontal</option>
                                                     <option value="bar">Diagrama de barras vertical</option>

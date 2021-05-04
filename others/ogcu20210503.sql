@@ -1012,27 +1012,24 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `spGetUserLoggedInfo`(in user varchar(45), psw varchar(45), ustpID int)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spGetUserLoggedInfo`(in user varchar(45), psw varchar(45))
 BEGIN
 
-	if ( ustpID = 3 )then  -- Estudiante
-		
-        SET @stdID = (SELECT id FROM vstudents WHERE code = user AND dni = psw LIMIT 1);
+	SET @isStudent = (SELECT count(1) FROM vstudents WHERE code = user AND dni = psw);
+    
+    IF @isStudent = 1 THEN
+		SET @stdID = (SELECT id FROM vstudents WHERE code = user AND dni = psw LIMIT 1);
 			
 		if @stdID IS NOT NULL then
-			SELECT id, dni, lastname, name, gender, (ustpID) as utid,  (SELECT type FROM user_type WHERE id = ustpID) as rol, code as username FROM vstudents WHERE id = @stdID; 
-			
+			SELECT id, dni, lastname, name, gender, 3 as utid,  (SELECT type FROM user_type WHERE id = 3) as rol, code as username FROM vstudents WHERE id = @stdID; 
 		end if;
-        
-    else -- Administrador y Visor
+    ELSE
 		SET @userID = (SELECT id FROM users WHERE username = user AND password = sha1(psw));
 			
 		if @userID IS NOT NULL then
-			SELECT * FROM vusers WHERE id = @userID; 
-			
+			SELECT * FROM vusers WHERE id = @userID;			
 		end if;
-    
-    end if;
+    END IF;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1070,25 +1067,22 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `spLogin`(in user varchar(45), psw varchar(45), usertypeID int)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spLogin`(in user varchar(45), psw varchar(45))
 BEGIN
 
-	IF (usertypeID = 3) THEN -- Student
-		SET @existStudent = (SELECT count(1) FROM vstudents WHERE code = user AND dni = psw);
-		IF (@existStudent = 1) THEN
-			SELECT 'Credenciales correctas' as 'response', true as 'status';
-		ELSE
-			SELECT 'Error, revise sus credenciales de acceso.' as 'response', false as 'status';
-		END IF;
-		
-	ELSE -- Administrador y Visor de Recursos
-		SET @existUser = (SELECT count(*) FROM users WHERE username = user AND password = sha1(psw) AND user_type_id = usertypeID);
+	SET @isStudent = (SELECT count(1) FROM vstudents WHERE code = user AND dni = psw);
+    
+    IF @isStudent = 1 THEN -- @isStudent = 1 es estudiante
+		SELECT 'Credenciales correctas' as 'response', true as 'status';
+    ELSE 		
+        SET @existUser = (SELECT count(*) FROM users WHERE username = user AND password = sha1(psw));
 		if ( @existUser = 1 ) then
 			SELECT 'Credenciales correctas' as 'response', true as 'status';
 		else
 			SELECT 'Error, revise sus credenciales de acceso.' as 'response', false as 'status';
-		end if;
-	END IF;
+		end if;        
+    END IF;
+
 
 END ;;
 DELIMITER ;
@@ -1456,4 +1450,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-02 13:23:15
+-- Dump completed on 2021-05-03 22:26:09

@@ -18,29 +18,29 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <form id="personal-info">
                             <input type="hidden" name="id" value="<?php echo $_SESSION['user_logged']['id']; ?>">
                             <div class="form-group">
-                                <label for="dni">DNI:</label>
-                                <input type="number" class="form-control bg-light" id="dni" name="dni" minlength="8"
+                                <label for="dni" class="col-form-label col-form-label-sm">DNI:</label>
+                                <input type="number" class="form-control form-control-sm bg-light" id="dni" name="dni" minlength="8"
                                        maxlength="8" value="<?php echo $_SESSION['user_logged']['dni']; ?>" required>
                             </div>
                             <div class="form-group">
-                                <label for="lastname">Apellidos:</label>
-                                <input type="text" class="form-control bg-light" id="lastname" name="lastname"
+                                <label for="lastname" class="col-form-label col-form-label-sm">Apellidos:</label>
+                                <input type="text" class="form-control form-control-sm bg-light" id="lastname" name="lastname"
                                        value="<?php echo $_SESSION['user_logged']['lastname']; ?>" required>
                             </div>
                             <div class="form-group">
-                                <label for="name">Nombres:</label>
-                                <input type="text" class="form-control bg-light" id="name" name="name"
+                                <label for="name" class="col-form-label col-form-label-sm">Nombres:</label>
+                                <input type="text" class="form-control form-control-sm bg-light" id="name" name="name"
                                        value="<?php echo $_SESSION['user_logged']['name']; ?>" required>
                             </div>
                             <div class="form-group">
-                                <label for="gender">Género</label>
-                                <select name="gender" id="gender" class="form-control bg-light" required>
+                                <label for="gender" class="col-form-label col-form-label-sm">Género</label>
+                                <select name="gender" id="gender" class="form-control form-control-sm bg-light" required>
                                     <option value="1">Femenino</option>
                                     <option value="2">Masculino</option>
                                 </select>
                             </div>
                             <div class="form-group d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary mt-3">
+                                <button type="submit" class="btn btn-primary btn-sm mt-3">
                                     Guardar informacion personal
                                 </button>
                             </div>
@@ -76,22 +76,22 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <form id="access-info">
                             <input type="hidden" name="id" value="<?php echo $_SESSION['user_logged']['id']; ?>">
                             <div class="form-group">
-                                <label for="username">Usuario:</label>
-                                <input type="text" class="form-control bg-light" id="username" name="username"
+                                <label for="username" class="col-form-label col-form-label-sm">Usuario:</label>
+                                <input type="text" class="form-control form-control-sm bg-light" id="username" name="username"
                                        value="<?php echo $_SESSION['user_logged']['username']; ?>" required>
                             </div>
                             <div class="form-group">
-                                <label for="password">Contraseña:</label>
-                                <input type="password" class="form-control bg-light" id="password" name="password"
+                                <label for="password" class="col-form-label col-form-label-sm">Contraseña:</label>
+                                <input type="password" class="form-control form-control-sm bg-light" id="password" name="password"
                                        required>
                             </div>
                             <div class="form-group">
-                                <label for="repeat">Repetir Contraseña:</label>
-                                <input type="password" class="form-control bg-light" id="repeat" name="repeat"
+                                <label for="repeat" class="col-form-label col-form-label-sm">Repetir Contraseña:</label>
+                                <input type="password" class="form-control form-control-sm bg-light" id="repeat" name="repeat"
                                        required>
                             </div>
                             <div class="form-group d-flex justify-content-end">
-                                <button type="submit" class="btn btn-dark mt-3">
+                                <button type="submit" class="btn btn-dark btn-sm mt-3">
                                     Guardar informacion de acceso
                                 </button>
                             </div>

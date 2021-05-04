@@ -66,7 +66,7 @@ class Alert {
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light font-weight-bold" data-dismiss="modal">
+                    <button type="button" class="btn btn-light btn-sm font-weight-bold" data-dismiss="modal">
                         Cerrar ventana
                     </button>
                 </div>
