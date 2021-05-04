@@ -53,7 +53,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <h6 class="dropdown-header">Reportes</h6>
                             <a>
-                                <form action="<?php echo $routeAux; ?>reporte/estudiante" method="post">
+                                <form action="<?php echo $routeAux; ?>reporte/estudiante"  method="post" target="_blank">
                                     <input id="studentPdf" name="studentPdf" required type="hidden">
                                     <button type="submit" class="dropdown-item">
                                         <i class="bi bi-stop mr-2"></i>Ver este alumno
@@ -62,9 +62,9 @@ require_once $sessionStarted->getUpperPartByUserType();
                             </a>
                             <div class="dropdown-divider"></div>
                             <h6 class="dropdown-header">Gráficos</h6>
-                            <a>
-                                <form action="http://localhost/nivelation/bystudentG.php" method="post" class="mx-2">
-                                    <button type="submit" class="dropdown-item">
+                            <a >
+                                <form action="http://localhost/nivelation/bystudentG.php" target="_blank" method="post" class="mx-2">
+                                    <button type="submit"  class="dropdown-item">
                                         <i class="bi bi-pie-chart-fill mr-2"></i> Ver Graficos
                                     </button>
                                 </form>
@@ -75,8 +75,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                 </div>
             </div>
         </div>
-        <div class="card-body">
-
+        <div class="card-body text-center">
             <div class="row">
                 <div class="col col-12 col-lg-4 mb-3">
                     <div id="student-info-card">

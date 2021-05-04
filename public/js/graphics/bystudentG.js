@@ -114,17 +114,14 @@ function fillWhitProcess() {
             //agregado automatico del procesos final
             badge_process.forEach((texto) => {
                 texto.innerText = data[0].name;
+                _process = data[0].name;
+                Diagrams(_process, _tipeValue, _tip_tipeValueeText);
             });
 
             //agregado automatico del procesos final
             cbProcess.innerHTML = ``;
             cbProcess.appendChild(select.createOption(0, 'Selecciona...'));
             data.forEach(proc => {
-                if (proc.id === 1) {
-                    //Capturar proceso name final
-                    Diagrams(proc.name, _tipeValue, _tip_tipeValueeText);
-                    _process = proc.name;
-                }
                 cbProcess.appendChild(select.createOption(proc.id, proc.name));
             });
         });

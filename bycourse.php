@@ -50,7 +50,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <h6 class="dropdown-header">Reportes</h6>
                         <a>
-                            <form action="reporte/curso" method="post">
+                            <form action="reporte/curso" target="_blank" method="post">
                                 <input id="areaPdf_1" name="areaPdf" required type="hidden">
                                 <input id="dimensionPdf_1" name="dimensionPdf" required type="hidden">
                                 <input id="coursePdf_1" name="coursePdf" required type="hidden">
@@ -61,7 +61,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                             </form>
                         </a>
                         <a>
-                            <form action="reporte/curso" method="post">
+                            <form action="reporte/curso" target="_blank" method="post">
                                 <input id="areaPdf_2" name="areaPdf" required type="hidden">
                                 <input id="dimensionPdf_2" name="dimensionPdf" required type="hidden">
                                 <input id="processPdf_2" name="processPdf" required type="hidden">
@@ -71,7 +71,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                             </form>
                         </a>
                         <a>
-                            <form action="reporte/curso" method="post">
+                            <form action="reporte/curso"  target="_blank" method="post">
                                 <input id="areaPdf_3" name="areaPdf" required type="hidden">
                                 <input id="processPdf_3" name="processPdf" required type="hidden">
                                 <button type="submit" class="dropdown-item">
@@ -80,7 +80,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                             </form>
                         </a>
                         <a>
-                            <form action="reporte/curso" method="post">
+                            <form action="reporte/curso" target="_blank" method="post">
                                 <input id="processPdf_4" name="processPdf" required type="hidden">
                                 <button type="submit" class="dropdown-item">
                                     <i class="bi bi-grid-3x3-gap mr-2"></i>Ver todas las Áreas
@@ -90,7 +90,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <div class="dropdown-divider"></div>
                         <h6 class="dropdown-header">Gráficos</h6>
                         <a>
-                            <form action="http://localhost/nivelation/bycourseG.php" method="post" class="mx-2">
+                            <form action="http://localhost/nivelation/bycourseG.php"  target="_blank" method="post" class="mx-2">
                                 <input name="processChart" id="processChart" required type="hidden">
                                 <button type="submit" class="dropdown-item">
                                     <i class="bi bi-pie-chart-fill mr-2"></i> Ver Graficos

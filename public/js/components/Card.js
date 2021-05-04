@@ -60,6 +60,99 @@ class Card {
 
     getStudentInfoCard(data) {
         return `
+        <div class="card text-dark">
+        <div class="card-header">
+            <h6 class="m-0 font-weight-bold">Datos del alumno</h6>
+        </div>
+        <div class="card-body text-center">
+            <div class="row">
+                <div class="col col-12 text-primary mb-0">
+                    <h4>
+                        <span class="text-uppercase font-weight-bold">${data.lastname}</span>
+                        <span class="text-capitalize">${data.name}</span>
+                    </h4>
+                </div>
+                <div class="col col-12">
+                    <span>${data.program}</span>
+                </div>
+                <div class="col col-12 mb-4">
+                    <span class="btn btn-info w-50 btn-sm font-weight-bold font-size-sm mt-2">${data.process}</span>
+                </div>
+                <div class="col col-6 d-block text-center list-group-item-action border-left border-top ">
+                    <div class="py-2 px-2">
+                        <i class="fas fa-venus-mars text-primary"></i>
+                        <h6 class="mb-0 font-weight-bold">${data.gender}</h6>
+                        <span class="small text-gray-600">Género</span>
+                    </div>
+                </div>
+                <div class="col col-6 d-block text-center list-group-item-action border-left border-top border-right">
+                    <div class="py-2 px-2">
+                        <i class="fas fa-id-card text-primary"></i>
+                        <h6 class="mb-0 font-weight-bold">${data.dni}</h6>
+                        <span class="small text-gray-600">DNI</span>
+                    </div>
+                </div>
+                <div class="col col-6 d-block text-center list-group-item-action border-left border-top ">
+                    <div class="py-2 px-2">
+                        <i class="far fa-user text-primary"></i>
+                        <h6 class="mb-0 font-weight-bold">${data.postulant_code}</h6>
+                        <span class="small text-gray-600">Cod. Postulante</span>
+                    </div>
+                </div>
+                <div class="col col-6 d-block text-center list-group-item-action border-left border-top border-right">
+                    <div class="py-2 px-2">
+                        <i class="fas fa-user text-primary"></i>
+                        <h6 class="mb-0 font-weight-bold">${data.code}</h6>
+                        <span class="small text-gray-600">Cod. Universitario</span>
+                    </div>
+                </div>
+                <div class="col col-6 d-block text-center list-group-item-action border-left border-top  border-bottom">
+                    <div class="py-2 px-2">
+                        <i class="fas fa-poll-h text-primary"></i>
+                        <h6 class="mb-0 font-weight-bold">${data.omg}</h6>
+                        <span class="small text-gray-600">OMG</span>
+                    </div>
+                </div>
+                <div class="col col-6 d-block text-center list-group-item-action border-left border-top border-right border-bottom">
+                    <div class="py-2 px-2">
+                        <i class="fas fa-poll text-primary"></i>
+                        <h6 class="mb-0 font-weight-bold">${data.omp}</h6>
+                        <span class="small text-gray-600">OMP</span>
+                    </div>
+                </div>
+
+                <div class="col col-12 my-4">
+                    <span>Preguntas Contestadas</span>
+                </div>
+                <div class="col col-4 d-block text-center list-group-item-action border-left border-top border-bottom">
+                    <div class="py-2 px-2">
+                        <i class="fas fa-check-double text-info"></i>
+                        <h6 class="mb-0 font-weight-bold text-success">${data.correct}</h6>
+                        <span class="small text-gray-600">Correctas</span>
+                    </div>
+                </div>
+                <div class="col col-4 d-block text-center list-group-item-action border-left border-top border-bottom">
+                    <div class="py-2 px-2">
+                        <i class="fas fa-times text-info"></i>
+                        <h6 class="mb-0 font-weight-bold text-danger">${data.incorrect}</h6>
+                        <span class="small text-gray-600">Incorrectas</span>
+                    </div>
+                </div>
+                <div class="col col-4 d-block text-center list-group-item-action border-left border-top border-right border-bottom">
+                    <div class="py-2 px-2">
+                        <i class="fas fa-exclamation-circle text-info"></i>
+                        <h6 class="mb-0 font-weight-bold text-secondary">${data.blank}</h6>
+                        <span class="small text-gray-600">En blanco</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            `;
+    }
+
+    getStudentInfoCard2(data) {
+        return `
             <div class="card text-dark">
                 <div class="card-header">
                     <h6 class="m-0 font-weight-bold">Datos del alumno</h6>
