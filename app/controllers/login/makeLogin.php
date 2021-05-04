@@ -7,17 +7,16 @@ include_once UTIL_PATH . "SendMessage.php";
 try {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $rolID = $_POST['role'];
 
     $login = new LoginModel();
     $login->setUsername($username);
     $login->setPassword($password);
-    $login->setRol($rolID);
     $response = ($login->login());
 
 
+    session_start();
+    
     if ($response['status'] == "1") {
-        session_start();
         $user = $login->findUserByUsernameAndPassword();
         $_SESSION['user_logged'] = array();
         $_SESSION['user_logged']['id'] = $user->getId();
@@ -28,6 +27,11 @@ try {
         $_SESSION['user_logged']['utid'] = $user->getRolID();
         $_SESSION['user_logged']['rol'] = $user->getRol();
         $_SESSION['user_logged']['username'] = $user->getUsername();
+
+        try {
+            unset($_SESSION['login']);
+        } catch (Exception $e) {
+        }
 
         if (intval($_SESSION['user_logged']['utid']) === 1) { //Administrador
             header("Location: " . PROJECT . "inicio", TRUE, 301);
@@ -41,8 +45,10 @@ try {
         }
 
     } else {
-        $error = "$response";
-        header("Location: " . PROJECT . "login?error=" . $response['response'], TRUE, 301);
+        $_SESSION['login'] = array();
+        $_SESSION['login']['error'] = $response['response'];
+        $_SESSION['login']['user'] = $username;
+        header("Location: " . PROJECT . "login", TRUE, 301);
         exit;
     }
 
