@@ -149,6 +149,7 @@ require_once $sessionStarted->getUpperPartByUserType();
             </div>
         </div>
     </div>
+</div>
     <!-- /.container-fluid -->
 
     <!--<script src="public/js/datatable.js"></script>-->
