@@ -25,18 +25,21 @@ uploadForm.onsubmit = (e) => {
 
 uploadForm.addEventListener('change', (e) => {
     e.preventDefault();
-    alert('Espere mientras se guarda el archivo');
+    /* alert('Espere mientras se guarda el archivo'); */
+    AlertWait('Espere mientras se guarda el archivo','success');
     setIconToFile();
     tbody_data = '';
     let formData = new FormData(uploadForm);
     saveFile(formData).then(data => {
         if (data.status === true) {
-            alert('Archivo subido');
+            /* alert('Archivo subido'); */
+            AlertConfirm('Archivo subido', 'success', '¡Éxito!', 'primary');
             // Mostrar un msg: Espere mientras los datos se procesan
             //processStudentsData(data.message);
             //message: Los datos ya se guardaron
         } else {
-            alert(data.message)
+            /* alert(data.message) */
+            AlertConfirm(data.message, 'error', '¡Error!', 'danger');
         }
         fileOK = data.status;
         toggleBtnPreview(data.status);
@@ -63,7 +66,7 @@ function getLastProcess() {
             if (data.status) {
                 lastProcess.innerText = data.message;
             } else {
-                alert(data.message);
+                AlertConfirm(data.message, 'error', '¡Error!', 'danger');
             }
         });
 }
@@ -152,3 +155,46 @@ function toggleBtnPreview(response) {
 function toggleBtnUpload() {
     btnUpload.disabled = !(!coursesOK && fileOK);
 }
+
+
+//SweetAlert2
+function AlertConfirm(message, tipe, title, variable) {
+    if (message != '') {
+        Swal.fire({
+            icon: tipe,
+            title: title,
+            text: message,
+            iconColor: 'var(--' + variable + ')',
+            showCloseButton: true,
+            confirmButtonColor: 'var(--' + variable + ')'
+        })
+    }
+}
+
+function AlertWait(message,tipe) {
+    Swal.fire({
+        icon:tipe,
+        title: message,
+        backdrop: `
+          rgba(0,0,0,0.4)
+          url("https://i.pinimg.com/originals/50/d6/0b/50d60b0dccd86bfb597502eac92e3923.gif")
+          200px bottom
+          no-repeat
+        `,
+        showCloseButton: true,
+        confirmButtonColor: 'var(--primary)'
+    })
+}
+
+/* AlertConfirm(data.message, 'success', 'primary');
+function AlertConfirm(message, tipe, variable) {
+    if (message != '') {
+        Swal.fire({
+            icon: tipe,
+            title: tipe.replace(/\b[a-z]/g,c=>c.toUpperCase())+'!',
+            text: message,
+            iconColor: 'var(--' + variable + ')',
+            showCloseButton: true
+        })
+    }
+} */
