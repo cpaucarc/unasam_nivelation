@@ -39,9 +39,11 @@ rol_form.onsubmit = (e) => {
             if (data.status) {
                 rol_form.reset();
                 fillTableWhitAllUsers();
+                AlertConfirm(data.message, 'success', '¡Éxito!', 'primary');
                 $('#rol_modal').modal("hide");
+            } else {
+                AlertConfirm(data.message, 'error', '¡Error!', 'danger');
             }
-            alert(data.message);
         });
 }
 userDni.onkeyup = (e) => {
@@ -64,9 +66,11 @@ function saveNewUser() {
             if (data.status) {
                 user_form.reset();
                 fillTableWhitAllUsers();
+                AlertConfirm(data.message, 'success', '¡Éxito!', 'primary');
                 $('#user_modal').modal("hide");
+            }else{
+                AlertConfirm(data.message, 'error', '¡Error!', 'danger');
             }
-            alert(data.message);
         });
 }
 
@@ -133,3 +137,30 @@ function editUserRol(id, rol, name) {
     getAllRoles(cbUserRoles, rol);
     $('#rol_modal').modal("show");
 }
+
+//SweetAlert2
+function AlertConfirm(message, tipe, title, variable) {
+    if (message != '') {
+        Swal.fire({
+            icon: tipe,
+            title: title,
+            text: message,
+            iconColor: 'var(--' + variable + ')',
+            showCloseButton: true,
+            confirmButtonColor: 'var(--' + variable + ')'
+        })
+    }
+}
+
+/* AlertConfirm(data.message, 'success', 'primary');
+function AlertConfirm(message, tipe, variable) {
+    if (message != '') {
+        Swal.fire({
+            icon: tipe,
+            title: tipe.replace(/\b[a-z]/g,c=>c.toUpperCase())+'!',
+            text: message,
+            iconColor: 'var(--' + variable + ')',
+            showCloseButton: true
+        })
+    }
+} */
