@@ -20,7 +20,13 @@ window.addEventListener('load', () => {
 
 uploadForm.onsubmit = (e) => {
     e.preventDefault();
-    alert('Esta funcion se implementará mas adelante')
+    fetch('app/controllers/index/saveStudentsToDB.php/', {
+        method: 'GET'
+    })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+        });
 }
 
 uploadForm.addEventListener('change', (e) => {
@@ -31,6 +37,7 @@ uploadForm.addEventListener('change', (e) => {
     tbody_data = '';
     let formData = new FormData(uploadForm);
     saveFile(formData).then(data => {
+        console.log(data.message);
         if (data.status === true) {
             /* alert('Archivo subido'); */
             AlertConfirm('Archivo subido', 'success', '¡Éxito!', 'primary');

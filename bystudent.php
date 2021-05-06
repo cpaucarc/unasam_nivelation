@@ -20,9 +20,11 @@ require_once $sessionStarted->getUpperPartByUserType();
     <div class="card mb-4">
         <div class="card-header py-3">
             <div class="d-flex justify-content-between">
-                <div class="cp-2 bd-highlight">
+
+                <div class="cp-2 bd-highlight w-50">
                     <div class="input-group">
-                        <input list="students" class="form-control form-control-sm" name="txSearch" id="txSearch" />
+                        <input list="students" class="form-control form-control-sm" name="txSearch" id="txSearch"/>
+
                         <datalist id="students">
                         </datalist>
                         <div class="input-group-append">
@@ -46,7 +48,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                         </form> -->
 
                     <div class="dropdown ml-2">
-                        <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="bi bi-graph-up mr-2"></i>Reportes y Graficos
                         </a>
 
@@ -63,7 +66,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <div class="dropdown-divider"></div>
                             <h6 class="dropdown-header">Gráficos</h6>
                             <a>
-                                <form action="http://localhost/nivelation/bystudentG.php" target="_blank" method="post" class="mx-2">
+                                <form action="http://localhost/nivelation/bystudentG.php" target="_blank" method="post"
+                                      class="mx-2">
                                     <button type="submit" class="dropdown-item">
                                         <i class="bi bi-pie-chart-fill mr-2"></i> Ver Graficos
                                     </button>

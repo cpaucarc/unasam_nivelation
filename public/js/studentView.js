@@ -28,9 +28,22 @@ btSearch.addEventListener('click', (e) => {
     getCoursesByFullname(txSearch.value)
 })
 
-txSearch.addEventListener('keyup', () => {
+txSearch.addEventListener('keyup', (e) => {
     getStudentsLike(txSearch.value);
+
+    if (e.keyCode === 13) {
+        e.preventDefault();
+        getStudentInfo(txSearch.value)
+        getCoursesByFullname(txSearch.value)
+    }
 });
+
+// btShowPDF.addEventListener('click', () => {
+//     let id = parseInt(stdIDPDF.value);
+//     if (id > 0) {
+//         console.log('Mostrando PDF')
+//     }
+// });
 
 function getStudentsLike(pattern) {
     let formData = new FormData();

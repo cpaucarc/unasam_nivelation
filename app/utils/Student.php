@@ -1,6 +1,8 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
 require_once(UTIL_PATH . "Person.php");
+require_once(DB_PATH . "MySqlConnection.php");
+require_once(UTIL_PATH . "Question.php");
 
 class Student extends Person
 {
@@ -19,6 +21,97 @@ class Student extends Person
     private string $postulant_code;
     private array $questions;
 
+    /* Functions */
+
+    public function saveStudentToDB(): void
+    {
+        $connection = new MySqlConnection();
+        if ($connection and $this->getStda() == 0) {
+            $pdo = $connection->getConnection();
+            try {
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $pdo->beginTransaction();
+
+                $sql = "CALL spSaveStudent(:dni, :name, :lastname, :gender, :code, :omg, :score, :postulantcode, :good, :bad, :blank, :program)";
+                $ex = $pdo->prepare($sql);
+                $ex->execute(array(
+                    ':dni' => $this->getDni(),
+                    ':name' => $this->getName(),
+                    ':lastname' => $this->getLastname(),
+                    ':gender' => $this->getGender(),
+                    ':code' => $this->getCode(),
+                    ':omg' => $this->getOmg(),
+                    ':score' => $this->getScore(),
+                    ':postulantcode' => $this->getPostulantCode(),
+                    ':good' => $this->getGood(),
+                    ':bad' => $this->getBad(),
+                    ':blank' => $this->getBlank(),
+                    ':program' => $this->getProgram()
+                ));
+
+                $stdataID = intval($ex->fetchColumn()) ?? 0;
+                $this->setStda($stdataID);
+                $pdo->commit();
+            } catch (Exception $e) {
+                echo "La operación falló: " . $e->getMessage();
+            }
+        }
+    }
+
+    public function saveQuestionsToDB(): void
+    {
+        $connection = new MySqlConnection();
+        if ($connection and $this->getStda() > 0) {
+            $pdo = $connection->getConnection();
+
+            try {
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $pdo->beginTransaction();
+
+                $sql = "CALL spSaveQuestionsByStudent(:num, :stdataID, :rsp);";
+                $save_question = $pdo->prepare($sql);
+
+                foreach ($this->questions as $question) {
+                    $save_question->execute(array(
+                        ':num' => $question->getNumber(),
+                        ':stdataID' => $this->getStda(),
+                        ':rsp' => $question->getResponse()
+                    ));
+                }
+                $pdo->commit();
+            } catch (Exception $e) {
+                $pdo->rollBack();
+                echo "La operación falló: " . $e->getMessage();
+            }
+        }
+    }
+
+    public function doClasificationOfCourses(): void
+    {
+        $connection = new MySqlConnection();
+        if ($connection and $this->getStda() > 0) {
+            $pdo = $connection->getConnection();
+
+            try {
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $pdo->beginTransaction();
+
+                $sql = "CALL spDoCourseClassification(:stdtID)";
+                $clasify = $pdo->prepare($sql);
+
+                $clasify->execute(array(
+                    ':stdtID' => $this->getStda()
+                ));
+
+                $pdo->commit();
+            } catch (Exception $e) {
+                $pdo->rollBack();
+                echo "La operación falló: " . $e->getMessage();
+            }
+        }
+    }
+
+    /* Getters and Setters */
     public function getQuestions(): array
     {
         return $this->questions;
