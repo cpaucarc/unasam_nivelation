@@ -15,11 +15,11 @@ class ExcelReader
         $this->path = $path;
     }
 
-    function read()
+    function read(): ?array
     {
         $filename = $this->path;
 
-        if ($filename !== '' and $filename !== null) {
+        if ($filename !== '' and !is_null($filename)) {
 
             $spreadsheet = IOFactory::load($filename);
             $data = $spreadsheet->getActiveSheet()->toArray();
@@ -29,6 +29,7 @@ class ExcelReader
             foreach ($data as $row) {
                 $student = new Student();
                 $student->setId(0);
+                $student->setStda(0);
                 $student->setNum(intval($row['0']));
                 $student->setDni($row['1']);
                 $student->setPostulantCode($row['2']);
@@ -157,4 +158,6 @@ class ExcelReader
             return null;
         }
     }
+
+
 }

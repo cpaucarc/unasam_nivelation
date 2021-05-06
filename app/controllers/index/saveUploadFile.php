@@ -31,14 +31,14 @@ if (isset($_FILES['file'])) {
             $_SESSION['files']['students'] = $excelReader->read();
             echo (new SendMessage($fileModel->getPath() . ' - ' . $temporal, true))->getEncodedMessage();
         } else {
-            $_SESSION['files']['tmppath'] = '';
-            $_SESSION['files']['filepath'] = "";
+            $_SESSION['files']['tmppath'] = null;
+            $_SESSION['files']['filepath'] = null;
             $_SESSION['files']['students'] = null;
             echo (new SendMessage('Error, el archivo no fue guardado', false))->getEncodedMessage();
         }
     } else {
-        $_SESSION['files']['tmppath'] = '';
-        $_SESSION['files']['filepath'] = "";
+        $_SESSION['files']['tmppath'] = null;
+        $_SESSION['files']['filepath'] = null;
         $_SESSION['files']['students'] = null;
         echo (new SendMessage('Error, el archivo debe ser un Excel', false))->getEncodedMessage();
     }

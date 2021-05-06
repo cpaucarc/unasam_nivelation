@@ -14,9 +14,17 @@ class FileModel
         $this->finalDir = STORAGE_PATH;
     }
 
+    public function createFolder()
+    {
+        if (!file_exists(STORAGE_PATH)) {
+            mkdir(STORAGE_PATH, 0777, true);
+        }
+    }
+
     public function moveFileToFinalDir()
     {
         if (isset($this->finalDir) and isset($this->temporalDir) and isset($this->name)) {
+            $this->createFolder();
             return move_uploaded_file($this->temporalDir, $this->finalDir . $this->name);
         } else {
             return false;
