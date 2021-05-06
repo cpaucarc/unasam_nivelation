@@ -5,7 +5,6 @@ const txSearch = document.getElementById('txSearch');
 const tbBody = document.getElementById('table-courses-body');
 const stdID = parseInt(document.getElementById('stdID').value);
 const stdIDPDF = document.getElementById('studentPdf');
-const btShowPDF = document.getElementById('btShowPDF');
 
 card = new Card();
 table = new Table();
@@ -31,6 +30,7 @@ btSearch.addEventListener('click', (e) => {
 
 txSearch.addEventListener('keyup', (e) => {
     getStudentsLike(txSearch.value);
+
     if (e.keyCode === 13) {
         e.preventDefault();
         getStudentInfo(txSearch.value)

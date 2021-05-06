@@ -14,15 +14,17 @@ require_once $sessionStarted->getUpperPartByUserType();
 <!-- Begin Page Content -->
 <div class="container">
     <div class="hide">
-        <input type="text" id="stdID" class="" value="<?php echo $stdID; ?>">
+        <input type="hidden" id="stdID" class="" value="<?php echo $stdID; ?>">
     </div>
 
     <div class="card mb-4">
         <div class="card-header py-3">
             <div class="d-flex justify-content-between">
+
                 <div class="cp-2 bd-highlight w-50">
                     <div class="input-group">
                         <input list="students" class="form-control form-control-sm" name="txSearch" id="txSearch"/>
+
                         <datalist id="students">
                         </datalist>
                         <div class="input-group-append">
@@ -71,28 +73,6 @@ require_once $sessionStarted->getUpperPartByUserType();
                                     </button>
                                 </form>
                             </a>
-
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <h6 class="dropdown-header">Reportes</h6>
-                                <a>
-                                    <form action="<?php echo $routeAux; ?>reporte/estudiante" method="post">
-                                        <input id="studentPdf" name="studentPdf" required type="hidden">
-                                        <button type="submit" class="dropdown-item">
-                                            <i class="bi bi-stop mr-2"></i>Ver este alumno
-                                        </button>
-                                    </form>
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <h6 class="dropdown-header">Gráficos</h6>
-                                <a>
-                                    <form action="http://localhost/nivelation/bystudentG.php" method="post"
-                                          class="mx-2">
-                                        <button type="submit" class="dropdown-item">
-                                            <i class="bi bi-pie-chart-fill mr-2"></i> Ver Graficos
-                                        </button>
-                                    </form>
-                                </a>
-                            </div>
                         </div>
 
                     </div>
@@ -114,15 +94,9 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <div class="card-header">
                             <h6 class="m-0 font-weight-bold">Analisis de cursos</h6>
                         </div>
-                    </div>
-                    <div class="col col-12 col-lg-8">
-                        <div class="card">
-                            <div class="card-header">
-                                <h6 class="m-0 font-weight-bold">Analisis de cursos</h6>
-                            </div>
-                            <div class="card-body">
-                                <table id="table-courses" class="table table-bordered">
-                                    <thead class="thead-light">
+                        <div class="card-body">
+                            <table id="table-courses" class="table table-bordered">
+                                <thead class="thead-light">
                                     <tr class="text-center">
                                         <th scope="col" class="text-left" style="width: 5%;">
                                             <small><strong>N°</strong></small>
@@ -137,14 +111,13 @@ require_once $sessionStarted->getUpperPartByUserType();
                                             <small><strong>Recomendación</strong></small>
                                         </th>
                                     </tr>
-                                    </thead>
-                                    <tbody id="table-courses-body">
-                                    </tbody>
-                                </table>
-                                <small>
-                                    <strong>*</strong> Representa el porcentaje de preguntas correctas dentro del curso
-                                </small>
-                            </div>
+                                </thead>
+                                <tbody id="table-courses-body">
+                                </tbody>
+                            </table>
+                            <small>
+                                <strong>*</strong> Representa el porcentaje de preguntas correctas dentro del curso
+                            </small>
                         </div>
                     </div>
                 </div>

@@ -49,8 +49,11 @@ formRank.addEventListener('submit', (e) => {
         .then(response => response.json())
         .then(data => {
             if (data.status === true) {
+                AlertConfirm(data.message, 'success', '¡Éxito!', 'primary');
                 $('#modal-rank').modal('hide');
                 getAllRanksByProcessID(currentProcess, currentArea);
+            }else{
+                AlertConfirm(data.message, 'error', '¡Error!', 'danger');
             }
             // alert(data.message);
         });
@@ -178,3 +181,31 @@ function getRankDataByID(id) {
     let rank = allRanks.filter(rank => parseInt(rank.id) === id);
     return rank[0];
 }
+
+
+//SweetAlert2
+function AlertConfirm(message, tipe, title, variable) {
+    if (message != '') {
+        Swal.fire({
+            icon: tipe,
+            title: title,
+            text: message,
+            iconColor: 'var(--' + variable + ')',
+            showCloseButton: true,
+            confirmButtonColor: 'var(--' + variable + ')'
+        })
+    }
+}
+
+/* AlertConfirm(data.message, 'success', 'primary');
+function AlertConfirm(message, tipe, variable) {
+    if (message != '') {
+        Swal.fire({
+            icon: tipe,
+            title: tipe.replace(/\b[a-z]/g,c=>c.toUpperCase())+'!',
+            text: message,
+            iconColor: 'var(--' + variable + ')',
+            showCloseButton: true
+        })
+    }
+} */

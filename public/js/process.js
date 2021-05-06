@@ -24,9 +24,12 @@ form.addEventListener('submit', (e) => {
             console.log(data);
             if (data.status === true) {
                 getAllProcess();
-                alert(data.message);
+                /* alert(data.message); */
+                AlertConfirm(data.message, 'success', '¡Éxito!', 'primary');
                 $('#process_modal').modal('hide');
                 getLastProcess();
+            } else {
+                AlertConfirm(data.message, 'error', '¡Error!', 'danger');
             }
         });
 });
@@ -62,7 +65,7 @@ function getLastProcess() {
             if (data.status) {
                 lastProcess.innerText = data.message;
             } else {
-                alert(data.message);
+                AlertConfirm(data.message, 'error', '¡Error!', 'danger');
             }
         });
 }
@@ -96,3 +99,31 @@ function createGroupButton() {
     group.classList.add('btn-group');
     return group;
 }
+
+
+//SweetAlert2
+function AlertConfirm(message, tipe, title, variable) {
+    if (message != '') {
+        Swal.fire({
+            icon: tipe,
+            title: title,
+            text: message,
+            iconColor: 'var(--' + variable + ')',
+            showCloseButton: true,
+            confirmButtonColor:'var(--' + variable + ')'
+        })
+    }
+}
+
+/* AlertConfirm(data.message, 'success', 'primary');
+function AlertConfirm(message, tipe, variable) {
+    if (message != '') {
+        Swal.fire({
+            icon: tipe,
+            title: tipe.replace(/\b[a-z]/g,c=>c.toUpperCase())+'!',
+            text: message,
+            iconColor: 'var(--' + variable + ')',
+            showCloseButton: true
+        })
+    }
+} */

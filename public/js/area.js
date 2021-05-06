@@ -62,15 +62,19 @@ formSchools.addEventListener('submit', (e) => {
         })
             .then(response => response.json())
             .then(data => {
-                alert(data.message);
+                /* alert(data.message); */
                 if (data.status) {
                     showSchools(areaName);
                     formSchools.reset();
+                    AlertConfirm(data.message, 'success', '¡Éxito!', 'primary');
                     $('#SchoolModal').modal('hide');
+                } else {
+                    AlertConfirm(data.message, 'error', '¡Error!', 'danger');
                 }
             });
     } else {
-        alert('Seleccione algun área en la parte superior.');
+        /*  alert('Seleccione algun área en la parte superior.'); */
+        AlertConfirm('Seleccione algun área en la parte superior.', 'error', '¡Error!', 'danger');
     }
 })
 
@@ -90,15 +94,19 @@ formCourses.addEventListener('submit', (e) => {
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                alert(data.message);
+                /* alert(data.message); */
                 if (data.status) {
                     showCourses(areaName);
                     formCourses.reset();
+                    AlertConfirm(data.message, 'success', '¡Éxito!', 'primary');
                     $('#CoursesModal').modal('hide');
+                } else {
+                    AlertConfirm(data.message, 'error', '¡Error!', 'danger');
                 }
             });
     } else {
-        alert('Seleccione algun área en la parte superior.');
+        /*  alert('Seleccione algun área en la parte superior.'); */
+        AlertConfirm('Seleccione algun área en la parte superior.', 'error', '¡Error!', 'danger');
     }
 })
 
@@ -114,11 +122,14 @@ formArea.addEventListener('submit', (e) => {
     })
         .then(response => response.json())
         .then(data => {
-            alert(data.message);
+            /*   alert(data.message); */
             if (data.status) {
                 getAllAreas();
                 formArea.reset();
+                AlertConfirm(data.message, 'success', '¡Éxito!', 'primary');
                 $('#add-area').modal('hide');
+            }else{
+                AlertConfirm(data.message, 'error', '¡Error!', 'danger');
             }
         });
 })
@@ -220,3 +231,30 @@ function appendAddNewAreasCard() {
 }
 
 
+
+//SweetAlert2
+function AlertConfirm(message, tipe, title, variable) {
+    if (message != '') {
+        Swal.fire({
+            icon: tipe,
+            title: title,
+            text: message,
+            iconColor: 'var(--' + variable + ')',
+            showCloseButton: true,
+            confirmButtonColor: 'var(--' + variable + ')'
+        })
+    }
+}
+
+/* AlertConfirm(data.message, 'success', 'primary');
+function AlertConfirm(message, tipe, variable) {
+    if (message != '') {
+        Swal.fire({
+            icon: tipe,
+            title: tipe.replace(/\b[a-z]/g,c=>c.toUpperCase())+'!',
+            text: message,
+            iconColor: 'var(--' + variable + ')',
+            showCloseButton: true
+        })
+    }
+} */
