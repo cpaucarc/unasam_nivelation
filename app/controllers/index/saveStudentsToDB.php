@@ -24,7 +24,7 @@ if (!is_null($students)) {
             $student->saveStudentToDB();
             $student->saveQuestionsToDB();
             $student->doClasificationOfCourses();
-            echo ($i++) . ' de ' . $total . ' -> ' . round((($i++) / $total) * 100) . '%';
+            echo ($i + 1) . ' de ' . $total . ' -> ' . round((($i + 1) / $total) * 100) . '%';
         }
 
         echo 'Completado';

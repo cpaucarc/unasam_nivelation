@@ -51,6 +51,7 @@ class Student extends Person
 
                 $stdataID = intval($ex->fetchColumn()) ?? 0;
                 $this->setStda($stdataID);
+                $ex->closeCursor();
                 $pdo->commit();
             } catch (Exception $e) {
                 echo "La operación falló: " . $e->getMessage();
@@ -71,12 +72,13 @@ class Student extends Person
                 $sql = "CALL spSaveQuestionsByStudent(:num, :stdataID, :rsp);";
                 $save_question = $pdo->prepare($sql);
 
-                foreach ($this->questions as $question) {
+                foreach ($this->getQuestions() as $question) {
                     $save_question->execute(array(
                         ':num' => $question->getNumber(),
                         ':stdataID' => $this->getStda(),
                         ':rsp' => $question->getResponse()
                     ));
+                    $save_question->closeCursor();
                 }
                 $pdo->commit();
             } catch (Exception $e) {
@@ -102,7 +104,7 @@ class Student extends Person
                 $clasify->execute(array(
                     ':stdtID' => $this->getStda()
                 ));
-
+                $clasify->closeCursor();
                 $pdo->commit();
             } catch (Exception $e) {
                 $pdo->rollBack();

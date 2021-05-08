@@ -68,7 +68,7 @@ function saveNewUser() {
                 fillTableWhitAllUsers();
                 AlertConfirm(data.message, 'success', '¡Éxito!', 'primary');
                 $('#user_modal').modal("hide");
-            }else{
+            } else {
                 AlertConfirm(data.message, 'error', '¡Error!', 'danger');
             }
         });
@@ -79,7 +79,6 @@ function fillTableWhitAllUsers() {
         .then(response => response.json())
         .then(data => {
             data = data.users;
-            console.log(data);
             $('#table-users').DataTable().clear().destroy();
             tbody.innerHTML = '';
             let num = 1;

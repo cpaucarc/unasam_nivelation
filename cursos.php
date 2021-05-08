@@ -61,8 +61,8 @@ require_once $sessionStarted->getUpperPartByUserType();
          aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-body">
-                    <form id="form-course">
+                <form id="form-course">
+                    <div class="modal-body">
                         <input type="hidden" value="0" name="procID" id="procID">
                         <div class="row">
                             <div class="col col-9">
@@ -80,16 +80,16 @@ require_once $sessionStarted->getUpperPartByUserType();
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" value="0" id="courseID" name="courseID">
+                            <input type="hidden" value="0" id="courseID" name="courseID">
                             <label for="course" class="col-form-label col-form-label-sm">Nombre del curso:</label>
                             <input name="course" type="text" class="form-control" id="course" value=""
                                    placeholder="Curso..." required>
                         </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-light btn-sm" type="button" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-light btn-sm" type="button" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -103,7 +103,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="dimension" class="col-form-label col-form-label-sm">Nueva Dimensión:</label>
-                            <input type="text" name="dimension" class="form-control" placeholder="Dimension..."
+                            <input type="text" id="dimension" name="dimension" class="form-control" placeholder="Dimension..."
                                    required>
                         </div>
                     </div>

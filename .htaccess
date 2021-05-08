@@ -36,6 +36,9 @@ RewriteRule ^login$ login.php
 #profile
 RewriteRule ^perfil$ profile.php
 
+#directory
+RewriteRule ^archivos$ directory.php
+
 #reports
 RewriteRule ^reporte/estudiante$ app/reports/student.php
 RewriteRule ^reporte/curso$ app/reports/course.php

@@ -36,7 +36,7 @@ class Table {
 
     createRow(...body) {
         let row = document.createElement('tr');
-        row.classList.add('my-auto');
+        // row.classList.add('my-auto');
         body.forEach(bd => {
             row.appendChild(this.createBodyColumn(bd));
         });
@@ -45,9 +45,13 @@ class Table {
     }
 
     createCell(child) {
-        let cell = document.createElement('td');
+        let cell = this.createColumn();
         cell.appendChild(child);
         return cell;
+    }
+
+    createColumn() {
+        return document.createElement('td');
     }
 
     createFirstBodyColumn(text) {

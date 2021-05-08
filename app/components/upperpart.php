@@ -75,7 +75,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Vista por:</h6>
                     <a class="collapse-item" href="<?php echo $rtax; ?>rangos">Rangos</a>
-                    <a class="collapse-item" href="<?php echo $rtax; ?>areas">Areas</a>
+                    <a class="collapse-item" href="<?php echo $rtax; ?>areas">Areas y Programas</a>
                     <a class="collapse-item" href="<?php echo $rtax; ?>admision">Admisión</a>
                     <a class="collapse-item" href="<?php echo $rtax; ?>cursos">Cursos</a>
                 </div>
@@ -87,7 +87,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            Addons
+            Complementos
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
@@ -100,6 +100,19 @@ $rtax = isset($routeAux) ? $routeAux : "";
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Vistas de usuario</h6>
                     <a class="collapse-item" href="<?php echo $rtax; ?>usuarios">Usuarios registrados</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesOthers"
+               aria-expanded="true" aria-controls="collapsePagesOthers">
+                <i class="bi bi-tools mr-2"></i><span>Otros</span>
+            </a>
+            <div id="collapsePagesOthers" class="collapse" aria-labelledby="headingPages"
+                 data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Vistas de usuario</h6>
+                    <a class="collapse-item" href="<?php echo $rtax; ?>archivos">Archivos</a>
                 </div>
             </div>
         </li>

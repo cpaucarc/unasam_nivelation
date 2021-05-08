@@ -20,27 +20,26 @@ window.addEventListener('load', () => {
 
 uploadForm.onsubmit = (e) => {
     e.preventDefault();
+    alertWaitSaving();
     fetch('app/controllers/index/saveStudentsToDB.php/', {
         method: 'GET'
     })
         .then(response => response.text())
         .then(data => {
             console.log(data);
+            AlertConfirm('La información se guardó correctamente', 'success', '¡Ya está!', 'primary');
         });
 }
 
 uploadForm.addEventListener('change', (e) => {
     e.preventDefault();
-    /* alert('Espere mientras se guarda el archivo'); */
-    AlertWait('Espere mientras se guarda el archivo','success');
+    alertWaitUploading();
     setIconToFile();
     tbody_data = '';
     let formData = new FormData(uploadForm);
     saveFile(formData).then(data => {
-        console.log(data.message);
         if (data.status === true) {
-            /* alert('Archivo subido'); */
-            AlertConfirm('Archivo subido', 'success', '¡Éxito!', 'primary');
+            AlertConfirm('Tu archivo se subió correctamente', 'success', '¡Ya está!', 'primary');
             // Mostrar un msg: Espere mientras los datos se procesan
             //processStudentsData(data.message);
             //message: Los datos ya se guardaron
@@ -166,42 +165,35 @@ function toggleBtnUpload() {
 
 //SweetAlert2
 function AlertConfirm(message, tipe, title, variable) {
-    if (message != '') {
+    if (message !== '') {
         Swal.fire({
             icon: tipe,
-            title: title,
-            text: message,
-            iconColor: 'var(--' + variable + ')',
+            position: 'center',
+            html: `<strong>${title}</strong></br><small>${message}</small>`,
             showCloseButton: true,
             confirmButtonColor: 'var(--' + variable + ')'
         })
     }
 }
 
-function AlertWait(message,tipe) {
+function AlertWait(image, title, message) {
     Swal.fire({
-        icon:tipe,
-        title: message,
-        backdrop: `
-          rgba(0,0,0,0.4)
-          url("https://i.pinimg.com/originals/50/d6/0b/50d60b0dccd86bfb597502eac92e3923.gif")
-          200px bottom
-          no-repeat
-        `,
-        showCloseButton: true,
-        confirmButtonColor: 'var(--primary)'
+        position: 'center',
+        imageUrl: image,
+        imageWidth: 100,
+        imageHeight: 100,
+        html: `<strong>${title}</strong></br><small>${message}</small>`,
+        showConfirmButton: false,
+        backdrop: false
     })
 }
 
-/* AlertConfirm(data.message, 'success', 'primary');
-function AlertConfirm(message, tipe, variable) {
-    if (message != '') {
-        Swal.fire({
-            icon: tipe,
-            title: tipe.replace(/\b[a-z]/g,c=>c.toUpperCase())+'!',
-            text: message,
-            iconColor: 'var(--' + variable + ')',
-            showCloseButton: true
-        })
-    }
-} */
+function alertWaitUploading() {
+    let img = 'https://thumbs.gfycat.com/IdioticLinedGrunion-max-1mb.gif';
+    AlertWait(img, 'Espere mientras se sube el archivo.', 'El tiempo puede variar por tu conexión a internet y el número de datos');
+}
+
+function alertWaitSaving() {
+    let img = 'https://i.gifer.com/4V0b.gif';
+    AlertWait(img, 'Espere mientras se guarda la información.', 'El tiempo puede variar por tu conexión a internet y el número de datos');
+}

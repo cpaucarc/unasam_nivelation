@@ -16,13 +16,15 @@ require_once $sessionStarted->getUpperPartByUserType();
             <div class="card-body">
                 <div class="row d-flex justify-content-between">
                     <div class="col col-12 col-lg-3 mb-3">
-                        <button type="button" class="btn btn-primary btn-sm my-2" data-toggle="modal"
-                                data-target="#process_modal" id="new-process">
-                            <i class="bi bi-plus mr-2"></i>Agregar proceso
-                        </button>
-
+                        <?php if (intval($_SESSION['user_logged']['utid']) === 1) { ?>
+                            <button type="button" class="btn btn-primary btn-sm my-2" data-toggle="modal"
+                                    data-target="#process_modal" id="new-process">
+                                <i class="bi bi-plus mr-2"></i>Agregar proceso
+                            </button>
+                        <?php } ?>
                         <div class="alert alert-info my-3" role="alert">
-                            <label for="lastProcess" class="col-form-label col-form-label-sm">Ultimo Proceso de Admision registrado</label>
+                            <label for="lastProcess" class="col-form-label col-form-label-sm">Ultimo Proceso de Admision
+                                registrado</label>
                             <h3 class="font-weight-bold text-primary" aria-describedby="help">
                                 <i class="bi bi-calendar-check mr-2"></i> <span id="lastProcess">Cargando...</span>
                             </h3>
@@ -47,6 +49,7 @@ require_once $sessionStarted->getUpperPartByUserType();
         </div>
     </div>
 
+<?php if (intval($_SESSION['user_logged']['utid']) === 1) { ?>
     <div class="modal fade" data-backdrop="static" id="process_modal" tabindex="-1" role="dialog"
          aria-labelledby="exampleModalLabel"
          aria-hidden="true">
@@ -57,7 +60,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <input type="text" value="0" name="procID" id="procID">
                         <div class="form-group">
                             <label for="proceso" class="col-form-label col-form-label-sm">Admisión:</label>
-                            <input name="denomination" type="text" class="form-control form-control-sm" id="denomination" required
+                            <input name="denomination" type="text" class="form-control form-control-sm"
+                                   id="denomination" required
                                    placeholder="Proceso de admisión">
                         </div>
                 </div>
@@ -69,6 +73,7 @@ require_once $sessionStarted->getUpperPartByUserType();
             </div>
         </div>
     </div>
+<?php } ?>
 
     <script src="public/js/components/Card.js"></script>
     <script src="public/js/components/Table.js"></script>

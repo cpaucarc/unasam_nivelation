@@ -49,9 +49,32 @@ class Button {
     createBtnDelete(fun, ...params) {
         let btn = this.createIconBtn('<i class="bi bi-trash"></i>', fun, ...params);
         btn.classList.add('btn');
-        btn.classList.add('btn-outline-danger');
+        btn.classList.add('btn-light');
+        btn.classList.add('text-danger');
         btn.classList.add('btn-sm');
         return btn;
+    }
+
+    createBtnDownload(fun, ...params) {
+        let btn = this.createIconBtn('<i class="bi bi-cloud-download"></i>', fun, ...params);
+        btn.classList.add('btn');
+        btn.classList.add('btn-light');
+        btn.classList.add('text-success');
+        btn.classList.add('btn-sm');
+        return btn;
+    }
+
+    createGroupButton(...buttons) {
+        let group = document.createElement('div');
+        group.classList.add('btn-group');
+        group.classList.add('btn-group-sm');
+
+        buttons.forEach(btn => {
+            group.appendChild(btn);
+        })
+
+        return group;
+
     }
 
     createIconAndTextBtn(icon, text, fun, ...params) {

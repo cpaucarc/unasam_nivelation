@@ -1,28 +1,24 @@
 @charset "UTF-8";
 
 :root {
-    --indigo: #6610f2;
-    --purple: #6f42c1;
     --pink: #e83e8c;
-    --orange: #fd7e14;
-    --teal: #20c9a6;
     --white: #fff;
     --gray: #9CA3AF;
     --gray-med: #F9FAFB;
     --gray-border-table: #E5E7EB;
     --gray-dark: #4B5563;
     --primary: #0078D4;
-    --primary-hover: #006CBF;
+    --primary-hover: #006DC1;
     --secondary: var(--gray);
     --secondary-hover: #6B7280;
-    --success: #2EA44F;
-    --success-hover: #2C974B;
-    --info: #06B6D4;
-    --info-hover: #0891B2;
+    --success: #28A745;
+    --success-hover: #24983F;
+    --info: #9DE1FE;
+    --info-hover: #53AFCA;
     --warning: #FBBF24;
-    --warning-hover: #F59E0B;
+    --warning-hover: #E4AE21;
     --danger: #EF4444;
-    --danger-hover: #DC2626;
+    --danger-hover: #D93E3E;
     --light: #F6F8FA;
     --light-hover: #F3F4F6;
     --dark: var(--gray-dark);
@@ -33,8 +29,7 @@
     --breakpoint-lg: 992px;
     --breakpoint-xl: 1200px;
     --font-family-sans-serif: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    --color-primario: #042553;
+    --color-primario: #00335A;
     --border-radius: 0.2rem;
 }
 
@@ -5191,7 +5186,7 @@ input[type=button].btn-block {
 
 .page-link:hover {
     z-index: 2;
-    color: #224abe;
+    color: var(--primary-hover);
     text-decoration: none;
     background-color: var(--gray-med);
     border-color: #dddfeb;
@@ -6230,7 +6225,7 @@ a.close.disabled {
     align-items: flex-start;
     justify-content: space-between;
     padding: 1rem 1rem;
-    border-bottom: 1px solid var(--gray-border-table);
+    /*border-bottom: 1px solid var(--gray-border-table);*/
     border-top-left-radius: calc(0.3rem - 1px);
     border-top-right-radius: calc(0.3rem - 1px);
 }
@@ -6257,7 +6252,7 @@ a.close.disabled {
     align-items: center;
     justify-content: flex-end;
     padding: 0.75rem;
-    border-top: 1px solid var(--gray-border-table);
+    /*border-top: 1px solid var(--gray-border-table);*/
     border-bottom-right-radius: calc(0.3rem - 1px);
     border-bottom-left-radius: calc(0.3rem - 1px);
 }

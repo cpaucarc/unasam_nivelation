@@ -1,47 +1,42 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+<?php
+include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
+require_once(DB_PATH . "MySqlConnection.php");
+require_once(UTIL_PATH . "Student.php");
+require_once(UTIL_PATH . "Question.php");
 
-<label for="range">Rango: </label><input type="range" name="asdfr" id="range" min="0" max="100">
+$ruta = STORAGE_PATH;
 
-<p id="asd">
+if (is_dir($ruta)) {
+    // Abre un gestor de directorios para la ruta indicada
+    $gestor = opendir($ruta);
+    echo "<ul>";
 
-</p>
+    // Recorre todos los elementos del directorio
+    while (($archivo = readdir($gestor)) !== false) {
 
+        $ruta_completa = $ruta . "/" . $archivo;
 
-<script>
+        // Se muestran todos los archivos y carpetas excepto "." y ".."
+        if ($archivo != "." && $archivo != "..") {
 
-    window.onload = () => {
-        asd = document.getElementById('asd');
-        range = document.getElementById('range');
+            $name = $archivo;
+            $totalSize = filesize($ruta);
+            $size = filesize($ruta . $archivo);
+            $type = filetype($ruta . $archivo);
+            $time = filemtime($ruta . $archivo);
+            $stat = stat($ruta . $archivo);
+            $tiempo = (time() - $time);
+            //date ("F d Y H:i:s.", filemtime($nombre_archivo))
+            echo '<br>';
+            var_dump($stat);
+            echo "<li>" . $name . ' -> ' . $size . ' -> ' . $type . ' -> ' . $totalSize . ' -> ' . $time . ' --' . date("F d Y H:i:s.", $time) . ' act ' . date("F d Y H:i:s.", time()) . "</li>";
 
-        fetch(`app/views/v.php/`, {
-            method: 'POST',
-            headers: {
-                "Accept": "application/text"
-            }
-        })
-            .then(response => response.text())
-            .then(data => {
-                data = data.split('-')
-
-                data.forEach(prc => {
-                    console.log(prc)
-                    range.value = parseFloat(prc);
-                    asd.innerHTML = prc;
-                })
-                // asd.innerHTML = data;
-            });
+        }
     }
 
-</script>
-
-</body>
-</html>
+    // Cierra el gestor de directorios
+    closedir($gestor);
+    echo "</ul>";
+} else {
+    echo "No es una ruta de directorio valida<br/>";
+}

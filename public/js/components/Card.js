@@ -232,9 +232,9 @@ class Card {
                     <i class="bi bi-info-circle-fill"></i>
                     </h2>
                 </div>
-                <div class="col col-10">
-                    <h4 class="font-weight-bold">Atención:</h4>
-                    <p>No se especificó el nombre del alumno. Use la barra de busqueda</p>
+                <div class="col col-10 pl-3">
+                    <h6 class="font-weight-bold">Atención:</h6>
+                    <small>No se especificó el nombre del alumno. Use la barra de busqueda.</small>
                 </div>
             </div>
         </div>`;
