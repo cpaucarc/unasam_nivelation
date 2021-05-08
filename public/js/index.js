@@ -189,11 +189,11 @@ function AlertWait(image, title, message) {
 }
 
 function alertWaitUploading() {
-    let img = 'https://thumbs.gfycat.com/IdioticLinedGrunion-max-1mb.gif';
-    AlertWait(img, 'Espere mientras se sube el archivo.', 'El tiempo puede variar por tu conexión a internet y el número de datos');
+    let img = 'https://media1.giphy.com/media/aQ6qeqSuo0xxSQPV87/giphy.gif?cid=790b7611fc1c5a0ba5ef139d2994981c8192929e5ecc8635&rid=giphy.gif&ct=g';
+    AlertWait(img, 'Espere mientras se sube el archivo.', 'El tiempo puede variar por tu conexión a internet y el número de datos.');
 }
 
 function alertWaitSaving() {
-    let img = 'https://i.gifer.com/4V0b.gif';
-    AlertWait(img, 'Espere mientras se guarda la información.', 'El tiempo puede variar por tu conexión a internet y el número de datos');
+    let img = 'https://media1.giphy.com/media/aQ6qeqSuo0xxSQPV87/giphy.gif?cid=790b7611fc1c5a0ba5ef139d2994981c8192929e5ecc8635&rid=giphy.gif&ct=g';
+    AlertWait(img, 'Espere mientras se guarda la información.', 'El tiempo puede variar por tu conexión a internet y el número de datos.');
 }
