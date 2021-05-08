@@ -3,6 +3,8 @@ const notStdInfo = document.getElementById('not-student-card');
 const btSearch = document.getElementById('btSearch');
 const txSearch = document.getElementById('txSearch');
 const tbBody = document.getElementById('table-courses-body');
+const tbQuestions1 = document.getElementById('questions-1');
+const tbQuestions2 = document.getElementById('questions-2');
 const stdID = parseInt(document.getElementById('stdID').value);
 const stdIDPDF = document.getElementById('studentPdf');
 
@@ -22,6 +24,7 @@ window.onload = function () {
     document.getElementById('view-title').innerText = 'Vista por Estudiante';
 }
 
+
 btSearch.addEventListener('click', (e) => {
     e.preventDefault();
     getStudentInfo(txSearch.value)
@@ -37,13 +40,6 @@ txSearch.addEventListener('keyup', (e) => {
         getCoursesByFullname(txSearch.value)
     }
 });
-
-// btShowPDF.addEventListener('click', () => {
-//     let id = parseInt(stdIDPDF.value);
-//     if (id > 0) {
-//         console.log('Mostrando PDF')
-//     }
-// });
 
 function getStudentsLike(pattern) {
     let formData = new FormData();
@@ -102,6 +98,41 @@ function getCoursesByID(id) {
         .then(data => {
             data = data.courses;
             fillStudentData(data);
+        });
+}
+
+function getQuestionsOfStudent(id) {
+    // if (id > 0) {
+    //     console.log(stdID)
+    // }
+
+    console.log(id)
+
+    let formData = new FormData();
+    formData.append('stdID', id);
+
+    fetch(`${routeAux}app/controllers/questions/getQuestionsOfStudent.php`, {
+        method: 'POST',
+        headers: {
+            "Accept": "application/json"
+        },
+        body: formData
+    })
+        .then(response => response.json())
+        .then(questions => {
+            let half = parseInt((questions.length) / 2);
+            tbQuestions1.innerHTML = '';
+            tbQuestions2.innerHTML = '';
+            questions.forEach((question, i) => {
+                let row = table.createRow(question.number, question.course, question.response);
+                if (i < half) {
+                    tbQuestions1.appendChild(row);
+                } else {
+                    tbQuestions2.appendChild(row);
+                }
+            })
+            console.log(questions);
+            console.log(questions.length)
         });
 }
 

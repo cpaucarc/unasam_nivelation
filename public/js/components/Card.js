@@ -145,6 +145,13 @@ class Card {
                         <span class="small text-gray-600">En blanco</span>
                     </div>
                 </div>
+                
+                <div class="d-flex justify-content-end mt-3">
+                    <button id="show-questions" type="button" class="btn btn-light text-gray-900 btn-sm" data-toggle="modal"
+                            data-target="#exampleModal" onclick="getQuestionsOfStudent(${data.stdtID})">
+                        Ver respuestas en examen de admisión
+                    </button>
+                </div>
             </div>
         </div>
     </div>

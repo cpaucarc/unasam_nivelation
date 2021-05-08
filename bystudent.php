@@ -81,6 +81,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <div id="not-student-card">
                             <!-- Just when stdID in POST is 0 -->
                         </div>
+
+
                     </div>
                     <div class="col col-12 col-lg-8">
                         <div class="card text-left">
@@ -119,6 +121,38 @@ require_once $sessionStarted->getUpperPartByUserType();
         </div>
     </div>
     <!-- /.container-fluid -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        Respuestas del alumno en el examen de admisión
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col col-6">
+                            <table class="table table-sm table-bordered">
+                                <tbody id="questions-1">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col col-6">
+                            <table class="table table-sm table-bordered">
+                                <tbody id="questions-2">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!--<script src="public/js/datatable.js"></script>-->
     <script type="text/javascript">
