@@ -626,6 +626,7 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 /*!50001 CREATE VIEW `vstudents` AS SELECT 
  1 AS `id`,
+ 1 AS `stdtID`,
  1 AS `code`,
  1 AS `postulant_code`,
  1 AS `dni`,
@@ -1296,6 +1297,39 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `spShowQuestions` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spShowQuestions`(stdataID mediumint(9))
+BEGIN
+
+	SELECT DISTINCT
+		qt.number 	as number,
+        co.name		as course,
+        rp.type 	as response,
+        rp.id 		as num
+	FROM questions AS qt
+    
+    JOIN distributions 	AS dt	ON dt.id = qt.distributions_id
+		JOIN courses 	AS co 	ON co.id = dt.courses_id		
+    JOIN responses		AS rp 	ON rp.id = qt.responses_id
+    
+    WHERE student_data_id = stdataID
+    ORDER by qt.number ASC;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `spShowStatusByCourse` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -1594,7 +1628,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vstudents` AS select `st`.`id` AS `id`,`stdt`.`code` AS `code`,`stdt`.`postulant_code` AS `postulant_code`,`pl`.`dni` AS `dni`,`stdt`.`omg` AS `omg`,`stdt`.`omp` AS `omp`,`stdt`.`score` AS `score`,`pl`.`name` AS `name`,`pl`.`lastname` AS `lastname`,`gd`.`gender` AS `gender`,`pg`.`name` AS `program`,`ar`.`name` AS `area`,`pr`.`name` AS `process`,`stdt`.`good` AS `correct`,`stdt`.`bad` AS `incorrect`,`stdt`.`blank` AS `blank` from ((((((`student_data` `stdt` join `students` `st` on((`st`.`id` = `stdt`.`students_id`))) join `people` `pl` on((`pl`.`id` = `st`.`people_id`))) join `genders` `gd` on((`gd`.`id` = `pl`.`genders_id`))) join `programs` `pg` on((`pg`.`id` = `stdt`.`programs_id`))) join `areas` `ar` on((`ar`.`id` = `pg`.`areas_id`))) join `process` `pr` on((`pr`.`id` = `stdt`.`process_id`))) */;
+/*!50001 VIEW `vstudents` AS select `st`.`id` AS `id`,`stdt`.`id` AS `stdtID`,`stdt`.`code` AS `code`,`stdt`.`postulant_code` AS `postulant_code`,`pl`.`dni` AS `dni`,`stdt`.`omg` AS `omg`,`stdt`.`omp` AS `omp`,`stdt`.`score` AS `score`,`pl`.`name` AS `name`,`pl`.`lastname` AS `lastname`,`gd`.`gender` AS `gender`,`pg`.`name` AS `program`,`ar`.`name` AS `area`,`pr`.`name` AS `process`,`stdt`.`good` AS `correct`,`stdt`.`bad` AS `incorrect`,`stdt`.`blank` AS `blank` from ((((((`student_data` `stdt` join `students` `st` on((`st`.`id` = `stdt`.`students_id`))) join `people` `pl` on((`pl`.`id` = `st`.`people_id`))) join `genders` `gd` on((`gd`.`id` = `pl`.`genders_id`))) join `programs` `pg` on((`pg`.`id` = `stdt`.`programs_id`))) join `areas` `ar` on((`ar`.`id` = `pg`.`areas_id`))) join `process` `pr` on((`pr`.`id` = `stdt`.`process_id`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -1626,4 +1660,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-08  9:14:06
+-- Dump completed on 2021-05-08 11:52:12

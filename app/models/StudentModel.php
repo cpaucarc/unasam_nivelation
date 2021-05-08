@@ -185,6 +185,7 @@ class StudentModel
 
         return json_encode(array(
             "id" => $result['id'],
+            "stdtID" => $result['stdtID'],
             "code" => $result['code'],
             "postulant_code" => $result['postulant_code'],
             "score" => $result['score'],
@@ -216,6 +217,7 @@ class StudentModel
 
         return json_encode(array(
             "id" => $result['id'],
+            "stdtID" => $result['stdtID'],
             "code" => $result['code'],
             "postulant_code" => $result['postulant_code'],
             "score" => $result['score'],
