@@ -93,12 +93,13 @@ class Button {
         let url = "estudiante";
         let btn = document.createElement('a');
         btn.classList.add('btn');
-        btn.classList.add('btn-link');
+        btn.classList.add('btn-light');
         btn.classList.add('btn-sm');
+        btn.classList.add('text-primary');
         btn.setAttribute('href', `${url}/${id}`);
         // btn.setAttribute('target', '_blank');
         btn.setAttribute('role', 'button');
-        btn.innerText = 'Ver';
+        btn.innerHTML = 'Ver<i class="bi bi-arrow-90deg-right ml-1"></i>';
         return btn;
     }
 

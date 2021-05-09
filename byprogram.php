@@ -30,7 +30,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                     </div>
                     <div class="ml-auto bd-highlight">
                         <label for="process" class="col-form-label col-form-label-sm">Proceso de Admisión</label>
-                        <select class="form-control" id="process">
+                        <select class="form-control form-control-sm" id="process">
                         </select>
                     </div>
                 </div>
@@ -51,7 +51,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                                     <input id="programPdf_1" name="programPdf" required type="hidden">
                                     <input id="processPdf_1" name="processPdf" required type="hidden">
                                     <button type="submit" class="dropdown-item">
-                                        <i class="bi bi-stop mr-2"></i>Ver solo este Programa
+                                        <i class="bi bi-stop mr-2"></i>Solo este Programa
                                     </button>
                                 </form>
                             </a>
@@ -60,7 +60,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                                     <input id="areaPdf_2" name="areaPdf" required type="hidden">
                                     <input id="processPdf_2" name="processPdf" required type="hidden">
                                     <button type="submit" class="dropdown-item">
-                                        <i class="bi bi-grid mr-2"></i>Ver todos los Programas
+                                        <i class="bi bi-grid mr-2"></i>Todos los Programas
                                     </button>
                                 </form>
                             </a>
@@ -68,14 +68,15 @@ require_once $sessionStarted->getUpperPartByUserType();
                                 <form action="reporte/programa" target="_blank" method="post">
                                     <input id="processPdf_3" name="processPdf" required type="hidden">
                                     <button type="submit" class="dropdown-item">
-                                        <i class="bi bi-grid-3x2-gap mr-2"></i>Ver todas las Áreas
+                                        <i class="bi bi-grid-3x2-gap mr-2"></i>Todas las Áreas
                                     </button>
                                 </form>
                             </a>
                             <div class="dropdown-divider"></div>
                             <h6 class="dropdown-header">Gráficos</h6>
                             <a>
-                                <form action="http://localhost/nivelation/byprogramG.php" target="_blank" method="post" class="mx-2">
+                                <form action="http://localhost/nivelation/byprogramG.php" target="_blank" method="post"
+                                      class="mx-2">
                                     <input name="processChart" id="processChart" required type="hidden">
                                     <button type="submit" class="dropdown-item">
                                         <i class="bi bi-pie-chart-fill mr-2"></i> Ver Graficos
@@ -94,11 +95,12 @@ require_once $sessionStarted->getUpperPartByUserType();
                     <tr>
                         <th scope="col" style="width: 5%;"><small><strong>N°</strong></small></th>
                         <th scope="col" style="width: 5%;"><small><strong>OMG</strong></small></th>
-                        <th scope="col" style="width: 5%;"><small><strong>OMP</strong></small></th>
+                        <th scope="col" style="width: 5%;"><small><strong>Puntaje</strong></small></th>
                         <th scope="col" style="width: 12%;"><small><strong>DNI</strong></small></th>
                         <th scope="col" style="width: 13%;"><small><strong>Código</strong></small></th>
+                        <th scope="col" style="width: 13%;"><small><strong>Género</strong></small></th>
                         <th scope="col"><small><strong>Estudiante</strong></small></th>
-                        <th scope="col" style="width: 5%;"><small><strong>&nbsp;</strong></small></th>
+                        <th scope="col" style="width: 8%;"><small><strong>&nbsp;</strong></small></th>
                     </tr>
                     </thead>
                     <tbody id="tbody">

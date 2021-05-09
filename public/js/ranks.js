@@ -52,7 +52,7 @@ formRank.addEventListener('submit', (e) => {
                 AlertConfirm(data.message, 'success', '¡Éxito!', 'primary');
                 $('#modal-rank').modal('hide');
                 getAllRanksByProcessID(currentProcess, currentArea);
-            }else{
+            } else {
                 AlertConfirm(data.message, 'error', '¡Error!', 'danger');
             }
             // alert(data.message);
@@ -132,8 +132,7 @@ function createRowsAndFillTable(area) {
     tbody.innerHTML = '';
     let i = 1;
     area.forEach(courses => {
-        let row = table.createRow(i, courses.area, courses.course,
-            courses.process, courses.minimum, courses.recommended);
+        let row = table.createRow(i, courses.process, courses.course, courses.minimum, courses.recommended);
 
         row.appendChild(table.createCell(button.createBtnEdit(updateRank, courses.id)));
 
@@ -196,16 +195,3 @@ function AlertConfirm(message, tipe, title, variable) {
         })
     }
 }
-
-/* AlertConfirm(data.message, 'success', 'primary');
-function AlertConfirm(message, tipe, variable) {
-    if (message != '') {
-        Swal.fire({
-            icon: tipe,
-            title: tipe.replace(/\b[a-z]/g,c=>c.toUpperCase())+'!',
-            text: message,
-            iconColor: 'var(--' + variable + ')',
-            showCloseButton: true
-        })
-    }
-} */

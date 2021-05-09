@@ -7,7 +7,8 @@ class Badge {
         let span = document.createElement('span');
         small.appendChild(document.createTextNode(text));
         span.appendChild(small);
-        span.classList.add('py-2');
+        span.classList.add('px-2');
+        span.classList.add('py-1');
         span.classList.add('alert');
         switch (parseInt(numero)) {
             case 1: { // No requiere

@@ -126,7 +126,7 @@ function fillTableWhitStudents(school, process) {
             $('#table-students').DataTable().clear().destroy();
             let num = 1;
             data.forEach(std => {
-                let row = table.createRow(num, std.omg, std.omp, std.dni, std.code, `${std.lastname} ${std.name}`);
+                let row = table.createRow(num, std.omg, std.score, std.dni, std.code, std.gender, `${std.lastname} ${std.name}`);
                 let btnShowStudent = button.createButtonForRedirectToStudentView(std.id);
                 row.appendChild(table.createCell(btnShowStudent));
                 tbody.appendChild(row);

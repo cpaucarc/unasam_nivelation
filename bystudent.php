@@ -18,28 +18,28 @@ require_once $sessionStarted->getUpperPartByUserType();
         </div>
 
         <div class="card mb-4">
-            <div class="card-header py-3">
+            <div class="card-header bg-white py-3">
                 <div class="d-flex justify-content-between">
 
-                    <?php if (intval($_SESSION['user_logged']['utid']) === 1) { ?>
+                    <?php if (intval($_SESSION['user_logged']['utid']) !== 3) { ?>
                         <div class="cp-2 bd-highlight w-50">
                             <div class="input-group">
-                                <input list="students" class="form-control form-control-sm" name="txSearch"
-                                       id="txSearch"/>
-
+                                <input list="students" type="text" class="form-control form-control-sm"
+                                       placeholder="Escribe el apellido del estudiante..." id="txSearch">
+                                <div class="input-group-append" id="btSearch">
+                                    <span class="input-group-text py-0 px-2 btn">
+                                        <i class="bi bi-search"></i>
+                                    </span>
+                                </div>
                                 <datalist id="students">
                                 </datalist>
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary btn-sm" type="submit" id="btSearch">
-                                        <i class="bi bi-search"></i>
-                                    </button>
-                                </div>
                             </div>
+
                         </div>
                     <?php } ?>
                     <div class="ml-auto bd-highlight d-flex">
                         <div class="dropdown ml-2">
-                            <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            <a class="btn btn-light btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="bi bi-graph-up mr-2"></i>Reportes y Graficos
                             </a>
@@ -87,16 +87,16 @@ require_once $sessionStarted->getUpperPartByUserType();
                     <div class="col col-12 col-lg-8">
                         <div class="card text-left">
                             <div class="card-header">
-                                <h6 class="m-0 font-weight-bold">Analisis de cursos</h6>
+                                <h6 class="m-0 font-weight-bold">Análisis de cursos</h6>
                             </div>
                             <div class="card-body p-0">
                                 <table id="table-courses" class="table table-bordered">
-                                    <thead class="thead-light">
+                                    <thead>
                                     <tr class="text-center">
                                         <th scope="col" class="text-left" style="width: 5%;">
                                             <small><strong>N°</strong></small>
                                         </th>
-                                        <th scope="col" class="text-left" style="width: 35%;">
+                                        <th scope="col" class="text-left" style="width: 33%;">
                                             <small><strong>Curso</strong></small>
                                         </th>
                                         <th scope="col" class="text-left" style="width: 7%;">
@@ -127,22 +127,22 @@ require_once $sessionStarted->getUpperPartByUserType();
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                        Respuestas del alumno en el examen de admisión
-                    </h5>
+                    <h6 class="modal-title font-weight-bold" id="exampleModalLabel">
+                        Cartilla de respuestas del alumno en el examen de admisión
+                    </h6>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col col-6">
+                        <div class="col col-6 pr-3">
                             <table class="table table-sm table-bordered">
                                 <tbody id="questions-1">
                                 </tbody>
                             </table>
                         </div>
-                        <div class="col col-6">
+                        <div class="col col-6 pl-3">
                             <table class="table table-sm table-bordered">
                                 <tbody id="questions-2">
                                 </tbody>

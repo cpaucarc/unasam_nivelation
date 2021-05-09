@@ -2,232 +2,103 @@ class Card {
     constructor() {
     }
 
-    getStudentInfoCard2(stdLastname, stdName, stdSchool, stdDni, stdCode, stdProcess) {
-        return `
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="m-0 font-weight-bold">Datos del alumno</h6>
-                </div>
-                <div class="card-body">
-                    <div class="col col-12 text-primary form-inline">
-                        <h4 class="text-uppercase font-weight-bold">${stdLastname}</h4>&nbsp;
-                        <h4 class="text-capitalize">${stdName}</h4>
-                    </div>
-                    <hr>
-                    <div class="col col-12 mt-2 form-inline">
-                        <span class="font-weight-bold">DNI:</span>&nbsp;
-                        <span>${stdDni}</span>
-                    </div>
-                    <div class="col col-12 mt-2 form-inline">
-                        <span class="font-weight-bold">Código:</span>&nbsp;
-                        <span>${stdCode}</span>
-                    </div> 
-                    <hr>
-                    <div class="col col-12 mt-4 form-inline">
-                        <span class="font-weight-bold">Escuela:</span>&nbsp;
-                        <span>${stdSchool}</span>
-                    </div>
-                    <hr>
-                    <div class="col col-12 mt-2 form-inline">
-                        <span class="font-weight-bold">Admision de Ingreso:</span>&nbsp;
-                        <span>${stdProcess}</span>
-                    </div>   
-                    <div class="col col-12 mt-2 form-inline">
-                        <span class="font-weight-bold">OMG:</span>&nbsp;
-                        <span>15</span>
-                    </div>   
-                    <div class="col col-12 mt-2 form-inline">
-                        <span class="font-weight-bold">OMP:</span>&nbsp;
-                        <span>7</span>
-                    </div>     
-                    <hr>                    
-                    <div class="col col-12 mt-2 form-inline">
-                        <span class="font-weight-bold">Preguntas Correctas:</span>&nbsp;
-                        <span>50</span>
-                    </div>                   
-                    <div class="col col-12 mt-2 form-inline">
-                        <span class="font-weight-bold">Preguntas Incorrectas:</span>&nbsp;
-                        <span>40</span>
-                    </div>                   
-                    <div class="col col-12 mt-2 form-inline">
-                        <span class="font-weight-bold">Preguntas en Blanco:</span>&nbsp;
-                        <span>10</span>
-                    </div>                 
-                </div>
-            </div>
-            `;
-    }
-
     getStudentInfoCard(data) {
         return `
         <div class="card text-dark">
         <div class="card-header">
-            <h6 class="m-0 font-weight-bold">Datos del alumno</h6>
+            <h6 class="m-0 font-weight-bold">Datos del estudiante</h6>
         </div>
         <div class="card-body text-center">
             <div class="row">
                 <div class="col col-12 text-primary mb-0">
-                    <h4>
+                    <h5>
                         <span class="text-uppercase font-weight-bold">${data.lastname}</span>
                         <span class="text-capitalize">${data.name}</span>
-                    </h4>
+                    </h5>
                 </div>
                 <div class="col col-12">
                     <span>${data.program}</span>
                 </div>
-                <div class="col col-12 mb-4">
-                    <span class="btn btn-info w-50 btn-sm font-weight-bold font-size-sm mt-2">${data.process}</span>
+                <div class="col col-12 mt-2 mb-4">
+                    <span class="bg-light py-2 px-4 w-50 btn-sm font-weight-bold font-size-sm mt-2">${data.process}</span>
                 </div>
                 <div class="col col-6 d-block text-center list-group-item-action border-left border-top ">
                     <div class="py-2 px-2">
-                        <i class="fas fa-venus-mars text-primary"></i>
+                        <i class="fas fa-venus-mars text-secondary"></i>
                         <h6 class="mb-0 font-weight-bold">${data.gender}</h6>
                         <span class="small text-gray-600">Género</span>
                     </div>
                 </div>
                 <div class="col col-6 d-block text-center list-group-item-action border-left border-top border-right">
                     <div class="py-2 px-2">
-                        <i class="fas fa-id-card text-primary"></i>
+                        <i class="bi bi-credit-card-2-front text-secondary"></i>
                         <h6 class="mb-0 font-weight-bold">${data.dni}</h6>
                         <span class="small text-gray-600">DNI</span>
                     </div>
                 </div>
                 <div class="col col-6 d-block text-center list-group-item-action border-left border-top ">
                     <div class="py-2 px-2">
-                        <i class="far fa-user text-primary"></i>
+                        <i class="bi bi-person text-secondary"></i>
                         <h6 class="mb-0 font-weight-bold">${data.postulant_code}</h6>
                         <span class="small text-gray-600">Cod. Postulante</span>
                     </div>
                 </div>
                 <div class="col col-6 d-block text-center list-group-item-action border-left border-top border-right">
                     <div class="py-2 px-2">
-                        <i class="fas fa-user text-primary"></i>
+                        <i class="bi bi-person-fill text-secondary"></i>
                         <h6 class="mb-0 font-weight-bold">${data.code}</h6>
                         <span class="small text-gray-600">Cod. Universitario</span>
                     </div>
                 </div>
                 <div class="col col-6 d-block text-center list-group-item-action border-left border-top  border-bottom">
                     <div class="py-2 px-2">
-                        <i class="fas fa-poll-h text-primary"></i>
+                        <i class="bi bi-award text-secondary"></i>
                         <h6 class="mb-0 font-weight-bold">${data.omg}</h6>
                         <span class="small text-gray-600">OMG</span>
                     </div>
                 </div>
                 <div class="col col-6 d-block text-center list-group-item-action border-left border-top border-right border-bottom">
                     <div class="py-2 px-2">
-                        <i class="fas fa-poll text-primary"></i>
-                        <h6 class="mb-0 font-weight-bold">${data.omp}</h6>
-                        <span class="small text-gray-600">OMP</span>
+                        <i class="bi bi-star-half text-secondary"></i>
+                        <h6 class="mb-0 font-weight-bold">${data.score}</h6>
+                        <span class="small text-gray-600">Puntaje</span>
                     </div>
                 </div>
 
-                <div class="col col-12 my-4">
+                <div class="col col-12 mt-4 mb-2">
                     <span>Preguntas Contestadas</span>
                 </div>
-                <div class="col col-4 d-block text-center list-group-item-action border-left border-top border-bottom">
+                <div class="col col-4 text-center list-group-item-action border-left border-top border-bottom">
                     <div class="py-2 px-2">
-                        <i class="fas fa-check-double text-info"></i>
+                        <i class="bi bi-check-circle-fill text-success"></i>
                         <h6 class="mb-0 font-weight-bold text-success">${data.correct}</h6>
                         <span class="small text-gray-600">Correctas</span>
                     </div>
                 </div>
                 <div class="col col-4 d-block text-center list-group-item-action border-left border-top border-bottom">
                     <div class="py-2 px-2">
-                        <i class="fas fa-times text-info"></i>
+                        <i class="bi bi-x-circle-fill text-danger"></i>
                         <h6 class="mb-0 font-weight-bold text-danger">${data.incorrect}</h6>
                         <span class="small text-gray-600">Incorrectas</span>
                     </div>
                 </div>
                 <div class="col col-4 d-block text-center list-group-item-action border-left border-top border-right border-bottom">
                     <div class="py-2 px-2">
-                        <i class="fas fa-exclamation-circle text-info"></i>
+                        <i class="bi bi-dash-circle-fill text-secondary"></i>
                         <h6 class="mb-0 font-weight-bold text-secondary">${data.blank}</h6>
                         <span class="small text-gray-600">En blanco</span>
                     </div>
-                </div>
-                
-                <div class="d-flex justify-content-end mt-3">
-                    <button id="show-questions" type="button" class="btn btn-light text-gray-900 btn-sm" data-toggle="modal"
-                            data-target="#exampleModal" onclick="getQuestionsOfStudent(${data.stdtID})">
-                        Ver respuestas en examen de admisión
-                    </button>
-                </div>
+                </div>                
+            </div>
+            
+            <div class="d-flex justify-content-end mt-3">
+                <button id="show-questions" type="button" class="btn btn-info text-gray-900 btn-sm" data-toggle="modal"
+                        data-target="#exampleModal" onclick="getQuestionsOfStudent(${data.stdtID})">
+                    <i class="bi bi-list-ol mr-1"></i>Ver respuestas en examen de admisión
+                </button>
             </div>
         </div>
     </div>
-            `;
-    }
-
-    getStudentInfoCard2(data) {
-        return `
-            <div class="card text-dark">
-                <div class="card-header">
-                    <h6 class="m-0 font-weight-bold">Datos del alumno</h6>
-                </div>
-                <div class="card-body text-center">
-                    <div class="row">
-                        <div class="col col-12 text-primary mb-0">
-                            <h4>
-                                <span class="text-uppercase font-weight-bold">${data.lastname}</span>
-                                <span class="text-capitalize">${data.name}</span>
-                            </h4>
-                        </div>
-    
-                        <div class="col col-12">
-                            <span>${data.program}</span>
-                        </div>
-    
-                        <div class="col col-12 mt-3">
-                            <h4><span class="badge badge-pill badge-light px-3 py-1 font-weight-normal">${data.process}</span></h4>
-                        </div>
-    
-                        <div class="col col-12 my-3">
-                            <div class="row">
-                                <div class="col col-lg-6 mb-2">
-                                    <h6 class="mb-0 font-weight-bold">${data.dni}</h6>
-                                    <span class="small text-gray-600">DNI</span>
-                                </div>
-                                <div class="col col-lg-6">
-                                    <h6 class="mb-0 font-weight-bold">${data.code}</h6>
-                                    <span class="small text-gray-600">Código</span>
-                                </div>
-                            </div>
-                        </div>
-    
-                        <div class="col col-12 my-2">
-                            <div class="row">
-                                <div class="col col-lg-6">
-                                    <h3 class="mb-0"><span class="badge badge-light">${data.omg}</span></h3>
-                                    <span class="small text-gray-600">OMP</span>
-                                </div>
-                                <div class="col col-lg-6">
-                                    <h3 class="mb-0"><span class="badge badge-light">${data.omp}</span></h3>
-                                    <span class="small text-gray-600">OMP</span>
-                                </div>
-                            </div>
-                        </div>
-    
-                        <div class="col col-12 mt-3">
-                            <span>Preguntas Contestadas</span>
-                            <div class="row">
-                                <div class="col col-4 mt-2">
-                                    <h5 class="font-weight-bold text-success mb-0">${data.correct}</h5>
-                                    <span class="small">Correctas</span>
-                                </div>
-                                <div class="col col-4 mt-2">
-                                    <h5 class="font-weight-bold text-danger mb-0">${data.incorrect}</h5>
-                                    <span class="small">Incorrectas</span>
-                                </div>
-                                <div class="col col-4 mt-2">
-                                    <h5 class="font-weight-bold text-secondary mb-0">${data.blank}</h5>
-                                    <span class="small">En Blanco</span>
-                                </div>
-                            </div>
-                        </div>
-    
-                    </div>
-                </div>
-            </div>
             `;
     }
 

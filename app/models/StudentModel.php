@@ -151,7 +151,7 @@ class StudentModel
     {
         //This function is used in byprogram view
         $conn = (new MySqlConnection())->getConnection();
-        $sql = "SELECT id, dni, name, lastname, code, omg, omp FROM vstudents WHERE process = '$process' and program = '$school' ORDER BY omp;";
+        $sql = "SELECT id, dni, name, lastname, code, omg, score, gender FROM vstudents WHERE process = '$process' and program = '$school' ORDER BY omp;";
 
         $response['students'] = array();
 
@@ -164,7 +164,8 @@ class StudentModel
             $course['lastname'] = $row['lastname'];
             $course['code'] = $row['code'];
             $course['omg'] = $row['omg'];
-            $course['omp'] = $row['omp'];
+            $course['score'] = $row['score'];
+            $course['gender'] = $row['gender'];
 
             array_push($response['students'], $course);
         }
@@ -214,7 +215,6 @@ class StudentModel
         $sql = "SELECT * FROM vstudents WHERE concat(lastname, ' ', name) = '" . $pattern . "';";
 
         $result = $conn->query($sql)->fetch(PDO::FETCH_ASSOC);
-
         return json_encode(array(
             "id" => $result['id'],
             "stdtID" => $result['stdtID'],

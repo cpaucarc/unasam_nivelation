@@ -41,9 +41,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <thead class="thead-light">
                         <tr>
                             <th scope="col"><small><strong>N°</strong></small></th>
-                            <th scope="col"><small><strong>Área</strong></small></th>
-                            <th scope="col" style="width: 30%;"><small><strong>Curso</strong></small></th>
                             <th scope="col"><small><strong>Proceso</strong></small></th>
+                            <th scope="col"><small><strong>Curso</strong></small></th>
                             <th scope="col"><small><strong>Minimo (%)</strong></small></th>
                             <th scope="col"><small><strong>Recomendado (%)</strong></small></th>
                             <th scope="col"><small><strong>&nbsp;</strong></small></th>
@@ -96,13 +95,15 @@ require_once $sessionStarted->getUpperPartByUserType();
                                                name="txCourse" disabled>
                                     </div>
                                     <div class="form-group">
-                                        <label for="txMin" class="col-form-label col-form-label-sm">Puntaje Minimo</label>
+                                        <label for="txMin" class="col-form-label col-form-label-sm">Puntaje
+                                            Minimo</label>
                                         <input type="number" min="0" max="100" class="form-control form-control-sm"
                                                id="txMin"
                                                name="txMin">
                                     </div>
                                     <div class="form-group">
-                                        <label for="txMax" class="col-form-label col-form-label-sm">Puntaje Optimo</label>
+                                        <label for="txMax" class="col-form-label col-form-label-sm">Puntaje
+                                            Optimo</label>
                                         <input type="number" min="0" max="100" class="form-control form-control-sm"
                                                id="txMax"
                                                name="txMax">
