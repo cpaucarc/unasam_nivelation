@@ -11,7 +11,7 @@ class PDF_School
     public $fontSizeH3 = 10;
 
     public $width1C = 10;
-    public $width2C = 30;
+    public $width2C = 25;
     public $width3C = 50;
     public $width4C = 80;
     public $heightTableCell = 8;

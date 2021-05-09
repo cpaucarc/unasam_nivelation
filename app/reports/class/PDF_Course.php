@@ -11,8 +11,8 @@ class PDF_Course
     public $fontSizeH3 = 10;
 
     public $width1C = 10;
-    public $width2C = 22;
-    public $width3C = 45;
+    public $width2C = 20;
+    public $width3C = 52;
     public $width4C = 50;
     public $heightTableCell = 8;
     public $cellLineWidth = 0.05;
@@ -54,13 +54,15 @@ class PDF_Course
     function TableBody($num, $code, $lastname, $name,$program, $status)
     {
         $this->pdf->SetTextColor(73, 80, 87);
-        $this->pdf->SetFont('Helvetica', 'B', $this->fontSizeTableBody);
+        $this->pdf->SetFont('Helvetica', 'B', $this->fontSizeTableBody-2);
         $this->pdf->Cell($this->width1C, $this->heightTableCell, $num, 1, 0, 'C');
         $this->pdf->SetTextColor(33, 37, 41);
-        $this->pdf->SetFont('Helvetica', '', $this->fontSizeTableBody);
+        $this->pdf->SetFont('Helvetica', '', $this->fontSizeTableBody-1);
         $this->pdf->Cell($this->width2C, $this->heightTableCell, utf8_decode($code), 1, 0, 'L');
+        $this->pdf->SetFont('Helvetica', '', $this->fontSizeTableBody-2);
         $this->pdf->Cell($this->width3C, $this->heightTableCell, utf8_decode($lastname . ' ' . $name), 1, 0, 'L');
         $this->pdf->Cell($this->width4C, $this->heightTableCell, utf8_decode($program), 1, 0, 'L');
+        $this->pdf->SetFont('Helvetica', '', $this->fontSizeTableBody-1);
         $this->pdf->Cell(0, $this->heightTableCell, utf8_decode($status), 1, 1, 'L');
     }
 }
