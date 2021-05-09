@@ -4,7 +4,7 @@ class Card {
 
     getStudentInfoCard(data) {
         return `
-        <div class="card text-dark">
+    <div class="card text-dark">
         <div class="card-header">
             <h6 class="m-0 font-weight-bold">Datos del estudiante</h6>
         </div>
@@ -50,14 +50,14 @@ class Card {
                         <span class="small text-gray-600">Cod. Universitario</span>
                     </div>
                 </div>
-                <div class="col col-6 d-block text-center list-group-item-action border-left border-top  border-bottom">
+                <div class="col col-6 d-block text-center list-group-item-action border-left border-top  border-bottom" data-toggle="tooltip" data-html="true" title="Orden de mérito general">
                     <div class="py-2 px-2">
                         <i class="bi bi-award text-secondary"></i>
                         <h6 class="mb-0 font-weight-bold">${data.omg}</h6>
                         <span class="small text-gray-600">OMG</span>
                     </div>
                 </div>
-                <div class="col col-6 d-block text-center list-group-item-action border-left border-top border-right border-bottom">
+                <div class="col col-6 d-block text-center list-group-item-action border-left border-top border-right border-bottom" data-toggle="tooltip" data-html="true" title="Orden de mérito por programa">
                     <div class="py-2 px-2">
                         <i class="bi bi-star-half text-secondary"></i>
                         <h6 class="mb-0 font-weight-bold">${data.score}</h6>
@@ -89,14 +89,13 @@ class Card {
                         <span class="small text-gray-600">En blanco</span>
                     </div>
                 </div>                
-            </div>
-            
+            </div>    
             <div class="d-flex justify-content-end mt-3">
                 <button id="show-questions" type="button" class="btn btn-info text-gray-900 btn-sm" data-toggle="modal"
                         data-target="#exampleModal" onclick="getQuestionsOfStudent(${data.stdtID})">
                     <i class="bi bi-list-ol mr-1"></i>Ver respuestas en examen de admisión
                 </button>
-            </div>
+            </div>            
         </div>
     </div>
             `;

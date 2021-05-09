@@ -137,3 +137,10 @@ input[type="file"] {
 .click-logout:active {
     background-color: rgba(239, 68, 68, 0.1) !important;
 }
+
+
+
+/*user-student*/
+.content-student{
+    height: 100vh;
+}
