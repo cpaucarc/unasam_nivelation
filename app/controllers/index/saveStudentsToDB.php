@@ -7,6 +7,10 @@ require_once(UTIL_PATH . "Question.php");
 session_start();
 $students = $_SESSION['files']['students'] ?? null;
 
+$saveSuccess = 0;
+$saveFailed = array();
+$finalResponse = array();
+
 if (!is_null($students)) {
 
     $total = count($students);
@@ -21,19 +25,59 @@ if (!is_null($students)) {
 
         foreach ($students as $i => $student) {
 //            echo $student->getName();
-            $student->saveStudentToDB();
-            $student->saveQuestionsToDB();
-            $student->doClasificationOfCourses();
-            echo ($i + 1) . ' de ' . $total . ' -> ' . round((($i + 1) / $total) * 100) . '%';
+            if ($student->saveStudentToDB()) {
+                if ($student->saveQuestionsToDB()) {
+                    if ($student->doClasificationOfCourses()) {
+                        $saveSuccess++;
+                    } else {
+                        array_push($saveFailed, array(
+                            'num' => $student->getNum(),
+                            'name' => ucwords(strtolower($student->getLastname() . ' ' . $student->getName())),
+                            'code' => $student->getCode()
+                        ));
+                    }
+                } else {
+                    array_push($saveFailed, array(
+                        'num' => $student->getNum(),
+                        'name' => ucwords(strtolower($student->getLastname() . ' ' . $student->getName())),
+                        'code' => $student->getCode()
+                    ));
+                }
+            } else {
+                array_push($saveFailed, array(
+                    'num' => $student->getNum(),
+                    'name' => ucwords(strtolower($student->getLastname() . ' ' . $student->getName())),
+                    'code' => $student->getCode()
+                ));
+            }
         }
 
-        echo 'Completado';
+        array_push($finalResponse, array(
+            'students' => $saveFailed,
+            'failed' => count($saveFailed),
+            'success' => $saveSuccess,
+            'total' => $total
+        ));
+
+        echo json_encode([
+            'response' => $finalResponse,
+            'message' => 'Se procesó correctamente todos los datos.',
+            'status' => 1
+        ]);
 
     } else {
-        echo "Hay $missingCourses cursos que no poseen rango minimo y recomendado.";
+        echo json_encode([
+            'response' => null,
+            'message' => "Hay $missingCourses cursos que no poseen rango minimo y recomendado.",
+            'status' => 0
+        ]);
     }
 } else {
-    echo 'No hay información que se pueda guardar.';
+    echo json_encode([
+        'response' => null,
+        'message' => 'No hay información que se pueda guardar.',
+        'status' => 0
+    ]);
 }
 
 

@@ -7,6 +7,10 @@ $sessionStarted->verifySessionStarted();
 $stdID = empty($_GET['std']) ? 0 : $_GET['std'];
 $routeAux = empty($_GET['std']) ? "" : "../";
 
+if (intval($_SESSION['user_logged']['utid']) === 3 and intval($_SESSION['user_logged']['id']) !== $stdID) {
+    $stdID = intval($_SESSION['user_logged']['id']);
+}
+
 require_once $sessionStarted->getUpperPartByUserType();
 ?>
 
@@ -18,7 +22,7 @@ require_once $sessionStarted->getUpperPartByUserType();
         </div>
 
         <div class="card mb-4">
-            <div class="card-header bg-white py-3">
+            <div class="card-header py-3">
                 <div class="d-flex justify-content-between">
 
                     <?php if (intval($_SESSION['user_logged']['utid']) !== 3) { ?>

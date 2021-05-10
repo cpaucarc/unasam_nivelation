@@ -19,8 +19,8 @@
     --warning-hover: #E4AE21;
     --danger: #EF4444;
     --danger-hover: #D93E3E;
-    --light: #F6F8FA;
-    --light-hover: #F3F4F6;
+    --light: #F7F7F7;
+    --light-hover: #EAEAEA;
     --dark: var(--gray-dark);
     --dark-hover: #374151;
     --breakpoint-xs: 0;
@@ -142,7 +142,7 @@ strong {
 }
 
 small {
-    font-size: 79%;
+    font-size: 80%;
 }
 
 sub,
@@ -447,7 +447,7 @@ hr {
 
 small,
 .small {
-    font-size: 79%;
+    font-size: 80%;
     font-weight: 400;
 }
 
@@ -6738,14 +6738,14 @@ button.bg-danger:focus {
 
 .bg-light {
     background-color: var(--light) !important;
+    border: 1px solid #D3D5D6;
 }
 
 a.bg-light:hover,
 a.bg-light:focus,
 button.bg-light:hover,
 button.bg-light:focus {
-    background-color: var(--light-hover);
-!important;
+    background-color: var(--light-hover) !important;
 }
 
 .bg-dark {

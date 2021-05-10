@@ -135,7 +135,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
         <div id="content">
 
             <!-- Topbar -->
-            <nav class="navbar navbar-expand navbar-light bg-light topbar mb-4 static-top border-bottom">
+            <nav class="navbar navbar-expand navbar-light bg-light topbar mb-4 pl-4 static-top border-bottom">
 
                 <!-- Sidebar Toggle (Topbar) -->
                 <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">

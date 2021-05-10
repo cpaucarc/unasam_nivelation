@@ -23,7 +23,7 @@ class Student extends Person
 
     /* Functions */
 
-    public function saveStudentToDB(): void
+    public function saveStudentToDB(): bool
     {
         $connection = new MySqlConnection();
         if ($connection and $this->getStda() == 0) {
@@ -52,14 +52,17 @@ class Student extends Person
                 $stdataID = intval($ex->fetchColumn()) ?? 0;
                 $this->setStda($stdataID);
                 $ex->closeCursor();
-                $pdo->commit();
+                return $pdo->commit();
             } catch (Exception $e) {
                 echo "La operación falló: " . $e->getMessage();
+                return false;
             }
+        } else {
+            return false;
         }
     }
 
-    public function saveQuestionsToDB(): void
+    public function saveQuestionsToDB(): bool
     {
         $connection = new MySqlConnection();
         if ($connection and $this->getStda() > 0) {
@@ -80,15 +83,18 @@ class Student extends Person
                     ));
                     $save_question->closeCursor();
                 }
-                $pdo->commit();
+                return $pdo->commit();
             } catch (Exception $e) {
                 $pdo->rollBack();
                 echo "La operación falló: " . $e->getMessage();
+                return false;
             }
+        } else {
+            return false;
         }
     }
 
-    public function doClasificationOfCourses(): void
+    public function doClasificationOfCourses(): bool
     {
         $connection = new MySqlConnection();
         if ($connection and $this->getStda() > 0) {
@@ -105,11 +111,14 @@ class Student extends Person
                     ':stdtID' => $this->getStda()
                 ));
                 $clasify->closeCursor();
-                $pdo->commit();
+                return $pdo->commit();
             } catch (Exception $e) {
                 $pdo->rollBack();
                 echo "La operación falló: " . $e->getMessage();
+                return false;
             }
+        } else {
+            return false;
         }
     }
 

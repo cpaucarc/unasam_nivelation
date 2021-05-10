@@ -24,10 +24,60 @@ uploadForm.onsubmit = (e) => {
     fetch('app/controllers/index/saveStudentsToDB.php/', {
         method: 'GET'
     })
-        .then(response => response.text())
+        .then(response => response.json())
         .then(data => {
+
+            if (data.status === 0) {
+                let table = `<table class="table table-bordered table-sm text-left">
+                        <thead class="thead-light">
+                        <tr><th><small><strong>Número</strong></small></th>
+                            <th><small><strong>Código</strong></small></th>
+                            <th><small><strong>Nombre del estudiante</strong></small></th>
+                        </tr>
+                        </thead><tbody>`;
+                if (parseInt(data.response[0]['total']) > 0) {
+                    let students = data.response[0]['students'];
+
+                    students.forEach(std => {
+                        table += `<tr>
+                            <td><small>${std.num}</small></td>
+                            <td><small>${std.code}</small></td>
+                            <td><small>${std.name}</small></td>
+                            </tr>`;
+                    });
+
+                }
+                table += '</tbody></table>';
+
+                Swal.fire({
+                    icon: 'warning',
+                    position: 'center',
+                    html: ` <small><strong>${data.message}</strong></small></br>
+                            <small>Datos Correctos: <strong>${data.response[0]['success']}</strong> de <strong>${data.response[0]['total']}</strong></small></br>
+                            <small>Datos Fallidos: <strong>${data.response[0]['failed']}</strong></small><br><br>
+                            <small><strong>Alumnos que no se guardaron</strong></small><br>${table}`,
+                    showCloseButton: true,
+                    confirmButtonColor: 'var(--primary)'
+                })
+                // AlertConfirm('La información se guardó correctamente', 'success', '¡Ya está!', 'primary');
+            } else {
+                Swal.fire({
+                    icon: 'success',
+                    position: 'center',
+                    html: ` <small><strong>${data.message}</strong></small></br>
+                            <small>Datos Correctos: <strong>${data.response[0]['success']}</strong> de <strong>${data.response[0]['total']}</strong></small></br>
+                            <small>Datos Fallidos: <strong>${data.response[0]['failed']}</strong></small>`,
+                    showCloseButton: true,
+                    confirmButtonColor: 'var(--primary)'
+                })
+            }
             console.log(data);
-            AlertConfirm('La información se guardó correctamente', 'success', '¡Ya está!', 'primary');
+            console.log(data.status);
+            console.log(data.message);
+            console.log(data.response);
+            console.log(data.response[0]['students']);
+            console.log(data.response.total);
+
         });
 }
 

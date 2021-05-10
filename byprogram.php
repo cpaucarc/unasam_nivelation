@@ -107,10 +107,9 @@ require_once $sessionStarted->getUpperPartByUserType();
                     </tbody>
                 </table>
 
-                <div class="alert alert-dark mt-4" role="alert">
+                <div class="alert alert-info mt-4" role="alert">
                     <ul class="mb-0">
                         <li><strong>OMG</strong>: Orden de Mérito General</li>
-                        <li><strong>OMP</strong>: Orden de Mérito por Programa Académico</li>
                     </ul>
                 </div>
             </div>
