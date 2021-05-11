@@ -27,15 +27,16 @@ uploadForm.onsubmit = (e) => {
     })
         .then(response => response.json())
         .then(data => {
-            if (data.status === 0) {
-                let table = `<table class="table table-bordered table-sm text-left">
+            console.log(data);
+            if (data.status !== 0) {
+                if (parseInt(data.response[0]['failed']) > 0) {
+                    let table = `<table class="table table-bordered table-sm text-left">
                         <thead class="thead-light">
                         <tr><th><small><strong>Número</strong></small></th>
                             <th><small><strong>Código</strong></small></th>
                             <th><small><strong>Nombre del estudiante</strong></small></th>
                         </tr>
                         </thead><tbody>`;
-                if (parseInt(data.response[0]['total']) > 0) {
                     let students = data.response[0]['students'];
                     students.forEach(std => {
                         table += `<tr>
@@ -44,11 +45,13 @@ uploadForm.onsubmit = (e) => {
                             <td><small>${std.name}</small></td>
                             </tr>`;
                     });
+                    table += '</tbody></table>';
+                    sweet.warningAlertWithTable(data, table);
+                } else {
+                    sweet.successAlertWithoutTable(data);
                 }
-                table += '</tbody></table>';
-                sweet.warningAlertWithTable(data, table);
             } else {
-                sweet.warningAlertWithTable(data, '');
+                sweet.errorAlert('¡Error!', data.message);
             }
         });
 }

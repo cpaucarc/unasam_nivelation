@@ -61,7 +61,7 @@ if (!is_null($students)) {
 
         echo json_encode([
             'response' => $finalResponse,
-            'message' => 'Se procesó correctamente todos los datos.',
+            'message' => 'Se guardó correctamente todos los datos.',
             'status' => 1
         ]);
 

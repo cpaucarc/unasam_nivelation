@@ -53,4 +53,16 @@ class SweetAlerts {
         })
     }
 
+    successAlertWithoutTable(data) {
+        Swal.fire({
+            icon: 'success',
+            position: 'center',
+            html: ` <small><strong>${data.message}</strong></small></br>
+                            <small>Datos Correctos: <strong>${data.response[0]['success']}</strong> de <strong>${data.response[0]['total']}</strong></small></br>
+                            <small>Datos Fallidos: <strong>${data.response[0]['failed']}</strong></small><br>`,
+            showCloseButton: true,
+            confirmButtonColor: 'var(--primary)'
+        })
+    }
+
 }
