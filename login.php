@@ -25,9 +25,9 @@ $error_message = $_SESSION['login']['error'] ?? '';
         <div class="col-11 col-md-6 col-xl-4 px-3">
             <div class="text-center py-3">
                 <img src="public/images/ogcushort.png" class="img-fluid w-25" alt="Logo">
-                <h4 class="font-weight-lighter text-dark">
+                <h5 class="font-weight-lighter text-dark">
                     Iniciar sesión en SNE-UNASAM
-                </h4>
+                </h5>
             </div>
 
             <?php

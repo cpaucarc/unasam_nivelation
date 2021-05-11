@@ -8,6 +8,7 @@ const inputFile = document.getElementById('file');
 const tbody = document.getElementById('tbody');
 const missingCourses = document.getElementById('missing-courses');
 
+sweet = new SweetAlerts();
 let tbody_data = '';
 let coursesOK = false;
 let fileOK = false;
@@ -20,13 +21,12 @@ window.addEventListener('load', () => {
 
 uploadForm.onsubmit = (e) => {
     e.preventDefault();
-    alertWaitSaving();
+    sweet.waitAlert('Espere mientras se guarda la información.', 'El tiempo puede variar por tu conexión a internet y el número de datos.');
     fetch('app/controllers/index/saveStudentsToDB.php/', {
         method: 'GET'
     })
         .then(response => response.json())
         .then(data => {
-
             if (data.status === 0) {
                 let table = `<table class="table table-bordered table-sm text-left">
                         <thead class="thead-light">
@@ -37,7 +37,6 @@ uploadForm.onsubmit = (e) => {
                         </thead><tbody>`;
                 if (parseInt(data.response[0]['total']) > 0) {
                     let students = data.response[0]['students'];
-
                     students.forEach(std => {
                         table += `<tr>
                             <td><small>${std.num}</small></td>
@@ -45,57 +44,26 @@ uploadForm.onsubmit = (e) => {
                             <td><small>${std.name}</small></td>
                             </tr>`;
                     });
-
                 }
                 table += '</tbody></table>';
-
-                Swal.fire({
-                    icon: 'warning',
-                    position: 'center',
-                    html: ` <small><strong>${data.message}</strong></small></br>
-                            <small>Datos Correctos: <strong>${data.response[0]['success']}</strong> de <strong>${data.response[0]['total']}</strong></small></br>
-                            <small>Datos Fallidos: <strong>${data.response[0]['failed']}</strong></small><br><br>
-                            <small><strong>Alumnos que no se guardaron</strong></small><br>${table}`,
-                    showCloseButton: true,
-                    confirmButtonColor: 'var(--primary)'
-                })
-                // AlertConfirm('La información se guardó correctamente', 'success', '¡Ya está!', 'primary');
+                sweet.warningAlertWithTable(data, table);
             } else {
-                Swal.fire({
-                    icon: 'success',
-                    position: 'center',
-                    html: ` <small><strong>${data.message}</strong></small></br>
-                            <small>Datos Correctos: <strong>${data.response[0]['success']}</strong> de <strong>${data.response[0]['total']}</strong></small></br>
-                            <small>Datos Fallidos: <strong>${data.response[0]['failed']}</strong></small>`,
-                    showCloseButton: true,
-                    confirmButtonColor: 'var(--primary)'
-                })
+                sweet.warningAlertWithTable(data, '');
             }
-            console.log(data);
-            console.log(data.status);
-            console.log(data.message);
-            console.log(data.response);
-            console.log(data.response[0]['students']);
-            console.log(data.response.total);
-
         });
 }
 
 uploadForm.addEventListener('change', (e) => {
     e.preventDefault();
-    alertWaitUploading();
+    sweet.waitAlert('Espere mientras se sube el archivo.', 'El tiempo puede variar por tu conexión a internet y el número de datos.');
     setIconToFile();
     tbody_data = '';
     let formData = new FormData(uploadForm);
     saveFile(formData).then(data => {
         if (data.status === true) {
-            AlertConfirm('Tu archivo se subió correctamente', 'success', '¡Ya está!', 'primary');
-            // Mostrar un msg: Espere mientras los datos se procesan
-            //processStudentsData(data.message);
-            //message: Los datos ya se guardaron
+            sweet.successAlert('¡Ya está!', 'Tu archivo se subió correctamente');
         } else {
-            /* alert(data.message) */
-            AlertConfirm(data.message, 'error', '¡Error!', 'danger');
+            sweet.errorAlert('¡Error!', data.message)
         }
         fileOK = data.status;
         toggleBtnPreview(data.status);
@@ -122,7 +90,7 @@ function getLastProcess() {
             if (data.status) {
                 lastProcess.innerText = data.message;
             } else {
-                AlertConfirm(data.message, 'error', '¡Error!', 'danger');
+                sweet.errorAlert('¡Error!', data.message);
             }
         });
 }
@@ -165,14 +133,10 @@ async function saveFile(formData) {
 async function processStudentsData(path) {
     let formData = new FormData();
     formData.append('path', path);
-    await console.log(path);
-
     const response = await fetch('app/controllers/index/processJson.php/', {
         method: 'POST',
         body: formData
     });
-    const json = await response.json();
-    await console.log(json);
 }
 
 function getFileIcon(extension) {
@@ -210,40 +174,4 @@ function toggleBtnPreview(response) {
 
 function toggleBtnUpload() {
     btnUpload.disabled = !(!coursesOK && fileOK);
-}
-
-
-//SweetAlert2
-function AlertConfirm(message, tipe, title, variable) {
-    if (message !== '') {
-        Swal.fire({
-            icon: tipe,
-            position: 'center',
-            html: `<strong>${title}</strong></br><small>${message}</small>`,
-            showCloseButton: true,
-            confirmButtonColor: 'var(--' + variable + ')'
-        })
-    }
-}
-
-function AlertWait(image, title, message) {
-    Swal.fire({
-        position: 'center',
-        imageUrl: image,
-        imageWidth: 100,
-        imageHeight: 100,
-        html: `<strong>${title}</strong></br><small>${message}</small>`,
-        showConfirmButton: false,
-        backdrop: false
-    })
-}
-
-function alertWaitUploading() {
-    let img = 'https://media1.giphy.com/media/aQ6qeqSuo0xxSQPV87/giphy.gif?cid=790b7611fc1c5a0ba5ef139d2994981c8192929e5ecc8635&rid=giphy.gif&ct=g';
-    AlertWait(img, 'Espere mientras se sube el archivo.', 'El tiempo puede variar por tu conexión a internet y el número de datos.');
-}
-
-function alertWaitSaving() {
-    let img = 'https://media1.giphy.com/media/aQ6qeqSuo0xxSQPV87/giphy.gif?cid=790b7611fc1c5a0ba5ef139d2994981c8192929e5ecc8635&rid=giphy.gif&ct=g';
-    AlertWait(img, 'Espere mientras se guarda la información.', 'El tiempo puede variar por tu conexión a internet y el número de datos.');
 }

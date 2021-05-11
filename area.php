@@ -13,6 +13,7 @@ require_once $sessionStarted->getUpperPartByUserType();
             <!--            Las areas se cargan dinamicamente con JS-->
         </div>
 
+
         <div class="row my-3">
             <div class="col col-12 col-lg-6 mb-4">
                 <div class="card">
@@ -200,6 +201,7 @@ require_once $sessionStarted->getUpperPartByUserType();
         <?php } ?>
     </div>
 
+    <script src="public/js/components/SweetAlerts.js"></script>
     <script src="public/js/components/Button.js"></script>
     <script src="public/js/components/Card.js"></script>
     <script src="public/js/components/Table.js"></script>

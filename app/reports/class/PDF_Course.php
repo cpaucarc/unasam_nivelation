@@ -20,6 +20,7 @@ class PDF_Course
     public $fontSizeTableBody = 8;
 
     private $pdf;
+
     public function __construct($pdf)
     {
         $this->pdf = $pdf;
@@ -31,7 +32,7 @@ class PDF_Course
         $this->pdf->SetFont('Helvetica', 'B', $this->fontSizeH3);
         $this->pdf->Cell(25, $this->fontSizeH3, utf8_decode('Dimensión: '), 0, 0, 'L');
         $this->pdf->SetFont('Helvetica', '', $this->fontSizeH3);
-        $this->pdf->Cell(60, $this->fontSizeH3, utf8_decode($dimension), 0, 0, 'L', 0);
+        $this->pdf->Cell(98, $this->fontSizeH3, utf8_decode($dimension), 0, 0, 'L', 0);
         $this->pdf->SetFont('Helvetica', 'B', $this->fontSizeH3);
         $this->pdf->Cell(15, $this->fontSizeH3, utf8_decode('Curso: '), 0, 0, 'L');
         $this->pdf->SetFont('Helvetica', '', $this->fontSizeH3);
@@ -51,18 +52,19 @@ class PDF_Course
         $this->pdf->Cell($this->width4C, $this->heightTableCell, 'Programa', 1, 0, 'L', 1);
         $this->pdf->Cell(0, $this->heightTableCell, utf8_decode('Recomendación **'), 1, 1, 'L', 1);
     }
-    function TableBody($num, $code, $lastname, $name,$program, $status)
+
+    function TableBody($num, $code, $lastname, $name, $program, $status)
     {
         $this->pdf->SetTextColor(73, 80, 87);
-        $this->pdf->SetFont('Helvetica', 'B', $this->fontSizeTableBody-2);
+        $this->pdf->SetFont('Helvetica', 'B', $this->fontSizeTableBody - 2);
         $this->pdf->Cell($this->width1C, $this->heightTableCell, $num, 1, 0, 'C');
         $this->pdf->SetTextColor(33, 37, 41);
-        $this->pdf->SetFont('Helvetica', '', $this->fontSizeTableBody-1);
+        $this->pdf->SetFont('Helvetica', '', $this->fontSizeTableBody - 1);
         $this->pdf->Cell($this->width2C, $this->heightTableCell, utf8_decode($code), 1, 0, 'L');
-        $this->pdf->SetFont('Helvetica', '', $this->fontSizeTableBody-2);
+        $this->pdf->SetFont('Helvetica', '', $this->fontSizeTableBody - 2);
         $this->pdf->Cell($this->width3C, $this->heightTableCell, utf8_decode($lastname . ' ' . $name), 1, 0, 'L');
         $this->pdf->Cell($this->width4C, $this->heightTableCell, utf8_decode($program), 1, 0, 'L');
-        $this->pdf->SetFont('Helvetica', '', $this->fontSizeTableBody-1);
+        $this->pdf->SetFont('Helvetica', '', $this->fontSizeTableBody - 1);
         $this->pdf->Cell(0, $this->heightTableCell, utf8_decode($status), 1, 1, 'L');
     }
 }

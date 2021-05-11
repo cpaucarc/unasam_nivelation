@@ -47,7 +47,7 @@ class Button {
     }
 
     createBtnDelete(fun, ...params) {
-        let btn = this.createIconBtn('<i class="bi bi-trash"></i>', fun, ...params);
+        let btn = this.createIconBtn('<i class="bi bi-trash mr-1"></i>Eliminar', fun, ...params);
         btn.classList.add('btn');
         btn.classList.add('btn-light');
         btn.classList.add('text-danger');
@@ -56,7 +56,7 @@ class Button {
     }
 
     createBtnDownload(fun, ...params) {
-        let btn = this.createIconBtn('<i class="bi bi-cloud-download"></i>', fun, ...params);
+        let btn = this.createIconBtn('<i class="bi bi-cloud-download mr-1"></i>Descargar', fun, ...params);
         btn.classList.add('btn');
         btn.classList.add('btn-light');
         btn.classList.add('text-success');
@@ -86,6 +86,8 @@ class Button {
         btn.classList.add('text-primary');
         btn.classList.add('w-100');
         btn.classList.add('my-2');
+        btn.classList.add('font-weight-bold');
+        btn.classList.add('border');
         return btn;
     }
 

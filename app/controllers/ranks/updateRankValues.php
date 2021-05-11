@@ -19,5 +19,5 @@ try {
         echo (new SendMessage("Error, faltan datos", false))->getEncodedMessage();
     }
 } catch (Exception $e) {
-    echo (new SendMessage("Error " . $e->getMessage(), false))->getEncodedMessage();
+    echo (new SendMessage("Error: " . $e->getMessage(), false))->getEncodedMessage();
 }

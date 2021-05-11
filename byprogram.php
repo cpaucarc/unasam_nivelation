@@ -75,7 +75,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <div class="dropdown-divider"></div>
                             <h6 class="dropdown-header">Gráficos</h6>
                             <a>
-                                <form action="http://localhost/nivelation/byprogramG.php" target="_blank" method="post"
+                                <form action="programas-grafico" target="_blank" method="post"
                                       class="mx-2">
                                     <input name="processChart" id="processChart" required type="hidden">
                                     <button type="submit" class="dropdown-item">

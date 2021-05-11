@@ -248,8 +248,7 @@ if (intval($_SESSION['user_logged']['utid']) === 1) {
         </div>
     </div>
 
-    <!--    <script src="public/js/datatable.js"></script>-->
-    <!--    <script src="public/js/UploadFile.js"></script>-->
+    <script src="public/js/components/SweetAlerts.js"></script>
     <script src="public/js/index.js"></script>
 
 <?php } else { ?>
@@ -271,6 +270,7 @@ if (intval($_SESSION['user_logged']['utid']) === 1) {
             <img src="public/images/welcome.svg" class="w-50 p-5" alt="imagen de bienvenida">
         </div>
     </div>
+
     <script>
         window.addEventListener('load', () => {
             document.getElementById('view-title').innerText = 'Inicio del Sitio';

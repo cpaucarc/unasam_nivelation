@@ -13,8 +13,6 @@ if (intval($_SESSION['user_logged']['utid']) === 3 and intval($_SESSION['user_lo
 
 require_once $sessionStarted->getUpperPartByUserType();
 ?>
-
-
     <!-- Begin Page Content -->
     <div class="container">
         <div class="hide">
@@ -62,7 +60,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                                 <div class="dropdown-divider"></div>
                                 <h6 class="dropdown-header">Gráficos</h6>
                                 <a>
-                                    <form action="http://localhost/nivelation/bystudentG.php" target="_blank"
+                                    <form action="estudiante-grafico" target="_blank"
                                           method="post"
                                           class="mx-2">
                                         <button type="submit" class="dropdown-item">
@@ -93,7 +91,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <div class="card-header">
                                 <h6 class="m-0 font-weight-bold">Análisis de cursos</h6>
                             </div>
-                            <div class="card-body p-0">
+                            <div class="card-body p-0 table-responsive">
                                 <table id="table-courses" class="table table-bordered">
                                     <thead>
                                     <tr class="text-center">

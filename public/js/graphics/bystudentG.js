@@ -15,7 +15,6 @@ window.onload = () => {
 cbTipeChart.addEventListener('change', () => {
     _tip_tipeValueeText = cbTipeChart.options[cbTipeChart.selectedIndex].text;
     _tipeValue = cbTipeChart.value;
-    // alert(_process + _tipeValue + _tip_tipeValueeText);
     if (_tipeValue !== '') {
         Diagrams(_process, _tipeValue, _tip_tipeValueeText);
     }
@@ -46,7 +45,6 @@ function Diagrams(process, tipe, title) {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             var lists = [];
             var numbers = [];
             var colors = [];

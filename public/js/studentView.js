@@ -102,12 +102,6 @@ function getCoursesByID(id) {
 }
 
 function getQuestionsOfStudent(id) {
-    // if (id > 0) {
-    //     console.log(stdID)
-    // }
-
-    console.log(id)
-
     let formData = new FormData();
     formData.append('stdID', id);
 
@@ -131,8 +125,6 @@ function getQuestionsOfStudent(id) {
                     tbQuestions2.appendChild(row);
                 }
             })
-            console.log(questions);
-            console.log(questions.length)
         });
 }
 
@@ -160,7 +152,6 @@ function getStudentInfoByID(id) {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             notStdInfo.innerHTML = '';
 
             stdInfoCard.innerHTML = card.getStudentInfoCard(data);

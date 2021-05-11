@@ -39,7 +39,6 @@ function Diagrams(status, tipe, title) {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             var lists = [];
             var numbers = [];
             var colors = [];

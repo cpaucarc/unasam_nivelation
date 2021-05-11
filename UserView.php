@@ -178,6 +178,7 @@ require_once $sessionStarted->getUpperPartByUserType();
 
 </div>
 
+<script src="public/js/components/SweetAlerts.js"></script>
 <script src="public/js/components/Table.js"></script>
 <script src="public/js/components/Button.js"></script>
 <script src="public/js/user.js"></script>

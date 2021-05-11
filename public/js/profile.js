@@ -2,6 +2,8 @@ const formPersonalInfo = document.getElementById('personal-info');
 const formAccessInfo = document.getElementById('access-info');
 const cbGender = document.getElementById('gender');
 
+sweet = new SweetAlerts();
+
 window.onload = () => {
     document.getElementById('view-title').innerText = 'Mi Perfil';
     selectGender();
@@ -19,7 +21,7 @@ formPersonalInfo.addEventListener('submit', (e) => {
     })
         .then(response => response.json())
         .then(data => {
-            AlertConfirm(data.message, 'success', '¡Éxito!', 'primary');
+            sweet.successAlert('¡Éxito!', data.message);
         });
 })
 
@@ -35,7 +37,7 @@ formAccessInfo.addEventListener('submit', (e) => {
     })
         .then(response => response.json())
         .then(data => {
-            AlertConfirm(data.message, 'success', '¡Éxito!', 'primary');
+            sweet.successAlert('¡Éxito!', data.message);
         });
 })
 
@@ -47,31 +49,3 @@ function selectGender() {
         }
     })
 }
-
-
-//SweetAlert2
-function AlertConfirm(message, tipe, title, variable) {
-    if (message != '') {
-        Swal.fire({
-            icon: tipe,
-            title: title,
-            text: message,
-            iconColor: 'var(--' + variable + ')',
-            showCloseButton: true,
-            confirmButtonColor: 'var(--' + variable + ')'
-        })
-    }
-}
-
-/* AlertConfirm(data.message, 'success', 'primary');
-function AlertConfirm(message, tipe, variable) {
-    if (message != '') {
-        Swal.fire({
-            icon: tipe,
-            title: tipe.replace(/\b[a-z]/g,c=>c.toUpperCase())+'!',
-            text: message,
-            iconColor: 'var(--' + variable + ')',
-            showCloseButton: true
-        })
-    }
-} */

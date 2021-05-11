@@ -11,7 +11,8 @@ if (is_dir($main)) {
     while (($file = readdir($files)) !== false) {
         if ($file != "." && $file != "..") {
             $info_file = array();
-            $info_file['name'] = $file;
+            $aux = explode(".", $file);
+            $info_file['name'] = substr($aux[0], 0, -17) . '.' . $aux[1];
             $info_file['size'] = formatSizeUnits(filesize($main . $file));
             $info_file['time'] = date("F d Y H:i:s.", filemtime($main . $file));
             $info_file['type'] = filetype($main . $file);

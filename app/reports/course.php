@@ -79,7 +79,7 @@ if (isset($_POST['processPdf'])) {
                         $num++;
                     }
                 } else {
-                    $pdfCourse->tableBody('..', '..', '.', '.', '..', '..');
+                    $pdfCourse->tableBody('-----', '-----', '-----', '-----', '-----', '-----');
                 }
                 $pdf->Ln(5);
             }
