@@ -36,7 +36,7 @@ cbProcess.addEventListener('change', () => {
 function Diagrams(process, tipe, title) {
     let formData = new FormData();
     formData.append('process', process);
-    fetch('http://localhost/nivelation/app/controllers/graphics/student.php', {
+    fetch('app/controllers/graphics/student.php', {
         method: 'POST',
         headers: {
             "Accept": "application/json"

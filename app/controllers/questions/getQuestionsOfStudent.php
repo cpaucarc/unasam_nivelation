@@ -1,5 +1,5 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
+include_once($_SERVER['DOCUMENT_ROOT'] . '/ogcu/dirs.php');
 require_once(DB_PATH . "MySqlConnection.php");
 
 $stdataID = $_POST['stdID'] ?? 153;

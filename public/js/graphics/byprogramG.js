@@ -10,7 +10,7 @@ window.onload = () => {
 cbTipeChart.addEventListener('change', () => {
     let _tip_tipeValueeText = cbTipeChart.options[cbTipeChart.selectedIndex].text;
     let _tipeValue = cbTipeChart.value;
-    if (_tipeValue !='') {
+    if (_tipeValue !=='') {
         Diagrams(_tipeValue, _tip_tipeValueeText);
     }
 });
@@ -18,7 +18,7 @@ cbTipeChart.addEventListener('change', () => {
 function Diagrams(tipe, title) {
     let formData = new FormData();
     formData.append('process', process.value);
-    fetch('http://localhost/nivelation/app/controllers/graphics/school.php', {
+    fetch('app/controllers/graphics/school.php', {
         method: 'POST',
         headers: {
             "Accept": "application/json"

@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . "/nivelation/dirs.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/ogcu/dirs.php";
 include_once MODEL_PATH . "LoginModel.php";
 include_once MODEL_PATH . "UserModel.php";
 include_once UTIL_PATH . "SendMessage.php";

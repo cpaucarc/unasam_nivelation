@@ -1,6 +1,6 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
-require $_SERVER['DOCUMENT_ROOT'] . '/nivelation/vendor/autoload.php';
+include_once($_SERVER['DOCUMENT_ROOT'] . '/ogcu/dirs.php');
+require $_SERVER['DOCUMENT_ROOT'] . '/ogcu/vendor/autoload.php';
 require_once(UTIL_PATH . "Student.php");
 require_once(UTIL_PATH . "Question.php");
 

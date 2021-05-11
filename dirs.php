@@ -1,9 +1,9 @@
 <?php
 
-$server = $_SERVER["DOCUMENT_ROOT"] . "/nivelation/";
+$server = $_SERVER["DOCUMENT_ROOT"] . "/ogcu/";
 
 define("ROOT_PATH", $server);
-define("PROJECT", "/nivelation/");
+define("PROJECT", "/ogcu/");
 define("CONTROLLER_PATH", ROOT_PATH . "app/controllers/");
 define("MODEL_PATH", ROOT_PATH . "app/models/");
 define("VIEW_PATH", ROOT_PATH . "app/views/");

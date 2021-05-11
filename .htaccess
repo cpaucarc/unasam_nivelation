@@ -51,4 +51,4 @@ RewriteRule ^programas-grafico$ byprogramG.php
 
 #Error 404
 RewriteRule ^error$ 404.php
-ErrorDocument 404 http://localhost/nivelation/error
+ErrorDocument 404 http://161.97.112.121/ogcu/error

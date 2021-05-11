@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . "/nivelation/dirs.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/ogcu/dirs.php";
 include_once DB_PATH . "MySqlConnection.php";
 class courseModel
 {

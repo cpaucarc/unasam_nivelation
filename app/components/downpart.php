@@ -42,7 +42,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-light btn-sm" type="button" data-dismiss="modal">Cancelar</button>
-                <form action="/nivelation/app/controllers/login/makeLogout.php">
+                <form action="/ogcu/app/controllers/login/makeLogout.php">
                     <button class="btn btn-danger btn-sm" type="submit">Cerrar sesión</button>
                 </form>
             </div>

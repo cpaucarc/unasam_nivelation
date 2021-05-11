@@ -1,5 +1,5 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
+include_once($_SERVER['DOCUMENT_ROOT'] . '/ogcu/dirs.php');
 require_once(MODEL_PATH . "graphics/courseModel.php");
 $process = $_POST['process'];
 $status = $_POST['status'];
