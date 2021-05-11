@@ -20,7 +20,7 @@ class Card {
                     <span>${data.program}</span>
                 </div>
                 <div class="col col-12 mt-2 mb-4">
-                    <span class="bg-light py-2 px-4 w-50 btn-sm font-weight-bold font-size-sm mt-2">${data.process}</span>
+                    <small class="bg-light border-0 py-2 px-4 w-50 btn-sm font-weight-bold mt-2">${data.process}</small>
                 </div>
                 <div class="col col-6 d-block text-center list-group-item-action border-left border-top ">
                     <div class="py-2 px-2">
@@ -68,34 +68,32 @@ class Card {
                 <div class="col col-12 mt-4 mb-2">
                     <span>Preguntas Contestadas</span>
                 </div>
-                <div class="col col-4 text-center list-group-item-action border-left border-top border-bottom">
+                <div class="col col-4 rounded-left text-center list-group-item-action border-left border-top border-bottom">
                     <div class="py-2 px-2">
                         <i class="bi bi-check-circle-fill text-success"></i>
-                        <h6 class="mb-0 font-weight-bold text-success">${data.correct}</h6>
+                        <h5 class="mb-0 font-weight-bold text-success">${data.correct}</h5>
                         <span class="small text-gray-600">Correctas</span>
                     </div>
                 </div>
                 <div class="col col-4 d-block text-center list-group-item-action border-left border-top border-bottom">
                     <div class="py-2 px-2">
                         <i class="bi bi-x-circle-fill text-danger"></i>
-                        <h6 class="mb-0 font-weight-bold text-danger">${data.incorrect}</h6>
+                        <h5 class="mb-0 font-weight-bold text-danger">${data.incorrect}</h5>
                         <span class="small text-gray-600">Incorrectas</span>
                     </div>
                 </div>
-                <div class="col col-4 d-block text-center list-group-item-action border-left border-top border-right border-bottom">
+                <div class="col col-4 rounded-right d-block text-center list-group-item-action border-left border-top border-right border-bottom">
                     <div class="py-2 px-2">
                         <i class="bi bi-dash-circle-fill text-secondary"></i>
-                        <h6 class="mb-0 font-weight-bold text-secondary">${data.blank}</h6>
+                        <h5 class="mb-0 font-weight-bold text-secondary">${data.blank}</h5>
                         <span class="small text-gray-600">En blanco</span>
                     </div>
                 </div>                
             </div>    
-            <div class="d-flex justify-content-end mt-3">
-                <button id="show-questions" type="button" class="btn btn-info text-gray-900 btn-sm" data-toggle="modal"
-                        data-target="#exampleModal" onclick="getQuestionsOfStudent(${data.stdtID})">
-                    <i class="bi bi-list-ol mr-1"></i>Ver respuestas en examen de admisión
-                </button>
-            </div>            
+            <button id="show-questions" type="button" class="btn btn-info btn-sm btn-block text-gray-900 mt-3" data-toggle="modal"
+                    data-target="#exampleModal" onclick="getQuestionsOfStudent(${data.stdtID})">
+                <i class="bi bi-list-ol mr-1"></i>Ver respuestas en examen de admisión
+            </button>            
         </div>
     </div>
             `;
@@ -125,12 +123,12 @@ class Card {
                             Nueva area
                         </div>
                     </div>
-                    <div class="card-body text-center">
+                    <div class="card-body text-center p-1">
                         <a href="#" class="text-secondary" data-toggle="modal"
                            data-target="#add-area">
-                           <h2 class="display-4">
+                           <h3 class="display-4">
                            <i class="bi bi-plus-circle"></i>
-                           </h2> 
+                           </h3> 
                         </a>
                     </div>
                 </div>

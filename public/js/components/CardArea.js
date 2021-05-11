@@ -5,8 +5,6 @@ class CardArea {
     createCardArea(area, desc, btnShow) {
         let card = document.createElement('div');
         card.classList.add('card');
-        // card.classList.add('border-left-primary');
-        // card.classList.add('shadow');
         card.appendChild(this.createCardHeader(area));
         card.appendChild(this.createCardBody(desc, btnShow));
         return card;
@@ -18,7 +16,7 @@ class CardArea {
         header.classList.add('text-center');
         header.classList.add('p-1');
 
-        let cmpText = document.createElement('h5');
+        let cmpText = document.createElement('h6');
         cmpText.classList.add('text-md');
         cmpText.classList.add('font-weight-bold');
         cmpText.classList.add('text-primary');
@@ -44,7 +42,6 @@ class CardArea {
         body.classList.add('px-1');
         let span = document.createElement('span');
         let small = document.createElement('small');
-        // span.classList.add('text-uppercase');
         span.classList.add('text-dark');
         small.appendChild(document.createTextNode(desc));
         span.appendChild(small);

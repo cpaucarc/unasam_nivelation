@@ -41,12 +41,11 @@ class RanksModel
             if ($connection) {
                 $pdo = $connection->getConnection();
                 $sql = "UPDATE ranks SET minimum = ?, recommended = ? WHERE id = ?";
-                $pdo->prepare($sql)->execute([
+                return $pdo->prepare($sql)->execute([
                     $this->minimal,
                     $this->maximum,
                     $this->id
                 ]);
-                return true;
             } else {
                 return false;
             }

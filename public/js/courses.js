@@ -8,6 +8,7 @@ const btnNewCourse = document.getElementById('new-course');
 
 table = new Table();
 button = new Button();
+sweet = new SweetAlerts();
 
 window.onload = () => {
     getAllCourses();
@@ -32,14 +33,13 @@ formCourse.addEventListener('submit', (e) => {
     })
         .then(response => response.json())
         .then(data => {
-            /* alert(data.message); */
             if (data.status) {
                 formCourse.reset();
                 getAllCourses();
-                AlertConfirm(data.message, 'success', '¡Éxito!', 'primary');
+                sweet.successAlert('¡Éxito!', data.message);
                 $('#courses_modal').modal('hide');
-            }else{
-                AlertConfirm(data.message, 'error', '¡Error!', 'danger');
+            } else {
+                sweet.errorAlert('¡Error!', data.message)
             }
         });
 });
@@ -56,14 +56,13 @@ formDimension.onsubmit = (e) => {
     })
         .then(response => response.json())
         .then(data => {
-            /* alert(data.message); */
             if (data.status) {
                 formDimension.reset();
                 getAllDimensions(formData.get('dimension'));
-                AlertConfirm(data.message, 'success', '¡Éxito!', 'primary');
+                sweet.successAlert('¡Éxito!', data.message);
                 $('#modal-dimension').modal('hide');
-            }else{
-                AlertConfirm(data.message, 'error', '¡Error!', 'danger');
+            } else {
+                sweet.errorAlert('¡Error!', data.message);
             }
         });
 }
@@ -122,32 +121,3 @@ function showModalForEditCourse(id, dimension, course) {
     getAllDimensions(dimension);
     $('#courses_modal').modal('show');
 }
-
-
-
-//SweetAlert2
-function AlertConfirm(message, tipe, title, variable) {
-    if (message != '') {
-        Swal.fire({
-            icon: tipe,
-            title: title,
-            text: message,
-            iconColor: 'var(--' + variable + ')',
-            showCloseButton: true,
-            confirmButtonColor: 'var(--' + variable + ')'
-        })
-    }
-}
-
-/* AlertConfirm(data.message, 'success', 'primary');
-function AlertConfirm(message, tipe, variable) {
-    if (message != '') {
-        Swal.fire({
-            icon: tipe,
-            title: tipe.replace(/\b[a-z]/g,c=>c.toUpperCase())+'!',
-            text: message,
-            iconColor: 'var(--' + variable + ')',
-            showCloseButton: true
-        })
-    }
-} */

@@ -20,7 +20,7 @@
     --danger: #EF4444;
     --danger-hover: #D93E3E;
     --light: #F6F8FA;
-    --light-hover: #F3F4F6;
+    --light-hover: #EAEAEA;
     --dark: var(--gray-dark);
     --dark-hover: #374151;
     --breakpoint-xs: 0;
@@ -30,7 +30,7 @@
     --breakpoint-xl: 1200px;
     --font-family-sans-serif: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --color-primario: #00335A;
-    --border-radius: 0.2rem;
+    --border-radius: 0.325rem;
 }
 
 *,
@@ -142,7 +142,7 @@ strong {
 }
 
 small {
-    font-size: 79%;
+    font-size: 80%;
 }
 
 sub,
@@ -447,7 +447,7 @@ hr {
 
 small,
 .small {
-    font-size: 79%;
+    font-size: 80%;
     font-weight: 400;
 }
 
@@ -4762,7 +4762,7 @@ input[type=button].btn-block {
 }
 
 .card-header:first-child {
-    border-radius: calc(0.35rem - 1px) calc(0.35rem - 1px) 0 0;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
 .card-footer {
@@ -5336,7 +5336,7 @@ a.badge-dark.focus {
 }
 
 .alert-warning {
-    color: #806520;
+    color: #92400E;
     background-color: #fdf3d8;
     border-color: #fceec9;
 }
@@ -5749,20 +5749,20 @@ a.badge-dark.focus {
 }
 
 .list-group-item-warning {
-    color: #806520;
+    color: #92400E;
     background-color: #fceec9;
 }
 
 .list-group-item-warning.list-group-item-action:hover,
 .list-group-item-warning.list-group-item-action:focus {
-    color: #806520;
+    color: #92400E;
     background-color: #fbe6b1;
 }
 
 .list-group-item-warning.list-group-item-action.active {
     color: var(--white);
-    background-color: #806520;
-    border-color: #806520;
+    background-color: #92400E;
+    border-color: #92400E;
 }
 
 .list-group-item-danger {
@@ -6738,14 +6738,14 @@ button.bg-danger:focus {
 
 .bg-light {
     background-color: var(--light) !important;
+    border: 1px solid #D3D5D6;
 }
 
 a.bg-light:hover,
 a.bg-light:focus,
 button.bg-light:hover,
 button.bg-light:focus {
-    background-color: var(--light-hover);
-!important;
+    background-color: var(--light-hover) !important;
 }
 
 .bg-dark {

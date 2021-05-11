@@ -10,6 +10,7 @@ const userPassword = document.getElementById('user_password')
 
 table = new Table();
 button = new Button();
+sweet = new SweetAlerts();
 
 /* ----- Window load ----- */
 window.onload = function () {
@@ -35,14 +36,13 @@ rol_form.onsubmit = (e) => {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             if (data.status) {
                 rol_form.reset();
                 fillTableWhitAllUsers();
-                AlertConfirm(data.message, 'success', '¡Éxito!', 'primary');
+                sweet.successAlert('¡Éxito!', data.message);
                 $('#rol_modal').modal("hide");
             } else {
-                AlertConfirm(data.message, 'error', '¡Error!', 'danger');
+                sweet.errorAlert('¡Error!', data.message);
             }
         });
 }
@@ -66,10 +66,10 @@ function saveNewUser() {
             if (data.status) {
                 user_form.reset();
                 fillTableWhitAllUsers();
-                AlertConfirm(data.message, 'success', '¡Éxito!', 'primary');
+                sweet.successAlert('¡Exito!', data.message);
                 $('#user_modal').modal("hide");
             } else {
-                AlertConfirm(data.message, 'error', '¡Error!', 'danger');
+                sweet.errorAlert('¡Error!', data.message);
             }
         });
 }
@@ -136,30 +136,3 @@ function editUserRol(id, rol, name) {
     getAllRoles(cbUserRoles, rol);
     $('#rol_modal').modal("show");
 }
-
-//SweetAlert2
-function AlertConfirm(message, tipe, title, variable) {
-    if (message != '') {
-        Swal.fire({
-            icon: tipe,
-            title: title,
-            text: message,
-            iconColor: 'var(--' + variable + ')',
-            showCloseButton: true,
-            confirmButtonColor: 'var(--' + variable + ')'
-        })
-    }
-}
-
-/* AlertConfirm(data.message, 'success', 'primary');
-function AlertConfirm(message, tipe, variable) {
-    if (message != '') {
-        Swal.fire({
-            icon: tipe,
-            title: tipe.replace(/\b[a-z]/g,c=>c.toUpperCase())+'!',
-            text: message,
-            iconColor: 'var(--' + variable + ')',
-            showCloseButton: true
-        })
-    }
-} */

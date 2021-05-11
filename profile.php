@@ -13,28 +13,29 @@ require_once $sessionStarted->getUpperPartByUserType();
                 <div class="card mb-4 rounded">
                     <div class="card-body">
                         <div class="card-title font-weight-bold text-dark mb-3">
-                            <h4>Información personal</h4>
+                            <h5>Mi información personal</h5>
                         </div>
                         <form id="personal-info">
                             <input type="hidden" name="id" value="<?php echo $_SESSION['user_logged']['id']; ?>">
                             <div class="form-group">
                                 <label for="dni" class="col-form-label col-form-label-sm">DNI:</label>
-                                <input type="number" class="form-control form-control-sm bg-light" id="dni" name="dni" minlength="8"
+                                <input type="number" class="form-control form-control-sm" id="dni" name="dni"
+                                       minlength="8"
                                        maxlength="8" value="<?php echo $_SESSION['user_logged']['dni']; ?>" required>
                             </div>
                             <div class="form-group">
                                 <label for="lastname" class="col-form-label col-form-label-sm">Apellidos:</label>
-                                <input type="text" class="form-control form-control-sm bg-light" id="lastname" name="lastname"
+                                <input type="text" class="form-control form-control-sm" id="lastname" name="lastname"
                                        value="<?php echo $_SESSION['user_logged']['lastname']; ?>" required>
                             </div>
                             <div class="form-group">
                                 <label for="name" class="col-form-label col-form-label-sm">Nombres:</label>
-                                <input type="text" class="form-control form-control-sm bg-light" id="name" name="name"
+                                <input type="text" class="form-control form-control-sm" id="name" name="name"
                                        value="<?php echo $_SESSION['user_logged']['name']; ?>" required>
                             </div>
                             <div class="form-group">
                                 <label for="gender" class="col-form-label col-form-label-sm">Género</label>
-                                <select name="gender" id="gender" class="form-control form-control-sm bg-light" required>
+                                <select name="gender" id="gender" class="form-control form-control-sm" required>
                                     <option value="1">Femenino</option>
                                     <option value="2">Masculino</option>
                                 </select>
@@ -71,23 +72,27 @@ require_once $sessionStarted->getUpperPartByUserType();
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="card-title font-weight-bold text-dark mb-3">
-                            <h4>Información de acceso</h4>
+                            <h5>Cambiar mi información de acceso</h5>
                         </div>
                         <form id="access-info">
                             <input type="hidden" name="id" value="<?php echo $_SESSION['user_logged']['id']; ?>">
                             <div class="form-group">
-                                <label for="username" class="col-form-label col-form-label-sm">Usuario:</label>
-                                <input type="text" class="form-control form-control-sm bg-light" id="username" name="username"
+                                <label for="username" class="col-form-label col-form-label-sm">Mi nombre de
+                                    usuario:</label>
+                                <input type="text" class="form-control form-control-sm" id="username" name="username"
                                        value="<?php echo $_SESSION['user_logged']['username']; ?>" required>
                             </div>
                             <div class="form-group">
-                                <label for="password" class="col-form-label col-form-label-sm">Contraseña:</label>
-                                <input type="password" class="form-control form-control-sm bg-light" id="password" name="password"
+                                <label for="password" class="col-form-label col-form-label-sm">Mi nueva
+                                    Contraseña:</label>
+                                <input type="password" class="form-control form-control-sm" id="password"
+                                       name="password"
                                        required>
                             </div>
                             <div class="form-group">
-                                <label for="repeat" class="col-form-label col-form-label-sm">Repetir Contraseña:</label>
-                                <input type="password" class="form-control form-control-sm bg-light" id="repeat" name="repeat"
+                                <label for="repeat" class="col-form-label col-form-label-sm">Repetir mi nueva
+                                    Contraseña:</label>
+                                <input type="password" class="form-control form-control-sm" id="repeat" name="repeat"
                                        required>
                             </div>
                             <div class="form-group d-flex justify-content-end">
@@ -105,6 +110,7 @@ require_once $sessionStarted->getUpperPartByUserType();
     <script>
         const gender = '<?php echo $_SESSION['user_logged']['gender']; ?>';
     </script>
+    <script src="public/js/components/SweetAlerts.js"></script>
     <script src="public/js/profile.js"></script>
 
 <?php

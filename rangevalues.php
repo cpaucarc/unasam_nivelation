@@ -86,8 +86,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                      aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
-                            <div class="modal-body">
-                                <form id="form-rank">
+                            <form id="form-rank">
+                                <div class="modal-body">
                                     <input type="hidden" value="0" id="rankID" name="rankID">
                                     <div class="form-group">
                                         <label for="txCourse" class="col-form-label col-form-label-sm">Cursos</label>
@@ -98,22 +98,21 @@ require_once $sessionStarted->getUpperPartByUserType();
                                         <label for="txMin" class="col-form-label col-form-label-sm">Puntaje
                                             Minimo</label>
                                         <input type="number" min="0" max="100" class="form-control form-control-sm"
-                                               id="txMin"
-                                               name="txMin">
+                                               id="txMin" name="txMin">
                                     </div>
                                     <div class="form-group">
                                         <label for="txMax" class="col-form-label col-form-label-sm">Puntaje
                                             Optimo</label>
                                         <input type="number" min="0" max="100" class="form-control form-control-sm"
-                                               id="txMax"
-                                               name="txMax">
+                                               id="txMax" name="txMax">
                                     </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancelar
-                                </button>
-                                <button type="submit" class="btn btn-primary btn-sm" id="btnSubmitForm">Guardar</button>
-                            </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancelar
+                                    </button>
+                                    <button type="submit" class="btn btn-primary btn-sm" id="btnSubmitForm">Guardar
+                                    </button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -124,6 +123,7 @@ require_once $sessionStarted->getUpperPartByUserType();
     </div>
 
     <!-- /.container-fluid -->
+    <script src="public/js/components/SweetAlerts.js"></script>
     <script src="public/js/components/Table.js"></script>
     <script src="public/js/components/Button.js"></script>
     <script src="public/js/components/Select.js"></script>

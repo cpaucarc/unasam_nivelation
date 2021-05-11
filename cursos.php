@@ -19,21 +19,19 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <i class="bi bi-plus mr-2"></i>Agregar curso
                         </button>
 
-                        <div class="alert alert-info my-3" role="alert">
+                        <div class="alert alert-info my-2 p-2" role="alert">
                             <div class="row">
-
                                 <div class="col col-1 col-lg-2">
-                                    <h2>
+                                    <h3>
                                         <i class="bi bi-info-circle-fill"></i>
-                                    </h2>
+                                    </h3>
                                 </div>
                                 <div class="col col-11 col-lg-10">
-                                    <p>
+                                    <small>
                                         Para relacionar un <strong>curso</strong> a una <strong>área</strong> dirijase
                                         <a href="areas">aqui</a>.
-                                    </p>
+                                    </small>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -65,24 +63,25 @@ require_once $sessionStarted->getUpperPartByUserType();
                     <div class="modal-body">
                         <input type="hidden" value="0" name="procID" id="procID">
                         <div class="row">
-                            <div class="col col-9">
+                            <div class="col col-8">
                                 <div class="form-group">
                                     <label for="dimension" class="col-form-label col-form-label-sm">Dimensión:</label>
-                                    <select name="dimension" id="dimension" class="form-control" required></select>
+                                    <select name="dimension" id="dimension" class="form-control form-control-sm"
+                                            required></select>
                                 </div>
                             </div>
-                            <div class="col col-3 d-flex justify-content-end align-items-center">
-                                <button type="button" class="btn btn-light btn-sm mt-3 text-dark"
+                            <div class="col col-4 d-flex justify-content-end align-items-center">
+                                <button type="button" class="btn btn-light btn-sm mt-2 py-2 text-dark"
                                         data-toggle="modal"
                                         data-target="#modal-dimension">
-                                    <i class="bi bi-plus mr-2"></i>Nuevo
+                                    <i class="bi bi-plus mr-2"></i>Nueva dimensión
                                 </button>
                             </div>
                         </div>
                         <div class="form-group">
                             <input type="hidden" value="0" id="courseID" name="courseID">
                             <label for="course" class="col-form-label col-form-label-sm">Nombre del curso:</label>
-                            <input name="course" type="text" class="form-control" id="course" value=""
+                            <input name="course" type="text" class="form-control form-control-sm" id="course" value=""
                                    placeholder="Curso..." required>
                         </div>
                     </div>
@@ -103,7 +102,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="dimension" class="col-form-label col-form-label-sm">Nueva Dimensión:</label>
-                            <input type="text" id="dimension" name="dimension" class="form-control" placeholder="Dimension..."
+                            <input type="text" id="dimension" name="dimension" class="form-control form-control-sm"
+                                   placeholder="Dimension..."
                                    required>
                         </div>
                     </div>
@@ -116,6 +116,7 @@ require_once $sessionStarted->getUpperPartByUserType();
         </div>
     </div>
 
+    <script src="public/js/components/SweetAlerts.js"></script>
     <script src="public/js/components/Card.js"></script>
     <script src="public/js/components/Table.js"></script>
     <script src="public/js/components/Button.js"></script>

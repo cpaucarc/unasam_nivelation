@@ -13,6 +13,7 @@ var currentProcess;
 table = new Table();
 button = new Button();
 select = new Select();
+sweet = new SweetAlerts();
 
 window.onload = function () {
     getAllProcess();
@@ -37,8 +38,9 @@ cbProcess.addEventListener('change', () => {
 
 formRank.addEventListener('submit', (e) => {
     e.preventDefault();
-    let formData = new FormData(formRank);
+    sweet.waitAlert('Espere un momento porfavor', 'Se está volviendo a clasificar la calificación de los estudiantes con los nuevos parametros.');
 
+    let formData = new FormData(formRank);
     fetch('app/controllers/ranks/updateRankValues.php', {
         method: 'POST',
         headers: {
@@ -49,13 +51,12 @@ formRank.addEventListener('submit', (e) => {
         .then(response => response.json())
         .then(data => {
             if (data.status === true) {
-                AlertConfirm(data.message, 'success', '¡Éxito!', 'primary');
+                sweet.successAlert('¡Éxito!', data.message)
                 $('#modal-rank').modal('hide');
                 getAllRanksByProcessID(currentProcess, currentArea);
             } else {
-                AlertConfirm(data.message, 'error', '¡Error!', 'danger');
+                sweet.errorAlert('¡Error!', data.message)
             }
-            // alert(data.message);
         });
 });
 
@@ -179,19 +180,4 @@ function getAllProcess() {
 function getRankDataByID(id) {
     let rank = allRanks.filter(rank => parseInt(rank.id) === id);
     return rank[0];
-}
-
-
-//SweetAlert2
-function AlertConfirm(message, tipe, title, variable) {
-    if (message != '') {
-        Swal.fire({
-            icon: tipe,
-            title: title,
-            text: message,
-            iconColor: 'var(--' + variable + ')',
-            showCloseButton: true,
-            confirmButtonColor: 'var(--' + variable + ')'
-        })
-    }
 }

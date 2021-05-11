@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", function (e) {
         e.preventDefault();
         validarExt(form);
-        console.log(file.value);
     });
     limpiar_barra(cerrar_barra);
     getLastProcess();
@@ -69,7 +68,6 @@ function subir_archivos(form) {
 function validarExt(form) {
     let archivoRuta = file.value;
     extPermitidas = /(.json)$/i;
-    console.log(archivoRuta)
     if (!extPermitidas.exec(archivoRuta)) {
         alert('Asegurece de haber subido un archivo .Json');
         file.value = "";

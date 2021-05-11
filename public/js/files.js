@@ -85,7 +85,6 @@ function deleteFile(name) {
             })
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data.message);
                     getAllFiles();
                     getGeneralInfo();
                 });
@@ -107,7 +106,6 @@ function deleteAllFiles() {
             })
                 .then(response => response.text())
                 .then(data => {
-                    console.log(data);
                     getAllFiles();
                     getGeneralInfo();
                 });

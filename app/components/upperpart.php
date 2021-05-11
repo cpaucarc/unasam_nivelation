@@ -135,15 +135,15 @@ $rtax = isset($routeAux) ? $routeAux : "";
         <div id="content">
 
             <!-- Topbar -->
-            <nav class="navbar navbar-expand navbar-light bg-light topbar mb-4 static-top border-bottom">
+            <nav class="navbar navbar-expand navbar-light bg-light topbar mb-4 pl-4 static-top border-bottom">
 
                 <!-- Sidebar Toggle (Topbar) -->
                 <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                     <i class="bi bi-list"></i>
                 </button>
-                <h5 class="ml-2 mt-3 font-weight-bold d-none d-lg-inline text-gray-600" id="view-title">
+                <h6 class="ml-3 mt-3 font-weight-bold d-none d-lg-inline text-gray-800" id="view-title">
                     Cargando...
-                </h5>
+                </h6>
 
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
@@ -156,7 +156,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600">
                                     <?php
-                                    echo isset($_SESSION['user_logged']) ? (ucfirst($_SESSION['user_logged']['name']) . ' ' . ucfirst($_SESSION['user_logged']['lastname'])) : 'Guest'
+                                    echo isset($_SESSION['user_logged']) ? (ucfirst($_SESSION['user_logged']['lastname']) . ' ' . ucfirst($_SESSION['user_logged']['name'])) : 'Guest'
                                     ?>
                                 </span>
 

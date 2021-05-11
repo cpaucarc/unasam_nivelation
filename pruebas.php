@@ -1,42 +1,67 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
-require_once(DB_PATH . "MySqlConnection.php");
-require_once(UTIL_PATH . "Student.php");
-require_once(UTIL_PATH . "Question.php");
+$saveFailed = array();
+$save = array();
 
-$ruta = STORAGE_PATH;
+array_push($saveFailed, array(
+    'num' => 1,
+    'student' => 'Juanito Churuca',
+    'codigo' => '123.456.789'
+));
 
-if (is_dir($ruta)) {
-    // Abre un gestor de directorios para la ruta indicada
-    $gestor = opendir($ruta);
-    echo "<ul>";
+array_push($saveFailed, array(
+    'num' => 10,
+    'student' => 'Caroline Churuca',
+    'codigo' => '178.456.789'
+));
 
-    // Recorre todos los elementos del directorio
-    while (($archivo = readdir($gestor)) !== false) {
+array_push($saveFailed, array(
+    'num' => 10,
+    'student' => 'Dayane Woman',
+    'codigo' => '161.456.789'
+));
 
-        $ruta_completa = $ruta . "/" . $archivo;
+print_r($saveFailed);
 
-        // Se muestran todos los archivos y carpetas excepto "." y ".."
-        if ($archivo != "." && $archivo != "..") {
 
-            $name = $archivo;
-            $totalSize = filesize($ruta);
-            $size = filesize($ruta . $archivo);
-            $type = filetype($ruta . $archivo);
-            $time = filemtime($ruta . $archivo);
-            $stat = stat($ruta . $archivo);
-            $tiempo = (time() - $time);
-            //date ("F d Y H:i:s.", filemtime($nombre_archivo))
-            echo '<br>';
-            var_dump($stat);
-            echo "<li>" . $name . ' -> ' . $size . ' -> ' . $type . ' -> ' . $totalSize . ' -> ' . $time . ' --' . date("F d Y H:i:s.", $time) . ' act ' . date("F d Y H:i:s.", time()) . "</li>";
+echo '<br><br><br>';
 
-        }
-    }
+echo json_encode($saveFailed, count($saveFailed), 10);
 
-    // Cierra el gestor de directorios
-    closedir($gestor);
-    echo "</ul>";
-} else {
-    echo "No es una ruta de directorio valida<br/>";
-}
+echo '<br><br><br>';
+
+echo json_encode(['msg' => 'ok']);
+
+echo '<br><br><br>';
+
+array_push($save, array(
+    'estudiantes' => $saveFailed,
+    'fallos' => count($saveFailed),
+    'correcto' => 10
+));
+
+echo json_encode($save);
+
+?>
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<small>
+    <ol>
+        <li>
+            <pre>Numero<strong>20</strong>   Codigo: <strong>123</strong>   Alumno: <strong>Juna</strong></pre>
+        </li>
+        <li>Numero<strong>20</strong> Codigo: <strong>123</strong> Alumno: <strong>Juna</strong></li>
+        <li>Numero<strong>20</strong> Codigo: <strong>123</strong> Alumno: <strong>Juna</strong></li>
+    </ol>
+</small>
+</body>
+</html>

@@ -106,7 +106,7 @@ if (intval($_SESSION['user_logged']['utid']) === 1) {
     </div>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
                     <div class="alert alert-info mb-0 w-100" role="alert">
@@ -248,8 +248,7 @@ if (intval($_SESSION['user_logged']['utid']) === 1) {
         </div>
     </div>
 
-    <!--    <script src="public/js/datatable.js"></script>-->
-    <!--    <script src="public/js/UploadFile.js"></script>-->
+    <script src="public/js/components/SweetAlerts.js"></script>
     <script src="public/js/index.js"></script>
 
 <?php } else { ?>
@@ -271,6 +270,7 @@ if (intval($_SESSION['user_logged']['utid']) === 1) {
             <img src="public/images/welcome.svg" class="w-50 p-5" alt="imagen de bienvenida">
         </div>
     </div>
+
     <script>
         window.addEventListener('load', () => {
             document.getElementById('view-title').innerText = 'Inicio del Sitio';

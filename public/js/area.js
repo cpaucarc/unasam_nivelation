@@ -14,6 +14,7 @@ const btnAddCourse = document.getElementById('addCourse');
 const cbCourses = document.getElementById('cbCourses');
 var target = null;
 
+sweet = new SweetAlerts();
 button = new Button();
 cardArea = new CardArea();
 card = new Card();
@@ -62,19 +63,17 @@ formSchools.addEventListener('submit', (e) => {
         })
             .then(response => response.json())
             .then(data => {
-                /* alert(data.message); */
                 if (data.status) {
                     showSchools(areaName);
                     formSchools.reset();
-                    AlertConfirm(data.message, 'success', '¡Éxito!', 'primary');
+                    sweet.successAlert('¡Éxito!', data.message);
                     $('#SchoolModal').modal('hide');
                 } else {
-                    AlertConfirm(data.message, 'error', '¡Error!', 'danger');
+                    sweet.errorAlert('¡Error!', data.message);
                 }
             });
     } else {
-        /*  alert('Seleccione algun área en la parte superior.'); */
-        AlertConfirm('Seleccione algun área en la parte superior.', 'error', '¡Error!', 'danger');
+        sweet.warningAlert('¡Error!', 'Seleccione algun área en la parte superior.');
     }
 })
 
@@ -93,20 +92,17 @@ formCourses.addEventListener('submit', (e) => {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
-                /* alert(data.message); */
                 if (data.status) {
                     showCourses(areaName);
                     formCourses.reset();
-                    AlertConfirm(data.message, 'success', '¡Éxito!', 'primary');
+                    sweet.successAlert('¡Éxito!', data.message)
                     $('#CoursesModal').modal('hide');
                 } else {
-                    AlertConfirm(data.message, 'error', '¡Error!', 'danger');
+                    sweet.errorAlert('¡Error!', data.message);
                 }
             });
     } else {
-        /*  alert('Seleccione algun área en la parte superior.'); */
-        AlertConfirm('Seleccione algun área en la parte superior.', 'error', '¡Error!', 'danger');
+        sweet.waitAlert('¡Error!', 'Seleccione algun área en la parte superior.');
     }
 })
 
@@ -122,14 +118,13 @@ formArea.addEventListener('submit', (e) => {
     })
         .then(response => response.json())
         .then(data => {
-            /*   alert(data.message); */
             if (data.status) {
                 getAllAreas();
                 formArea.reset();
-                AlertConfirm(data.message, 'success', '¡Éxito!', 'primary');
+                sweet.successAlert('¡Éxito!', data.message);
                 $('#add-area').modal('hide');
-            }else{
-                AlertConfirm(data.message, 'error', '¡Error!', 'danger');
+            } else {
+                sweet.errorAlert('¡Error!', data.message);
             }
         });
 })
@@ -229,32 +224,3 @@ function appendAddNewAreasCard() {
     cardAreas.innerHTML = card.getAddNewAreaCard();
     target = document.querySelector('#div-new-area');
 }
-
-
-
-//SweetAlert2
-function AlertConfirm(message, tipe, title, variable) {
-    if (message != '') {
-        Swal.fire({
-            icon: tipe,
-            title: title,
-            text: message,
-            iconColor: 'var(--' + variable + ')',
-            showCloseButton: true,
-            confirmButtonColor: 'var(--' + variable + ')'
-        })
-    }
-}
-
-/* AlertConfirm(data.message, 'success', 'primary');
-function AlertConfirm(message, tipe, variable) {
-    if (message != '') {
-        Swal.fire({
-            icon: tipe,
-            title: tipe.replace(/\b[a-z]/g,c=>c.toUpperCase())+'!',
-            text: message,
-            iconColor: 'var(--' + variable + ')',
-            showCloseButton: true
-        })
-    }
-} */

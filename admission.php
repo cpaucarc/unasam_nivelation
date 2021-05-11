@@ -31,12 +31,12 @@ require_once $sessionStarted->getUpperPartByUserType();
                         </div>
 
                     </div>
-                    <div class="col col-12 col-lg-8">
+                    <div class="col col-12 col-lg-8 table-responsive">
                         <table id="table-process" class="table table-sm table-bordered">
                             <thead class="thead-light">
                             <tr class="text-center">
-                                <th>#</th>
-                                <th>Nombre</th>
+                                <th><small><strong>N°</strong></small></th>
+                                <th><small><strong>Nombre</strong></small></th>
                                 <th>&nbsp;</th>
                             </tr>
                             </thead>
@@ -57,7 +57,7 @@ require_once $sessionStarted->getUpperPartByUserType();
             <div class="modal-content">
                 <div class="modal-body">
                     <form id="form">
-                        <input type="text" value="0" name="procID" id="procID">
+                        <input type="hidden" value="0" name="procID" id="procID">
                         <div class="form-group">
                             <label for="proceso" class="col-form-label col-form-label-sm">Admisión:</label>
                             <input name="denomination" type="text" class="form-control form-control-sm"
@@ -75,6 +75,7 @@ require_once $sessionStarted->getUpperPartByUserType();
     </div>
 <?php } ?>
 
+    <script src="public/js/components/SweetAlerts.js"></script>
     <script src="public/js/components/Card.js"></script>
     <script src="public/js/components/Table.js"></script>
     <script src="public/js/components/Button.js"></script>
