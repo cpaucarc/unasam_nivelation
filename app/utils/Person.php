@@ -3,101 +3,64 @@
 
 class Person
 {
-    protected int $id;
-    protected string $dni;
-    protected string $name;
-    protected string $lastname;
-    protected string $gender;
+    protected $id;
+    protected $dni;
+    protected $name;
+    protected $lastname;
+    protected $gender;
 
-    /**
-     * @return int
-     */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
 
-    /**
-     * @param int $id
-     * @return Person
-     */
-    public function setId(int $id): Person
+    public function setId($id)
     {
         $this->id = $id;
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getDni(): string
+    public function getDni()
     {
         return $this->dni;
     }
 
-    /**
-     * @param string $dni
-     * @return Person
-     */
-    public function setDni(string $dni): Person
+    public function setDni($dni)
     {
         $this->dni = $dni;
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
 
-    /**
-     * @param string $name
-     * @return Person
-     */
-    public function setName(string $name): Person
+    public function setName($name)
     {
         $this->name = $name;
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getLastname(): string
+    public function getLastname()
     {
         return $this->lastname;
     }
 
-    /**
-     * @param string $lastname
-     * @return Person
-     */
-    public function setLastname(string $lastname): Person
+    public function setLastname($lastname)
     {
         $this->lastname = $lastname;
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getGender(): string
+     public function getGender()
     {
         return $this->gender;
     }
 
-    /**
-     * @param string $gender
-     * @return Person
-     */
-    public function setGender(string $gender): Person
+    public function setGender($gender)
     {
         $this->gender = $gender;
         return $this;
     }
-
-
 }

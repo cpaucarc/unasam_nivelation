@@ -14,7 +14,7 @@ class SessionStarted
         }
     }
 
-    public function getUpperPartByUserType(): string
+    public function getUpperPartByUserType()
     {
         if (intval($_SESSION['user_logged']['utid']) === 1) {       //1: Administrador
             return COMPONENT_PATH . "upperpart.php";

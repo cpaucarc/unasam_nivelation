@@ -8,14 +8,14 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class ExcelReader
 {
-    private string $path;
+    protected $path;
 
     public function __construct($path)
     {
         $this->path = $path;
     }
 
-    function read(): ?array
+    function read()
     {
         $filename = $this->path;
 
@@ -158,6 +158,4 @@ class ExcelReader
             return null;
         }
     }
-
-
 }

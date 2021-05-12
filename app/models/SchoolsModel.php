@@ -4,9 +4,9 @@ require_once(DB_PATH . "MySqlConnection.php");
 
 class SchoolsModel
 {
-    private int $id;
-    private string $name;
-    private string $area;
+    private $id;
+    private $name;
+    private $area;
 
     public function __construct()
     {

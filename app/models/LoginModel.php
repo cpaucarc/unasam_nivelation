@@ -5,8 +5,8 @@ include_once DB_PATH . "MySqlConnection.php";
 
 class LoginModel
 {
-    private string $username;
-    private string $password;
+    private $username;
+    private $password;
 
     public function __construct()
     {

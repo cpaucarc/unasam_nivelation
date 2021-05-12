@@ -5,13 +5,13 @@ require_once(UTIL_PATH . "Question.php");
 
 class StudentModel
 {
-    private string $name;
-    private string $lastname;
-    private string $dni;
-    private string $code;
-    private string $school;
-    private int $id; // This is StudentID, not PersonID
-    private array $questions;
+    private $name;
+    private $lastname;
+    private $dni;
+    private $code;
+    private $school;
+    private $id; // This is StudentID, not PersonID
+    private $questions;
 
     public function __construct()
     {
@@ -258,7 +258,7 @@ class StudentModel
         return $this->name;
     }
 
-    public function setName(string $name)
+    public function setName($name)
     {
         $this->name = $name;
         return $this;
@@ -269,7 +269,7 @@ class StudentModel
         return $this->lastname;
     }
 
-    public function setLastname(string $lastname)
+    public function setLastname($lastname)
     {
         $this->lastname = $lastname;
         return $this;
@@ -280,7 +280,7 @@ class StudentModel
         return $this->dni;
     }
 
-    public function setDni(string $dni)
+    public function setDni($dni)
     {
         $this->dni = $dni;
         return $this;
@@ -291,7 +291,7 @@ class StudentModel
         return $this->code;
     }
 
-    public function setCode(string $code)
+    public function setCode($code)
     {
         $this->code = $code;
         return $this;
@@ -302,13 +302,13 @@ class StudentModel
         return $this->id;
     }
 
-    public function setId(int $id)
+    public function setId($id)
     {
         $this->id = $id;
         return $this;
     }
 
-    public function setQuestions(array $questions)
+    public function setQuestions($questions)
     {
         $this->questions = $questions;
         return $this;

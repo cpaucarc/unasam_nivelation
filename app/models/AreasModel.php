@@ -5,9 +5,9 @@ require_once(DB_PATH . "MySqlConnection.php");
 
 class AreasModel
 {
-    private int $id;
-    private string $area;
-    private string $description;
+    private $id;
+    private $area;
+    private $description;
 
     public function __construct()
     {
@@ -87,12 +87,12 @@ class AreasModel
         return $this;
     }
 
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->description;
     }
 
-    public function setDescription(string $description): AreasModel
+    public function setDescription($description)
     {
         $this->description = $description;
         return $this;

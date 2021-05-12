@@ -43,8 +43,7 @@ class FileModel
         $name = str_replace(' ', '', $name);
         $name = explode(".", $name);
         $curtime = date("YmdHis");
-        $random = random_int(100, 999);
-        return $name[0] . $curtime . $random . '.' . $name[1];
+        return $name[0] . $curtime . '.' . $name[1];
     }
 
 
@@ -93,7 +92,7 @@ class FileModel
         return $this;
     }
 
-    public function getFinalDir(): string
+    public function getFinalDir()
     {
         return $this->finalDir;
     }

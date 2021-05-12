@@ -6,24 +6,24 @@ require_once(UTIL_PATH . "Question.php");
 
 class Student extends Person
 {
-    private int $stda;  //stda
-    private int $num;  //numero en excel (primera columna)
-    private string $code;
-    private int $omg;
-    private int $omp;
-    private int $blank; // cant en respuestas en blanco
-    private int $good; // cant en respuestas correctas
-    private int $bad; // cant en respuestas incorrectas
-    private string $program;
-    private string $area;
-    private string $process;
-    private float $score;
-    private string $postulant_code;
-    private array $questions;
+    private $stda;  //stda
+    private $num;  //numero en excel (primera columna)
+    private $code;
+    private $omg;
+    private $omp;
+    private $blank; // cant en respuestas en blanco
+    private $good; // cant en respuestas correctas
+    private $bad; // cant en respuestas incorrectas
+    private $program;
+    private $area;
+    private $process;
+    private $score;
+    private $postulant_code;
+    private $questions;
 
     /* Functions */
 
-    public function saveStudentToDB(): bool
+    public function saveStudentToDB()
     {
         $connection = new MySqlConnection();
         if ($connection and $this->getStda() == 0) {
@@ -62,7 +62,7 @@ class Student extends Person
         }
     }
 
-    public function saveQuestionsToDB(): bool
+    public function saveQuestionsToDB()
     {
         $connection = new MySqlConnection();
         if ($connection and $this->getStda() > 0) {
@@ -94,7 +94,7 @@ class Student extends Person
         }
     }
 
-    public function doClasificationOfCourses(): bool
+    public function doClasificationOfCourses()
     {
         $connection = new MySqlConnection();
         if ($connection and $this->getStda() > 0) {
@@ -123,210 +123,210 @@ class Student extends Person
     }
 
     /* Getters and Setters */
-    public function getQuestions(): array
+    public function getQuestions()
     {
         return $this->questions;
     }
 
-    public function setQuestions(array $questions): Student
+    public function setQuestions($questions)
     {
         $this->questions = $questions;
         return $this;
     }
 
-    public function getNum(): int
+    public function getNum()
     {
         return $this->num;
     }
 
-    public function setNum(int $num): Student
+    public function setNum($num)
     {
         $this->num = $num;
         return $this;
     }
 
-    public function getStda(): int
+    public function getStda()
     {
         return $this->stda;
     }
 
-    public function setStda(int $stda): Student
+    public function setStda($stda)
     {
         $this->stda = $stda;
         return $this;
     }
 
-    public function getDni(): string
+    public function getDni()
     {
         return $this->dni;
     }
 
-    public function setDni(string $dni): Student
+    public function setDni($dni)
     {
         $this->dni = $dni;
         return $this;
     }
 
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
 
-    public function setName(string $name): Student
+    public function setName($name)
     {
         $this->name = $name;
         return $this;
     }
 
-    public function getLastname(): string
+    public function getLastname()
     {
         return $this->lastname;
     }
 
-    public function setLastname(string $lastname): Student
+    public function setLastname($lastname)
     {
         $this->lastname = $lastname;
         return $this;
     }
 
-    public function getGender(): string
+    public function getGender()
     {
         return $this->gender;
     }
 
-    public function setGender(string $gender): Student
+    public function setGender($gender)
     {
         $this->gender = $gender;
         return $this;
     }
 
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
 
-    public function setId(int $id): Student
+    public function setId($id)
     {
         $this->id = $id;
         return $this;
     }
 
-    public function getCode(): string
+    public function getCode()
     {
         return $this->code;
     }
 
-    public function setCode(string $code): Student
+    public function setCode($code)
     {
         $this->code = $code;
         return $this;
     }
 
-    public function getOmg(): int
+    public function getOmg()
     {
         return $this->omg;
     }
 
-    public function setOmg(int $omg): Student
+    public function setOmg($omg)
     {
         $this->omg = $omg;
         return $this;
     }
 
-    public function getOmp(): int
+    public function getOmp()
     {
         return $this->omp;
     }
 
-    public function setOmp(int $omp): Student
+    public function setOmp($omp)
     {
         $this->omp = $omp;
         return $this;
     }
 
-    public function getProgram(): string
+    public function getProgram()
     {
         return $this->program;
     }
 
-    public function setProgram(string $program): Student
+    public function setProgram($program)
     {
         $this->program = $program;
         return $this;
     }
 
-    public function getProcess(): string
+    public function getProcess()
     {
         return $this->process;
     }
 
-    public function setProcess(string $process): Student
+    public function setProcess( $process)
     {
         $this->process = $process;
         return $this;
     }
 
-    public function getScore(): float
+    public function getScore()
     {
         return $this->score;
     }
 
-    public function setScore(float $score): Student
+    public function setScore( $score)
     {
         $this->score = $score;
         return $this;
     }
 
-    public function getPostulantCode(): string
+    public function getPostulantCode()
     {
         return $this->postulant_code;
     }
 
-    public function setPostulantCode(string $postulant_code): Student
+    public function setPostulantCode($postulant_code)
     {
         $this->postulant_code = $postulant_code;
         return $this;
     }
 
-    public function getBlank(): int
+    public function getBlank()
     {
         return $this->blank;
     }
 
-    public function setBlank(int $blank): Student
+    public function setBlank( $blank)
     {
         $this->blank = $blank;
         return $this;
     }
 
-    public function getGood(): int
+    public function getGood()
     {
         return $this->good;
     }
 
-    public function setGood(int $good): Student
+    public function setGood($good)
     {
         $this->good = $good;
         return $this;
     }
 
-    public function getBad(): int
+    public function getBad()
     {
         return $this->bad;
     }
 
-    public function setBad(int $bad): Student
+    public function setBad( $bad)
     {
         $this->bad = $bad;
         return $this;
     }
 
-    public function getArea(): string
+    public function getArea()
     {
         return $this->area;
     }
 
-    public function setArea(string $area): Student
+    public function setArea($area)
     {
         $this->area = $area;
         return $this;

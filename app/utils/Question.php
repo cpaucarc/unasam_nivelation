@@ -3,8 +3,8 @@
 
 class Question
 {
-    private int $number;
-    private float $response;
+    private $number;
+    private $response;
 
     public function __construct($number, $response)
     {
@@ -12,43 +12,25 @@ class Question
         $this->response = $response;
     }
 
-    /**
-     * @return int
-     */
-    public function getNumber(): int
+    public function getNumber()
     {
         return $this->number;
     }
 
-    /**
-     * @param int $number
-     * @return Question
-     */
-    public function setNumber(int $number): Question
+    public function setNumber($number)
     {
         $this->number = $number;
         return $this;
     }
 
-    /**
-     * @return float
-     */
-    public function getResponse(): float
+    public function getResponse()
     {
         return $this->response;
     }
 
-    /**
-     * @param float $response
-     * @return Question
-     */
-    public function setResponse(float $response): Question
+    public function setResponse($response)
     {
         $this->response = $response;
         return $this;
     }
-
-    /* ----------- Getters ----------- */
-
-
 }
