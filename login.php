@@ -43,7 +43,7 @@ $error_message = $_SESSION['login']['error'] ?? '';
 
             <div class="card bg-light">
                 <div class="card-body px-4 py-3">
-                    <form class="user my-3" action="app/controllers/login/makeLogin.php" method="post">
+                    <form class="user my-3" action="make-login" method="post">
                         <div class="form-group">
                             <label for="username" class="col-form-label col-form-label-sm">Nombre de
                                 Usuario</label>

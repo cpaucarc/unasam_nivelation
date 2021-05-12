@@ -31,7 +31,8 @@ RewriteRule ^usuarios$ UserView.php
 
 #login
 RewriteRule ^login$ login.php
-#RewriteRule ^login/([A-Za-z]+)/([A-Za-z]+)/([A-Za-z]+)/([A-Za-z]+)$ login?error=$1&username=$2&password=$3&role=$4
+RewriteRule ^make-login$ app/controllers/login/makeLogin.php
+RewriteRule ^make-logout$ app/controllers/login/makeLogout.php
 
 #profile
 RewriteRule ^perfil$ profile.php
@@ -51,4 +52,4 @@ RewriteRule ^programas-grafico$ byprogramG.php
 
 #Error 404
 RewriteRule ^error$ 404.php
-ErrorDocument 404 http://localhost/nivelation/error
+ErrorDocument 404 /nivelation/error

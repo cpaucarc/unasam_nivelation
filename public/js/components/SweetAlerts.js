@@ -14,9 +14,9 @@ class SweetAlerts {
     }
 
     waitAlert(title = '', message = '') {
-        this.image = 'https://media1.giphy.com/media/aQ6qeqSuo0xxSQPV87/giphy.gif?cid=790b7611fc1c5a0ba5ef139d2994981c8192929e5ecc8635&rid=giphy.gif&ct=g';
-        this.width = 100;
-        this.height = 100;
+        this.image = 'public/images/loading-unasam.gif';
+        this.width = 150;
+        this.height = 150;
         Swal.fire({
             position: 'center',
             imageUrl: this.image,
