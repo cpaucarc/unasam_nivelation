@@ -267,7 +267,7 @@ if (intval($_SESSION['user_logged']['utid']) === 1) {
         </div>
 
         <div class="d-flex justify-content-center">
-            <img src="public/images/welcome.svg" class="w-50 p-5" alt="imagen de bienvenida">
+            <img src="public/images/welcome.svg" class="w-50 p-5" alt="imagen de bienvenida" loading="lazy">
         </div>
     </div>
 

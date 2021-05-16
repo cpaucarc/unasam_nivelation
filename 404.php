@@ -19,7 +19,7 @@ require_once $sessionStarted->getUpperPartByUserType();
             <br>
             <h3 class="text-gray-500 mb-0">:( </h3>
             <br>
-            <a href="inicio">&larr; Volver al inicio</a>
+            <a href="/nivelation/inicio">&larr; Volver al inicio</a>
         </div>
     </div>
 

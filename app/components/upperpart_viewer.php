@@ -29,7 +29,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
            href="#">
             <div class="sidebar-brand-icon ">
                 <img src="<?php echo $rtax; ?>public/images/logo.jpg" width="50px" class="rounded float-start"
-                     alt="Escudo de la Unasam">
+                     alt="Escudo de la Unasam" loading="lazy">
             </div>
 
             <div class="sidebar-brand-text mx-3">

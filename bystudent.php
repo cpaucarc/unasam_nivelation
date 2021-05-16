@@ -60,7 +60,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                                 <div class="dropdown-divider"></div>
                                 <h6 class="dropdown-header">Gráficos</h6>
                                 <a>
-                                    <form action="estudiante-grafico" target="_blank"
+                                    <form action="<?php echo $routeAux; ?>estudiante-grafico" target="_blank"
                                           method="post"
                                           class="mx-2">
                                         <button type="submit" class="dropdown-item">
@@ -87,36 +87,92 @@ require_once $sessionStarted->getUpperPartByUserType();
 
                     </div>
                     <div class="col col-12 col-lg-8">
-                        <div class="card text-left">
-                            <div class="card-header">
-                                <h6 class="m-0 font-weight-bold">Análisis de cursos</h6>
+
+                        <div class="card">
+                            <div class="card-header pt-1 pb-0 px-3">
+                                <ul class="nav nav-tabs border-bottom-0 text-muted">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="tab" href="#for_courses">
+                                            Análisis por Dimensiones
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#for_dimensions">
+                                            Análisis por Cursos
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="card-body p-0 table-responsive">
-                                <table id="table-courses" class="table table-bordered">
-                                    <thead>
-                                    <tr class="text-center">
-                                        <th scope="col" class="text-left" style="width: 5%;">
-                                            <small><strong>N°</strong></small>
-                                        </th>
-                                        <th scope="col" class="text-left" style="width: 33%;">
-                                            <small><strong>Curso</strong></small>
-                                        </th>
-                                        <th scope="col" class="text-left" style="width: 7%;">
-                                            <small><strong>Porc*</strong></small>
-                                        </th>
-                                        <th scope="col" class="text-left">
-                                            <small><strong>Recomendación</strong></small>
-                                        </th>
-                                    </tr>
-                                    </thead>
-                                    <tbody id="table-courses-body">
-                                    </tbody>
-                                </table>
-                                <small class="pl-4 mb-3">
-                                    <strong>*</strong> Representa el porcentaje de preguntas correctas dentro del curso
-                                </small>
+                            <div class="card-body">
+                                <div class="tab-content">
+                                    <!--Panel 1-->
+                                    <div class="tab-pane fade in show active" id="for_courses" role="tabpanel">
+                                        <!--Tabla-->
+                                        <div class="table-responsive">
+                                            <table id="table-dimensions" class="table table-bordered">
+                                                <thead>
+                                                <tr class="text-center">
+                                                    <th scope="col" class="text-left" style="width: 5%;">
+                                                        <small><strong>N°</strong></small>
+                                                    </th>
+                                                    <th scope="col" class="text-left" style="width: 33%;">
+                                                        <small><strong>Dimensión</strong></small>
+                                                    </th>
+                                                    <th scope="col" class="text-left" style="width: 7%;">
+                                                        <small><strong>Porc*</strong></small>
+                                                    </th>
+                                                    <th scope="col" class="text-left">
+                                                        <small><strong>Recomendación</strong></small>
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="table-dimensions-body">
+                                                </tbody>
+                                            </table>
+                                            <small class="mb-3">
+                                                <strong>*</strong> Representa el porcentaje de preguntas correctas
+                                                dentro de la dimensión. <br>
+                                                <strong>*</strong> Una dimensión es un grupo que contiene a varios
+                                                cursos.
+                                            </small>
+                                        </div>
+
+                                    </div>
+
+                                    <!--Panel 2-->
+                                    <div class="tab-pane fade" id="for_dimensions" role="tabpanel">
+                                        <!--Tabla-->
+                                        <div class="table-responsive">
+                                            <table id="table-courses" class="table table-bordered">
+                                                <thead>
+                                                <tr class="text-center">
+                                                    <th scope="col" class="text-left" style="width: 5%;">
+                                                        <small><strong>N°</strong></small>
+                                                    </th>
+                                                    <th scope="col" class="text-left">
+                                                        <small><strong>Curso</strong></small>
+                                                    </th>
+                                                    <th scope="col" class="text-left" style="width: 7%;">
+                                                        <small><strong>Porc*</strong></small>
+                                                    </th>
+                                                    <th scope="col" class="text-left" style="width: 50%;">
+                                                        <small><strong>Recomendación</strong></small>
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="table-courses-body">
+                                                </tbody>
+                                            </table>
+                                            <small class="mb-3">
+                                                <strong>*</strong> Representa el porcentaje de preguntas correctas
+                                                dentro del curso
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

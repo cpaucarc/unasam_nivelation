@@ -31,4 +31,20 @@ class Badge {
         return span;
     }
 
+    createBadgeForJob(text, numero) { //1 activo, 0 despedido
+        let small = document.createElement('small');
+        let span = document.createElement('span');
+        small.appendChild(document.createTextNode(text));
+        span.appendChild(small);
+        span.classList.add('px-2');
+        span.classList.add('py-0');
+        span.classList.add('alert');
+        if (parseInt(numero) === 0) {
+            span.classList.add('alert-danger');
+        } else {
+            span.classList.add('alert-success');
+        }
+        return span;
+    }
+
 }

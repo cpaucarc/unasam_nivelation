@@ -111,11 +111,11 @@ require_once $sessionStarted->getUpperPartByUserType();
                         </div>
                         <div class="form-group">
                             <label for="minimo" class="col-form-label col-form-label-sm">Mínimo:</label>
-                            <input type="number" class="form-control form-control-sm" id="minimo" placeholder="Mímino" required>
+                            <input type="number" class="form-control form-control-sm" id="minimo" placeholder="Mínino" required>
                         </div>
                         <div class="form-group">
                             <label for="maximo" class="col-form-label col-form-label-sm">Recomendado</label>
-                            <input type="number" class="form-control form-control-sm" id="maximo" placeholder="Máximo" required>
+                            <input type="number" class="form-control form-control-sm" id="maximo" placeholder="Recomendado" required>
                         </div>
                     </form>
                 </div>

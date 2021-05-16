@@ -26,10 +26,10 @@ $rtax = isset($routeAux) ? $routeAux : "";
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center"
-           href="inicio">
+           href="/nivelation/inicio">
             <div class="sidebar-brand-icon ">
                 <img src="<?php echo $rtax; ?>public/images/logo.jpg" width="50px" class="rounded float-start"
-                     alt="Escudo de la Unasam">
+                     alt="Escudo de la Unasam" loading="lazy">
             </div>
 
             <div class="sidebar-brand-text mx-3">
@@ -40,7 +40,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
         <hr class="sidebar-divider my-0">
 
         <li class="nav-item active">
-            <a class="nav-link" href="inicio">
+            <a class="nav-link" href="/nivelation/inicio">
                 <i class="bi bi-house-fill mr-2"></i><span>Inicio del sitio</span>
             </a>
         </li>
@@ -73,11 +73,25 @@ $rtax = isset($routeAux) ? $routeAux : "";
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Vista por:</h6>
+                    <h6 class="collapse-header">Configuraciones:</h6>
                     <a class="collapse-item" href="<?php echo $rtax; ?>rangos">Rangos</a>
                     <a class="collapse-item" href="<?php echo $rtax; ?>areas">Areas y Programas</a>
                     <a class="collapse-item" href="<?php echo $rtax; ?>admision">Admisión</a>
                     <a class="collapse-item" href="<?php echo $rtax; ?>cursos">Cursos</a>
+                </div>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClases"
+               aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="bi bi-speedometer2 mr-2"></i><span>Clases</span>
+            </a>
+            <div id="collapseClases" class="collapse" aria-labelledby="headingUtilities"
+                 data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Configuraciones:</h6>
+                    <a class="collapse-item" href="<?php echo $rtax; ?>docentes">Docentes</a>
                 </div>
             </div>
         </li>

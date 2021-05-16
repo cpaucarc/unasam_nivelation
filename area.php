@@ -172,7 +172,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                                                 (%)</label>
                                             <input name="min" type="number" class="form-control form-control-sm"
                                                    id="min"
-                                                   value="50"
+                                                   value="20"
                                                    required
                                                    max="100" min="0">
                                         </div>
@@ -183,7 +183,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                                                 (%)</label>
                                             <input name="max" type="number" class="form-control form-control-sm"
                                                    id="max"
-                                                   value="70"
+                                                   value="40"
                                                    required
                                                    max="100" min="0">
                                         </div>

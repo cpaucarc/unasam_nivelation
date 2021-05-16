@@ -72,18 +72,48 @@ class Student extends Person
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $pdo->beginTransaction();
 
-                $sql = "CALL spSaveQuestionsByStudent(:num, :stdataID, :rsp);";
-                $save_question = $pdo->prepare($sql);
+                $sql_verif = "SELECT COUNT(1) FROM questions WHERE student_data_id = " . $this->getStda() . ";";
 
-                foreach ($this->getQuestions() as $question) {
-                    $save_question->execute(array(
-                        ':num' => $question->getNumber(),
-                        ':stdataID' => $this->getStda(),
-                        ':rsp' => $question->getResponse()
-                    ));
-                    $save_question->closeCursor();
+                if (intval($pdo->query($sql_verif)->fetchColumn()) < 100) {
+                    $sql = "INSERT INTO questions VALUES ";
+                    foreach ($this->getQuestions() as $i => $question) {
+
+                        $sql_distID = "SELECT id FROM distributions WHERE areas_id = getAreaIDByStudentID(" . $this->getStda() . ") AND (" . $question->getNumber() . " BETWEEN dfrom AND dto);";
+                        $distID = intval($pdo->query($sql_distID)->fetchColumn());
+
+                        if ($distID > 0) {
+                            $sql_verif_question = "SELECT COUNT(1) FROM questions WHERE 
+                                     number = " . $question->getNumber() . " AND 
+                                     student_data_id = " . $this->getStda() . " AND 
+                                     responses_id = " . $question->getResponse() . " AND 
+                                     distributions_id = " . $distID . ";";
+
+                            if (intval($pdo->query($sql_verif_question)->fetchColumn()) === 0) {
+                                if ($i > 0) {
+                                    $sql .= ", ";
+                                }
+                                $sql .= "(null, " . $question->getNumber() . ", " . $this->getStda() . ", " .
+                                    $question->getResponse() . ", " . $distID . ")";
+                            }
+                        }
+                    }
+                    $sql .= ";";
+
+                    if ($sql !== "INSERT INTO questions VALUES ;") { //verificamos que la consulta tenga un valor para insertar
+                        $save_question = $pdo->prepare($sql);
+                        $save_question->execute(array(
+                            ':num' => $question->getNumber(),
+                            ':stdataID' => $this->getStda(),
+                            ':rsp' => $question->getResponse()
+                        ));
+                        $save_question->closeCursor();
+                        return $pdo->commit();
+                    } else {
+                        return true; //ya no hay preguntas que guardar, todo OK
+                    }
+                } else {
+                    return true; // el estudiante ya tiene todas sus preguntas, todo OK
                 }
-                return $pdo->commit();
             } catch (Exception $e) {
                 $pdo->rollBack();
                 echo "La operación falló: " . $e->getMessage();
@@ -105,6 +135,34 @@ class Student extends Person
                 $pdo->beginTransaction();
 
                 $sql = "CALL spDoCourseClassification(:stdtID)";
+                $clasify = $pdo->prepare($sql);
+
+                $clasify->execute(array(
+                    ':stdtID' => $this->getStda()
+                ));
+                $clasify->closeCursor();
+                return $pdo->commit();
+            } catch (Exception $e) {
+                $pdo->rollBack();
+                echo "La operación falló: " . $e->getMessage();
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public function doClasificationOfDimensions()
+    {
+        $connection = new MySqlConnection();
+        if ($connection and $this->getStda() > 0) {
+            $pdo = $connection->getConnection();
+
+            try {
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $pdo->beginTransaction();
+
+                $sql = "CALL spDoDimensionClassification(:stdtID)";
                 $clasify = $pdo->prepare($sql);
 
                 $clasify->execute(array(
@@ -260,7 +318,7 @@ class Student extends Person
         return $this->process;
     }
 
-    public function setProcess( $process)
+    public function setProcess($process)
     {
         $this->process = $process;
         return $this;
@@ -271,7 +329,7 @@ class Student extends Person
         return $this->score;
     }
 
-    public function setScore( $score)
+    public function setScore($score)
     {
         $this->score = $score;
         return $this;
@@ -293,7 +351,7 @@ class Student extends Person
         return $this->blank;
     }
 
-    public function setBlank( $blank)
+    public function setBlank($blank)
     {
         $this->blank = $blank;
         return $this;
@@ -315,7 +373,7 @@ class Student extends Person
         return $this->bad;
     }
 
-    public function setBad( $bad)
+    public function setBad($bad)
     {
         $this->bad = $bad;
         return $this;

@@ -84,7 +84,7 @@ class Card {
                 </div>
                 <div class="col col-4 rounded-right d-block text-center list-group-item-action border-left border-top border-right border-bottom">
                     <div class="py-2 px-2">
-                        <i class="bi bi-dash-circle-fill text-secondary"></i>
+                        <i class="fas fa-minus-circle text-secondary"></i>
                         <h5 class="mb-0 font-weight-bold text-secondary">${data.blank}</h5>
                         <span class="small text-gray-600">En blanco</span>
                     </div>

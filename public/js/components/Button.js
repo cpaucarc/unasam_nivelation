@@ -105,4 +105,21 @@ class Button {
         return btn;
     }
 
+    createBtnUpdateWText(fun, ...params) {
+        let btn = this.createIconBtn('<i class="bi bi-pencil-square mr-1"></i>Modificar', fun, ...params);
+        btn.classList.add('btn');
+        btn.classList.add('btn-light');
+        btn.classList.add('text-dark');
+        btn.classList.add('btn-sm');
+        return btn;
+    }
+
+    createBtnJob(fun, ...params) {
+        let btn = this.createIconBtn('<i class="bi bi-person-bounding-box"></i>', fun, ...params);
+        btn.classList.add('btn');
+        btn.classList.add('btn-outline-light');
+        btn.classList.add('text-primary');
+        btn.classList.add('btn-sm');
+        return btn;
+    }
 }

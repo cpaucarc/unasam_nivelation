@@ -18,8 +18,42 @@ class processModel
             $pdo = $connection->getConnection();
             $sql = "INSERT INTO process VALUES (null, ?);";
             $pdo->prepare($sql)->execute([
-                $this->name
+                $this->getName()
             ]);
+
+            $sql = "SELECT id FROM process WHERE name = '" . $this->getName() . "';";
+            $this->setId(intval($pdo->query($sql)->fetchColumn()));
+
+            $courses = $this->getCoursesID();
+            $areas = $this->getAreasID();
+            $dimensions = $this->getDimensionsID();
+            $min = 20;
+            $max = 30;
+
+            $query = "INSERT INTO ranks VALUES ";
+            foreach ($courses as $course) {
+                foreach ($areas as $area) {
+                    $query .= "(null, $min, $max, $area, $course, " . $this->getId() . "), ";
+                }
+            }
+            $query = substr($query, 0, strlen($query) - 2) . ";";
+
+            $pdo->query($query);
+
+            $query = "INSERT INTO dimension_ranks VALUES ";
+            foreach ($dimensions as $dimension) {
+                foreach ($areas as $area) {
+                    if (intval($dimension) === 2 or intval($dimension) === 3 or intval($dimension) === 7) {
+                        $query .= "(null, $min, $area, $dimension, " . $this->getId() . "), ";
+                    } else {
+                        $query .= "(null, 0, $area, $dimension, " . $this->getId() . "), ";
+                    }
+                }
+            }
+            $query = substr($query, 0, strlen($query) - 2) . ";";
+
+            $pdo->query($query);
+
             return true;
         } else {
             return false;
@@ -69,6 +103,48 @@ class processModel
         } else {
             return null;
         }
+    }
+
+    private function getCoursesID()
+    {
+        $connection = new MySqlConnection();
+        $pdo = $connection->getConnection();
+
+        $sql = "SELECT id FROM courses";
+        $courses = array();
+        foreach ($pdo->query($sql) as $row) {
+            array_push($courses, $row['id']);
+        }
+
+        return $courses;
+    }
+
+    private function getAreasID()
+    {
+        $connection = new MySqlConnection();
+        $pdo = $connection->getConnection();
+
+        $sql = "SELECT id FROM areas";
+        $areas = array();
+        foreach ($pdo->query($sql) as $row) {
+            array_push($areas, $row['id']);
+        }
+
+        return $areas;
+    }
+
+    private function getDimensionsID()
+    {
+        $connection = new MySqlConnection();
+        $pdo = $connection->getConnection();
+
+        $sql = "SELECT id FROM dimensions";
+        $dimensions = array();
+        foreach ($pdo->query($sql) as $row) {
+            array_push($dimensions, $row['id']);
+        }
+
+        return $dimensions;
     }
 
     function getAllProcess()

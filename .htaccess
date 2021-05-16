@@ -40,6 +40,9 @@ RewriteRule ^perfil$ profile.php
 #directory
 RewriteRule ^archivos$ directory.php
 
+#teachers
+RewriteRule ^docentes$ teacher.php
+
 #reports
 RewriteRule ^reporte/estudiante$ app/reports/student.php
 RewriteRule ^reporte/curso$ app/reports/course.php

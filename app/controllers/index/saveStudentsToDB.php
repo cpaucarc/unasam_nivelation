@@ -28,26 +28,38 @@ if (!is_null($students)) {
             if ($student->saveStudentToDB()) {
                 if ($student->saveQuestionsToDB()) {
                     if ($student->doClasificationOfCourses()) {
-                        $saveSuccess++;
+                        if ($student->doClasificationOfDimensions()) {
+                            $saveSuccess++;
+                        } else {
+                            array_push($saveFailed, array(
+                                'num' => $student->getNum(),
+                                'name' => ucwords(strtolower($student->getLastname() . ' ' . $student->getName())),
+                                'code' => $student->getCode(),
+                                'message' => 'Falló al clasificar dimensiones.'
+                            ));
+                        }
                     } else {
                         array_push($saveFailed, array(
                             'num' => $student->getNum(),
                             'name' => ucwords(strtolower($student->getLastname() . ' ' . $student->getName())),
-                            'code' => $student->getCode()
+                            'code' => $student->getCode(),
+                            'message' => 'Falló al clasificar cursos.'
                         ));
                     }
                 } else {
                     array_push($saveFailed, array(
                         'num' => $student->getNum(),
                         'name' => ucwords(strtolower($student->getLastname() . ' ' . $student->getName())),
-                        'code' => $student->getCode()
+                        'code' => $student->getCode(),
+                        'message' => 'Falló al guardar las preguntas.'
                     ));
                 }
             } else {
                 array_push($saveFailed, array(
                     'num' => $student->getNum(),
                     'name' => ucwords(strtolower($student->getLastname() . ' ' . $student->getName())),
-                    'code' => $student->getCode()
+                    'code' => $student->getCode(),
+                    'message' => 'Falló al guardar estudiante.'
                 ));
             }
         }

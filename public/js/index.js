@@ -34,7 +34,8 @@ uploadForm.onsubmit = (e) => {
                         <thead class="thead-light">
                         <tr><th><small><strong>Número</strong></small></th>
                             <th><small><strong>Código</strong></small></th>
-                            <th><small><strong>Nombre del estudiante</strong></small></th>
+                            <th><small><strong>Estudiante</strong></small></th>
+                            <th><small><strong>Donde falló</strong></small></th>
                         </tr>
                         </thead><tbody>`;
                     let students = data.response[0]['students'];
@@ -43,6 +44,7 @@ uploadForm.onsubmit = (e) => {
                             <td><small>${std.num}</small></td>
                             <td><small>${std.code}</small></td>
                             <td><small>${std.name}</small></td>
+                            <td><small>${std.message}</small></td>
                             </tr>`;
                     });
                     table += '</tbody></table>';
