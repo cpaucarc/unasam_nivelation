@@ -54,6 +54,23 @@ class RanksModel
         }
     }
 
+    function updateDimensionRankValues($dimRankID, $min)
+    {
+        if (intval($dimRankID) > 0) {
+            $connection = new MySqlConnection();
+            if ($connection) {
+                $pdo = $connection->getConnection();
+                $sql = "UPDATE dimension_ranks SET min = $min WHERE id = $dimRankID;";
+                $pdo->query($sql);
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
     function getAllRanksByProcessID($process_denomination)
     {
         $conn = (new MySqlConnection())->getConnection();
@@ -74,8 +91,27 @@ class RanksModel
         } else {
             return json_encode('{"error" : "No hay datos"}');
         }
+    }
 
-
+    function getAllRankDimensionsByProcessID($process_denomination)
+    {
+        $conn = (new MySqlConnection())->getConnection();
+        if (isset($process_denomination)) {
+            $sql = sprintf("SELECT * FROM vranks_dimensions WHERE processid = '%s';", $process_denomination);
+            $response['ranks'] = array();
+            foreach ($conn->query($sql) as $row) {
+                $rank = array();
+                $rank['id'] = $row['id'];
+                $rank['dimension'] = $row['dimension'];
+                $rank['area'] = $row['area'];
+                $rank['process'] = $row['process'];
+                $rank['minimum'] = $row['minimum'];
+                array_push($response['ranks'], $rank);
+            }
+            return json_encode($response);
+        } else {
+            return json_encode('{"error" : "No hay datos"}');
+        }
     }
 
     /* ------------ Getters and Setters ------------ */

@@ -72,13 +72,11 @@ function getLastProcess() {
 function fillTable(process) {
     tbody.innerHTML = '';
     $('#table-process').DataTable().clear().destroy();
-    let num = 1;
-    process.forEach(p => {
-        let row = table.createRow(num, p.name);
+    process.forEach((p, i) => {
+        let row = table.createRow((i+1), p.name);
         let btnEdit = button.createBtnEdit(updateProcess, p.id, p.name);
         row.appendChild(table.createCell(btnEdit));
         tbody.appendChild(row);
-        num++;
     });
     $('#table-process').DataTable();
 }

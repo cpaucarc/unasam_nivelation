@@ -3,6 +3,7 @@ const notStdInfo = document.getElementById('not-student-card');
 const btSearch = document.getElementById('btSearch');
 const txSearch = document.getElementById('txSearch');
 const tbBody = document.getElementById('table-courses-body');
+const tbBodyDim = document.getElementById('table-dimensions-body');
 const tbQuestions1 = document.getElementById('questions-1');
 const tbQuestions2 = document.getElementById('questions-2');
 const stdID = parseInt(document.getElementById('stdID').value);
@@ -17,6 +18,7 @@ window.onload = function () {
     if (stdID > 0) {
         getStudentInfoByID(stdID);
         getCoursesByID(stdID);
+        getDimensionsByID(stdID);
     } else {
         stdInfoCard.innerHTML = '';
         notStdInfo.innerHTML = card.getNotStudentSelectedCard();
@@ -27,8 +29,9 @@ window.onload = function () {
 
 btSearch.addEventListener('click', (e) => {
     e.preventDefault();
-    getStudentInfo(txSearch.value)
-    getCoursesByFullname(txSearch.value)
+    getStudentInfo(txSearch.value);
+    getCoursesByFullname(txSearch.value);
+    getDimensionsByFullname(txSearch.value);
 })
 
 txSearch.addEventListener('keyup', (e) => {
@@ -36,8 +39,9 @@ txSearch.addEventListener('keyup', (e) => {
 
     if (e.keyCode === 13) {
         e.preventDefault();
-        getStudentInfo(txSearch.value)
-        getCoursesByFullname(txSearch.value)
+        getStudentInfo(txSearch.value);
+        getCoursesByFullname(txSearch.value);
+        getDimensionsByFullname(txSearch.value);
     }
 });
 
@@ -83,6 +87,24 @@ function getCoursesByFullname(fullname) {
         });
 }
 
+function getDimensionsByFullname(fullname) {
+    let formData = new FormData();
+    formData.append('fullname', fullname);
+
+    fetch(`${routeAux}app/controllers/student/getDimensionsOfStudent.php/`, {
+        method: 'POST',
+        headers: {
+            "Accept": "application/json"
+        },
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+            data = data.dimensions;
+            fillStudentDimensions(data);
+        });
+}
+
 function getCoursesByID(id) {
     let formData = new FormData();
     formData.append('stdID', id);
@@ -98,6 +120,24 @@ function getCoursesByID(id) {
         .then(data => {
             data = data.courses;
             fillStudentData(data);
+        });
+}
+
+function getDimensionsByID(id) {
+    let formData = new FormData();
+    formData.append('stdID', id);
+
+    fetch(`${routeAux}app/controllers/student/getDimensionsOfStudentByID.php/`, {
+        method: 'POST',
+        headers: {
+            "Accept": "application/json"
+        },
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+            data = data.dimensions;
+            fillStudentDimensions(data);
         });
 }
 
@@ -135,6 +175,17 @@ function fillStudentData(data) {
         let row = table.createRow(num, c.course, `${c.percent}%`);
         row.appendChild(table.createCell(badge.createBadge(c.stat, c.num)));
         tbBody.appendChild(row);
+        num++;
+    });
+}
+
+function fillStudentDimensions(data) {
+    tbBodyDim.innerHTML = '';
+    let num = 1;
+    data.forEach(dim => {
+        let row = table.createRow(num, dim.dimension, `${dim.percent}%`);
+        row.appendChild(table.createCell(badge.createBadge(dim.stat, dim.num)));
+        tbBodyDim.appendChild(row);
         num++;
     });
 }

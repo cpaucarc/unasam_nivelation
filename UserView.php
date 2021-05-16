@@ -56,8 +56,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                                    class="col-sm-3 col-form-label col-form-label-sm text-right">DNI</label>
                             <div class="col-sm-9">
                                 <input type="number" class="form-control form-control-sm" id="user_dni"
-                                       name="user_dni" required
-                                       maxlength="8" minlength="8" size="8">
+                                       name="user_dni" pattern="\d{8}" title="El DNI debe tener 8 dígitos" required>
                             </div>
                         </div>
                         <div class="form-group row">

@@ -20,8 +20,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <div class="form-group">
                                 <label for="dni" class="col-form-label col-form-label-sm">DNI:</label>
                                 <input type="number" class="form-control form-control-sm" id="dni" name="dni"
-                                       minlength="8"
-                                       maxlength="8" value="<?php echo $_SESSION['user_logged']['dni']; ?>" required>
+                                       pattern="\d{8}" title="El DNI debe tener 8 dígitos" value="<?php echo $_SESSION['user_logged']['dni']; ?>" required>
                             </div>
                             <div class="form-group">
                                 <label for="lastname" class="col-form-label col-form-label-sm">Apellidos:</label>

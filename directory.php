@@ -74,7 +74,7 @@ if (intval($_SESSION['user_logged']['utid']) === 1) {
                     <h4><i class="bi bi-paperclip"></i>Lo sentimos, actualmente no hay archivos para mostrar</h4>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <img src="public/images/files.svg" class="w-50 p-5" alt="imagen de bienvenida">
+                    <img src="public/images/files.svg" class="w-50 p-5" alt="imagen de bienvenida" loading="lazy">
                 </div>
             </div>
         </div>

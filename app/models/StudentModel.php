@@ -100,6 +100,26 @@ class StudentModel
         return json_encode($response);
     }
 
+    public function getDimensionsOfStudentByID()
+    {
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "CALL spShowStudentDimensions($this->id);";
+
+        $response['dimensions'] = array();
+
+        foreach ($conn->query($sql) as $row) {
+            $dim = array();
+
+            $dim['dimension'] = $row['dimension'];
+            $dim['percent'] = $row['percent'];
+            $dim['stat'] = $row['stat'];
+            $dim['num'] = $row['num'];
+
+            array_push($response['dimensions'], $dim);
+        }
+        return json_encode($response);
+    }
+
     public function getCoursesOfStudentByFullName($fullname)
     {
         $conn = (new MySqlConnection())->getConnection();
@@ -116,6 +136,26 @@ class StudentModel
             $course['num'] = $row['num'];
 
             array_push($response['courses'], $course);
+        }
+        return json_encode($response);
+    }
+
+    public function getDimensionsOfStudentByFullName($fullname)
+    {
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "CALL spShowStudentDimensionsByFullName('" . $fullname . "');";
+
+        $response['dimensions'] = array();
+
+        foreach ($conn->query($sql) as $row) {
+            $dim = array();
+
+            $dim['dimension'] = $row['dimension'];
+            $dim['percent'] = $row['percent'];
+            $dim['stat'] = $row['stat'];
+            $dim['num'] = $row['num'];
+
+            array_push($response['dimensions'], $dim);
         }
         return json_encode($response);
     }

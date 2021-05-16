@@ -42,7 +42,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-light btn-sm" type="button" data-dismiss="modal">Cancelar</button>
-                <form action="make-logout">
+                <form action="/nivelation/make-logout">
                     <button class="btn btn-danger btn-sm" type="submit">Cerrar sesión</button>
                 </form>
             </div>

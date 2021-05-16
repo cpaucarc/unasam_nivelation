@@ -9,11 +9,18 @@ $error_message = $_SESSION['login']['error'] ?? '';
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Sistema de Nivelación de Ingresantes">
+    <meta name="author" content="UNASAM">
     <link rel="icon" href="public/images/ogcushort.png" type="image/x-icon"/>
     <title>Login</title>
-    <?php @include_once "app/components/dependencies.php" ?>
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+
+    <!-- Own -->
+    <link rel="stylesheet" href="public/css/nivelation.css">
+    <link rel="stylesheet" href="public/css/style.css">
 
 </head>
 
@@ -24,7 +31,7 @@ $error_message = $_SESSION['login']['error'] ?? '';
 
         <div class="col-11 col-md-6 col-xl-4 px-3">
             <div class="text-center py-3">
-                <img src="public/images/ogcushort.png" class="img-fluid w-25" alt="Logo">
+                <img src="public/images/ogcushort.png" class="img-fluid w-25" alt="Logo" loading="lazy">
                 <h5 class="font-weight-lighter text-dark">
                     Iniciar sesión en SNE-UNASAM
                 </h5>
@@ -32,14 +39,10 @@ $error_message = $_SESSION['login']['error'] ?? '';
 
             <?php
             if (strlen($error_message) > 0) { ?>
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <div class="alert alert-danger " role="alert">
                     <small><?php echo $_SESSION['login']['error'] ?? ''; ?></small>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
                 </div>
             <?php } ?>
-
 
             <div class="card bg-light">
                 <div class="card-body px-4 py-3">
@@ -68,9 +71,6 @@ $error_message = $_SESSION['login']['error'] ?? '';
         </div>
     </div>
 </div>
-<!-- Custom scripts for all pages-->
-<script src="public/js/sb-admin-2.min.js"></script>
-<script src="public/js/login.js"></script>
 </body>
 
 </html>

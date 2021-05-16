@@ -98,6 +98,27 @@ class SchoolsModel
         return json_encode($response);
     }
 
+
+    public function getSchoolsByAreaID($areaID)
+    {
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "SELECT * FROM programs WHERE areas_id = " . $areaID . ";";
+
+        $response['programs'] = array();
+
+        foreach ($conn->query($sql) as $row) {
+            $school = array();
+
+            $school['name'] = $row['name'];
+            $school['id'] = $row['id'];
+            $school['areas_id'] = $row['areas_id'];
+
+            array_push($response['programs'], $school);
+        }
+        return json_encode($response);
+    }
+
+
     public function getId()
     {
         return $this->id;

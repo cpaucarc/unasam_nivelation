@@ -3,8 +3,8 @@
 
 class Question
 {
-    private $number;
-    private $response;
+    private $number; // int
+    private $response; // float: 0: blanco, 4: correcto, -0.5 incorrecto
 
     public function __construct($number, $response)
     {
@@ -25,7 +25,13 @@ class Question
 
     public function getResponse()
     {
-        return $this->response;
+        if ($this->response > 0) { // response = 4.0
+            return 1; //Correcto
+        } elseif ($this->response < 0) { // response = -0.5
+            return 2; //Incorrecto
+        } else { // response = 0
+            return 3;//Blanco
+        }
     }
 
     public function setResponse($response)
