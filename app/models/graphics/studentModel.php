@@ -7,11 +7,15 @@ class courseModel
     {
     }
 
-    function getSchoolStudents($process)
+    function getSchoolStudents($id, $byTipe)
     {
         $conn = (new MySqlConnection())->getConnection();
-
-        $sql = "SELECT status, COUNT(students) as students FROM studentsxstatus WHERE process='$process' GROUP BY status;";
+        if ($byTipe === 'Dimensiones') {
+            $sql = "call spCountStatusDimension($id) ";
+        }else if($byTipe==='Cursos'){
+            $sql = "call spCountStatusCourse($id) ";
+        }
+        
         $arreglo = array();
         $consulta = $conn->query($sql);
 

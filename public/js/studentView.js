@@ -16,6 +16,7 @@ let navCourse = document.getElementById('navCourse');
 let navDimension = document.getElementById('navDimension');
 
 let studentPdf = document.getElementById('studentPdf');
+let studentChart = document.getElementById('studentChart');
 
 card = new Card();
 table = new Table();
@@ -44,7 +45,7 @@ navDimension.addEventListener('click', (e) => {
 
 navCourse.addEventListener('click', (e) => {
     e.preventDefault();
-    byTipe.value="curso";
+    byTipe.value = "curso";
     tipePdf.innerHTML = 'curso';
 });
 
@@ -228,12 +229,14 @@ function getStudentInfoByID(id) {
 
             stdInfoCard.innerHTML = card.getStudentInfoCard(data);
             studentPdf.value = data.id;
+            studentChart.value = data.id;
         })
         .catch(function () {
             stdInfoCard.innerHTML = '';
             notStdInfo.innerHTML = card.getNotStudentSelectedCard();
             tbBody.innerHTML = '';
             studentPdf.value = '0';
+            studentChart.value = '0';
         });
 }
 
@@ -253,12 +256,14 @@ function getStudentInfo(fullname) {
             stdInfoCard.innerHTML = card.getStudentInfoCard(data);
             notStdInfo.innerHTML = '';
             studentPdf.value = data.id;
+            studentChart.value = data.id;
         })
         .catch(function () {
             stdInfoCard.innerHTML = '';
             notStdInfo.innerHTML = card.getNotStudentSelectedCard();
             tbBody.innerHTML = '';
             studentPdf.value = '0';
+            studentChart.value = '0';
         });
 }
 

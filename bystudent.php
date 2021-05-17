@@ -64,6 +64,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                                     <form action="<?php echo $routeAux; ?>estudiante-grafico" target="_blank"
                                           method="post"
                                           class="mx-2">
+                                          <input id="studentChart" name="studentChart" required type="text">
                                         <button type="submit" class="dropdown-item">
                                             <i class="bi bi-pie-chart-fill mr-2"></i> Ver Graficos
                                         </button>

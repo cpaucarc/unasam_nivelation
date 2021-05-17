@@ -1,41 +1,43 @@
-const cbProcess = document.getElementById('process');
-const badge_process = document.querySelectorAll('.badge-process');
+const badge_tipe = document.querySelectorAll('.badge-tipe');
 const cbTipeChart = document.getElementById('tipeChart');
+const cbByTipe = document.getElementById('byTipe');
+
+
+const idStudent = document.getElementById('idStudent');
+
 //default
 let _tip_tipeValueeText = 'Diagrama de barras vertical';
 let _tipeValue = 'bar';
-let _process;
-
-select = new Select();
+let _byTipe='Dimensiones';
 
 window.onload = () => {
-    fillWhitProcess();
     document.getElementById('view-title').innerText = 'Diagramas por estdos de estudiantes';
+    badge_tipe.forEach((texto) => {
+        texto.innerText = _byTipe;
+    });
+    Diagrams(idStudent.value,_byTipe, _tipeValue, _tip_tipeValueeText);
+    alert(idStudent.value+_byTipe+ _tipeValue+ _tip_tipeValueeText);
 }
 cbTipeChart.addEventListener('change', () => {
     _tip_tipeValueeText = cbTipeChart.options[cbTipeChart.selectedIndex].text;
     _tipeValue = cbTipeChart.value;
-    if (_tipeValue !== '') {
-        Diagrams(_process, _tipeValue, _tip_tipeValueeText);
-    }
+    Diagrams(idStudent.value,_byTipe, _tipeValue, _tip_tipeValueeText);
 });
 
-cbProcess.addEventListener('change', () => {
-    let _processValue = 0;
-    _process = cbProcess.options[cbProcess.selectedIndex].text;
-    _processValue = parseInt(cbProcess.value);
-    if (_processValue > 0) {
-
-        Diagrams(_process, _tipeValue, _tip_tipeValueeText);
-        badge_process.forEach((texto) => {
-            texto.innerText = _process;
-        });
-    }
+cbByTipe.addEventListener('change', () => {
+    _by_tipeValueeText = cbByTipe.options[cbByTipe.selectedIndex].text;
+    _by_tipeValue = cbByTipe.value;
+    _byTipe=_by_tipeValueeText;
+    badge_tipe.forEach((texto) => {
+        texto.innerText = _by_tipeValueeText;
+    });
+    Diagrams(idStudent.value,_by_tipeValueeText, _tipeValue, _tip_tipeValueeText);
 });
 
-function Diagrams(process, tipe, title) {
+function Diagrams(id, byTipe,tipe, title) {
     let formData = new FormData();
-    formData.append('process', process);
+    formData.append('id', id);
+    formData.append('byTipe', byTipe);
     fetch('http://localhost/nivelation/app/controllers/graphics/student.php', {
         method: 'POST',
         headers: {
@@ -48,6 +50,7 @@ function Diagrams(process, tipe, title) {
             var lists = [];
             var numbers = [];
             var colors = [];
+            console.log(data);
             for (var i = 0; i < data.length; i++) {
                 lists.push(data[i][0]);
                 numbers.push(data[i][1]);
@@ -98,29 +101,3 @@ function colorRGB() {
     return "rgb" + coolor;
 }
 
-
-function fillWhitProcess() {
-    fetch('app/controllers/process/getAllProcess.php/', {
-        method: 'GET',
-        headers: {
-            "Accept": "application/json"
-        }
-    })
-        .then(response => response.json())
-        .then(data => {
-            data = data.process;
-            //agregado automatico del procesos final
-            badge_process.forEach((texto) => {
-                texto.innerText = data[0].name;
-                _process = data[0].name;
-                Diagrams(_process, _tipeValue, _tip_tipeValueeText);
-            });
-
-            //agregado automatico del procesos final
-            cbProcess.innerHTML = ``;
-            cbProcess.appendChild(select.createOption(0, 'Selecciona...'));
-            data.forEach(proc => {
-                cbProcess.appendChild(select.createOption(proc.id, proc.name));
-            });
-        });
-}
