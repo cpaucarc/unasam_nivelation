@@ -71,7 +71,7 @@ class PDF_Student
         $this->pdf->Cell($this->width3C, $this->heightTableCell, utf8_decode('Curso'), 1, 0, 'L', 1);
         $this->pdf->Cell($this->width2C, $this->heightTableCell, utf8_decode('Porcentaje *'), 1, 0, 'L', 1);
         $this->pdf->Cell($this->width2C, $this->heightTableCell, utf8_decode('Correctas **'), 1, 0, 'L', 1);
-        $this->pdf->Cell(0, $this->heightTableCell, utf8_decode('Valoración'), 1, 1, 'L', 1);
+        $this->pdf->Cell(0, $this->heightTableCell, utf8_decode('Estado ***'), 1, 1, 'L', 1);
     }
 
     function TableBody($num, $course, $percent, $right, $status)

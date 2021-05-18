@@ -7,7 +7,16 @@ const tbBodyDim = document.getElementById('table-dimensions-body');
 const tbQuestions1 = document.getElementById('questions-1');
 const tbQuestions2 = document.getElementById('questions-2');
 const stdID = parseInt(document.getElementById('stdID').value);
-const stdIDPDF = document.getElementById('studentPdf');
+
+/*Report */
+
+let byTipe = document.getElementById('byTipe');
+let tipePdf = document.getElementById('tipePdf');
+let navCourse = document.getElementById('navCourse');
+let navDimension = document.getElementById('navDimension');
+
+let studentPdf = document.getElementById('studentPdf');
+let studentChart = document.getElementById('studentChart');
 
 card = new Card();
 table = new Table();
@@ -24,8 +33,21 @@ window.onload = function () {
         notStdInfo.innerHTML = card.getNotStudentSelectedCard();
     }
     document.getElementById('view-title').innerText = 'Vista por Estudiante';
+    tipePdf.innerHTML = 'dimension';
+    byTipe.value = 'dimension';
 }
 
+navDimension.addEventListener('click', (e) => {
+    e.preventDefault();
+    byTipe.value = 'dimension';
+    tipePdf.innerHTML = 'dimension';
+});
+
+navCourse.addEventListener('click', (e) => {
+    e.preventDefault();
+    byTipe.value = "curso";
+    tipePdf.innerHTML = 'curso';
+});
 
 btSearch.addEventListener('click', (e) => {
     e.preventDefault();
@@ -206,13 +228,15 @@ function getStudentInfoByID(id) {
             notStdInfo.innerHTML = '';
 
             stdInfoCard.innerHTML = card.getStudentInfoCard(data);
-            stdIDPDF.value = data.id;
+            studentPdf.value = data.id;
+            studentChart.value = data.id;
         })
         .catch(function () {
             stdInfoCard.innerHTML = '';
             notStdInfo.innerHTML = card.getNotStudentSelectedCard();
             tbBody.innerHTML = '';
-            stdIDPDF.value = '0';
+            studentPdf.value = '0';
+            studentChart.value = '0';
         });
 }
 
@@ -231,13 +255,15 @@ function getStudentInfo(fullname) {
         .then(data => {
             stdInfoCard.innerHTML = card.getStudentInfoCard(data);
             notStdInfo.innerHTML = '';
-            stdIDPDF.value = data.id;
+            studentPdf.value = data.id;
+            studentChart.value = data.id;
         })
         .catch(function () {
             stdInfoCard.innerHTML = '';
             notStdInfo.innerHTML = card.getNotStudentSelectedCard();
             tbBody.innerHTML = '';
-            stdIDPDF.value = '0';
+            studentPdf.value = '0';
+            studentChart.value = '0';
         });
 }
 
