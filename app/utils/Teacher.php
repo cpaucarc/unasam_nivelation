@@ -40,6 +40,22 @@ class Teacher extends Person
         return json_encode($response);
     }
 
+    public function getTeachersByDimID($dimID)
+    {
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "SELECT id, (SELECT dni FROM people where id = people_id) as dni, (SELECT concat(lastname, ' ', name) FROM people where id = people_id) teacher, (SELECT name FROM courses WHERE id = courses_id) course FROM teachers WHERE courses_id IN (SELECT id FROM courses WHERE dimensions_id = $dimID) AND status = 1;";
+        $response['teachers'] = array();
+        foreach ($conn->query($sql) as $row) {
+            $teacher = array();
+            $teacher['id'] = $row['id']; //teacherID
+            $teacher['dni'] = $row['dni'];
+            $teacher['teacher'] = $row['teacher'];
+            $teacher['course'] = $row['course'];
+            array_push($response['teachers'], $teacher);
+        }
+        return json_encode($response);
+    }
+
     public function saveNUpdateTeacher()
     {
         $connection = new MySqlConnection();

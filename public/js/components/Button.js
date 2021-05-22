@@ -21,6 +21,10 @@ class Button {
         let iconBtn = document.createElement('button');
 
         iconBtn.innerHTML = text;
+        iconBtn.setAttribute('type', 'button');
+        iconBtn.classList.add('btn');
+        iconBtn.classList.add('btn-sm');
+
 
         if (fun) {
             iconBtn.addEventListener("click", function () {
@@ -40,27 +44,29 @@ class Button {
 
     createBtnEdit(fun, ...params) {
         let btn = this.createIconBtn('<i class="bi bi-pencil-square"></i>', fun, ...params);
-        btn.classList.add('btn');
-        btn.classList.add('btn-light');
-        btn.classList.add('btn-sm');
+        btn.classList.add('btn-outline-light');
+        btn.classList.add('text-dark');
         return btn;
     }
 
     createBtnDelete(fun, ...params) {
         let btn = this.createIconBtn('<i class="bi bi-trash mr-1"></i>Eliminar', fun, ...params);
-        btn.classList.add('btn');
-        btn.classList.add('btn-light');
+        btn.classList.add('btn-outline-light');
         btn.classList.add('text-danger');
-        btn.classList.add('btn-sm');
+        return btn;
+    }
+
+    createBtnDeleteNoText(fun, ...params) {
+        let btn = this.createIconBtn('<i class="bi bi-trash"></i>', fun, ...params);
+        btn.classList.add('btn-link');
+        btn.classList.add('text-danger');
         return btn;
     }
 
     createBtnDownload(fun, ...params) {
         let btn = this.createIconBtn('<i class="bi bi-cloud-download mr-1"></i>Descargar', fun, ...params);
-        btn.classList.add('btn');
-        btn.classList.add('btn-light');
+        btn.classList.add('btn-outline-light');
         btn.classList.add('text-success');
-        btn.classList.add('btn-sm');
         return btn;
     }
 
@@ -72,17 +78,13 @@ class Button {
         buttons.forEach(btn => {
             group.appendChild(btn);
         })
-
         return group;
-
     }
 
     createIconAndTextBtn(icon, text, fun, ...params) {
         let btn = this.createIconBtn(icon, fun, ...params);
         btn.appendChild(document.createTextNode(text));
-        btn.classList.add('btn');
         btn.classList.add('btn-light');
-        btn.classList.add('btn-sm');
         btn.classList.add('text-primary');
         btn.classList.add('w-100');
         btn.classList.add('my-2');
@@ -107,19 +109,38 @@ class Button {
 
     createBtnUpdateWText(fun, ...params) {
         let btn = this.createIconBtn('<i class="bi bi-pencil-square mr-1"></i>Modificar', fun, ...params);
-        btn.classList.add('btn');
         btn.classList.add('btn-light');
         btn.classList.add('text-dark');
-        btn.classList.add('btn-sm');
         return btn;
     }
 
     createBtnJob(fun, ...params) {
         let btn = this.createIconBtn('<i class="bi bi-person-bounding-box"></i>', fun, ...params);
-        btn.classList.add('btn');
         btn.classList.add('btn-outline-light');
         btn.classList.add('text-primary');
-        btn.classList.add('btn-sm');
         return btn;
+    }
+
+    createBtnPeople(fun, ...params) {
+        let btn = this.createIconBtn('<i class="bi bi-people-fill"></i>', fun, ...params);
+        btn.classList.add('btn-outline-light');
+        btn.classList.add('text-dark');
+        return btn;
+    }
+
+    createBtnChoose(fun, ...params) {
+        let btn = this.createIconBtn('<i class="bi bi-check2-circle mr-1"></i>Elegir', fun, ...params);
+        btn.classList.add('btn-outline-light');
+        btn.classList.add('text-dark');
+        return btn;
+    }
+
+    disableButton(btn, condition) {
+        //Is a toggle button function
+        if (condition) {
+            btn.setAttribute('disabled', 'true');
+        } else {
+            btn.removeAttribute('disabled');
+        }
     }
 }

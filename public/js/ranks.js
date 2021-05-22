@@ -7,7 +7,7 @@ const formRank = document.getElementById('form-rank');
 const formRankDimension = document.getElementById('form-rank-dimension');
 
 var allRanks;
-var currentArea;
+var currentArea = 'A';
 var currentProcess;
 
 table = new Table();

@@ -70,6 +70,7 @@ function deleteFile(name) {
         icon: 'question',
         html: `¿Quieres eliminar el archivo <strong>${name}</strong>?`,
         showCancelButton: true,
+        cancelButtonText: 'Cancelar',
         confirmButtonText: `<i class="bi bi-trash"></i> Eliminar archivo`,
         confirmButtonColor: 'var(--danger)',
     }).then((result) => {
@@ -97,6 +98,7 @@ function deleteAllFiles() {
         icon: 'question',
         html: `¿Quieres eliminar todos los archivos?`,
         showCancelButton: true,
+        cancelButtonText: 'Cancelar',
         confirmButtonText: `<i class="bi bi-trash"></i> Eliminar todos los archivos`,
         confirmButtonColor: 'var(--danger)',
     }).then((result) => {
