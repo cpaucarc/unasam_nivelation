@@ -15,6 +15,7 @@ let byTipe = document.getElementById('byTipe');
 let tipePdf = document.getElementById('tipePdf');
 let navCourse = document.getElementById('navCourse');
 let navDimension = document.getElementById('navDimension');
+let navBasico = document.getElementById('navBasico');
 
 let studentPdf = document.getElementById('studentPdf');
 let studentChart = document.getElementById('studentChart');
@@ -35,8 +36,8 @@ window.onload = function () {
         notStdInfo.innerHTML = card.getNotStudentSelectedCard();
     }
     document.getElementById('view-title').innerText = 'Vista por Estudiante';
-    tipePdf.innerHTML = 'dimension';
-    byTipe.value = 'dimension';
+    tipePdf.innerHTML = 'basico';
+    byTipe.value = 'basico';
 }
 
 navDimension.addEventListener('click', (e) => {
@@ -49,6 +50,11 @@ navCourse.addEventListener('click', (e) => {
     e.preventDefault();
     byTipe.value = "curso";
     tipePdf.innerHTML = 'curso';
+});
+navBasico.addEventListener('click', (e) => {
+    e.preventDefault();
+    byTipe.value = "basico";
+    tipePdf.innerHTML = 'basico';
 });
 
 btSearch.addEventListener('click', (e) => {

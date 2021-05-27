@@ -3,6 +3,14 @@ const cbProcess = document.getElementById('process');
 const tbody = document.getElementById('tbody');
 
 
+
+//for fpdf
+let areaPdf_1 = document.getElementById('areaPdf_1');
+let areaPdf_2 = document.getElementById('areaPdf_2');
+let processPdf_1 = document.getElementById('processPdf_1');
+let processPdf_2 = document.getElementById('processPdf_2');
+let processChart = document.getElementById('processChart');
+
 table = new Table();
 button = new Button();
 badge = new Badge();
@@ -29,6 +37,13 @@ function getData() {
 
     if (areaID > 0 && processID > 0) {
         fillTableWhitCourses(areaID, processID);
+        var _processText = cbProcess.options[cbProcess.selectedIndex].text;
+        var _areaText = cbArea.options[cbArea.selectedIndex].text;
+        areaPdf_1.value = _areaText;
+        areaPdf_2.value = _areaText;
+        processPdf_1.value = _processText;
+        processPdf_2.value = _processText;
+        processChart.value = _processText;
     } else {
         tbody.innerHTML = '';
     }

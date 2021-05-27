@@ -61,14 +61,14 @@ class PDF_Student
         $this->pdf->Ln(5);
     }
 
-    function TableHeader()
+    function TableHeader($title)
     {
         $this->pdf->SetDrawColor(222, 226, 230);
         $this->pdf->SetLineWidth($this->cellLineWidth);
         $this->pdf->SetFillColor(233, 236, 239);
         $this->pdf->SetFont('Helvetica', 'B', $this->fontSizeTableHeader);
         $this->pdf->Cell($this->width1C, $this->heightTableCell, utf8_decode('Nº'), 1, 0, 'C', 1);
-        $this->pdf->Cell($this->width3C, $this->heightTableCell, utf8_decode('Curso'), 1, 0, 'L', 1);
+        $this->pdf->Cell($this->width3C, $this->heightTableCell, utf8_decode($title), 1, 0, 'L', 1);
         $this->pdf->Cell($this->width2C, $this->heightTableCell, utf8_decode('Porcentaje *'), 1, 0, 'L', 1);
         $this->pdf->Cell($this->width2C, $this->heightTableCell, utf8_decode('Correctas **'), 1, 0, 'L', 1);
         $this->pdf->Cell(0, $this->heightTableCell, utf8_decode('Estado ***'), 1, 1, 'L', 1);
@@ -84,6 +84,27 @@ class PDF_Student
         $this->pdf->Cell($this->width3C, $this->heightTableCell, utf8_decode($course), 1, 0, 'L');
         $this->pdf->Cell($this->width2C, $this->heightTableCell, utf8_decode($percent . '% '), 1, 0, 'C');
         $this->pdf->Cell($this->width2C, $this->heightTableCell, utf8_decode($right), 1, 0, 'L');
+        $this->pdf->Cell(0, $this->heightTableCell, utf8_decode($status), 1, 1, 'L');
+    }
+    function TableHeaderB($title)
+    {
+        $this->pdf->SetDrawColor(222, 226, 230);
+        $this->pdf->SetLineWidth($this->cellLineWidth);
+        $this->pdf->SetFillColor(233, 236, 239);
+        $this->pdf->SetFont('Helvetica', 'B', $this->fontSizeTableHeader);
+        $this->pdf->Cell($this->width1C, $this->heightTableCell, utf8_decode('Nº'), 1, 0, 'C', 1);
+        $this->pdf->Cell($this->width3C, $this->heightTableCell, utf8_decode($title), 1, 0, 'L', 1);
+        $this->pdf->Cell(0, $this->heightTableCell, utf8_decode('Estado *'), 1, 1, 'L', 1);
+    }
+
+    function TableBodyB($num, $course, $status)
+    {
+        $this->pdf->SetTextColor(73, 80, 87);
+        $this->pdf->SetFont('Helvetica', 'B', $this->fontSizeTableBody);
+        $this->pdf->Cell($this->width1C, $this->heightTableCell, $num, 1, 0, 'C');
+        $this->pdf->SetTextColor(33, 37, 41);
+        $this->pdf->SetFont('Helvetica', '', $this->fontSizeTableBody);
+        $this->pdf->Cell($this->width3C, $this->heightTableCell, utf8_decode($course), 1, 0, 'L');
         $this->pdf->Cell(0, $this->heightTableCell, utf8_decode($status), 1, 1, 'L');
     }
 }
