@@ -56,6 +56,32 @@ class Teacher extends Person
         return json_encode($response);
     }
 
+    public function getCoursesOfTeacher($teacherID)
+    {
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "SELECT 
+                    gr.id AS groupID,
+                    gr.name AS groupName,
+                    dm.name as dimensionName,
+                    ar.name as areaName,
+                    (SELECT count(1) FROM student_group WHERE groups_id = gr.id) as numStudents
+                FROM groups AS gr
+                JOIN dimensions AS dm ON dm.id = gr.dimensions_id
+                JOIN areas AS ar ON ar.id = gr.areas_id
+                WHERE gr.teachers_id = $teacherID ORDER BY ar.name ASC, gr.name ASC;";
+        $response['courses'] = array();
+        foreach ($conn->query($sql) as $row) {
+            $teacher = array();
+            $teacher['groupID'] = $row['groupID']; //teacherID
+            $teacher['groupName'] = $row['groupName'];
+            $teacher['dimensionName'] = $row['dimensionName'];
+            $teacher['areaName'] = $row['areaName'];
+            $teacher['numStudents'] = $row['numStudents'];
+            array_push($response['courses'], $teacher);
+        }
+        return json_encode($response);
+    }
+
     public function saveNUpdateTeacher()
     {
         $connection = new MySqlConnection();

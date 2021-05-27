@@ -120,7 +120,7 @@ if (intval($_SESSION['user_logged']['utid']) === 1) {
                     </button>
                 </div>
                 <div class="modal-body">
-                    <table class="table table-bordered table-sm">
+                    <table class="table border table-sm">
                         <thead class="thead-light">
                         <tr>
                             <th><small><strong>Nro</strong></small></th>

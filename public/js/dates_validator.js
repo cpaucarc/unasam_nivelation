@@ -26,7 +26,6 @@ function verifyTimeDiff(tstart, tend) {
         if (timeEnd <= time21) {
             if (timeEnd > timeStart) {
                 let minutes = getTimeDiffInMinutes(timeStart, timeEnd);
-                console.log(minutes);
                 let _sch = [120, 180, 240];
                 if (minutes > 0) {
                     if (_sch.includes(minutes)) {

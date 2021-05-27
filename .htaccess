@@ -14,6 +14,9 @@ RewriteRule ^curso$ bycourse.php
 #byprogram
 RewriteRule ^programas$ byprogram.php
 
+#byarea
+RewriteRule ^area$ byarea.php
+
 #ranks
 RewriteRule ^rangos$ rangevalues.php
 
@@ -43,10 +46,18 @@ RewriteRule ^archivos$ directory.php
 #teachers
 RewriteRule ^docentes$ teacher.php
 
+#classroms
+RewriteRule ^clases$ classroom.php
+
 #reports
 RewriteRule ^reporte/estudiante$ app/reports/student.php
 RewriteRule ^reporte/curso$ app/reports/course.php
+RewriteRule ^reporte/dimension$ app/reports/dimension.php
 RewriteRule ^reporte/programa$ app/reports/school.php
+
+#teachers
+RewriteRule ^mis-cursos$ my-courses.php
+
 
 #graphics
 RewriteRule ^estudiante-grafico$ bystudentG.php

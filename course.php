@@ -37,7 +37,7 @@ require_once $sessionStarted->getUpperPartByUserType();
             </div>
             <div class="card-body ">
                 <div class="table-responsive">
-                    <table id="example2" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <table id="example2" class="table table-striped border" cellspacing="0" width="100%">
                         <thead>
                         <tr class="text-center">
                             <th>#</th>

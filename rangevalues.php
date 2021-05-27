@@ -46,7 +46,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <div class="tab-pane fade in show active" id="for_courses" role="tabpanel">
                                 <!--Tabla-->
                                 <div class="table-responsive">
-                                    <table class="table table-sm table-bordered mt-2" id="table-ranks">
+                                    <table class="table table-sm border mt-2" id="table-ranks">
                                         <thead class="thead-light">
                                         <tr>
                                             <th scope="col"><small><strong>N°</strong></small></th>
@@ -101,7 +101,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <div class="tab-pane fade" id="for_dimensions" role="tabpanel">
                                 <!--Tabla-->
                                 <div class="table-responsive">
-                                    <table class="table table-sm table-bordered mt-2" id="table-dimension-ranks">
+                                    <table class="table table-sm border mt-2" id="table-dimension-ranks">
                                         <thead class="thead-light">
                                         <tr>
                                             <th scope="col"><small><strong>N°</strong></small></th>

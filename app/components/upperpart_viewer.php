@@ -53,6 +53,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
                     <a class="collapse-item" href="<?php echo $rtax; ?>estudiante">Vista por Estudiante</a>
                     <a class="collapse-item" href="<?php echo $rtax; ?>curso">Vista por Cursos</a>
                     <a class="collapse-item" href="<?php echo $rtax; ?>programas">Vista por Programas</a>
+                    <a class="collapse-item" href="<?php echo $rtax; ?>area">Vista por Areas</a>
                 </div>
             </div>
         </li>

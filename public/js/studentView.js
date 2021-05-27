@@ -4,6 +4,7 @@ const btSearch = document.getElementById('btSearch');
 const txSearch = document.getElementById('txSearch');
 const tbBody = document.getElementById('table-courses-body');
 const tbBodyDim = document.getElementById('table-dimensions-body');
+const tbody_basic_body = document.getElementById('tbody-dimensions-basic-body');
 const tbQuestions1 = document.getElementById('questions-1');
 const tbQuestions2 = document.getElementById('questions-2');
 const stdID = parseInt(document.getElementById('stdID').value);
@@ -19,6 +20,7 @@ window.onload = function () {
         getStudentInfoByID(stdID);
         getCoursesByID(stdID);
         getDimensionsByID(stdID);
+        getBasicDimensionsByID(stdID);
     } else {
         stdInfoCard.innerHTML = '';
         notStdInfo.innerHTML = card.getNotStudentSelectedCard();
@@ -32,6 +34,7 @@ btSearch.addEventListener('click', (e) => {
     getStudentInfo(txSearch.value);
     getCoursesByFullname(txSearch.value);
     getDimensionsByFullname(txSearch.value);
+    getBasicDimensionsByFullname(txSearch.value);
 })
 
 txSearch.addEventListener('keyup', (e) => {
@@ -42,6 +45,7 @@ txSearch.addEventListener('keyup', (e) => {
         getStudentInfo(txSearch.value);
         getCoursesByFullname(txSearch.value);
         getDimensionsByFullname(txSearch.value);
+        getBasicDimensionsByFullname(txSearch.value);
     }
 });
 
@@ -138,6 +142,56 @@ function getDimensionsByID(id) {
         .then(data => {
             data = data.dimensions;
             fillStudentDimensions(data);
+        });
+}
+
+function getBasicDimensionsByID(id) {
+    let formData = new FormData();
+    formData.append('stdID', id);
+
+    fetch(`${routeAux}app/controllers/student/getDimensionForLeveling.php/`, {
+        method: 'POST',
+        headers: {
+            "Accept": "application/json"
+        },
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+            data = data.dimensions;
+            console.log(data);
+            tbody_basic_body.innerHTML = ``;
+            data.forEach((dim, i) => {
+                let row = table.createRow((i + 1), dim.dimension);
+                let alt = badge.createBadge(dim.stat, dim.num);
+                row.appendChild(table.createCell(alt));
+                tbody_basic_body.appendChild(row);
+            })
+        });
+}
+
+function getBasicDimensionsByFullname(fullname) {
+    let formData = new FormData();
+    formData.append('fullname', fullname);
+
+    fetch(`${routeAux}app/controllers/student/getDimensionForLevelingByFullName.php/`, {
+        method: 'POST',
+        headers: {
+            "Accept": "application/json"
+        },
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+            data = data.dimensions;
+            console.log(data);
+            tbody_basic_body.innerHTML = ``;
+            data.forEach((dim, i) => {
+                let row = table.createRow((i + 1), dim.dimension);
+                let alt = badge.createBadge(dim.stat, dim.num);
+                row.appendChild(table.createCell(alt));
+                tbody_basic_body.appendChild(row);
+            })
         });
 }
 

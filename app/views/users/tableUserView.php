@@ -7,7 +7,7 @@ $sql = "SELECT * FROM vusers ORDER BY lastname;";
 ?>
 
 <div class="table-responsive">
-    <table class="table table-striped table-bordered" cellspacing="0" width="100%" id="table-users">
+    <table class="table table-striped border" cellspacing="0" width="100%" id="table-users">
         <thead>
         <tr>
             <th scope="col">#</th>

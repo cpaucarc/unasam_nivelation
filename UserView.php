@@ -23,7 +23,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="table-responsive">
-                            <table id="table-users" class="table table-sm table-bordered">
+                            <table id="table-users" class="table table-sm border">
                                 <thead class="thead-light">
                                 <tr>
                                     <th style="width: 30px;"><small><strong>N°</strong></small></th>

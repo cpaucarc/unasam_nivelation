@@ -19,8 +19,17 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <option value="0">Selecciona...</option>
                             <option value="1">A</option>
                             <option value="2">B</option>
-                            <option value="4">C</option>
-                            <option value="3">D</option>
+                            <option value="3">C</option>
+                            <option value="4">D</option>
+                        </select>
+                    </div>
+                    <div class="ml-4 bd-highlight">
+                        <label for="dimension" class="col-form-label col-form-label-sm">Dimensión</label>
+                        <select class="form-control form-control-sm" id="dimension">
+                            <option value="0">Seleccione...</option>
+                            <option value="3">Comunicación</option>
+                            <option value="2">Matemática</option>
+                            <option value="7">Tecnicas de Estudio</option>
                         </select>
                     </div>
                     <div class="ml-auto bd-highlight">
@@ -41,38 +50,28 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <h6 class="dropdown-header">Reportes</h6>
                             <a>
-                                <form action="reporte/curso" target="_blank" method="post">
-                                    <input id="areaPdf_1" name="areaPdf" required type="hidden">
-                                    <input id="dimensionPdf_1" name="dimensionPdf" required type="hidden">
-                                    <input id="coursePdf_1" name="coursePdf" required type="hidden">
-                                    <input id="processPdf_1" name="processPdf" required type="hidden">
+                                <form action="reporte/dimension" target="_blank" method="post">
+                                    <input id="areaPDF1" name="areaPDF" required type="hidden" value="0" readonly>
+                                    <input id="dimensionPDF1" name="dimensionPDF" required type="hidden" value="0"
+                                           readonly>
+                                    <input id="processPDF1" name="processPDF" required type="hidden" value="0" readonly>
                                     <button type="submit" class="dropdown-item">
-                                        <i class="bi bi-stop mr-2"></i>Solo de este curso
+                                        <i class="bi bi-stop mr-2"></i>Solo de esta dimension
                                     </button>
                                 </form>
                             </a>
                             <a>
-                                <form action="reporte/curso" target="_blank" method="post">
-                                    <input id="areaPdf_2" name="areaPdf" required type="hidden">
-                                    <input id="dimensionPdf_2" name="dimensionPdf" required type="hidden">
-                                    <input id="processPdf_2" name="processPdf" required type="hidden">
-                                    <button type="submit" class="dropdown-item">
-                                        <i class="bi bi-grid mr-2"></i>Todos los cursos
-                                    </button>
-                                </form>
-                            </a>
-                            <a>
-                                <form action="reporte/curso" target="_blank" method="post">
-                                    <input id="areaPdf_3" name="areaPdf" required type="hidden">
-                                    <input id="processPdf_3" name="processPdf" required type="hidden">
+                                <form action="reporte/dimension" target="_blank" method="post">
+                                    <input id="areaPDF2" name="areaPDF" required type="hidden" value="0" readonly>
+                                    <input id="processPDF2" name="processPDF" required type="hidden" value="0" readonly>
                                     <button type="submit" class="dropdown-item">
                                         <i class="bi bi-grid-3x2-gap mr-2"></i>Todas las dimensiones
                                     </button>
                                 </form>
                             </a>
                             <a>
-                                <form action="reporte/curso" target="_blank" method="post">
-                                    <input id="processPdf_4" name="processPdf" required type="hidden">
+                                <form action="reporte/dimension" target="_blank" method="post">
+                                    <input id="processPDF3" name="processPDF" required type="hidden" value="0" readonly>
                                     <button type="submit" class="dropdown-item">
                                         <i class="bi bi-grid-3x3-gap mr-2"></i>Todas las Áreas
                                     </button>
@@ -99,19 +98,23 @@ require_once $sessionStarted->getUpperPartByUserType();
                     <table class="table border mt-2" id="table-students">
                         <thead class="thead-light">
                         <tr>
-                            <th scope="col"><small><strong>N°</strong></small></th>
-                            <th scope="col"><small><strong>Código</strong></small></th>
+                            <th scope="col" style="width: 1%;"><small><strong>N°</strong></small></th>
+                            <th scope="col" style="width: 8%;"><small><strong>Código</strong></small></th>
+                            <th scope="col" style="width: 8%;"><small><strong>Puntaje</strong></small></th>
                             <th scope="col"><small><strong>Alumno</strong></small></th>
-                            <th scope="col"><small><strong>Puntaje</strong></small></th>
-                            <th scope="col"><small><strong>Programa Académico</strong></small></th>
-                            <th scope="col"><small><strong>Area</strong></small></th>
-                            <th scope="col"><small><strong>Proceso</strong></small></th>
-                            <th scope="col"><small><strong>Recomendación</strong></small></th>
-                            <th scope="col"><small><strong>&nbsp;</strong></small></th>
+                            <th scope="col" style="width: 21%;"><small><strong>Programa Académico</strong></small></th>
+                            <th scope="col" style="width: 32%;"><small><strong>Recomendación</strong></small></th>
+                            <th scope="col" style="width: 8%;"><small><strong>&nbsp;</strong></small></th>
                         </tr>
                         </thead>
                         <tbody id="tbody">
-
+                        <tr class="table-info">
+                            <td colspan="7" class="text-center">
+                                <small>
+                                    Eliga los criterios de busqueda en la parte superior
+                                </small>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
@@ -123,7 +126,7 @@ require_once $sessionStarted->getUpperPartByUserType();
     <script src="public/js/components/Button.js"></script>
     <script src="public/js/components/Select.js"></script>
     <script src="public/js/components/Badge.js"></script>
-    <script src="public/js/areaView.js"></script>
+    <script src="public/js/dimensionView.js"></script>
 
 <?php
 require_once COMPONENT_PATH . "downpart.php";

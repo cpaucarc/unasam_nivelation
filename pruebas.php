@@ -1,11 +1,11 @@
 <?php
+include_once($_SERVER['DOCUMENT_ROOT'] . '/nivelation/dirs.php');
+require_once(DB_PATH . "MySqlConnection.php");
 
-$start = strtotime("2021-05-21");
-$end = strtotime("2021-05-21");
-$datediff = $end - $start;
+$grupo = 2;
+$clase = 1;
 
-echo round($datediff / (60 * 60 * 24)) . '<br>';
+$conn = (new MySqlConnection())->getConnection();
+$sql = "SELECT IF((SELECT id FROM class_data WHERE groups_id = 2 AND date_format(time_class, '%Y-%m-%d') = curdate() LIMIT 1) IS NULL, 0, (SELECT id FROM class_data WHERE groups_id = 2 AND date_format(time_class, '%Y-%m-%d') = curdate() LIMIT 1));";
 
-echo "Star:" . $start . '<br>';
-echo "End:" . $end . '<br>';
-echo "Diiff:" . $datediff . '<br>';
+echo $conn->query($sql)->fetchColumn() ?? 0;

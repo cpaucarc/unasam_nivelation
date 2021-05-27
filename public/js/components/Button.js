@@ -17,6 +17,29 @@ class Button {
         return basicBtn;
     }
 
+    createNormalBtn(type, text, fun, ...params) {
+        let btn = this.createBasicBtn(text, fun, ...params);
+        btn.classList.add('btn');
+        btn.classList.add(`btn-${type}`);
+        btn.classList.add('btn-sm');
+        return btn;
+    }
+
+    getBtnAttendance(num, fun, ...params) {
+        num = parseInt(num);
+        if (num === 1) {
+            //Presente
+            let btn = this.createNormalBtn('success', 'Presente', fun, ...params);
+            btn.classList.add('py-0');
+            return btn;
+        } else {
+            //Ausente
+            let btn = this.createNormalBtn('danger', 'Ausente', fun, ...params);
+            btn.classList.add('py-0');
+            return btn;
+        }
+    }
+
     createIconBtn(text, fun, ...params) {
         let iconBtn = document.createElement('button');
 
