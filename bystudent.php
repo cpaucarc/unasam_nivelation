@@ -51,9 +51,10 @@ require_once $sessionStarted->getUpperPartByUserType();
                                 <a>
                                     <form action="<?php echo $routeAux; ?>reporte/estudiante" method="post"
                                           target="_blank">
-                                        <input id="studentPdf" name="studentPdf" required type="hidden">
+                                        <input id="studentPdf" name="studentPdf" required type="text">
+                                        <input id="byTipe" name="byTipe" required type="text">
                                         <button type="submit" class="dropdown-item">
-                                            <i class="bi bi-stop mr-2"></i>Ver este alumno
+                                            <i class="bi bi-stop mr-2"></i>Ver este alumno por <span id="tipePdf"></span>
                                         </button>
                                     </form>
                                 </a>
@@ -63,6 +64,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                                     <form action="<?php echo $routeAux; ?>estudiante-grafico" target="_blank"
                                           method="post"
                                           class="mx-2">
+                                          <input id="studentChart" name="studentChart" required type="text">
                                         <button type="submit" class="dropdown-item">
                                             <i class="bi bi-pie-chart-fill mr-2"></i> Ver Graficos
                                         </button>
@@ -97,12 +99,12 @@ require_once $sessionStarted->getUpperPartByUserType();
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#for_courses">
+                                        <a class="nav-link" data-toggle="tab" href="#for_courses" id="navDimension">
                                             Análisis por Dimensiones
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#for_dimensions">
+                                        <a class="nav-link" data-toggle="tab" href="#for_dimensions" id="navCourse">
                                             Análisis por Cursos
                                         </a>
                                     </li>

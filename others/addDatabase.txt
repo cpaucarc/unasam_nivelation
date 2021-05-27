@@ -1,0 +1,11 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spCountStatusDimension`(proceso varchar(20))
+BEGIN
+select s.name stat,COUNT(sd.id) student, p.name proc 
+from student_data sd 
+inner join clasifications_dimension cd on sd.id=cd.student_data_id
+inner join dimensions d on cd.dimensions_id=d.id
+inner join clasifications c on sd.id=c.student_data_id
+inner join status s on s.id=c.status_id
+inner join process p on p.id=sd.process_id
+group by  stat having proc=proceso ;
+END
