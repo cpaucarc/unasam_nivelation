@@ -40,6 +40,48 @@ class Teacher extends Person
         return json_encode($response);
     }
 
+    public function getTeachersByDimID($dimID)
+    {
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "SELECT id, (SELECT dni FROM people where id = people_id) as dni, (SELECT concat(lastname, ' ', name) FROM people where id = people_id) teacher, (SELECT name FROM courses WHERE id = courses_id) course FROM teachers WHERE courses_id IN (SELECT id FROM courses WHERE dimensions_id = $dimID) AND status = 1;";
+        $response['teachers'] = array();
+        foreach ($conn->query($sql) as $row) {
+            $teacher = array();
+            $teacher['id'] = $row['id']; //teacherID
+            $teacher['dni'] = $row['dni'];
+            $teacher['teacher'] = $row['teacher'];
+            $teacher['course'] = $row['course'];
+            array_push($response['teachers'], $teacher);
+        }
+        return json_encode($response);
+    }
+
+    public function getCoursesOfTeacher($teacherID)
+    {
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "SELECT 
+                    gr.id AS groupID,
+                    gr.name AS groupName,
+                    dm.name as dimensionName,
+                    ar.name as areaName,
+                    (SELECT count(1) FROM student_group WHERE groups_id = gr.id) as numStudents
+                FROM groups AS gr
+                JOIN dimensions AS dm ON dm.id = gr.dimensions_id
+                JOIN areas AS ar ON ar.id = gr.areas_id
+                WHERE gr.teachers_id = $teacherID ORDER BY ar.name ASC, gr.name ASC;";
+        $response['courses'] = array();
+        foreach ($conn->query($sql) as $row) {
+            $teacher = array();
+            $teacher['groupID'] = $row['groupID']; //teacherID
+            $teacher['groupName'] = $row['groupName'];
+            $teacher['dimensionName'] = $row['dimensionName'];
+            $teacher['areaName'] = $row['areaName'];
+            $teacher['numStudents'] = $row['numStudents'];
+            array_push($response['courses'], $teacher);
+        }
+        return json_encode($response);
+    }
+
     public function saveNUpdateTeacher()
     {
         $connection = new MySqlConnection();

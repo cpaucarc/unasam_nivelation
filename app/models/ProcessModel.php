@@ -42,12 +42,8 @@ class processModel
 
             $query = "INSERT INTO dimension_ranks VALUES ";
             foreach ($dimensions as $dimension) {
-                foreach ($areas as $area) {
-                    if (intval($dimension) === 2 or intval($dimension) === 3 or intval($dimension) === 7) {
-                        $query .= "(null, $min, $area, $dimension, " . $this->getId() . "), ";
-                    } else {
-                        $query .= "(null, 0, $area, $dimension, " . $this->getId() . "), ";
-                    }
+                foreach ($areas as $area) { //2:mate, 3:comunc, 7:tecn estudio (dimensions -> BD)
+                    $query .= "(null, $max, $area, $dimension, " . $this->getId() . "), ";
                 }
             }
             $query = substr($query, 0, strlen($query) - 2) . ";";

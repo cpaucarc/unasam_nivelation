@@ -106,7 +106,7 @@ require_once $sessionStarted->getUpperPartByUserType();
             <div class="card-body">
                 <div class="table-responsive">
                     <!--Tabla-->
-                    <table class="table table-bordered mt-2" id="table-students">
+                    <table class="table border mt-2" id="table-students">
                         <thead class="thead-light">
                         <tr>
                             <th scope="col" style="width: 1%;"><small><strong>N°</strong></small></th>

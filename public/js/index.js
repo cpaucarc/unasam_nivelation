@@ -30,7 +30,7 @@ uploadForm.onsubmit = (e) => {
             console.log(data);
             if (data.status !== 0) {
                 if (parseInt(data.response[0]['failed']) > 0) {
-                    let table = `<table class="table table-bordered table-sm text-left">
+                    let table = `<table class="table border table-sm text-left">
                         <thead class="thead-light">
                         <tr><th><small><strong>Número</strong></small></th>
                             <th><small><strong>Código</strong></small></th>

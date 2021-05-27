@@ -1,324 +1,130 @@
 <?php
-require_once 'dirs.php';
-require_once(UTIL_PATH . "sessions/SessionStarted.php");
+require_once "dirs.php";
+require_once UTIL_PATH . "sessions/SessionStarted.php";
 session_start();
 $sessionStarted = new SessionStarted();
 $sessionStarted->verifySessionStarted();
 
 require_once $sessionStarted->getUpperPartByUserType();
 ?>
-
-
     <!-- Begin Page Content -->
-    <div class="container-fluid">
+    <div class="container">
 
-        <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Reporte por Estudiante</h1>
-            <select class="form-control form-control-sm text-primary" id="semestre" style="width:120px">
-                <option>Admisión</option>
-                <option>2020-II</option>
-                <option>2021-I</option>
-                <option>2021-II</option>
-                <option>2022-I</option>
-                <option>2022-II</option>
-            </select>
-
-        </div>
-
-        <!--Ejemplo tabla con DataTables-->
-        <div class="container">
-            <div class="row">
-                <!-- Default Card Example -->
-                <div class="card mb-4 w-100">
-                    <div class="card-header">
-                        <!-- Topbar Search -->
-                        <form class="d-sm-inline-block  ">
-                            <div class="input-group">
-                                <select class="form-select form-control form-control-sm text-primary"
-                                        aria-label="Default select example">
-                                    <option selected>Área</option>
-                                    <option value="1">A</option>
-                                    <option value="2">B</option>
-                                    <option value="3">C</option>
-                                    <option value="3">E</option>
-                                </select>
-                            </div>
-                        </form>
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex bd-highlight mb-3">
+                    <div class="bd-highlight">
+                        <label for="area" class="col-form-label col-form-label-sm">Area</label>
+                        <select class="form-control form-control-sm" id="area">
+                            <option value="0">Selecciona...</option>
+                            <option value="1">A</option>
+                            <option value="2">B</option>
+                            <option value="4">C</option>
+                            <option value="3">D</option>
+                        </select>
+                    </div>
+                    <div class="ml-auto bd-highlight">
+                        <label for="process" class="col-form-label col-form-label-sm">Proceso de Admisión</label>
+                        <select class="form-control form-control-sm" id="process">
+                        </select>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="table-responsive">
-                        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                            <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Puesto</th>
-                                <th>Ciudad</th>
-                                <th>Edad</th>
-                                <th>Año de Ingreso</th>
-                                <th>Salario</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>Arquitecto</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
-                            </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Contador</td>
-                                <td>Tokyo</td>
-                                <td>63</td>
-                                <td>2011/07/25</td>
-                                <td>$170,750</td>
-                            </tr>
-                            <tr>
-                                <td>Cedric Kelly</td>
-                                <td>Senior Javascript Developer</td>
-                                <td>Edinburgh</td>
-                                <td>22</td>
-                                <td>2012/03/29</td>
-                                <td>$433,060</td>
-                            </tr>
-                            <tr>
-                                <td>Airi Satou</td>
-                                <td>Contador</td>
-                                <td>Tokyo</td>
-                                <td>33</td>
-                                <td>2008/11/28</td>
-                                <td>$162,700</td>
-                            </tr>
-                            <tr>
-                                <td>Bradley Greer</td>
-                                <td>Software Engineer</td>
-                                <td>London</td>
-                                <td>41</td>
-                                <td>2012/10/13</td>
-                                <td>$132,000</td>
-                            </tr>
+            <div class="d-flex bd-highlight mr-4 mt-3 justify-content-end">
+                <div class="ml-auto bd-highlight d-flex">
+                    <div class="dropdown ml-2">
+                        <a class="btn btn-light btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="bi bi-graph-up mr-2"></i>Reportes y Graficos
+                        </a>
 
-                            <tr>
-                                <td>Bruno Nash</td>
-                                <td>Software Engineer</td>
-                                <td>London</td>
-                                <td>38</td>
-                                <td>2011/05/03</td>
-                                <td>$163,500</td>
-                            </tr>
-                            <tr>
-                                <td>Sakura Yamamoto</td>
-                                <td>Support Engineer</td>
-                                <td>Tokyo</td>
-                                <td>37</td>
-                                <td>2009/08/19</td>
-                                <td>$139,575</td>
-                            </tr>
-                            <tr>
-                                <td>Thor Walton</td>
-                                <td>Developer</td>
-                                <td>New York</td>
-                                <td>61</td>
-                                <td>2013/08/11</td>
-                                <td>$98,540</td>
-                            </tr>
-                            <tr>
-                                <td>Finn Camacho</td>
-                                <td>Support Engineer</td>
-                                <td>San Francisco</td>
-                                <td>47</td>
-                                <td>2009/07/07</td>
-                                <td>$87,500</td>
-                            </tr>
-                            <tr>
-                                <td>Serge Baldwin</td>
-                                <td>Data Coordinator</td>
-                                <td>Singapore</td>
-                                <td>64</td>
-                                <td>2012/04/09</td>
-                                <td>$138,575</td>
-                            </tr>
-                            <tr>
-                                <td>Zenaida Frank</td>
-                                <td>Software Engineer</td>
-                                <td>New York</td>
-                                <td>63</td>
-                                <td>2010/01/04</td>
-                                <td>$125,250</td>
-                            </tr>
-                            <tr>
-                                <td>Zorita Serrano</td>
-                                <td>Software Engineer</td>
-                                <td>San Francisco</td>
-                                <td>56</td>
-                                <td>2012/06/01</td>
-                                <td>$115,000</td>
-                            </tr>
-                            <tr>
-                                <td>Jennifer Acosta</td>
-                                <td>Junior Javascript Developer</td>
-                                <td>Edinburgh</td>
-                                <td>43</td>
-                                <td>2013/02/01</td>
-                                <td>$75,650</td>
-                            </tr>
-                            <tr>
-                                <td>Cara Stevens</td>
-                                <td>Sales Assistant</td>
-                                <td>New York</td>
-                                <td>46</td>
-                                <td>2011/12/06</td>
-                                <td>$145,600</td>
-                            </tr>
-                            <tr>
-                                <td>Hermione Butler</td>
-                                <td>Regional Director</td>
-                                <td>London</td>
-                                <td>47</td>
-                                <td>2011/03/21</td>
-                                <td>$356,250</td>
-                            </tr>
-                            <tr>
-                                <td>Lael Greer</td>
-                                <td>Systems Administrator</td>
-                                <td>London</td>
-                                <td>21</td>
-                                <td>2009/02/27</td>
-                                <td>$103,500</td>
-                            </tr>
-                            <tr>
-                                <td>Jonas Alexander</td>
-                                <td>Developer</td>
-                                <td>San Francisco</td>
-                                <td>30</td>
-                                <td>2010/07/14</td>
-                                <td>$86,500</td>
-                            </tr>
-                            <tr>
-                                <td>Shad Decker</td>
-                                <td>Regional Director</td>
-                                <td>Edinburgh</td>
-                                <td>51</td>
-                                <td>2008/11/13</td>
-                                <td>$183,000</td>
-                            </tr>
-                            <tr>
-                                <td>Michael Bruce</td>
-                                <td>Javascript Developer</td>
-                                <td>Singapore</td>
-                                <td>29</td>
-                                <td>2011/06/27</td>
-                                <td>$183,000</td>
-                            </tr>
-                            <tr>
-                                <td>Donna Snider</td>
-                                <td>Customer Support</td>
-                                <td>New York</td>
-                                <td>27</td>
-                                <td>2011/01/25</td>
-                                <td>$112,000</td>
-                            </tr>
-                            <tr>
-                                <td>Serge Baldwin</td>
-                                <td>Data Coordinator</td>
-                                <td>Singapore</td>
-                                <td>64</td>
-                                <td>2012/04/09</td>
-                                <td>$138,575</td>
-                            </tr>
-                            <tr>
-                                <td>Zenaida Frank</td>
-                                <td>Software Engineer</td>
-                                <td>New York</td>
-                                <td>63</td>
-                                <td>2010/01/04</td>
-                                <td>$125,250</td>
-                            </tr>
-                            <tr>
-                                <td>Zorita Serrano</td>
-                                <td>Software Engineer</td>
-                                <td>San Francisco</td>
-                                <td>56</td>
-                                <td>2012/06/01</td>
-                                <td>$115,000</td>
-                            </tr>
-                            <tr>
-                                <td>Jennifer Acosta</td>
-                                <td>Junior Javascript Developer</td>
-                                <td>Edinburgh</td>
-                                <td>43</td>
-                                <td>2013/02/01</td>
-                                <td>$75,650</td>
-                            </tr>
-                            <tr>
-                                <td>Cara Stevens</td>
-                                <td>Sales Assistant</td>
-                                <td>New York</td>
-                                <td>46</td>
-                                <td>2011/12/06</td>
-                                <td>$145,600</td>
-                            </tr>
-                            <tr>
-                                <td>Hermione Butler</td>
-                                <td>Regional Director</td>
-                                <td>London</td>
-                                <td>47</td>
-                                <td>2011/03/21</td>
-                                <td>$356,250</td>
-                            </tr>
-                            <tr>
-                                <td>Lael Greer</td>
-                                <td>Systems Administrator</td>
-                                <td>London</td>
-                                <td>21</td>
-                                <td>2009/02/27</td>
-                                <td>$103,500</td>
-                            </tr>
-                            <tr>
-                                <td>Jonas Alexander</td>
-                                <td>Developer</td>
-                                <td>San Francisco</td>
-                                <td>30</td>
-                                <td>2010/07/14</td>
-                                <td>$86,500</td>
-                            </tr>
-                            <tr>
-                                <td>Shad Decker</td>
-                                <td>Regional Director</td>
-                                <td>Edinburgh</td>
-                                <td>51</td>
-                                <td>2008/11/13</td>
-                                <td>$183,000</td>
-                            </tr>
-                            <tr>
-                                <td>Michael Bruce</td>
-                                <td>Javascript Developer</td>
-                                <td>Singapore</td>
-                                <td>29</td>
-                                <td>2011/06/27</td>
-                                <td>$183,000</td>
-                            </tr>
-                            <tr>
-                                <td>Donna Snider</td>
-                                <td>Customer Support</td>
-                                <td>New York</td>
-                                <td>27</td>
-                                <td>2011/01/25</td>
-                                <td>$112,000</td>
-                            </tr>
-                            </tbody>
-                        </table>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <h6 class="dropdown-header">Reportes</h6>
+                            <a>
+                                <form action="reporte/curso" target="_blank" method="post">
+                                    <input id="areaPdf_1" name="areaPdf" required type="hidden">
+                                    <input id="dimensionPdf_1" name="dimensionPdf" required type="hidden">
+                                    <input id="coursePdf_1" name="coursePdf" required type="hidden">
+                                    <input id="processPdf_1" name="processPdf" required type="hidden">
+                                    <button type="submit" class="dropdown-item">
+                                        <i class="bi bi-stop mr-2"></i>Solo de este curso
+                                    </button>
+                                </form>
+                            </a>
+                            <a>
+                                <form action="reporte/curso" target="_blank" method="post">
+                                    <input id="areaPdf_2" name="areaPdf" required type="hidden">
+                                    <input id="dimensionPdf_2" name="dimensionPdf" required type="hidden">
+                                    <input id="processPdf_2" name="processPdf" required type="hidden">
+                                    <button type="submit" class="dropdown-item">
+                                        <i class="bi bi-grid mr-2"></i>Todos los cursos
+                                    </button>
+                                </form>
+                            </a>
+                            <a>
+                                <form action="reporte/curso" target="_blank" method="post">
+                                    <input id="areaPdf_3" name="areaPdf" required type="hidden">
+                                    <input id="processPdf_3" name="processPdf" required type="hidden">
+                                    <button type="submit" class="dropdown-item">
+                                        <i class="bi bi-grid-3x2-gap mr-2"></i>Todas las dimensiones
+                                    </button>
+                                </form>
+                            </a>
+                            <a>
+                                <form action="reporte/curso" target="_blank" method="post">
+                                    <input id="processPdf_4" name="processPdf" required type="hidden">
+                                    <button type="submit" class="dropdown-item">
+                                        <i class="bi bi-grid-3x3-gap mr-2"></i>Todas las Áreas
+                                    </button>
+                                </form>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <h6 class="dropdown-header">Gráficos</h6>
+                            <a>
+                                <form action="cursos-grafico" target="_blank" method="post"
+                                      class="mx-2">
+                                    <input name="processChart" id="processChart" required type="hidden">
+                                    <button type="submit" class="dropdown-item">
+                                        <i class="bi bi-pie-chart-fill mr-2"></i>Ver Graficos
+                                    </button>
+                                </form>
+                            </a>
+                        </div>
                     </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <!--Tabla-->
+                    <table class="table border mt-2" id="table-students">
+                        <thead class="thead-light">
+                        <tr>
+                            <th scope="col"><small><strong>N°</strong></small></th>
+                            <th scope="col"><small><strong>Código</strong></small></th>
+                            <th scope="col"><small><strong>Alumno</strong></small></th>
+                            <th scope="col"><small><strong>Puntaje</strong></small></th>
+                            <th scope="col"><small><strong>Programa Académico</strong></small></th>
+                            <th scope="col"><small><strong>Area</strong></small></th>
+                            <th scope="col"><small><strong>Proceso</strong></small></th>
+                            <th scope="col"><small><strong>Recomendación</strong></small></th>
+                            <th scope="col"><small><strong>&nbsp;</strong></small></th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody">
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="public/js/components/Table.js"></script>
+    <script src="public/js/components/Button.js"></script>
+    <script src="public/js/components/Select.js"></script>
+    <script src="public/js/components/Badge.js"></script>
+    <script src="public/js/areaView.js"></script>
+
 <?php
 require_once COMPONENT_PATH . "downpart.php";
 ?>

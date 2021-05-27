@@ -36,7 +36,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                         </div>
                     </div>
                     <div class="col col-12 col-lg-8 mt-2">
-                        <table id="table-courses" class="table table-bordered table-sm text-left">
+                        <table id="table-courses" class="table border table-sm text-left">
                             <thead class="thead-light">
                             <tr>
                                 <th style="width: 8%"><small><strong>N°</strong></small></th>

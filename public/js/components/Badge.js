@@ -24,7 +24,7 @@ class Badge {
                 break;
             }
             default: { // si requiere, obligatorio
-                span.classList.add('badge-danger');
+                span.classList.add('alert-danger');
                 break;
             }
         }
@@ -47,4 +47,30 @@ class Badge {
         return span;
     }
 
+    createBadgeForGroup(numero) { //1 No empieza, 2 En curso, 3 Finalizado
+        let small = document.createElement('small');
+        let span = document.createElement('span');
+        span.appendChild(small);
+        span.classList.add('px-1');
+        span.classList.add('py-0');
+        span.classList.add('alert');
+        switch (parseInt(numero)) {
+            case 1: { //No empieza
+                span.classList.add('alert-secondary');
+                small.appendChild(document.createTextNode('Sin empezar'));
+                break;
+            }
+            case 2: { //En curso
+                span.classList.add('alert-success');
+                small.appendChild(document.createTextNode('En desarrollo'));
+                break;
+            }
+            case 3: { // si requiere, obligatorio
+                span.classList.add('alert-danger');
+                small.appendChild(document.createTextNode('Finalizado'));
+                break;
+            }
+        }
+        return span;
+    }
 }

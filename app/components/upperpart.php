@@ -61,6 +61,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
                     <a class="collapse-item" href="<?php echo $rtax; ?>estudiante">Vista por Estudiante</a>
                     <a class="collapse-item" href="<?php echo $rtax; ?>curso">Vista por Cursos</a>
                     <a class="collapse-item" href="<?php echo $rtax; ?>programas">Vista por Programas</a>
+                    <a class="collapse-item" href="<?php echo $rtax; ?>area">Vista por Areas</a>
                 </div>
             </div>
         </li>
@@ -92,6 +93,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Configuraciones:</h6>
                     <a class="collapse-item" href="<?php echo $rtax; ?>docentes">Docentes</a>
+                    <a class="collapse-item" href="<?php echo $rtax; ?>clases">Grupos de clase</a>
                 </div>
             </div>
         </li>

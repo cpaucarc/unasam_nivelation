@@ -32,7 +32,7 @@ require_once $sessionStarted->getUpperPartByUserType();
 
                     </div>
                     <div class="col col-12 col-lg-8 table-responsive">
-                        <table id="table-process" class="table table-sm table-bordered">
+                        <table id="table-process" class="table table-sm border">
                             <thead class="thead-light">
                             <tr class="text-center">
                                 <th><small><strong>N°</strong></small></th>

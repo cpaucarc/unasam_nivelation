@@ -94,7 +94,12 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <div class="card-header pt-1 pb-0 px-3">
                                 <ul class="nav nav-tabs border-bottom-0 text-muted">
                                     <li class="nav-item">
-                                        <a class="nav-link active" data-toggle="tab" href="#for_courses" id="navDimension">
+                                        <a class="nav-link active" data-toggle="tab" href="#for_dimensions_basic">
+                                            Análisis Básico
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#for_courses" id="navDimension">
                                             Análisis por Dimensiones
                                         </a>
                                     </li>
@@ -108,10 +113,37 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <div class="card-body">
                                 <div class="tab-content">
                                     <!--Panel 1-->
-                                    <div class="tab-pane fade in show active" id="for_courses" role="tabpanel">
+                                    <div class="tab-pane fade in show active" id="for_dimensions_basic" role="tabpanel">
                                         <!--Tabla-->
                                         <div class="table-responsive">
-                                            <table id="table-dimensions" class="table table-bordered">
+                                            <table class="table border">
+                                                <thead>
+                                                <tr class="text-center">
+                                                    <th scope="col" class="text-left" style="width: 5%;">
+                                                        <small><strong>N°</strong></small>
+                                                    </th>
+                                                    <th scope="col" class="text-left" style="width: 33%;">
+                                                        <small><strong>Dimensión</strong></small>
+                                                    </th>
+                                                    <th scope="col" class="text-left">
+                                                        <small><strong>Recomendación</strong></small>
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="tbody-dimensions-basic-body">
+                                                </tbody>
+                                            </table>
+                                            <small class="mb-3">
+                                                <strong>*</strong> Este análisis está basado en el puntaje general
+                                            </small>
+                                        </div>
+                                    </div>
+
+                                    <!--Panel 2-->
+                                    <div class="tab-pane fade" id="for_courses" role="tabpanel">
+                                        <!--Tabla-->
+                                        <div class="table-responsive">
+                                            <table id="table-dimensions" class="table border">
                                                 <thead>
                                                 <tr class="text-center">
                                                     <th scope="col" class="text-left" style="width: 5%;">
@@ -141,11 +173,11 @@ require_once $sessionStarted->getUpperPartByUserType();
 
                                     </div>
 
-                                    <!--Panel 2-->
+                                    <!--Panel 3-->
                                     <div class="tab-pane fade" id="for_dimensions" role="tabpanel">
                                         <!--Tabla-->
                                         <div class="table-responsive">
-                                            <table id="table-courses" class="table table-bordered">
+                                            <table id="table-courses" class="table border">
                                                 <thead>
                                                 <tr class="text-center">
                                                     <th scope="col" class="text-left" style="width: 5%;">
@@ -197,13 +229,13 @@ require_once $sessionStarted->getUpperPartByUserType();
                 <div class="modal-body">
                     <div class="row">
                         <div class="col col-6 pr-3">
-                            <table class="table table-sm table-bordered">
+                            <table class="table table-sm border">
                                 <tbody id="questions-1">
                                 </tbody>
                             </table>
                         </div>
                         <div class="col col-6 pl-3">
-                            <table class="table table-sm table-bordered">
+                            <table class="table table-sm border">
                                 <tbody id="questions-2">
                                 </tbody>
                             </table>

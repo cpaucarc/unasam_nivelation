@@ -170,7 +170,6 @@ class StudentModel
 
         foreach ($conn->query($sql) as $row) {
             $course = array();
-//stdID, dni, name, lastname, code, program, area, process, course, num, stat, id
             $course['stdID'] = $row['stdID'];
             $course['name'] = $row['name'];
             $course['lastname'] = $row['lastname'];
@@ -207,6 +206,98 @@ class StudentModel
             $course['score'] = $row['score'];
             $course['gender'] = $row['gender'];
 
+            array_push($response['students'], $course);
+        }
+        return json_encode($response);
+    }
+
+    public function getDimensionForLeveling($stdtID)
+    {
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "CALL spDimensionsForLeveling($stdtID);";
+
+        $response['dimensions'] = array();
+
+        foreach ($conn->query($sql) as $row) {
+            $course = array();
+            $course['dimension'] = $row['dimension'];
+            $course['num'] = $row['num'];
+            $course['stat'] = $row['stat'];
+
+            array_push($response['dimensions'], $course);
+        }
+        return json_encode($response);
+    }
+
+    public function getDimensionForLevelingByFullName($fullname)
+    {
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "CALL spDimensionsForLevelingByFullName('$fullname');";
+
+        $response['dimensions'] = array();
+
+        foreach ($conn->query($sql) as $row) {
+            $course = array();
+
+            $course['dimension'] = $row['dimension'];
+            $course['num'] = $row['num'];
+            $course['stat'] = $row['stat'];
+
+            array_push($response['dimensions'], $course);
+        }
+        return json_encode($response);
+    }
+
+    public function getStudentsbyDimension($areaID, $processID)
+    {
+        //This function is used in bycourse view
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "CALL spDimensionsOfStudent(" . $areaID . ", " . $processID . ");";
+
+        $response['students'] = array();
+
+        foreach ($conn->query($sql) as $row) {
+            $course = array();
+            $course['id'] = $row['id'];//stdID
+            $course['code'] = $row['code'];
+            $course['score'] = $row['score'];
+            $course['student'] = $row['student'];
+            $course['program'] = $row['program'];
+            $course['num'] = $row['num'];
+            $course['stat'] = $row['stat'];
+
+            array_push($response['students'], $course);
+        }
+        return json_encode($response);
+    }
+
+    public function getStudentsByArea($areaID, $processID)
+    {
+        //This function is used in bycourse view
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "SELECT 
+                id, code, name, lastname, score, program, area, process, 
+                if (score < (SELECT percent*4 FROM process WHERE id = $processID), 3, 1) stat, 
+                if (score < (SELECT percent*4 FROM process WHERE id = $processID), 'Requiere nivelacion obligatorio', 'No requiere nivelacion') recomendation 
+                FROM vstudents WHERE area = (SELECT name FROM areas WHERE id = $areaID) and 
+                    process = (SELECT name FROM process WHERE id = $processID) AND 
+                    score < (SELECT percent*4 FROM process WHERE id = $processID) 
+                ORDER BY program ASC, lastname ASC;";
+
+        $response['students'] = array();
+
+        foreach ($conn->query($sql) as $row) {
+            $course = array();
+            $course['id'] = $row['id'];//stdID
+            $course['code'] = $row['code'];
+            $course['name'] = $row['name'];
+            $course['lastname'] = $row['lastname'];
+            $course['score'] = $row['score'];
+            $course['program'] = $row['program'];
+            $course['area'] = $row['area'];
+            $course['process'] = $row['process'];
+            $course['stat'] = $row['stat'];
+            $course['recomendation'] = $row['recomendation'];
             array_push($response['students'], $course);
         }
         return json_encode($response);
