@@ -53,7 +53,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                                           target="_blank">
                                         <input id="studentPdf" name="studentPdf" required type="hidden">
                                         <button type="submit" class="dropdown-item">
-                                            <i class="bi bi-stop mr-2"></i>Ver este alumno
+                                            <i class="bi bi-person-badge mr-2"></i>Ver análisis
                                         </button>
                                     </form>
                                 </a>
@@ -126,6 +126,9 @@ require_once $sessionStarted->getUpperPartByUserType();
                                                     <th scope="col" class="text-left">
                                                         <small><strong>Recomendación</strong></small>
                                                     </th>
+                                                    <th scope="col" class="text-left">
+                                                        <small>&nbsp;</small>
+                                                    </th>
                                                 </tr>
                                                 </thead>
                                                 <tbody id="tbody-dimensions-basic-body">
@@ -159,11 +162,14 @@ require_once $sessionStarted->getUpperPartByUserType();
                                                 </tr>
                                                 </thead>
                                                 <tbody id="table-dimensions-body">
+                                                <tr>
+                                                    <td colspan="4"><small>No calculado</small></td>
+                                                </tr>
                                                 </tbody>
                                             </table>
                                             <small class="mb-3">
                                                 <strong>*</strong> Representa el porcentaje de preguntas correctas
-                                                dentro de la dimensión. <br>
+                                                dentro de la dimensión.<br>
                                                 <strong>*</strong> Una dimensión es un grupo que contiene a varios
                                                 cursos.
                                             </small>

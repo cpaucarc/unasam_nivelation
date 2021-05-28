@@ -217,13 +217,13 @@ class StudentModel
         $sql = "CALL spDimensionsForLeveling($stdtID);";
 
         $response['dimensions'] = array();
-
         foreach ($conn->query($sql) as $row) {
             $course = array();
+            $course['id'] = $row['id'];
             $course['dimension'] = $row['dimension'];
             $course['num'] = $row['num'];
             $course['stat'] = $row['stat'];
-
+            $course['stdt'] = $row['stdt'];
             array_push($response['dimensions'], $course);
         }
         return json_encode($response);
@@ -235,14 +235,13 @@ class StudentModel
         $sql = "CALL spDimensionsForLevelingByFullName('$fullname');";
 
         $response['dimensions'] = array();
-
         foreach ($conn->query($sql) as $row) {
             $course = array();
-
+            $course['id'] = $row['id'];
             $course['dimension'] = $row['dimension'];
             $course['num'] = $row['num'];
             $course['stat'] = $row['stat'];
-
+            $course['stdt'] = $row['stdt'];
             array_push($response['dimensions'], $course);
         }
         return json_encode($response);

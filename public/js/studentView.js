@@ -159,15 +159,43 @@ function getBasicDimensionsByID(id) {
         .then(response => response.json())
         .then(data => {
             data = data.dimensions;
+            console.log('data');
             console.log(data);
             tbody_basic_body.innerHTML = ``;
             data.forEach((dim, i) => {
                 let row = table.createRow((i + 1), dim.dimension);
                 let alt = badge.createBadge(dim.stat, dim.num);
                 row.appendChild(table.createCell(alt));
+                row.appendChild(table.createCell(createForm(dim.id, dim.stdt)));
                 tbody_basic_body.appendChild(row);
             })
         });
+}
+
+function createForm(dimID, stdtID) {
+    let form = document.createElement('form');
+    form.setAttribute('action', 'constancia');
+    form.setAttribute('method', 'POST');
+    form.setAttribute('target', '_blank');
+    let stdInput = document.createElement('input');
+    stdInput.value = stdtID;
+    stdInput.setAttribute('type', 'hidden');
+    stdInput.setAttribute('name', 'stdID');
+    let dimInput = document.createElement('input');
+    dimInput.value = dimID;
+    dimInput.setAttribute('type', 'hidden');
+    dimInput.setAttribute('name', 'dimID');
+    let btn = document.createElement('button');
+    btn.classList.add('btn');
+    btn.classList.add('btn-light');
+    btn.classList.add('btn-sm');
+    btn.classList.add('text-dark');
+    btn.innerHTML = '<i class="bi bi-file-earmark mr-1"></i>Constancia';
+    btn.setAttribute('type', 'submit');
+    form.appendChild(stdInput);
+    form.appendChild(dimInput);
+    form.appendChild(btn);
+    return form;
 }
 
 function getBasicDimensionsByFullname(fullname) {
@@ -190,6 +218,7 @@ function getBasicDimensionsByFullname(fullname) {
                 let row = table.createRow((i + 1), dim.dimension);
                 let alt = badge.createBadge(dim.stat, dim.num);
                 row.appendChild(table.createCell(alt));
+                row.appendChild(table.createCell(createForm(dim.id, dim.stdt)));
                 tbody_basic_body.appendChild(row);
             })
         });
