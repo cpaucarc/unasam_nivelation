@@ -47,6 +47,44 @@ class Badge {
         return span;
     }
 
+    createBadgeForQualify(qualify) { //1 activo, 0 despedido
+        let small = document.createElement('small');
+        let span = document.createElement('span');
+        span.appendChild(small);
+        span.classList.add('px-2');
+        span.classList.add('py-0');
+        span.classList.add('alert');
+        if (parseInt(qualify) < 14) {
+            span.classList.add('alert-danger');
+            small.appendChild(document.createTextNode("Desaprobado"));
+        } else {
+            span.classList.add('alert-success');
+            small.appendChild(document.createTextNode("Aprobado"));
+        }
+        return span;
+    }
+
+    createBadgeForPercet(percent) { //1 activo, 0 despedido
+        percent = parseInt(percent);
+        let small = document.createElement('small');
+        let span = document.createElement('span');
+        span.appendChild(small);
+        span.classList.add('px-2');
+        span.classList.add('py-0');
+        span.classList.add('alert');
+        small.appendChild(document.createTextNode(`${percent}%`));
+        if (percent === 100) {
+            span.classList.add('alert-success');
+        } else {
+            if (percent < 100 && percent >= 40) {
+                span.classList.add('alert-warning');
+            } else {
+                span.classList.add('alert-danger');
+            }
+        }
+        return span;
+    }
+
     createBadgeForGroup(numero) { //1 No empieza, 2 En curso, 3 Finalizado
         let small = document.createElement('small');
         let span = document.createElement('span');

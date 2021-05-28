@@ -1,6 +1,3 @@
-<?php
-$rtax = isset($routeAux) ? $routeAux : "";
-?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -10,7 +7,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="<?php echo $rtax; ?>public/images/ogcushort.png" type="image/x-icon"/>
+    <link rel="icon" href="public/images/ogcushort.png" type="image/x-icon"/>
     <title>Sistema de Nivelacion</title>
 
     <?php require_once(COMPONENT_PATH . "dependencies.php"); ?>
@@ -40,7 +37,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
                     <span class="navbar-brand">
                         <span class="sidebar-brand d-flex align-items-center justify-content-center">
                             <div class="sidebar-brand-icon ">
-                                <img src="<?php echo $rtax; ?>public/images/logo.jpg" width="50px"
+                                <img src="public/images/logo.jpg" width="50px"
                                      class="rounded float-start" alt="Escudo de la Unasam" loading="lazy">
                             </div>
 
@@ -83,6 +80,13 @@ $rtax = isset($routeAux) ? $routeAux : "";
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="seguimiento">
+                                <i class="bi bi-bookmarks-fill mr-2"></i>Seguimientos
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="perfil">
+                                <i class="bi bi-person-lines-fill mr-2"></i>Mi Perfil
+                            </a>
                             <a class="dropdown-item text-danger font-weight-bold click-logout" href="#"
                                data-toggle="modal" data-target="#logoutModal">
                                 <i class="bi bi-box-arrow-in-left mr-2 text-danger"></i>

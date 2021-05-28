@@ -164,4 +164,70 @@ class Card {
 
         return col;
     }
+
+    getCoursesOfProgramCard(courseName, groupName, data, showData, showStudents) {
+        let buttons = new Button();
+        let col = document.createElement('div');
+        col.classList.add('col');
+        col.classList.add('col-6');
+        col.classList.add('col-lg-3');
+        col.classList.add('mb-3');
+        let card = document.createElement('div');
+        card.classList.add('card');
+        card.classList.add('text-center');
+        let card_body = document.createElement('div');
+        card_body.classList.add('card-body');
+        let card_title = document.createElement('h5');
+        card_title.classList.add('card-title');
+        card_title.classList.add('font-weight-bold');
+        card_title.appendChild(document.createTextNode(courseName));
+        let card_text = document.createElement('p');
+        card_text.classList.add('card-text');
+        card_text.appendChild(document.createTextNode(groupName));
+        let card_footer = document.createElement('div');
+        card_footer.classList.add('card-footer');
+        let btnInfo = buttons.createNormalBtn('light', 'Ver datos', showData, data);
+        btnInfo.classList.add('mr-2');
+        let btnAttendance = buttons.createNormalBtn('primary', 'Estudiantes', showStudents, data);
+
+        card_footer.appendChild(btnInfo);
+        card_footer.appendChild(btnAttendance);
+        card_body.appendChild(card_title);
+        card_body.appendChild(card_text);
+        card.appendChild(card_body);
+        card.appendChild(card_footer);
+        col.appendChild(card);
+
+        return col;
+    }
+
+    getImageIfNotExistCourses() {
+        let flex = document.createElement('div');
+        flex.classList.add('d-flex');
+        flex.classList.add('justify-content-center');
+        flex.classList.add('mx-auto');
+        flex.classList.add('align-items-center');
+        let highlight = document.createElement('div');
+        highlight.classList.add('bd-highlight');
+        highlight.classList.add('w-50');
+        highlight.classList.add('mx-auto');
+        highlight.classList.add('text-center');
+        let img = document.createElement('img');
+        img.classList.add('w-50');
+        img.classList.add('mb-3');
+        img.setAttribute('src', 'public/images/no_data.svg');
+        img.setAttribute('alt', 'No hay cursos');
+        let h4 = document.createElement('h4');
+        h4.appendChild(document.createTextNode('No hay ningun curso'));
+        let small = document.createElement('small');
+        small.appendChild(document.createTextNode('Durante este ciclo, no hay estudiantes que requieran nivelación, por ello no hay ningun curso disponible.'));
+        small.classList.add('text-muted');
+
+        highlight.appendChild(img);
+        highlight.appendChild(h4);
+        highlight.appendChild(small);
+        flex.appendChild(highlight);
+
+        return flex;
+    }
 }

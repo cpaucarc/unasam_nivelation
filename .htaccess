@@ -57,6 +57,8 @@ RewriteRule ^reporte/programa$ app/reports/school.php
 
 #teachers
 RewriteRule ^mis-cursos$ my-courses.php
+#directors
+RewriteRule ^seguimiento$ tracing.php
 
 
 #graphics
