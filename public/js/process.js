@@ -73,17 +73,19 @@ function fillTable(process) {
     tbody.innerHTML = '';
     $('#table-process').DataTable().clear().destroy();
     process.forEach((p, i) => {
-        let row = table.createRow((i+1), p.name);
-        let btnEdit = button.createBtnEdit(updateProcess, p.id, p.name);
+        let row = table.createRow((i + 1), p.name, `${p.percent}% = (${p.percent * 4} puntos)`, p.qualification);
+        let btnEdit = button.createBtnEdit(updateProcess, p);
         row.appendChild(table.createCell(btnEdit));
         tbody.appendChild(row);
     });
     $('#table-process').DataTable();
 }
 
-function updateProcess(id, proc) {
-    document.getElementById('procID').value = id;
-    document.getElementById('denomination').value = proc;
+function updateProcess(proc) {
+    document.getElementById('procID').value = proc.id;
+    document.getElementById('denomination').value = proc.name;
+    document.getElementById('minPercent').value = proc.percent;
+    document.getElementById('minQlf').value = proc.qualification;
     $('#process_modal').modal('show');
 }
 

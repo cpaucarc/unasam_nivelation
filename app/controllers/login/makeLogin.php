@@ -15,7 +15,7 @@ try {
 
 
     session_start();
-    
+
     if ($response['status'] == "1") {
         $user = $login->findUserByUsernameAndPassword();
         $_SESSION['user_logged'] = array();
@@ -24,7 +24,7 @@ try {
         $_SESSION['user_logged']['lastname'] = $user->getLastname();
         $_SESSION['user_logged']['name'] = $user->getName();
         $_SESSION['user_logged']['gender'] = $user->getGender();
-        $_SESSION['user_logged']['utid'] = $user->getRolID();
+        $_SESSION['user_logged']['utid'] = $user->getRolID();//UserType
         $_SESSION['user_logged']['rol'] = $user->getRol();
         $_SESSION['user_logged']['username'] = $user->getUsername();
 
@@ -41,6 +41,12 @@ try {
             exit;
         } elseif (intval($_SESSION['user_logged']['utid']) === 3) { //Estudiante
             header("Location: " . PROJECT . "estudiante/" . $_SESSION['user_logged']['id'], TRUE, 301);
+            exit;
+        } elseif (intval($_SESSION['user_logged']['utid']) === 4) { //Docente
+            header("Location: " . PROJECT . "mis-cursos", TRUE, 301);
+            exit;
+        } elseif (intval($_SESSION['user_logged']['utid']) === 5) { //Director
+            header("Location: " . PROJECT . "seguimiento", TRUE, 301);
             exit;
         }
 

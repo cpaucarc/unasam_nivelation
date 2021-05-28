@@ -25,7 +25,10 @@ uploadForm.onsubmit = (e) => {
     fetch('app/controllers/index/saveStudentsToDB.php/', {
         method: 'GET'
     })
-        .then(response => response.json())
+        .then(response => {
+            console.log(response)
+            return response.json()
+        })
         .then(data => {
             console.log(data);
             if (data.status !== 0) {
@@ -55,6 +58,9 @@ uploadForm.onsubmit = (e) => {
             } else {
                 sweet.errorAlert('¡Error!', data.message);
             }
+        })
+        .catch(function (error) {
+            sweet.errorAlert('ubo un problema: ', error.message);
         });
 }
 
@@ -92,6 +98,7 @@ function getLastProcess() {
     })
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             if (data.status) {
                 lastProcess.innerText = data.message;
             } else {
@@ -117,6 +124,7 @@ function getMissingCourses() {
     })
         .then(response => response.json())
         .then(data => {
+            console.log(data)
             missingCourses.innerHTML = data.message;
             coursesOK = data.status;
             if (coursesOK) {

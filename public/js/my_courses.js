@@ -3,10 +3,15 @@ const teacherID = document.getElementById('teacherID');
 const groupID = document.getElementById('groupID');
 const tbody_students = document.getElementById('tbody-students');
 const tbody_schedule = document.getElementById('tbody-schedule');
+const tbody_std_qlf = document.getElementById('tbody-std-qlf');
 const classDataID = document.getElementById('classDataID');
 const formClassData = document.getElementById('formClassData');
+const formChangeQlf = document.getElementById('formChangeQlf');
 const tablesView = document.getElementById('tableStudentsOfGroup');
+const btnCreateQlf = document.getElementById('createQualifications');
 
+sweet = new SweetAlerts();
+badge = new Badge();
 buttons = new Button();
 table = new Table();
 cards = new Card();
@@ -35,6 +40,33 @@ formClassData.onsubmit = (e) => {
         });
 }
 
+formChangeQlf.onsubmit = (e) => {
+    e.preventDefault();
+    let formData = new FormData(formChangeQlf);
+    fetch('app/controllers/attendance/updateQualify.php', {
+        method: 'POST',
+        headers: {
+            "Accept": "application/json"
+        },
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status) {
+                let auxAGrID = document.getElementById('infoGroupID').value
+                getStudentsForQualification(auxAGrID);
+                $('#modalChangeQlf').modal('hide');
+            } else {
+                sweet.errorAlert('Error', data.message);
+            }
+        });
+}
+
+btnCreateQlf.onclick = () => {
+    let auxAGrID = document.getElementById('infoGroupID').value
+    getStudentsForQualification(auxAGrID);
+}
+
 function getCourses() {
     let tID = parseInt(teacherID.value);
     if (tID > 0) {
@@ -50,13 +82,15 @@ function getCourses() {
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                listCourses.innerHTML = ``;
-                data = data.courses;
-                data.forEach(course => {
-                    listCourses.appendChild(cards.getMyCourseCard(
-                        course.dimensionName, course.groupName, course.areaName,
-                        course, showModalInfoClass, showAttendanceModal));
-                })
+                if (data.length) {
+                    listCourses.innerHTML = ``;
+                    data = data.courses;
+                    data.forEach(course => {
+                        listCourses.appendChild(cards.getMyCourseCard(
+                            course.dimensionName, course.groupName, course.areaName,
+                            course, showModalInfoClass, showAttendanceModal));
+                    })
+                }
             });
     }
 }
@@ -128,6 +162,32 @@ function getStudents(cldtID) {
         });
 }
 
+function getStudentsForQualification(groupID) {
+    let formData = new FormData();
+    formData.append('groupID', groupID);
+    fetch('app/controllers/attendance/registerQualificationsNGetStudents.php', {
+        method: 'POST',
+        headers: {
+            "Accept": "application/json"
+        },
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            data = data.students;
+            tbody_std_qlf.innerHTML = ``;
+            data.forEach((std, i) => { //id, student, qualification
+                let btn = buttons.createBtnEdit(changeQualify, std);
+                let stat = badge.createBadgeForQualify(std.qualification);
+                let row = table.createRow((i + 1), std.student, std.qualification);
+                row.appendChild(table.createCell(stat));
+                row.appendChild(table.createCell(btn));
+                tbody_std_qlf.appendChild(row);
+            })
+        });
+}
+
 function getSchedules(groupID) {
     let formData = new FormData();
     formData.append('groupID', groupID);
@@ -143,7 +203,6 @@ function getSchedules(groupID) {
             console.log(data)
             data = data.schedules;
             tbody_schedule.innerHTML = ``;
-            //day, time_start, time_end, classroom, id
             data.forEach((std, i) => {
                 let row = table.createRow((i + 1), std.day, std.time_start, std.time_end, std.classroom);
                 tbody_schedule.appendChild(row);
@@ -186,11 +245,13 @@ function getResume(data) {
 }
 
 function showModalInfoClass(course) {
+    console.log(course)
     //groupID, groupName, dimensionName, areaName, numStudents, id
     document.getElementById('infoArea').innerText = course.areaName;
     document.getElementById('infoCourse').innerText = course.dimensionName;
     document.getElementById('infoGroup').innerText = course.groupName;
     document.getElementById('infoNumStd').innerText = course.numStudents;
+    document.getElementById('infoGroupID').value = course.groupID;
     getSchedules(course.groupID);
     $('#modalInfoClass').modal('show');
 }
@@ -210,6 +271,14 @@ function showAttendanceModal(course) {
         clearFormData();
     }
     $('#modalAttendance').modal('show');
+}
+
+function changeQualify(std) {
+    //QlfID, student, qualification
+    document.getElementById('changeQlfID').value = std.id;
+    document.getElementById('changeStdName').innerText = std.student;
+    document.getElementById('currentQlf').value = std.qualification;
+    $('#modalChangeQlf').modal('show');
 }
 
 function showTablesWithStudents() {

@@ -6,6 +6,8 @@ class processModel
 {
     private $id;
     private $name;
+    private $percent;
+    private $qualify;
 
     public function __construct()
     {
@@ -16,9 +18,11 @@ class processModel
         $connection = new MySqlConnection();
         if ($connection) {
             $pdo = $connection->getConnection();
-            $sql = "INSERT INTO process VALUES (null, ?);";
+            $sql = "INSERT INTO process (name, percent, qualification_min) VALUES (?, ?, ?);";
             $pdo->prepare($sql)->execute([
-                $this->getName()
+                $this->getName(),
+                $this->getPercent(),
+                $this->getQualify()
             ]);
 
             $sql = "SELECT id FROM process WHERE name = '" . $this->getName() . "';";
@@ -27,23 +31,23 @@ class processModel
             $courses = $this->getCoursesID();
             $areas = $this->getAreasID();
             $dimensions = $this->getDimensionsID();
-            $min = 20;
-            $max = 30;
+            $min = round(intval($this->getPercent()) * 0.65);
+            $max = intval($this->getPercent());
 
-            $query = "INSERT INTO ranks VALUES ";
+            $query = "INSERT INTO ranks (minimum, recommended, areas_id, courses_id, process_id) VALUES ";
             foreach ($courses as $course) {
                 foreach ($areas as $area) {
-                    $query .= "(null, $min, $max, $area, $course, " . $this->getId() . "), ";
+                    $query .= "($min, $max, $area, $course, " . $this->getId() . "), ";
                 }
             }
             $query = substr($query, 0, strlen($query) - 2) . ";";
 
             $pdo->query($query);
 
-            $query = "INSERT INTO dimension_ranks VALUES ";
+            $query = "INSERT INTO dimension_ranks (min, areas_id, dimensions_id, process_id) VALUES ";
             foreach ($dimensions as $dimension) {
-                foreach ($areas as $area) { //2:mate, 3:comunc, 7:tecn estudio (dimensions -> BD)
-                    $query .= "(null, $max, $area, $dimension, " . $this->getId() . "), ";
+                foreach ($areas as $area) {
+                    $query .= "($max, $area, $dimension, " . $this->getId() . "), ";
                 }
             }
             $query = substr($query, 0, strlen($query) - 2) . ";";
@@ -59,12 +63,15 @@ class processModel
     function updateProcess()
     {
         $connection = new MySqlConnection();
+
         if ($connection) {
             $pdo = $connection->getConnection();
-            $sql = "UPDATE process SET name = ? WHERE id = ?;";
+            $sql = "UPDATE process SET name = ?, percent = ?, qualification_min = ?  WHERE id = ?;";
             $pdo->prepare($sql)->execute([
-                $this->name,
-                $this->id
+                $this->getName(),
+                $this->getPercent(),
+                $this->getQualify(),
+                $this->getId()
             ]);
             return true;
         } else {
@@ -147,12 +154,13 @@ class processModel
     {
         $conn = (new MySqlConnection())->getConnection();
         $sql = "SELECT * FROM process ORDER BY name DESC";
-
         $response['process'] = array();
         foreach ($conn->query($sql) as $row) {
             $p = array();
             $p['id'] = $row['id'];
             $p['name'] = $row['name'];
+            $p['percent'] = $row['percent'];
+            $p['qualification'] = $row['qualification_min'];
             array_push($response['process'], $p);
         }
         return json_encode($response);
@@ -189,5 +197,28 @@ class processModel
         $this->name = $name;
         return $this;
     }
+
+    public function getPercent()
+    {
+        return $this->percent ?? 40;
+    }
+
+    public function setPercent($percent)
+    {
+        $this->percent = $percent;
+        return $this;
+    }
+
+    public function getQualify()
+    {
+        return $this->qualify ?? 14;
+    }
+
+    public function setQualify($qualify)
+    {
+        $this->qualify = $qualify;
+        return $this;
+    }
+
 
 }

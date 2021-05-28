@@ -31,18 +31,36 @@ require_once $sessionStarted->getUpperPartByUserType();
                         </div>
 
                     </div>
-                    <div class="col col-12 col-lg-8 table-responsive">
-                        <table id="table-process" class="table table-sm border">
-                            <thead class="thead-light">
-                            <tr class="text-center">
-                                <th><small><strong>N°</strong></small></th>
-                                <th><small><strong>Nombre</strong></small></th>
-                                <th>&nbsp;</th>
-                            </tr>
-                            </thead>
-                            <tbody id="tbody" class="text-center">
-                            </tbody>
-                        </table>
+                    <div class="col col-12 col-lg-8 mt-2">
+                        <div class="table-responsive">
+                            <table id="table-process" class="table table-sm border">
+                                <thead class="thead-light">
+                                <tr class="text-center">
+                                    <th><small><strong>N°</strong></small></th>
+                                    <th><small><strong>Proceso</strong></small></th>
+                                    <th><small><strong>Porc. Mínimo<sup> 1 </sup></strong></small></th>
+                                    <th><small><strong>Nota Mínima<sup> 2 </sup></strong></small></th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                                </thead>
+                                <tbody id="tbody" class="text-center">
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="alert alert-light mt-3">
+                            <small>
+                                Nota:
+                                <ol>
+                                    <li>Los estudiantes con puntaje menor al Porcentaje mínimo requeriran de nivelación
+                                        obligatoria
+                                    </li>
+                                    <li>Los estudiantes deberan obtener una calificación final mayor a la nota mínima en
+                                        el program de nivelación.
+                                    </li>
+                                </ol>
+                            </small>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -58,11 +76,32 @@ require_once $sessionStarted->getUpperPartByUserType();
                 <div class="modal-body">
                     <form id="form">
                         <input type="hidden" value="0" name="procID" id="procID">
-                        <div class="form-group">
-                            <label for="proceso" class="col-form-label col-form-label-sm">Admisión:</label>
-                            <input name="denomination" type="text" class="form-control form-control-sm"
-                                   id="denomination" required
-                                   placeholder="Proceso de admisión">
+
+                        <div class="form-group row">
+                            <label for="denomination" class="col-4 col-form-label col-form-label-sm text-right">Proceso
+                                de Admisión:</label>
+                            <div class="col-8">
+                                <input name="denomination" type="text" class="form-control form-control-sm"
+                                       id="denomination" placeholder="Ej. 2019-I" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="minPercent" class="col-4 col-form-label col-form-label-sm text-right">Porcentaje
+                                Minimo:</label>
+                            <div class="col-8">
+                                <input name="minPercent" type="number" class="form-control form-control-sm"
+                                       id="minPercent" value="30" min="0" max="100" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="minQlf" class="col-4 col-form-label col-form-label-sm text-right">Nota
+                                Minimo:</label>
+                            <div class="col-8">
+                                <input name="minQlf" type="number" class="form-control form-control-sm"
+                                       id="minQlf" required value="14" min="0" max="20">
+                            </div>
                         </div>
                 </div>
                 <div class="modal-footer">

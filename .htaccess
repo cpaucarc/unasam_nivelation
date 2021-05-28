@@ -54,9 +54,12 @@ RewriteRule ^reporte/estudiante$ app/reports/student.php
 RewriteRule ^reporte/curso$ app/reports/course.php
 RewriteRule ^reporte/dimension$ app/reports/dimension.php
 RewriteRule ^reporte/programa$ app/reports/school.php
+RewriteRule ^constancia$ app/reports/constancy.php
 
 #teachers
 RewriteRule ^mis-cursos$ my-courses.php
+#directors
+RewriteRule ^seguimiento$ tracing.php
 
 
 #graphics

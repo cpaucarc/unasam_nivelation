@@ -51,10 +51,12 @@ require_once $sessionStarted->getUpperPartByUserType();
                                 <a>
                                     <form action="<?php echo $routeAux; ?>reporte/estudiante" method="post"
                                           target="_blank">
-                                        <input id="studentPdf" name="studentPdf" required type="hidden" value="0" readonly>
+                                        <input id="studentPdf" name="studentPdf" required type="hidden" value="0"
+                                               readonly>
                                         <input id="byTipe" name="byTipe" required type="hidden" value="0" readonly>
                                         <button type="submit" class="dropdown-item">
-                                            <i class="bi bi-stop mr-2"></i>Ver este alumno por <span id="tipePdf"></span>
+                                            <i class="bi bi-person-badge mr-2"></i>Ver este alumno por <span
+                                                    id="tipePdf"></span>
                                         </button>
                                     </form>
                                 </a>
@@ -64,7 +66,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                                     <form action="<?php echo $routeAux; ?>estudiante-grafico" target="_blank"
                                           method="post"
                                           class="mx-2">
-                                          <input id="studentChart" name="studentChart" required type="hidden" value="0" readonly>
+                                        <input id="studentChart" name="studentChart" required type="hidden" value="0"
+                                               readonly>
                                         <button type="submit" class="dropdown-item">
                                             <i class="bi bi-pie-chart-fill mr-2"></i> Ver Graficos
                                         </button>
@@ -94,7 +97,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <div class="card-header pt-1 pb-0 px-3">
                                 <ul class="nav nav-tabs border-bottom-0 text-muted">
                                     <li class="nav-item">
-                                        <a class="nav-link active" data-toggle="tab" href="#for_dimensions_basic" id="navBasico">
+                                        <a class="nav-link active" data-toggle="tab" href="#for_dimensions_basic"
+                                           id="navBasico">
                                             Análisis Básico
                                         </a>
                                     </li>
@@ -127,6 +131,9 @@ require_once $sessionStarted->getUpperPartByUserType();
                                                     </th>
                                                     <th scope="col" class="text-left">
                                                         <small><strong>Recomendación</strong></small>
+                                                    </th>
+                                                    <th scope="col" class="text-left">
+                                                        <small>&nbsp;</small>
                                                     </th>
                                                 </tr>
                                                 </thead>
@@ -161,11 +168,14 @@ require_once $sessionStarted->getUpperPartByUserType();
                                                 </tr>
                                                 </thead>
                                                 <tbody id="table-dimensions-body">
+                                                <tr>
+                                                    <td colspan="4"><small>No calculado</small></td>
+                                                </tr>
                                                 </tbody>
                                             </table>
                                             <small class="mb-3">
                                                 <strong>*</strong> Representa el porcentaje de preguntas correctas
-                                                dentro de la dimensión. <br>
+                                                dentro de la dimensión.<br>
                                                 <strong>*</strong> Una dimensión es un grupo que contiene a varios
                                                 cursos.
                                             </small>

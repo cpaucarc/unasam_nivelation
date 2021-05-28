@@ -31,7 +31,6 @@ class Student extends Person
             try {
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $pdo->beginTransaction();
-
                 $sql = "CALL spSaveStudent(:dni, :name, :lastname, :gender, :code, :omg, :score, :postulantcode, :good, :bad, :blank, :program)";
                 $ex = $pdo->prepare($sql);
                 $ex->execute(array(
@@ -54,7 +53,7 @@ class Student extends Person
                 $ex->closeCursor();
                 return $pdo->commit();
             } catch (Exception $e) {
-                echo "La operación falló: " . $e->getMessage();
+                echo "La operación falló [E01SSTBD]: " . $e->getMessage();
                 return false;
             }
         } else {
@@ -75,7 +74,8 @@ class Student extends Person
                 $sql_verif = "SELECT COUNT(1) FROM questions WHERE student_data_id = " . $this->getStda() . ";";
 
                 if (intval($pdo->query($sql_verif)->fetchColumn()) < 100) {
-                    $sql = "INSERT INTO questions VALUES ";
+                    $sql = "INSERT INTO questions (number, student_data_id, responses_id, distributions_id) VALUES ";
+
                     foreach ($this->getQuestions() as $i => $question) {
 
                         $sql_distID = "SELECT id FROM distributions WHERE areas_id = getAreaIDByStudentID(" . $this->getStda() . ") AND (" . $question->getNumber() . " BETWEEN dfrom AND dto);";
@@ -92,7 +92,7 @@ class Student extends Person
                                 if ($i > 0) {
                                     $sql .= ", ";
                                 }
-                                $sql .= "(null, " . $question->getNumber() . ", " . $this->getStda() . ", " .
+                                $sql .= "(" . $question->getNumber() . ", " . $this->getStda() . ", " .
                                     $question->getResponse() . ", " . $distID . ")";
                             }
                         }
@@ -116,7 +116,7 @@ class Student extends Person
                 }
             } catch (Exception $e) {
                 $pdo->rollBack();
-                echo "La operación falló: " . $e->getMessage();
+                echo "La operación falló [E04SQTBD]: " . $e->getMessage();
                 return false;
             }
         } else {
@@ -144,7 +144,7 @@ class Student extends Person
                 return $pdo->commit();
             } catch (Exception $e) {
                 $pdo->rollBack();
-                echo "La operación falló: " . $e->getMessage();
+                echo "La operación falló [E02DCOC]: " . $e->getMessage();
                 return false;
             }
         } else {
@@ -172,7 +172,7 @@ class Student extends Person
                 return $pdo->commit();
             } catch (Exception $e) {
                 $pdo->rollBack();
-                echo "La operación falló: " . $e->getMessage();
+                echo "La operación falló [E03DCOD]: " . $e->getMessage();
                 return false;
             }
         } else {
