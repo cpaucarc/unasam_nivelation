@@ -8,6 +8,7 @@ const tbody_basic_body = document.getElementById('tbody-dimensions-basic-body');
 const tbQuestions1 = document.getElementById('questions-1');
 const tbQuestions2 = document.getElementById('questions-2');
 const stdID = parseInt(document.getElementById('stdID').value);
+const rowSchedules = document.getElementById('rowSchedules');
 
 /*Report */
 
@@ -31,9 +32,11 @@ window.onload = function () {
         getCoursesByID(stdID);
         getDimensionsByID(stdID);
         getBasicDimensionsByID(stdID);
+        getStudentGroups(stdID);
     } else {
         stdInfoCard.innerHTML = '';
         notStdInfo.innerHTML = card.getNotStudentSelectedCard();
+        document.getElementById('showSchedule').classList.add('d-none');
     }
     document.getElementById('view-title').innerText = 'Vista por Estudiante';
     tipePdf.innerHTML = 'basico';
@@ -187,7 +190,6 @@ function getBasicDimensionsByID(id) {
         .then(response => response.json())
         .then(data => {
             data = data.dimensions;
-            console.log('data');
             console.log(data);
             tbody_basic_body.innerHTML = ``;
             data.forEach((dim, i) => {
@@ -200,9 +202,60 @@ function getBasicDimensionsByID(id) {
         });
 }
 
+
+async function getStudentGroups(stdtID) {
+
+
+    let formData = new FormData();
+    formData.append('stdtID', stdtID);
+
+    let resp1 = await fetch(`${routeAux}app/controllers/student/getStudentGroups.php/`, {
+        method: 'POST',
+        headers: {
+            "Accept": "application/json"
+        },
+        body: formData
+    });
+    let grs = await resp1.json();
+    groups = grs.groups;
+
+    // rowSchedules.innerHTML = ``;
+    for (const gr of groups) {
+        let formDataG = new FormData();
+        formDataG.append('groupID', gr.groupID);
+
+        let resp2 = await fetch(`${routeAux}app/controllers/student/getScheduleFromGroup.php/`, {
+            method: 'POST',
+            headers: {
+                "Accept": "application/json"
+            },
+            body: formDataG
+        });
+        let schedules = await resp2.json();
+        let sch = await getScheduleFromGroup(schedules);
+
+        rowSchedules.innerHTML += card.getCardGroup(gr.teacher, gr.dimension, sch);
+        console.log(gr.teacher, gr.dimension, sch)
+    }
+}
+
+async function getScheduleFromGroup(schedules) {
+    data = schedules.schedules;
+    let rsp = ``;
+    data.forEach(sch => {
+        rsp += `<tr>`;
+        rsp += `<td><small>${sch.days}</small></td>`;
+        rsp += `<td><small>${sch.time_start}</small></td>`;
+        rsp += `<td><small>${sch.time_end}</small></td>`;
+        rsp += `<td><small>${sch.classroom}</small></td>`;
+        rsp += `</tr>`;
+    });
+    return rsp;
+}
+
 function createForm(dimID, stdtID) {
     let form = document.createElement('form');
-    form.setAttribute('action', 'constancia');
+    form.setAttribute('action', `${routeAux}constancia`);
     form.setAttribute('method', 'POST');
     form.setAttribute('target', '_blank');
     let stdInput = document.createElement('input');
