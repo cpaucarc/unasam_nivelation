@@ -1,14 +1,14 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . "/nivelation/dirs.php";
 include_once DB_PATH . "MySqlConnection.php";
+
 class courseModel
 {
     function __construct()
     {
     }
 
-
-    function getSchoolStudents($status,$process)
+    function getSchoolStudents($status, $process)
     {
         $conn = (new MySqlConnection())->getConnection();
 

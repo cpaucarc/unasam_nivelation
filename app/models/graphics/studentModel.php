@@ -1,7 +1,8 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . "/nivelation/dirs.php";
 include_once DB_PATH . "MySqlConnection.php";
-class courseModel
+
+class studentModel
 {
     function __construct()
     {
@@ -11,11 +12,11 @@ class courseModel
     {
         $conn = (new MySqlConnection())->getConnection();
         if ($byTipe === 'Dimensiones') {
-            $sql = "call spCountStatusDimension($id) ";
-        }else if($byTipe==='Cursos'){
-            $sql = "call spCountStatusCourse($id) ";
+            $sql = "call spCountStatusDimension($id);";
+        } else if ($byTipe === 'Cursos') {
+            $sql = "call spCountStatusCourse($id);";
         }
-        
+
         $arreglo = array();
         $consulta = $conn->query($sql);
 

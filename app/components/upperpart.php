@@ -1,5 +1,5 @@
 <?php
-$rtax = isset($routeAux) ? $routeAux : "";
+$rtax = $routeAux ?? "";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -26,7 +26,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center"
-           href="/nivelation/inicio">
+           href="<?php echo $rtax; ?>inicio">
             <div class="sidebar-brand-icon ">
                 <img src="<?php echo $rtax; ?>public/images/logo.jpg" width="50px" class="rounded float-start"
                      alt="Escudo de la Unasam" loading="lazy">
@@ -40,7 +40,7 @@ $rtax = isset($routeAux) ? $routeAux : "";
         <hr class="sidebar-divider my-0">
 
         <li class="nav-item active">
-            <a class="nav-link" href="/nivelation/inicio">
+            <a class="nav-link" href="<?php echo $rtax; ?>inicio">
                 <i class="bi bi-house-fill mr-2"></i><span>Inicio del sitio</span>
             </a>
         </li>
@@ -176,12 +176,12 @@ $rtax = isset($routeAux) ? $routeAux : "";
                                     ?>
                                 </span>
 
-                            <button class="mt-3 p-1 avatar img-profile rounded-circle text-center text-capitalize font-weight-bold alert alert-primary"
-                                    role="alert">
+                            <button class="mt-3 p-1 avatar img-profile rounded-circle text-center text-capitalize font-weight-bold alert alert-primary">
                                 <?php echo substr($_SESSION['user_logged']['name'], 0, 1); ?>
                             </button>
 
                         </a>
+
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">

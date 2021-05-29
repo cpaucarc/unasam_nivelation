@@ -41,17 +41,21 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <h6 class="dropdown-header">Reportes</h6>
                             <a>
-                                <form action="http://localhost/nivelation/app/reports/area.php" target="_blank" method="post">
+                                <form action="http://localhost/nivelation/app/reports/area.php" target="_blank"
+                                      method="post">
                                     <input id="areaPdf_1" name="areaPdf" required type="hidden" value="0" readonly>
-                                    <input id="processPdf_1" name="processPdf" required type="hidden" value="0" readonly>
+                                    <input id="processPdf_1" name="processPdf" required type="hidden" value="0"
+                                           readonly>
                                     <button type="submit" class="dropdown-item">
                                         <i class="bi bi-stop mr-2"></i>Solo de este área
                                     </button>
                                 </form>
                             </a>
                             <a>
-                                <form action="http://localhost/nivelation/app/reports/area.php" target="_blank" method="post">
-                                    <input id="processPdf_2" name="processPdf" required type="hidden" value="0" readonly>
+                                <form action="http://localhost/nivelation/app/reports/area.php" target="_blank"
+                                      method="post">
+                                    <input id="processPdf_2" name="processPdf" required type="hidden" value="0"
+                                           readonly>
                                     <button type="submit" class="dropdown-item">
                                         <i class="bi bi-stop mr-2"></i>Todos las áreas
                                     </button>
@@ -62,8 +66,9 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <a>
                                 <form action="cursos-grafico" target="_blank" method="post"
                                       class="mx-2">
-                                      <input id="areaPdf_2" name="areaPdf_2" required type="hidden" value="0" readonly>
-                                    <input name="processChart" id="processChart" required type="hidden" value="0" readonly>
+                                    <input id="areaPdf_2" name="areaPdf_2" required type="hidden" value="0" readonly>
+                                    <input name="processChart" id="processChart" required type="hidden" value="0"
+                                           readonly>
                                     <button type="submit" class="dropdown-item">
                                         <i class="bi bi-pie-chart-fill mr-2"></i>Ver Graficos
                                     </button>
@@ -81,7 +86,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <tr>
                             <th scope="col"><small><strong>N°</strong></small></th>
                             <th scope="col"><small><strong>Código</strong></small></th>
-                            <th scope="col"><small><strong>Alumno</strong></small></th>
+                            <th scope="col"><small><strong>Apellidos y Nombres</strong></small></th>
                             <th scope="col"><small><strong>Puntaje</strong></small></th>
                             <th scope="col"><small><strong>Programa Académico</strong></small></th>
                             <th scope="col"><small><strong>Area</strong></small></th>

@@ -1,14 +1,7 @@
 <?php
-$rtax = isset($routeAux) ? $routeAux : "";
+$rtax = $routeAux ?? "";
 ?>
-<!--Icons-->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
-      integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
-
-<!--Fonts-->
-<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-      rel="stylesheet">
 
 <!-- Own -->
 <link rel="stylesheet" href="<?php echo $rtax; ?>public/css/nivelation.css">

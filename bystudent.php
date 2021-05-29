@@ -77,6 +77,12 @@ require_once $sessionStarted->getUpperPartByUserType();
 
                         </div>
                     </div>
+                    <div class="bd-highlight d-flex ml-2">
+                        <button type="button" class="btn btn-light btn-sm" id="showSchedule" data-toggle="modal"
+                                data-target="#modalSchedules">
+                            Ver horario
+                        </button>
+                    </div>
                 </div>
             </div>
             <div class="card-body">
@@ -88,8 +94,6 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <div id="not-student-card">
                             <!-- Just when stdID in POST is 0 -->
                         </div>
-
-
                     </div>
                     <div class="col col-12 col-lg-8">
 
@@ -255,6 +259,28 @@ require_once $sessionStarted->getUpperPartByUserType();
             </div>
         </div>
     </div>
+
+    <!-- Modal Schedules -->
+    <div class="modal fade" id="modalSchedules" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title font-weight-bold">
+                        Horarios
+                    </h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row" id="rowSchedules">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!--<script src="public/js/datatable.js"></script>-->
     <script type="text/javascript">

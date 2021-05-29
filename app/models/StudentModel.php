@@ -382,6 +382,62 @@ class StudentModel
         return json_encode($response);
     }
 
+    public function getStudentGroups($stdtID)
+    {
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "SELECT 
+                    stgr.groups_id as groupID,
+                    concat(pl.lastname, ' ', pl.name) as teacher,
+                    dm.name as dimension
+                FROM student_group AS stgr 
+                JOIN groups AS gr ON gr.id = stgr.groups_id
+                    JOIN teachers AS tc ON tc.id = gr.teachers_id
+                        JOIN people AS pl ON pl.id = tc.people_id
+                    JOIN dimensions AS dm ON dm.id = gr.dimensions_id
+                WHERE stgr.student_data_id = $stdtID;";
+
+        $response['groups'] = array();
+
+        foreach ($conn->query($sql) as $row) {
+            $school = array();
+            $school['groupID'] = $row['groupID'];
+            $school['teacher'] = $row['teacher'];
+            $school['dimension'] = $row['dimension'];
+            array_push($response['groups'], $school);
+        }
+        return json_encode($response);
+    }
+
+    public function getScheduleFromGroup($groupID)
+    {
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "SELECT 
+                    da.name as days,
+                    sch.time_start time_start,
+                    sch.time_end time_end,
+                    cl.name as classroom
+                FROM schedules AS sch
+                JOIN days AS da ON da.id = sch.days_id
+                JOIN groups AS gr ON gr.id = sch.groups_id
+                    JOIN teachers AS tc ON tc.id = gr.teachers_id
+                        JOIN people AS pl ON pl.id = tc.people_id
+                    JOIN dimensions AS dm ON dm.id = gr.dimensions_id
+                JOIN classrooms AS cl ON cl.id = sch.classrooms_id
+                WHERE sch.groups_id = $groupID;";
+
+        $response['schedules'] = array();
+
+        foreach ($conn->query($sql) as $row) {
+            $school = array();
+            $school['days'] = $row['days'];
+            $school['time_start'] = $row['time_start'];
+            $school['time_end'] = $row['time_end'];
+            $school['classroom'] = $row['classroom'];
+            array_push($response['schedules'], $school);
+        }
+        return json_encode($response);
+    }
+
     /* --------------- Getters and Setters --------------- */
     public function getName()
     {

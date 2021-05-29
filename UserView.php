@@ -28,9 +28,9 @@ require_once $sessionStarted->getUpperPartByUserType();
                                 <tr>
                                     <th style="width: 30px;"><small><strong>N°</strong></small></th>
                                     <th><small><strong>DNI</strong></small></th>
-                                    <th><small><strong>Nombre</strong></small></th>
+                                    <th><small><strong>Apellidos y Nombres</strong></small></th>
                                     <th><small><strong>Género</strong></small></th>
-                                    <th><small><strong>Rol</strong></small></th>
+                                    <th><small><strong>Tipo</strong></small></th>
                                     <th><small><strong>Usuario</strong></small></th>
                                     <th style="width: 5px;">&nbsp;</th>
                                 </tr>

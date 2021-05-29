@@ -15,7 +15,7 @@ require_once $sessionStarted->getUpperPartByUserType();
 
             <div class="d-flex justify-content-between mt-3 mb-5">
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalGroup">
+                <button type="button" class="btn btn-primary btn-sm" id="newGroup" data-toggle="modal" data-target="#modalGroup">
                     <i class="bi bi-plus mr-1"></i>Nuevo grupo de clases
                 </button>
             </div>
