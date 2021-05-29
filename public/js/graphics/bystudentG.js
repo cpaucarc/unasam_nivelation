@@ -8,33 +8,32 @@ const idStudent = document.getElementById('idStudent');
 //default
 let _tip_tipeValueeText = 'Diagrama de barras vertical';
 let _tipeValue = 'bar';
-let _byTipe='Dimensiones';
+let _byTipe = 'Dimensiones';
 
 window.onload = () => {
-    document.getElementById('view-title').innerText = 'Diagramas por estdos de estudiantes';
+    document.getElementById('view-title').innerText = 'Diagramas por estados de estudiantes';
     badge_tipe.forEach((texto) => {
         texto.innerText = _byTipe;
     });
-    Diagrams(idStudent.value,_byTipe, _tipeValue, _tip_tipeValueeText);
-    alert(idStudent.value+_byTipe+ _tipeValue+ _tip_tipeValueeText);
+    Diagrams(idStudent.value, _byTipe, _tipeValue, _tip_tipeValueeText);
 }
 cbTipeChart.addEventListener('change', () => {
     _tip_tipeValueeText = cbTipeChart.options[cbTipeChart.selectedIndex].text;
     _tipeValue = cbTipeChart.value;
-    Diagrams(idStudent.value,_byTipe, _tipeValue, _tip_tipeValueeText);
+    Diagrams(idStudent.value, _byTipe, _tipeValue, _tip_tipeValueeText);
 });
 
 cbByTipe.addEventListener('change', () => {
     _by_tipeValueeText = cbByTipe.options[cbByTipe.selectedIndex].text;
     _by_tipeValue = cbByTipe.value;
-    _byTipe=_by_tipeValueeText;
+    _byTipe = _by_tipeValueeText;
     badge_tipe.forEach((texto) => {
         texto.innerText = _by_tipeValueeText;
     });
-    Diagrams(idStudent.value,_by_tipeValueeText, _tipeValue, _tip_tipeValueeText);
+    Diagrams(idStudent.value, _by_tipeValueeText, _tipeValue, _tip_tipeValueeText);
 });
 
-function Diagrams(id, byTipe,tipe, title) {
+function Diagrams(id, byTipe, tipe, title) {
     let formData = new FormData();
     formData.append('id', id);
     formData.append('byTipe', byTipe);
@@ -50,7 +49,6 @@ function Diagrams(id, byTipe,tipe, title) {
             var lists = [];
             var numbers = [];
             var colors = [];
-            console.log(data);
             for (var i = 0; i < data.length; i++) {
                 lists.push(data[i][0]);
                 numbers.push(data[i][1]);

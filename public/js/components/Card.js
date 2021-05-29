@@ -24,7 +24,7 @@ class Card {
                 </div>
                 <div class="col col-6 d-block text-center list-group-item-action border-left border-top ">
                     <div class="py-3 px-1">
-                        <span class="small text-gray-600"><i class="fas fa-venus-mars mr-1"></i>Género</span>
+                        <span class="small text-gray-600"><i class="bi bi-people mr-1"></i>Género</span>
                         <h6 class="mb-0 font-weight-bold">${data.gender}</h6>
                     </div>
                 </div>
@@ -78,7 +78,7 @@ class Card {
                 </div>
                 <div class="col col-4 rounded-right d-block text-center list-group-item-action border-left border-top border-right border-bottom">
                     <div class="py-2 px-1">
-                        <i class="fas fa-minus-circle text-secondary"></i>
+                        <i class="bi bi-dash-circle-fill text-secondary"></i>
                         <h5 class="mb-0 font-weight-bold text-secondary">${data.blank}</h5>
                         <span class="small text-gray-600">En blanco</span>
                     </div>
@@ -230,4 +230,34 @@ class Card {
 
         return flex;
     }
+
+    getCardGroup(teacher, course, schedule) {
+        return `
+        <div class="col col-12 col-lg-4 mb-3">
+            <div class="card">
+                <div class="card-body px-2">
+                    <h6>Curso: <span class="text-primary font-weight-bold">${course}</span></h6>
+                    <h6>Docente: <span class="text-primary font-weight-bold">${teacher}</span></h6>
+    
+                    <div class="table-responsive">
+                        <table class="table table-sm border mt-3">
+                            <thead>
+                                <tr>
+                                    <th><small><strong>N°</strong></small></th>
+                                    <th><small><strong>Dia</strong></small></th>
+                                    <th><small><strong>Inicio</strong></small></th>
+                                    <th><small><strong>Fin</strong></small></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${schedule}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        `;
+    }
+
 }

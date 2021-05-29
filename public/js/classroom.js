@@ -1,5 +1,6 @@
 const date_start = document.getElementById('date_start');
 const date_end = document.getElementById('date_end');
+const btnNewGroup = document.getElementById('newGroup');
 const modalGroupSize = document.getElementById('modalGroupSize');
 
 const formGroup = document.getElementById('formGroup');
@@ -33,8 +34,7 @@ sweet = new SweetAlerts();
 
 window.onload = () => {
     document.getElementById('view-title').innerText = 'Asignación de grupos de clases';
-    date_start.valueAsDate = new Date();
-    date_end.valueAsDate = new Date();
+    resetForm();
     getAllProcess();
     getAllAreas();
     getAllGroups();
@@ -48,6 +48,9 @@ cbProcess.onchange = () => {
 }
 cbArea.onchange = () => {
     countGroupName(cbProcess.value, cbDimension.value, cbArea.value);
+}
+btnNewGroup.onclick = () => {
+    goToStep(1);
 }
 
 formGroup.onsubmit = (e) => {
@@ -332,6 +335,7 @@ function getStudentsInGroup(groupID) {
 
 function openEditGroupModal(group) {
     console.log(group)
+    goToStep(5);
     groupIDStep2.value = group.id;
     groupIDStep3.value = group.id;
     groupIDSchedule.value = group.id;
@@ -345,7 +349,6 @@ function openEditGroupModal(group) {
     getAllProcess(group.process);
     getAllAreas(group.area);
     selectDimension(group.dimension);
-    goToStep(5);
     $('#modalGroup').modal('show');
 }
 
@@ -408,6 +411,18 @@ function deleteSchedule(scheduleID) {
         });
 }
 
+function resetForm() {
+    groupIDStep2.value = '0';
+    groupIDStep3.value = '0';
+    groupIDSchedule.value = '0';
+    document.getElementById('groupID').value = '0';
+    document.getElementById('teacherID').value = '0';
+    document.getElementById('teacherName').value = '';
+    document.getElementById('groupName').value = 'Grupo 01';
+    date_start.valueAsDate = new Date();
+    date_end.valueAsDate = new Date();
+}
+
 function goToStep(num) {
     switch (num) {
         case 2: {
@@ -428,6 +443,7 @@ function goToStep(num) {
             showForm(formStudents, false);
             showForm(formGroup, true);
             $('#modalGroup').modal('hide');
+            resetForm();
             modalGroupSize.classList.remove('modal-xl');
             modalGroupSize.classList.add('modal-md');
             break;
