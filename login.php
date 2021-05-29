@@ -32,8 +32,8 @@ $error_message = $_SESSION['login']['error'] ?? '';
         <div class="col-11 col-md-6 col-xl-4 px-3">
             <div class="text-center py-3">
                 <img src="public/images/ogcushort.png" class="img-fluid w-25" alt="Logo" loading="lazy">
-                <h5 class="font-weight-lighter text-dark">
-                    Iniciar sesión en PNI-UNASAM
+                <h5 class="text-primary">
+                    Iniciar sesión en <span class="font-weight-bold">PNI-UNASAM</span>
                 </h5>
             </div>
 
@@ -60,7 +60,7 @@ $error_message = $_SESSION['login']['error'] ?? '';
                                    name="password" required>
                         </div>
                         <div class="mt-4">
-                            <button class="btn btn-primary btn-sm btn-block font-weight-bold"
+                            <button class="btn btn-primary btn-sm btn-block font-weight-bold py-2"
                                     type="submit">
                                 Iniciar Sesión
                             </button>
