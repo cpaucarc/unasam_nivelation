@@ -33,12 +33,12 @@ uploadForm.onsubmit = (e) => {
             console.log(data);
             if (data.status !== 0) {
                 if (parseInt(data.response[0]['failed']) > 0) {
-                    let table = `<table class="table border table-sm text-left">
+                    let table = `<table class="table border table-sm table-striped text-left">
                         <thead class="thead-light">
                         <tr><th><small><strong>Número</strong></small></th>
                             <th><small><strong>Código</strong></small></th>
                             <th><small><strong>Estudiante</strong></small></th>
-                            <th><small><strong>Donde falló</strong></small></th>
+                            <th><small><strong>Error en</strong></small></th>
                         </tr>
                         </thead><tbody>`;
                     let students = data.response[0]['students'];

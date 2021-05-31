@@ -5,7 +5,7 @@
 <footer class="sticky-footer bg-light border-top">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Sistema de Nivelación 2021</span>
+            <span>Copyright &copy; Programa de Nivelación de Ingresantes 2021</span>
         </div>
     </div>
 </footer>

@@ -61,7 +61,7 @@ if (intval($_SESSION['user_logged']['utid']) === 5) {
                 <div class="modal-body">
                     <h6>Estudiantes:</h6>
                     <div class="table-responsive">
-                        <table class="table table-sm border">
+                        <table class="table table-sm table-striped border">
                             <thead class="thead-light">
                             <tr>
                                 <th><small><strong>N°</strong></small></th>
@@ -112,7 +112,7 @@ if (intval($_SESSION['user_logged']['utid']) === 5) {
                         </div>
                     </div>
                     <h6>Horario:</h6>
-                    <table class="table table-sm border">
+                    <table class="table table-sm table-striped border">
                         <thead>
                         <tr>
                             <th><small><strong>N°</strong></small></th>
@@ -154,7 +154,7 @@ if (intval($_SESSION['user_logged']['utid']) === 5) {
                     </div>
 
                     <div class="table-responsive">
-                        <table class="table table-sm border">
+                        <table class="table table-sm table-striped border">
                             <thead class="thead-light">
                             <tr>
                                 <th scope="col"><small><strong>N°</strong></small></th>

@@ -14,8 +14,8 @@ require_once $sessionStarted->getUpperPartByUserType();
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <?php if (intval($_SESSION['user_logged']['utid']) === 1) { ?>
                     <button type="button" class="btn btn-primary btn-sm my-2" data-toggle="modal"
-                            data-target="#teacher_modal" id="new-teacher">
-                        <i class="bi bi-plus mr-2"></i>Nuevo docente
+                            data-target="#director_modal" id="new-director">
+                        <i class="bi bi-plus mr-2"></i>Nuevo director
                     </button>
                 <?php } ?>
             </div>
@@ -23,17 +23,15 @@ require_once $sessionStarted->getUpperPartByUserType();
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="table-responsive">
-                            <table id="table-teachers" class="table table-sm table-striped border">
+                            <table id="table-directors" class="table table-sm table-striped border">
                                 <thead class="thead-light">
                                 <tr>
                                     <th style="width: 15px;"><small><strong>N°</strong></small></th>
                                     <th><small><strong>DNI</strong></small></th>
-                                    <th><small><strong>Nombre</strong></small></th>
+                                    <th><small><strong>Apellidos y Nombres</strong></small></th>
                                     <th style="width: 40px;"><small><strong>Género</strong></small></th>
-                                    <th><small><strong>Curso</strong></small></th>
-                                    <th><small><strong>Programa</strong></small></th>
+                                    <th><small><strong>Programa Académico</strong></small></th>
                                     <th style="width: 15px;"><small><strong>Area</strong></small></th>
-                                    <th style="width: 50px;"><small><strong>Estado</strong></small></th>
                                     <th style="width: 5px;">&nbsp;</th>
                                 </tr>
                                 </thead>
@@ -47,13 +45,13 @@ require_once $sessionStarted->getUpperPartByUserType();
         </div>
     </div>
     <!-- Modal Registro de Usuarios -->
-    <div class="modal fade" id="teacher_modal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    <div class="modal fade" id="director_modal" data-backdrop="static" data-keyboard="false" tabindex="-1"
          aria-labelledby="modal-title" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form id="teacher-form">
+                <form id="director-form">
                     <div class="modal-body">
-                        <input type="hidden" id="teacherID" name="teacherID" value="0" readonly>
+                        <input type="hidden" id="directorID" name="directorID" value="0" readonly>
                         <div class="form-group row">
                             <label for="dni"
                                    class="col-sm-3 col-form-label col-form-label-sm text-right">DNI</label>
@@ -92,16 +90,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                         </div>
                         <hr>
                         <div class="form-group row">
-                            <label for="course"
-                                   class="col-sm-3 col-form-label col-form-label-sm text-right">Curso</label>
-                            <div class="col-sm-9">
-                                <select class="form-control form-control-sm" id="course" name="course" required>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label for="area"
-                                   class="col-sm-3 col-form-label col-form-label-sm text-right">Área</label>
+                                   class="col-sm-3 col-form-label col-form-label-sm text-right">Area</label>
                             <div class="col-sm-9">
                                 <select class="form-control form-control-sm" id="area" name="area" required>
                                 </select>
@@ -119,7 +109,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancelar</button>
-                        <input type="submit" id="submit" class="btn btn-primary btn-sm" value="Registrar Nuevo Docente">
+                        <input type="submit" id="submit" class="btn btn-primary btn-sm"
+                               value="Guardar datos del director">
 
                     </div>
                 </form>
@@ -177,7 +168,7 @@ require_once $sessionStarted->getUpperPartByUserType();
 <script src="public/js/components/SweetAlerts.js"></script>
 <script src="public/js/components/Select.js"></script>
 <script src="public/js/components/Table.js"></script>
-<script src="public/js/teacher.js"></script>
+<script src="public/js/director.js"></script>
 
 <?php
 require_once COMPONENT_PATH . "downpart.php";

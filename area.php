@@ -27,7 +27,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                                 Agregar nuevo Programa Académico
                             </button>
                         <?php } ?>
-                        <table class="table border table-sm mt-4" id="table-schools">
+                        <table class="table border table-sm table-striped mt-4" id="table-schools">
                             <thead class="thead-light">
                             <tr>
                                 <th scope="col"><small><strong>N°</strong></small></th>
@@ -52,7 +52,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                                 Agregar nuevo curso
                             </button>
                         <?php } ?>
-                        <table class="table border table-sm mt-4" id="table-courses">
+                        <table class="table border table-sm table-striped mt-4" id="table-courses">
                             <thead class="thead-light">
                             <tr>
                                 <th scope="col" style="width: 5%;"><small><strong>N°</strong></small></th>

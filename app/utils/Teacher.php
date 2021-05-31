@@ -20,7 +20,7 @@ class Teacher extends Person
     public function getAllTeachers()
     {
         $conn = (new MySqlConnection())->getConnection();
-        $sql = "SELECT * FROM vteachers;";
+        $sql = "SELECT * FROM vteachers ORDER BY status DESC, area ASC, program ASC, course ASC, lastname ASC;";
         $response['teachers'] = array();
         foreach ($conn->query($sql) as $row) {
             $teacher = array();
@@ -35,6 +35,22 @@ class Teacher extends Person
             $teacher['area'] = $row['area'];
             $teacher['status'] = $row['status'];
             $teacher['status_name'] = $row['status_name'];
+            array_push($response['teachers'], $teacher);
+        }
+        return json_encode($response);
+    }
+
+    public function getAllTeachersParcial()
+    {
+        $conn = (new MySqlConnection())->getConnection();
+        $sql = "SELECT id, dni, concat(lastname,' ', name) teacher, dimension FROM vteachers ORDER BY dimension ASC, teacher ASC;";
+        $response['teachers'] = array();
+        foreach ($conn->query($sql) as $row) {
+            $teacher = array();
+            $teacher['id'] = $row['id']; //teacherID
+            $teacher['dni'] = $row['dni'];
+            $teacher['teacher'] = $row['teacher'];
+            $teacher['course'] = $row['dimension'];
             array_push($response['teachers'], $teacher);
         }
         return json_encode($response);

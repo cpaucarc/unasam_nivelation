@@ -240,7 +240,7 @@ class Card {
                     <h6>Docente: <span class="text-primary font-weight-bold">${teacher}</span></h6>
     
                     <div class="table-responsive">
-                        <table class="table table-sm border mt-3">
+                        <table class="table table-sm table-striped border mt-3">
                             <thead>
                                 <tr>
                                     <th><small><strong>N°</strong></small></th>

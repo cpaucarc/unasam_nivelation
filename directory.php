@@ -32,7 +32,7 @@ if (intval($_SESSION['user_logged']['utid']) === 1) {
                     </button>
                 </div>
                 <div class="table-responsive">
-                    <table class="table border rounded">
+                    <table class="table border table-striped">
                         <thead class="thead-light">
                         <tr>
                             <th scope="col"><small><strong>N°</strong></small></th>

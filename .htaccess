@@ -60,6 +60,7 @@ RewriteRule ^constancia$ app/reports/constancy.php
 RewriteRule ^mis-cursos$ my-courses.php
 #directors
 RewriteRule ^seguimiento$ tracing.php
+RewriteRule ^directores$ directors.php
 
 
 #graphics

@@ -94,6 +94,8 @@ $rtax = $routeAux ?? "";
                     <h6 class="collapse-header">Configuraciones:</h6>
                     <a class="collapse-item" href="<?php echo $rtax; ?>docentes">Docentes</a>
                     <a class="collapse-item" href="<?php echo $rtax; ?>clases">Grupos de clase</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="collapse-item" href="<?php echo $rtax; ?>directores">Directores</a>
                 </div>
             </div>
         </li>

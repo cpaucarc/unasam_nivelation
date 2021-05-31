@@ -140,7 +140,7 @@ class UserModel
     public function getAllUsers()
     {
         $conn = (new MySqlConnection())->getConnection();
-        $sql = "SELECT * FROM vusers ORDER BY lastname;";
+        $sql = "SELECT * FROM vusers ORDER BY rol, lastname;";
 
         $response['users'] = array();
         foreach ($conn->query($sql) as $row) {

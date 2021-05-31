@@ -20,6 +20,7 @@ const cbArea = document.getElementById('area');
 const cbRooms = document.getElementById('rooms');
 const cbDimension = document.getElementById('dimension');
 const txTeacher = document.getElementById('teacherName');
+const showAllTeachers = document.getElementById('showAllTeachers');
 
 const groupIDStep2 = document.getElementById('groupIDStep2');
 const groupIDStep3 = document.getElementById('groupIDStep3');
@@ -118,7 +119,12 @@ formSchedule.onsubmit = (e) => {
 }
 
 txTeacher.onclick = () => {
-    getTeacherByDim(cbDimension.value);
+    // getTeacherByDim(cbDimension.value);
+    controlCheckForShowTeachers(cbDimension.value);
+}
+
+showAllTeachers.onchange = () => {
+    controlCheckForShowTeachers(cbDimension.value);
 }
 
 function getAllProcess(value = '') {
@@ -216,6 +222,42 @@ function getTeacherByDim(dim) {
             });
             $('#table-teachers').DataTable();
         });
+}
+
+function getAllTeachers() {
+    fetch('app/controllers/teachers/getTeacherParcial.php/', {
+        method: 'GET',
+        headers: {
+            "Accept": "application/json"
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            data = data.teachers;
+            tbody_teachers.innerHTML = ``;
+            $('#table-teachers').DataTable().clear().destroy();
+            data.forEach((tchr, i) => {
+                let btnChoose = button.createBtnChoose(chooseTeacher, tchr);
+                let row = table.createRow((i + 1), tchr.dni, tchr.teacher, tchr.course);
+                row.appendChild(table.createCell(btnChoose));
+                tbody_teachers.appendChild(row);
+            });
+            $('#table-teachers').DataTable();
+        });
+}
+
+function controlCheckForShowTeachers(dim = 0) {
+    if (showAllTeachers.checked) {
+        getAllTeachers();
+        // showAllTeachers.checked = false;
+    } else {
+        if (parseInt(dim) > 0) {
+            getTeacherByDim(dim);
+        } else {
+            getAllTeachers();
+        }
+        // showAllTeachers.checked = true;
+    }
 }
 
 function getAllRooms() {

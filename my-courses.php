@@ -81,7 +81,7 @@ if (intval($_SESSION['user_logged']['utid']) === 4) {
                             <div class="col col-8 mb-3">
                                 <h6>Estudiantes:</h6>
                                 <div class="table-responsive">
-                                    <table class="table table-sm border">
+                                    <table class="table table-sm table-striped border">
                                         <tbody id="tbody-students">
 
                                         </tbody>
@@ -161,7 +161,7 @@ if (intval($_SESSION['user_logged']['utid']) === 4) {
                         </div>
                     </div>
                     <h6>Horario:</h6>
-                    <table class="table table-sm border">
+                    <table class="table table-sm table-striped border">
                         <thead>
                         <tr>
                             <th><small><strong>N°</strong></small></th>
@@ -203,7 +203,7 @@ if (intval($_SESSION['user_logged']['utid']) === 4) {
                     </div>
 
                     <div class="table-responsive">
-                        <table class="table table-sm border">
+                        <table class="table table-sm table-striped border">
                             <thead class="thead-light">
                             <tr>
                                 <th scope="col"><small><strong>N°</strong></small></th>

@@ -15,14 +15,15 @@ require_once $sessionStarted->getUpperPartByUserType();
 
             <div class="d-flex justify-content-between mt-3 mb-5">
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary btn-sm" id="newGroup" data-toggle="modal" data-target="#modalGroup">
+                <button type="button" class="btn btn-primary btn-sm" id="newGroup" data-toggle="modal"
+                        data-target="#modalGroup">
                     <i class="bi bi-plus mr-1"></i>Nuevo grupo de clases
                 </button>
             </div>
 
             <h5 class="card-title font-weight-bold mb-4">Grupos de clases asignadas</h5>
             <div class="table-responsive">
-                <table class="table table-sm border" id="table-groups">
+                <table class="table table-sm table-striped border" id="table-groups">
                     <thead class="thead-light">
                     <tr>
                         <th scope="col"><small><strong>N°</strong></small></th>
@@ -179,7 +180,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <i class="bi bi-calendar-week mr-1"></i>Agregar horario
                     </button>
                     <div class="table-responsive">
-                        <table class="table table-sm border">
+                        <table class="table table-sm table-striped border">
                             <thead class="thead-light">
                             <tr>
                                 <th scope="col"><small><strong>N°</strong></small></th>
@@ -231,7 +232,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                             Estudiantes aun sin asignar al curso
                         </h6>
                         <div class="table-responsive">
-                            <table class="table border table-sm" id="table-student-wog">
+                            <table class="table border table-sm table-striped" id="table-student-wog">
                                 <thead class="thead-light">
                                 <tr>
                                     <th scope="col"><small><strong>N°</strong></small></th>
@@ -260,7 +261,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                         </small>
 
                         <div class="table-responsive mt-3">
-                            <table class="table border table-sm" id="table-student-wg">
+                            <table class="table border table-sm table-striped" id="table-student-wg">
                                 <thead class="thead-light">
                                 <tr>
                                     <th scope="col"><small><strong>N°</strong></small></th>
@@ -298,24 +299,33 @@ require_once $sessionStarted->getUpperPartByUserType();
                 </button>
             </div>
             <div class="modal-body">
-                <table class="table table-sm border" id="table-teachers">
-                    <thead class="thead-light">
-                    <tr>
-                        <th scope="col"><small><strong>N°</strong></small></th>
-                        <th scope="col"><small><strong>DNI</strong></small></th>
-                        <th scope="col"><small><strong>Nombre del docente</strong></small></th>
-                        <th scope="col"><small><strong>Curso</strong></small></th>
-                        <th scope="col"><small><strong>&nbsp;</strong></small></th>
-                    </tr>
-                    </thead>
-                    <tbody id="tbody-teachers">
-                    <tr>
-                        <th scope="row" colspan="5" class="text-center">
-                            <small>Cargando...</small>
-                        </th>
-                    </tr>
-                    </tbody>
-                </table>
+
+                <div class="form-group form-check my-2">
+                    <input type="checkbox" class="form-check-input" id="showAllTeachers" checked>
+                    <label class="form-check-label" for="showAllTeachers">Ver todos los docentes disponibles</label>
+                </div>
+
+                <div class="table-responsive my-3">
+                    <table class="table table-sm border table-striped" id="table-teachers">
+                        <thead class="thead-light">
+                        <tr>
+                            <th scope="col"><small><strong>N°</strong></small></th>
+                            <th scope="col"><small><strong>DNI</strong></small></th>
+                            <th scope="col"><small><strong>Nombre del docente</strong></small></th>
+                            <th scope="col"><small><strong>Curso</strong></small></th>
+                            <th scope="col"><small><strong>&nbsp;</strong></small></th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody-teachers">
+                        <tr>
+                            <th scope="row" colspan="5" class="text-center">
+                                <small>Cargando...</small>
+                            </th>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancelar</button>
