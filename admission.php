@@ -49,17 +49,23 @@ require_once $sessionStarted->getUpperPartByUserType();
                         </div>
 
                         <div class="alert alert-light mt-3">
-                            <small>
-                                Nota:
-                                <ol>
-                                    <li>Los estudiantes con puntaje menor al Porcentaje mínimo requeriran de nivelación
-                                        obligatoria
-                                    </li>
-                                    <li>Los estudiantes deberan obtener una calificación final mayor a la nota mínima en
+                            <small> Nota:</small>
+                            <ol>
+                                <li>
+                                    <small>
+                                        Los estudiantes con puntaje menor al Porcentaje mínimo requeriran de
+                                        nivelación
+                                        obligatoria.
+                                    </small>
+                                </li>
+                                <li>
+                                    <small>
+                                        Los estudiantes deberan obtener una calificación final mayor a la nota
+                                        mínima en
                                         el program de nivelación.
-                                    </li>
-                                </ol>
-                            </small>
+                                    </small>
+                                </li>
+                            </ol>
                         </div>
                     </div>
                 </div>
@@ -73,8 +79,8 @@ require_once $sessionStarted->getUpperPartByUserType();
          aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-body">
-                    <form id="form">
+                <form id="form">
+                    <div class="modal-body">
                         <input type="hidden" value="0" name="procID" id="procID">
 
                         <div class="form-group row">
@@ -103,11 +109,11 @@ require_once $sessionStarted->getUpperPartByUserType();
                                        id="minQlf" required value="14" min="0" max="20">
                             </div>
                         </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-light btn-sm" type="button" data-dismiss="modal">Cancelar</button>
-                    <button class="btn btn-primary btn-sm">Guardar</button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-light btn-sm" type="button" data-dismiss="modal">Cancelar</button>
+                        <button class="btn btn-primary btn-sm">Guardar</button>
+                    </div>
                 </form>
             </div>
         </div>

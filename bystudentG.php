@@ -27,7 +27,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                                                 <input type="hidden" id="idStudent"
                                                        value="<?php echo $_POST['studentChart'] ?>">
                                                 <label for="byTipe" class="col-form-label col-form-label-sm"><i
-                                                            class="bi bi-filter mr-2"></i></i>Reporte por tipo</label>
+                                                            class="bi bi-filter mr-2"></i>Reporte por tipo</label>
                                                 <select class="form-control form-control-sm" id="byTipe" name="byTipe">
                                                     <option value="dimension">Dimensiones</option>
                                                     <option value="course">Cursos</option>

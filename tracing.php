@@ -11,9 +11,9 @@ if (intval($_SESSION['user_logged']['utid']) === 5) {
     <!-- Begin Page Content -->
     <div class="container">
         <div class="form-group">
-            <input type="text" class="form-control form-control-sm" id="directorID"
+            <input type="hidden" class="form-control form-control-sm" id="directorID"
                    name="directorID" value="<?php echo $_SESSION['user_logged']['id']; ?>" readonly required>
-            <input type="text" class="form-control form-control-sm" id="programID"
+            <input type="hidden" class="form-control form-control-sm" id="programID"
                    name="programID" value="0" readonly required>
         </div>
 
@@ -98,17 +98,14 @@ if (intval($_SESSION['user_logged']['utid']) === 5) {
                     <input type="hidden" id="infoGroupID" value="0" readonly>
                     <div class="row mb-4">
                         <div class="col col-12 text-dark">
-                            <small>
-                                <ul>
-                                    <li><span id="infoGroup"></span></li>
-                                    <li><span>Curso: <span id="infoCourse"></span></span></li>
-                                    <li><span>Docente: <span id="infoTeacher"></span></span></li>
-                                    <li><span>Area: <span id="infoArea"></span></span></li>
-                                    <li><span>Inicio: <span id="infoDateStart"></span></span></li>
-                                    <li><span>Fin: <span id="infoDateEnd"></span></span></li>
-                                </ul>
-                            </small>
-
+                            <ul>
+                                <li><small id="infoGroup"></small></li>
+                                <li><small>Curso: <span id="infoCourse"></span></small></li>
+                                <li><small>Docente: <span id="infoTeacher"></span></small></li>
+                                <li><small>Area: <span id="infoArea"></span></small></li>
+                                <li><small>Inicio: <span id="infoDateStart"></span></small></li>
+                                <li><small>Fin: <span id="infoDateEnd"></span></small></li>
+                            </ul>
                         </div>
                     </div>
                     <h6>Horario:</h6>

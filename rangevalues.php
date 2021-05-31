@@ -76,21 +76,27 @@ require_once $sessionStarted->getUpperPartByUserType();
                                                 <small class="card-text mb-2">
                                                     Los alumnos con:
                                                 </small>
-                                                <small>
-                                                    <ul class="mb-0">
-                                                        <li>Aciertos menor al minimo requerido, requieren nivelación
+                                                <ul class="mb-0">
+                                                    <li>
+                                                        <small>
+                                                            Aciertos menor al minimo requerido, requieren nivelación
                                                             obligatoria.
-                                                        </li>
-                                                        <li>Aciertos entre el minimo y el maximo, pueden tomar
-                                                            nivelación
-                                                            pero no
-                                                            obligatoria.
-                                                        </li>
-                                                        <li>Aciertos mayor al maximo requerido, no deben tomar
+                                                        </small>
+                                                    </li>
+                                                    <li>
+                                                        <small>
+                                                            Aciertos entre el minimo y el maximo, pueden tomar
+                                                            nivelación pero no obligatoria.
+                                                        </small>
+                                                    </li>
+                                                    <li>
+                                                        <small>
+                                                            Aciertos mayor al maximo requerido, no deben tomar
                                                             nivelación.
-                                                        </li>
-                                                    </ul>
-                                                </small>
+                                                        </small>
+                                                    </li>
+                                                </ul>
+
                                             </div>
                                         </div>
                                     </div>
@@ -176,12 +182,13 @@ require_once $sessionStarted->getUpperPartByUserType();
                                 <div class="modal-body">
                                     <input type="hidden" id="rankDimensionID" name="rankDimensionID" readonly>
                                     <div class="form-group">
-                                        <label for="txCourse" class="col-form-label col-form-label-sm">Dimensión</label>
+                                        <label for="dimension"
+                                               class="col-form-label col-form-label-sm">Dimensión</label>
                                         <input type="text" class="form-control form-control-sm" id="dimension"
                                                name="dimension" disabled>
                                     </div>
                                     <div class="form-group">
-                                        <label for="txMin" class="col-form-label col-form-label-sm">Puntaje
+                                        <label for="min" class="col-form-label col-form-label-sm">Puntaje
                                             Minimo</label>
                                         <input type="number" min="0" max="100"
                                                class="form-control form-control-sm"

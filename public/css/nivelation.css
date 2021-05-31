@@ -27,7 +27,7 @@
     --breakpoint-md: 768px;
     --breakpoint-lg: 992px;
     --breakpoint-xl: 1200px;
-    --font-family-sans-serif: Roboto, sans-serif;
+    --font-family-sans-serif: 'Nunito', sans-serif;
     --color-primario: #00335A;
     --border-radius: .325rem
 }
@@ -557,7 +557,7 @@ pre code {
 }
 
 .col {
-    flex-basis: 0%;
+    flex-basis: 0;
     flex-grow: 1;
     max-width: 100%
 }
@@ -764,7 +764,7 @@ pre code {
 
 @media (min-width: 576px) {
     .col-sm {
-        flex-basis: 0%;
+        flex-basis: 0;
         flex-grow: 1;
         max-width: 100%
     }
@@ -976,7 +976,7 @@ pre code {
 
 @media (min-width: 768px) {
     .col-md {
-        flex-basis: 0%;
+        flex-basis: 0;
         flex-grow: 1;
         max-width: 100%
     }
@@ -1188,7 +1188,7 @@ pre code {
 
 @media (min-width: 992px) {
     .col-lg {
-        flex-basis: 0%;
+        flex-basis: 0;
         flex-grow: 1;
         max-width: 100%
     }
@@ -1400,7 +1400,7 @@ pre code {
 
 @media (min-width: 1200px) {
     .col-xl {
-        flex-basis: 0%;
+        flex-basis: 0;
         flex-grow: 1;
         max-width: 100%
     }
@@ -3826,7 +3826,7 @@ input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].bt
 }
 
 .nav-justified > .nav-link, .nav-justified .nav-item {
-    flex-basis: 0%;
+    flex-basis: 0;
     flex-grow: 1;
     text-align: center
 }
@@ -4344,7 +4344,7 @@ input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].bt
     }
 
     .card-deck .card {
-        flex: 1 0 0%;
+        flex: 1 0 0;
         margin-right: .75rem;
         margin-bottom: 0;
         margin-left: .75rem
@@ -4362,7 +4362,7 @@ input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].bt
     }
 
     .card-group > .card {
-        flex: 1 0 0%;
+        flex: 1 0 0;
         margin-bottom: 0
     }
 
@@ -10235,7 +10235,8 @@ a:focus {
 .sidebar #sidebarToggle::after {
     font-weight: 900;
     content: "❮";
-    margin-right: .1rem
+    margin-right: .1rem;
+    transition: 0.5s;
 }
 
 .sidebar #sidebarToggle:hover {
@@ -10253,7 +10254,8 @@ a:focus {
 
 .sidebar.toggled #sidebarToggle::after {
     content: "❯";
-    margin-left: .25rem
+    margin-left: .25rem;
+    transition: 0.5s;
 }
 
 .sidebar.toggled .sidebar-card {

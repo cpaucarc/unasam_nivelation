@@ -140,14 +140,11 @@ if (intval($_SESSION['user_logged']['utid']) === 4) {
                     <input type="hidden" id="infoGroupID" value="0" readonly>
                     <div class="row mb-4">
                         <div class="col col-5 text-dark">
-                            <small>
-                                <ul>
-                                    <li><span id="infoGroup"></span></li>
-                                    <li><span>Curso: <span id="infoCourse"></span></span></li>
-                                    <li><span>Area: <span id="infoArea"></span></span></li>
-                                </ul>
-                            </small>
-
+                            <ul>
+                                <li><small id="infoGroup"></small></li>
+                                <li><small>Curso: <span id="infoCourse"></span></small></li>
+                                <li><small>Area: <span id="infoArea"></span></small></li>
+                            </ul>
                         </div>
                         <div class="col col-4 text-muted text-left">
                             <small>N° de Estudiantes</small>

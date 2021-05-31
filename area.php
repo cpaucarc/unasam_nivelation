@@ -72,16 +72,19 @@ require_once $sessionStarted->getUpperPartByUserType();
                                     </h2>
                                 </div>
                                 <div class="col col-11">
-                                    <small>
-                                        <ul>
-                                            <li>Para ver y modificar los rangos de cada curso
-                                                <a href="rangos">pulse aqui</a>.
-                                            </li>
-                                            <li>Para añadir nuevos cursos
-                                                <a href="cursos">pulse aqui</a>.
-                                            </li>
-                                        </ul>
-                                    </small>
+                                    <ul>
+                                        <li>
+                                            <small>
+                                                Para ver y modificar los rangos de cada curso <a href="rangos">pulse
+                                                    aqui</a>.
+                                            </small>
+                                        </li>
+                                        <li>
+                                            <small>
+                                                Para añadir nuevos cursos <a href="cursos">pulse aqui</a>.
+                                            </small>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -97,8 +100,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                  aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                        <div class="modal-body">
-                            <form id="form-area">
+                        <form id="form-area">
+                            <div class="modal-body">
                                 <div class="form-group">
                                     <label for="area" class="col-form-label col-form-label-sm">Ingrese abreviatura del
                                         area:</label>
@@ -113,11 +116,12 @@ require_once $sessionStarted->getUpperPartByUserType();
                                            id="desc" required
                                            placeholder="Ej. Ciencias e Ingenieria">
                                 </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-light btn-sm" type="button" data-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
-                        </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-light btn-sm" type="button" data-dismiss="modal">Cancelar
+                                </button>
+                                <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -127,8 +131,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                  aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <div class="modal-body">
-                            <form id="form-schools">
+                        <form id="form-schools">
+                            <div class="modal-body">
                                 <div class="form-group">
                                     <input id="areaIDSch" value="0" name="areaIDSch" type="hidden"/>
                                     <label for="school" class="col-form-label col-form-label-sm">Nombre del Programa
@@ -136,11 +140,12 @@ require_once $sessionStarted->getUpperPartByUserType();
                                     <input type="text" class="form-control form-control-sm" id="school" name="school"
                                            placeholder="Ej. Turismo" required>
                                 </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
-                        </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancelar
+                                </button>
+                                <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -150,8 +155,8 @@ require_once $sessionStarted->getUpperPartByUserType();
                  aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <div class="modal-body">
-                            <form id="form-courses">
+                        <form id="form-courses">
+                            <div class="modal-body">
                                 <input id="areaIDCou" value="0" name="areaIDCou" type="hidden"/>
                                 <div class="row">
                                     <div class="col-12 mb-3">
@@ -171,10 +176,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                                             <label for="min" class="col-form-label col-form-label-sm">Rango Minimo
                                                 (%)</label>
                                             <input name="min" type="number" class="form-control form-control-sm"
-                                                   id="min"
-                                                   value="20"
-                                                   required
-                                                   max="100" min="0">
+                                                   id="min" value="20" required max="100" min="0">
                                         </div>
                                     </div>
                                     <div class="col-6">
@@ -182,18 +184,16 @@ require_once $sessionStarted->getUpperPartByUserType();
                                             <label for="max" class="col-form-label col-form-label-sm">Rango Recomendado
                                                 (%)</label>
                                             <input name="max" type="number" class="form-control form-control-sm"
-                                                   id="max"
-                                                   value="40"
-                                                   required
-                                                   max="100" min="0">
+                                                   id="max" value="40" required max="100" min="0">
                                         </div>
                                     </div>
                                 </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
-                        </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancelar
+                                </button>
+                                <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
+                            </div>
                         </form>
                     </div>
                 </div>

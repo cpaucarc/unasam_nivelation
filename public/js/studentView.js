@@ -61,22 +61,26 @@ navBasico.addEventListener('click', (e) => {
 });
 
 btSearch.addEventListener('click', (e) => {
-    e.preventDefault();
-    getStudentInfo(txSearch.value);
-    getCoursesByFullname(txSearch.value);
-    getDimensionsByFullname(txSearch.value);
-    getBasicDimensionsByFullname(txSearch.value);
-})
-
-txSearch.addEventListener('keyup', (e) => {
-    getStudentsLike(txSearch.value);
-
-    if (e.keyCode === 13) {
+    if (txSearch.value.length > 0) {
         e.preventDefault();
         getStudentInfo(txSearch.value);
         getCoursesByFullname(txSearch.value);
         getDimensionsByFullname(txSearch.value);
         getBasicDimensionsByFullname(txSearch.value);
+    }
+})
+
+txSearch.addEventListener('keyup', (e) => {
+    if (txSearch.value.length > 0) {
+        getStudentsLike(txSearch.value);
+
+        if (e.keyCode === 13) {
+            e.preventDefault();
+            getStudentInfo(txSearch.value);
+            getCoursesByFullname(txSearch.value);
+            getDimensionsByFullname(txSearch.value);
+            getBasicDimensionsByFullname(txSearch.value);
+        }
     }
 });
 

@@ -118,49 +118,6 @@ require_once $sessionStarted->getUpperPartByUserType();
         </div>
     </div>
 
-    <div class="modal fade" id="job_modal" data-backdrop="static" data-keyboard="false" tabindex="-1"
-         aria-labelledby="modal-title" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form id="job-form">
-                    <div class="modal-header">
-                        <p class="modal-title">
-                            Estado laboral de <span id="teacher" class="font-weight-bold"></span>
-                        </p>
-                    </div>
-                    <div class="modal-body">
-                        <input type="hidden" id="teacherJobID" name="teacherJobID" value="0" readonly>
-                        <div class="form-group row">
-                            <label for="status" class="col-sm-4 col-form-label col-form-label-sm text-right">
-                                Estado actual:
-                            </label>
-                            <div class="col-sm-8">
-                                <div id="current">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="status" class="col-sm-4 col-form-label col-form-label-sm text-right">
-                                Cambiar estado a:
-                            </label>
-                            <div class="col-sm-8">
-                                <select name="status" id="status" class="form-control form-control-sm" required>
-                                    <option value="1" selected>Activo</option>
-                                    <option value="0">Despedido</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Cancelar</button>
-                        <input type="submit" id="submit" class="btn btn-primary btn-sm" value="Cambiar estado">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
 </div>
 
 <script src="public/js/components/Badge.js"></script>

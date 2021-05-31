@@ -41,7 +41,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <h6 class="dropdown-header">Reportes</h6>
                             <a>
-                                <form action="http://localhost/nivelation/app/reports/area.php" target="_blank"
+                                <form action="app/reports/area.php" target="_blank"
                                       method="post">
                                     <input id="areaPdf_1" name="areaPdf" required type="hidden" value="0" readonly>
                                     <input id="processPdf_1" name="processPdf" required type="hidden" value="0"

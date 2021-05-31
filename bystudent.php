@@ -29,7 +29,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                                 <input list="students" type="text" class="form-control form-control-sm"
                                        placeholder="Escribe el apellido del estudiante..." id="txSearch">
                                 <div class="input-group-append" id="btSearch">
-                                    <span class="input-group-text py-0 px-2 btn">
+                                    <span class="input-group-text py-0 px-2 btn rounded-right">
                                         <i class="bi bi-search"></i>
                                     </span>
                                 </div>
