@@ -56,7 +56,7 @@ require_once $sessionStarted->getUpperPartByUserType();
 <!-- Modal Main -->
 <div class="modal fade" data-backdrop="static" id="modalGroup" tabindex="-1" aria-labelledby="modalGroup"
      aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-md" id="modalGroupSize">
+    <div class="modal-dialog modal-md" id="modalGroupSize">
         <div class="modal-content">
             <form id="formGroup" class="d-block">
                 <div class="modal-header">
@@ -228,18 +228,26 @@ require_once $sessionStarted->getUpperPartByUserType();
                                readonly>
                     </div>
                     <div class="col col-12 col-lg-6 mb-5">
-                        <h6 class="card-title font-weight-bold mt-0 mb-4">
+                        <h6 class="card-title font-weight-bold mt-0">
                             Estudiantes aun sin asignar al curso
                         </h6>
+
+                        <div class="alert alert-light text-dark my-2" role="alert">
+                            <small>
+                                Puede crear otro grupo más para esta dimensión si el número de estudiantes sobrepasa los
+                                40 estudiantes.
+                            </small>
+                        </div>
+
                         <div class="table-responsive">
                             <table class="table border table-sm table-striped" id="table-student-wog">
                                 <thead class="thead-light">
                                 <tr>
                                     <th scope="col"><small><strong>N°</strong></small></th>
-                                    <th scope="col"><small><strong>Alumno</strong></small></th>
-                                    <th scope="col"><small><strong>Programa</strong></small></th>
-                                    <th scope="col"><small><strong>Puntaje</strong></small></th>
-                                    <th scope="col"><small><strong>&nbsp;</strong></small></th>
+                                    <th scope="col"><small><strong>Apellidos y Nombres</strong></small></th>
+                                    <!--                                    <th scope="col"><small><strong>Programa</strong></small></th>-->
+                                    <!--                                    <th scope="col"><small><strong>Puntaje</strong></small></th>-->
+                                    <th scope="col"><small><strong>Acciones</strong></small></th>
                                 </tr>
                                 </thead>
                                 <tbody id="tbody-student-wog">
@@ -255,20 +263,25 @@ require_once $sessionStarted->getUpperPartByUserType();
                         <h6 class="card-title font-weight-bold mt-0">
                             Estudiantes para este grupo
                         </h6>
-                        <small class="mb-4">
-                            Se recomienda un número maximo de 40 estudiantes por grupo.
-                            Actualmente hay <span id="countStudents">0</span> estudiantes en este grupo.
-                        </small>
 
-                        <div class="table-responsive mt-3">
+                        <div class="alert alert-light text-dark my-2" role="alert">
+                            <small>
+                                Se recomienda un número maximo de 40 estudiantes por grupo.<br>
+                                Actualmente hay <span id="countStudents" class="font-weight-bold">0</span>
+                                estudiantes en este grupo.
+                            </small>
+                        </div>
+
+
+                        <div class="table-responsive">
                             <table class="table border table-sm table-striped" id="table-student-wg">
                                 <thead class="thead-light">
                                 <tr>
                                     <th scope="col"><small><strong>N°</strong></small></th>
-                                    <th scope="col"><small><strong>Alumno</strong></small></th>
-                                    <th scope="col"><small><strong>Programa</strong></small></th>
-                                    <th scope="col"><small><strong>Puntaje</strong></small></th>
-                                    <th scope="col"><small><strong>&nbsp;</strong></small></th>
+                                    <th scope="col"><small><strong>Apellidos y Nombres</strong></small></th>
+                                    <!--                                    <th scope="col"><small><strong>Programa</strong></small></th>-->
+                                    <!--                                    <th scope="col"><small><strong>Puntaje</strong></small></th>-->
+                                    <th scope="col"><small><strong>Acciones</strong></small></th>
                                 </tr>
                                 </thead>
                                 <tbody id="tbody-student-wg">
@@ -313,7 +326,7 @@ require_once $sessionStarted->getUpperPartByUserType();
                             <th scope="col"><small><strong>DNI</strong></small></th>
                             <th scope="col"><small><strong>Nombre del docente</strong></small></th>
                             <th scope="col"><small><strong>Curso</strong></small></th>
-                            <th scope="col"><small><strong>&nbsp;</strong></small></th>
+                            <th scope="col"><small><strong>Acciones</strong></small></th>
                         </tr>
                         </thead>
                         <tbody id="tbody-teachers">

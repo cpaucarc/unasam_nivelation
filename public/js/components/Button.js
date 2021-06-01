@@ -79,6 +79,13 @@ class Button {
         return btn;
     }
 
+    createBtnPutOff(fun, ...params) {
+        let btn = this.createIconBtn('<i class="bi bi-trash mr-1"></i>Quitar', fun, ...params);
+        btn.classList.add('btn-outline-light');
+        btn.classList.add('text-danger');
+        return btn;
+    }
+
     createBtnDeleteNoText(fun, ...params) {
         let btn = this.createIconBtn('<i class="bi bi-trash"></i>', fun, ...params);
         btn.classList.add('btn-link');

@@ -10141,7 +10141,8 @@ a:focus {
 
 .sidebar {
     width: 6.5rem;
-    min-height: 100vh
+    min-height: 100vh;
+    transition: 0.25s;
 }
 
 .sidebar .nav-item {
@@ -10323,7 +10324,8 @@ a:focus {
 
 @media (min-width: 768px) {
     .sidebar {
-        width: 14rem !important
+        width: 14rem !important;
+        transition: 0.25s;
     }
 
     .sidebar .nav-item .collapse {

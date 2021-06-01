@@ -341,7 +341,8 @@ function getStudentsWithoutGroup(groupID) {
             $('#table-student-wog').DataTable().clear().destroy();
             data.forEach((st, i) => {
                 let btnChoose = button.createBtnChoose(chooseStudent, st);
-                let row = table.createRow((i + 1), st.student, st.program, st.score);
+                let row = table.createRow((i + 1), st.student);
+                // let row = table.createRow((i + 1), st.student, st.program, st.score);
                 row.appendChild(table.createCell(btnChoose));
                 tbody_student_wog.appendChild(row);
             });
@@ -365,8 +366,9 @@ function getStudentsInGroup(groupID) {
             tbody_student_wg.innerHTML = ``;
             $('#table-student-wg').DataTable().clear().destroy();
             data.forEach((st, i) => {
-                let btnChoose = button.createBtnDeleteNoText(removeStudent, st);
-                let row = table.createRow((i + 1), st.student, st.program, st.score);
+                let btnChoose = button.createBtnPutOff(removeStudent, st);
+                let row = table.createRow((i + 1), st.student);
+                // let row = table.createRow((i + 1), st.student, st.program, st.score);
                 row.appendChild(table.createCell(btnChoose));
                 tbody_student_wg.appendChild(row);
             });
